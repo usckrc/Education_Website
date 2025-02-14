@@ -13,3 +13,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Welcome! This site will help beginners learn bioinformatics using R.
 
+# This is a test
