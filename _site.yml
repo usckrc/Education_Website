@@ -12,6 +12,8 @@ navbar:
           href: Downloading-R.html
         - text: "Using Packages"
           href: Using-Packages.html
+        - text: "Github Tutorial"
+          href: Github_tutorial.html
     - text: "ROC"
       menu:
         - text: "ROC 1"
