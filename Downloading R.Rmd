@@ -1,0 +1,71 @@
+---
+title: "Downloading R"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("patchwork")) {install.packages("patchwork"); require("patchwork")}
+if (!require("knitr")) {install.packages("knitr"); require("knitr")}
+if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
+if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("devtools")) {install.packages("devtools"); require("devtools")}
+if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
+if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
+if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
+if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
+if (!require("gplots")) {install.packages("gplots"); require("gplots")}
+if (!require("viridis")) {install.packages("viridis"); require("viridis")}
+if (!require("tibble")) {install.packages("tibble"); require("tibble")}
+
+set.seed((12345))
+here()
+```
+
+# Welcome to the World of Bioinformatics
+
+Welcome to your bioinformatics journey! Whether you're a biologist looking to analyze large datasets or a programmer diving into biological data, mastering bioinformatics can unlock powerful insights. This site is designed to help you get started with R, one of the most widely used tools in bioinformatics.This site will guide you through the basics using hands-on examples and clear explanations. Our goal is to make bioinformatics more accessible and help you build confidence in working with biological data. Let’s start exploring the world of bioinformatics together! 
+
+# Downloading R
+
+To start having fun with R, you need your own copy. You can download R for Mac, Windows, and Linux for free with this website: [The Comprehensive R Archive Network](https://cran.r-project.org/). The top of the webpage has three links for each operating system. Below are detailed instructions for each system.
+
+## Mac
+
+First click "Download R for macOS"
+
+![](`r here::here("Images", "Screenshot 1.png")`)
+
+Next click on the most updated package link. At the time of the creation of this website, the most current release of R is R 4.4.2 "Pile of Leaves".
+
+![](`r here::here("Images", "Screenshot 2.png")`)
+
+From there an installer will download to guide you through the installation process. Once downloaded you can finf R in your applications folder. 
+
+## Windows
+
+## Linux
+
+# Downloading RStudio
+
+R is a computer language that is used by writing commands in the language of R and asking your computer to translate them. The way people use R has changed since it was created. Now most people use R with an application called RStudio which allows the access of R in a more user-friendly way. You can download RStuido for free here [RStudio IDE](https://posit.co/downloads/)
+
+![](`r here::here("Images", "Screenshot 3.png")`)
+
+![](`r here::here("Images", "Screenshot 4.png")`)
+
+# Opening R
+
+At this point, you should have both R and RStudio on your computer. To begin using R you need to open the RStudio program. Do this just as you would any program, click on its icon or by type “RStudio” in your application finder.
+
+When you open R you will see four panels which correspond to the R script, R console, Environment, and Plots.
+
+![](`r here::here("Images", "Screenshot 5.png")`)
+
+In the next section we will learn how to download packages so we can start working with datasets!

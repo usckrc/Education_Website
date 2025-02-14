@@ -1,0 +1,50 @@
+---
+title: "Using Packages"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("patchwork")) {install.packages("patchwork"); require("patchwork")}
+if (!require("knitr")) {install.packages("knitr"); require("knitr")}
+if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
+if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("devtools")) {install.packages("devtools"); require("devtools")}
+if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
+if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
+if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
+if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
+if (!require("gplots")) {install.packages("gplots"); require("gplots")}
+if (!require("viridis")) {install.packages("viridis"); require("viridis")}
+if (!require("tibble")) {install.packages("tibble"); require("tibble")}
+
+set.seed((12345))
+here()
+```
+
+Packages are collections of functions that help users perform specific tasks. They are useful for visualization, statistical analysis, data manipulation, reproducibility, and even bioinformatics itself. For this example, you will learn how to install _ggplot2_ which is used for advanced plot creation as well as _dplyr_ which is used for cleaning and transforming data. 
+
+# Installing packages
+
+There are many ways to download a package. The easiest and most straight forward way to do so is by using the **install.packages** function. This is a base R function which means you do not need to load any libraries to use it.
+
+To download a package using **install.packages** you simply need to type it or copy it into your R Script and run it. To run a line of code on a Mac click on the number to the left of the line, press Command + Enter. For Windows the procedure is the same but you should press Control + Enter. In this example I am downloading the package _*ggplot2*_.
+
+![](`r here::here("Images", "Screenshot 6.png")`)
+
+
+To run many lines of code press the number to the left of at the start of the series of code you want to run then hold and drag to the number to the left of the end of the series of code you want to run. Alternatively you can click the Run button in the top right corner which will run the entire R Script. In this example I am downloading the packages _*ggplot2*_ and _*dplyr*_.
+
+![](`r here::here("Images", "Screenshot 7.png")`)
+
+You will know you have successfully downloaded when you get this message in the R console
+
+![](`r here::here("Images", "Screenshot 8.png")`)
+
+

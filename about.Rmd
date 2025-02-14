@@ -1,0 +1,12 @@
+---
+title: "About"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+About the authors: 

@@ -1,0 +1,21 @@
+name: "Learning R and Bioinformatics"
+output_dir: "docs"
+
+navbar:
+  title: "Learning R and Bioinformatics"
+  left:
+    - text: "About"
+      href: about.html
+    - text: "Getting Started"
+      menu:
+        - text: "Downloading R"
+          href: Downloading-R.html
+        - text: "Using Packages"
+          href: Using-Packages.html
+    - text: "ROC"
+      menu:
+        - text: "ROC 1"
+
+output:
+  html_document:
+    theme: flatly

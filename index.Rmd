@@ -1,0 +1,16 @@
+---
+title: "Welcome to the World of Bioinformatics"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Welcome! This site will help beginners learn bioinformatics using R.
+
+Testing Github functionality
