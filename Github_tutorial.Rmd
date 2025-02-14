@@ -36,8 +36,41 @@ CoderCoder has a [great youtube tutorial](https://youtu.be/8Dd7KRpKeaE?si=7C3e0i
 
 # Setting up Github Desktop
 
+## Download Github Desktop
+
+https://desktop.github.com/download/
+
+## Login with your Github Account
+
+File > Options > Sign in to your Github Account
+
+![](`r here::here("Images", "Github_Login.png")`)
+
 # Cloning an existing repository from Github
 
+## Step 1
+
+Menu > File > Clone Repository
+
+![](`r here::here("Images", "Github_Clone.png")`)
+
+## Step 2
+
+Select the repository you want to clone and the destination to clone into. 
+
+![](`r here::here("Images", "Github_Clone2.png")`)
+
+## Step 3
+
+Check the folders where the repository has been cloned.
+
+![](`r here::here("Images", "Github_Clone_Folders.png")`)
+
+## Step 4
+
+Verify that the repository has been cloned in Github Desktop.
+
+![](`r here::here("Images", "Github_Clone_Menu.png")`)
 
 
 
