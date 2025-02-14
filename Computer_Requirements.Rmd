@@ -1,0 +1,17 @@
+---
+title: "Computer Requirements"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+
+
+set.seed((12345))
+#here()
+```
+
+# Computer Requirements
+

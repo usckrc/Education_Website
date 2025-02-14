@@ -8,6 +8,8 @@ navbar:
       href: about.html
     - text: "Getting Started"
       menu:
+        - text: "Computer Requirements"
+          href: Computer_Requirements.html
         - text: "Downloading R"
           href: Downloading-R.html
         - text: "Using Packages"
