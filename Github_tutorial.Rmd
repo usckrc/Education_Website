@@ -48,12 +48,16 @@ File > Options > Sign in to your Github Account
 
 # Cloning an existing repository from Github
 
+<<<<<<< Updated upstream
 ## Step 1
 
+=======
+>>>>>>> Stashed changes
 Menu > File > Clone Repository
 
 ![](`r here::here("Images", "Github_Clone.png")`)
 
+<<<<<<< Updated upstream
 ## Step 2
 
 Select the repository you want to clone and the destination to clone into. 
@@ -74,6 +78,13 @@ Verify that the repository has been cloned in Github Desktop.
 
 
 
+=======
+![](`r here::here("Images", "Github_Clone2.png")`)
+
+![](`r here::here("Images", "Github_Clone_Folders.png")`)
+
+![](`r here::here("Images", "Github_Clone_Menu.png")`)
+>>>>>>> Stashed changes
 
 
 
