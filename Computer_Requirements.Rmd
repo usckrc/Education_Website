@@ -13,6 +13,53 @@ set.seed((12345))
 #here()
 ```
 
-# Computer Requirements
+These are the minimum system requirements for being able to smoothly run the ROC assignments. 
 
-## adjustment
+*You may not be able to comfortably complete all ROC’s if you don't meet these requirements.*
+
+*The faster the computer, the quicker your analysis will be*
+
+## Requirements for Running R
+
+<span style="color:red;">Minimum Requirements</span>
+
+**Processor**: Dual-core processor (e.g., Intel i3 or equivalent).
+
+**RAM**: 4 GB (sufficient for small datasets and basic analyses).
+
+**Storage**: At least 10 GB of free disk space for R installation and small datasets.
+
+**Operating System**:
+
+Windows 7/8/10/11 (64-bit recommended).
+
+macOS (latest versions supported).
+
+
+## Recommended Specifications for Larger Datasets
+
+**Processor**: Quad-core or better (e.g., Intel i5/i7, AMD Ryzen 5/7).
+
+**RAM**: 16 GB or more to handle larger datasets and computationally intensive tasks.
+
+**Storage**: SSD with at least 100 GB free space for faster read/write operations.
+
+**Graphics Card**: Not required unless using specialized R packages that leverage GPU acceleration.
+
+## Key Considerations
+
+For datasets **larger** than 1 GB, more RAM is crucial to avoid memory bottlenecks.
+
+Ensure you use a 64-bit version of both your operating system and R to utilize more than 4 GB of RAM.
+
+Analysis frameworks such as Seurat, Scanpy, or Harmony:
+
+Seurat can run on systems with < 16 GB RAM but benefits from higher memory for larger datasets.
+
+### Reference:
+
+*I was able to complete up to ROC#3 with a 2020 Macbook Air.*
+
+*I could complete every ROC with ease with a 2024 Macbook Pro with 24 G of RAM.*
+
+wanted to add pictures but not completely sure how to edit photo sizes and write around it or add arrows etc. 
