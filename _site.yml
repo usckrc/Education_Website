@@ -9,11 +9,11 @@ navbar:
     - text: "Getting Started"
       menu:
         - text: "Downloading R"
-          href: Downloading-R.html
+          href: downloading_R.html
         - text: "Using Packages"
-          href: Using-Packages.html
+          href: using_packages.html
         - text: "Github Tutorial"
-          href: Github_tutorial.html
+          href: github_tutorial.html
     - text: "ROC"
       menu:
         - text: "ROC 1"

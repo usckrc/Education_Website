@@ -11,7 +11,7 @@
 
 
 
-<title>Downloading R</title>
+<title>Using Packages</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -253,13 +253,13 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="Downloading-R.html">Downloading R</a>
+      <a href="downloading_R.html">Downloading R</a>
     </li>
     <li>
-      <a href="Using-Packages.html">Using Packages</a>
+      <a href="using_packages.html">Using Packages</a>
     </li>
     <li>
-      <a href="Github_tutorial.html">Github Tutorial</a>
+      <a href="github_tutorial.html">Github Tutorial</a>
     </li>
   </ul>
 </li>
@@ -285,77 +285,81 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Downloading R</h1>
+<h1 class="title toc-ignore">Using Packages</h1>
 
 </div>
 
 
-<pre><code>## [1] &quot;/Users/sblanche/Desktop/GitHub/Education_Website&quot;</code></pre>
-<div id="welcome-to-the-world-of-bioinformatics" class="section level1">
-<h1>Welcome to the World of Bioinformatics</h1>
-<p>Welcome to your bioinformatics journey! Whether you’re a biologist
-looking to analyze large datasets or a programmer diving into biological
-data, mastering bioinformatics can unlock powerful insights. This site
-is designed to help you get started with R, one of the most widely used
-tools in bioinformatics.This site will guide you through the basics
-using hands-on examples and clear explanations. Our goal is to make
-bioinformatics more accessible and help you build confidence in working
-with biological data. Let’s start exploring the world of bioinformatics
-together!</p>
+<div id="intro-to-packages" class="section level1">
+<h1>Intro to Packages</h1>
+<p>Packages are collections of functions that help users perform
+specific tasks. They are useful for visualization, statistical analysis,
+data manipulation, reproducibility, and even bioinformatics itself. For
+this example, you will learn how to install <strong>ggplot2</strong>
+which is used for advanced plot creation as well as
+<strong>dplyr</strong> which is used for cleaning and transforming
+data.</p>
 </div>
-<div id="downloading-r" class="section level1">
-<h1>Downloading R</h1>
-<p>To start having fun with R, you need your own copy. You can download
-R for Mac, Windows, and Linux for free with this website: <a
-href="https://cran.r-project.org/">The Comprehensive R Archive
-Network</a>. The top of the webpage has three links for each operating
-system. Below are detailed instructions for each system.</p>
-<div id="mac" class="section level2">
-<h2>Mac</h2>
-<p>First click “Download R for macOS”</p>
+<div id="installing-packages" class="section level1">
+<h1>Installing packages</h1>
+<div id="step-1-download-the-package" class="section level2">
+<h2>Step 1: Download the package</h2>
+<div id="step-1a-download-one-package" class="section level3">
+<h3>Step 1a: Download one package</h3>
+<p>There are many ways to download a package. The easiest and most
+straight forward way to do so is by using the
+<strong>install.packages</strong> function. This is a base R function
+which means you do not need to load any libraries to use it.</p>
+<p>To download a package using <strong>install.packages</strong> you
+simply need to type it or copy it into your R Script and run it. To run
+a line of code on a Mac click on the number to the left of the line,
+press Command + Enter. For Windows the procedure is the same but you
+should press Control + Enter. In this example I am downloading the
+package <strong>ggplot2</strong>.</p>
 <p><img
-src="Images/Screenshot%201.png" /></p>
-<p>Next click on the most updated package link. At the time of the
-creation of this website, the most current release of R is R 4.4.2 “Pile
-of Leaves”.</p>
+src="/Users/sblanche/Desktop/GitHub/Education_Website/Images/PG_Screenshot%206.png" /></p>
+</div>
+<div id="step-1b-download-multiple-packages" class="section level3">
+<h3>Step 1b: Download multiple packages</h3>
+<p>To run many lines of code press the number to the left of at the
+start of the series of code you want to run then hold and drag to the
+number to the left of the end of the series of code you want to run.
+Alternatively you can click the Run button in the top right corner which
+will run the entire R Script. In this example I am downloading the
+packages <strong>ggplot2</strong> and <strong>dplyr</strong>.</p>
 <p><img
-src="Images/Screenshot%202.png" /></p>
-<p>From there an installer will download to guide you through the
-installation process. Once downloaded you can finf R in your
-applications folder.</p>
-</div>
-<div id="windows" class="section level2">
-<h2>Windows</h2>
-</div>
-<div id="linux" class="section level2">
-<h2>Linux</h2>
+src="/Users/sblanche/Desktop/GitHub/Education_Website/Images/PG_Screenshot%207.png" /></p>
 </div>
 </div>
-<div id="downloading-rstudio" class="section level1">
-<h1>Downloading RStudio</h1>
-<p>R is a computer language that is used by writing commands in the
-language of R and asking your computer to translate them. The way people
-use R has changed since it was created. Now most people use R with an
-application called RStudio which allows the access of R in a more
-user-friendly way. You can download RStuido for free here <a
-href="https://posit.co/downloads/">RStudio IDE</a></p>
+</div>
+<div id="verfying-packages" class="section level1">
+<h1>Verfying packages</h1>
+<p>There are a number of steps to take to verify you have successfully
+downloaded a package. The first marker that you are on the right path is
+when you get this message in the R console.</p>
 <p><img
-src="Images/Screenshot%203.png" /></p>
+src="/Users/sblanche/Desktop/GitHub/Education_Website/Images/PG_Screenshot%208.png" /></p>
+<p>Secondly, you will want to switch from the default
+<strong>Plots</strong> page to the <strong>Packages</strong> page to
+check that the packages has been downloaded. <strong>Packages</strong>
+that have been installed but not loaded in the session will appear
+unchecked in the <strong>Packages</strong> section as seen below.</p>
 <p><img
-src="Images/Screenshot%204.png" /></p>
+src="/Users/sblanche/Desktop/GitHub/Education_Website/Images/PG_Screenshot%209.png" /></p>
 </div>
-<div id="opening-r" class="section level1">
-<h1>Opening R</h1>
-<p>At this point, you should have both R and RStudio on your computer.
-To begin using R you need to open the RStudio program. Do this just as
-you would any program, click on its icon or by type “RStudio” in your
-application finder.</p>
-<p>When you open R you will see four panels which correspond to the R
-script, R console, Environment, and Plots.</p>
+<div id="special-packages" class="section level1">
+<h1>Special Packages</h1>
+<p>Some packages you cannot access from R and will have to get from
+outside sources, like GitHub. For example, the package
+<strong>DoubletFinder</strong> is useful for predicting doublets in
+scRNA-seq data which cleans the data and makes it easier to work with.
+To download a package from GitHub you will access the users GitHub page
+and copy the line to install.</p>
 <p><img
-src="Images/Screenshot%205.png" /></p>
-<p>In the next section we will learn how to download packages so we can
-start working with datasets!</p>
+src="/Users/sblanche/Desktop/GitHub/Education_Website/Images/PG_Screenshot%2010.png" /></p>
+</div>
+<div id="trouble-shooting" class="section level1">
+<h1>Trouble Shooting</h1>
 </div>
 
 
