@@ -9,4 +9,4 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-About the authors: 
+About the authors:
