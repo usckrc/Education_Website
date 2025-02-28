@@ -9,7 +9,7 @@ navbar:
     - text: "Getting Started"
       menu:
         - text: "Computer Requirements"
-          href: Computer_Requirements.html
+          href: computer_requirements.html
         - text: "Downloading R"
           href: downloading_R.html
         - text: "Using Packages"
