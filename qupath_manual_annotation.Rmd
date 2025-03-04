@@ -40,7 +40,11 @@ The goal of this tutorial is to provide a step-by-step guide to manually annotat
 
 In this tutorial we will show how to setup multiple regions of interest (ROIs) in QuPath and how to manually annotate cells within each ROI. This will enable us to collect data (number of cells, cell shape, channel intensity, etc.) on a cell-by-cell basis and analyze the data using R.
 
-# Video of Process
+# Video of Analysis Steps
+
+## Here is a video tutorial that I made of each of the steps of analysis
+
+https://screenrec.com/share/mkX5LSWe7x
 
 # Steps of Analysis
 
@@ -133,11 +137,15 @@ In this tutorial we will show how to setup multiple regions of interest (ROIs) i
 ### Repeat for another class (brown)
 
 ![](`r here::here("Images", "qupath", "select3.png")`)
+
+### After second selection
+
 ![](`r here::here("Images", "qupath", "select4.png")`)
 
 ## Step 8: Repeat
 
 ### Repeat the previous steps for multiple ROI's in the image
+### For kidney RNAscope I'd like between 10-20 ROI's of glomeruli
 
 ## Step 9: Export the Data
 
@@ -146,7 +154,7 @@ In this tutorial we will show how to setup multiple regions of interest (ROIs) i
 ![](`r here::here("Images", "qupath", "data1.png")`)
 
 ### This pane shows the cells and measurements
-#### Can click on a cell in **QuPath** and it will highlight in the pane
+#### Can click on a cell in **QuPath** (yellow) and it will highlight in the pane
 
 ![](`r here::here("Images", "qupath", "data2.png")`)
 
@@ -161,6 +169,8 @@ In this tutorial we will show how to setup multiple regions of interest (ROIs) i
 
 ## Step 10: Save Project
 ### File > Save As
+### Super-important!!!
+### We need to document our analysis for reproducibility
 
 ![](`r here::here("Images", "qupath", "save.png")`)
 
