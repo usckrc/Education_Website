@@ -16,10 +16,12 @@ navbar:
           href: using_packages.html
         - text: "Github Tutorial"
           href: github_tutorial.html
-    - text: "ROC"
+    - text: "QuPath Tutorials"
       menu:
-        - text: "ROC 1"
-
+        - text: "Installing QuPath"
+          href: qupath_install.html
+        - text: "Manual Cell Annotation"
+          href: qupath_manual_annotation.html
 output:
   html_document:
     theme: flatly

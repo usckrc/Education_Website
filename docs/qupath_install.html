@@ -11,7 +11,7 @@
 
 
 
-<title>Github Tutorial</title>
+<title>QuPath Installation Tutorial</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -219,6 +222,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -226,6 +292,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -293,72 +369,97 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Github Tutorial</h1>
+<h1 class="title toc-ignore">QuPath Installation Tutorial</h1>
 
 </div>
 
 
-<div id="working-with-github" class="section level1">
-<h1>Working with Github</h1>
-<p>CoderCoder has a <a
-href="https://youtu.be/8Dd7KRpKeaE?si=7C3e0io3Q7KGhK_J">great youtube
-tutorial</a> that explains Git, Github, and Github Desktop.</p>
-</div>
-<div id="setting-up-github" class="section level1">
-<h1>Setting up Github</h1>
-</div>
-<div id="setting-up-github-desktop" class="section level1">
-<h1>Setting up Github Desktop</h1>
-<div id="download-github-desktop" class="section level2">
-<h2>Download Github Desktop</h2>
-<p><a href="https://desktop.github.com/download/"
-class="uri">https://desktop.github.com/download/</a></p>
-</div>
-<div id="login-with-your-github-account" class="section level2">
-<h2>Login with your Github Account</h2>
-<p>File &gt; Options &gt; Sign in to your Github Account</p>
 <p><img
-src="Images/Github_Login.png" /></p>
+src="Images/qupath/logo.png" /></p>
+<div id="what-is-qupath" class="section level1">
+<h1>What is QuPath?</h1>
+<p><strong>QuPath</strong> is an open source , powerful, flexible,
+extensible software platform for whole slide image analysis. Some
+typical applications include: cell counting, positive cell
+determination, cell classification, multiplex fluorescence analysis,
+etc.<br></p>
+<div id="minimum-requirements-to-run-qupath" class="section level2">
+<h2>Minimum requirements to run QuPath</h2>
+<div id="qupath-can-work-on-64-bit-windows-mac-and-linux-environment"
+class="section level3">
+<h3>QuPath can work on 64 bit Windows, MAC and Linux environment</h3>
+</div>
+<div id="recommended-hardware-setup-intel-core-i7-or-above-16gb-ram"
+class="section level3">
+<h3>Recommended hardware setup: intel core i7 or above, 16GB RAM</h3>
+</div>
+<div
+id="if-you-are-dealing-with-large-data-set-for-example-z-stack-multiplexed-image"
+class="section level3">
+<h3>If you are dealing with large data set (for example: Z-stack,
+multiplexed image)</h3>
+</div>
+<div id="gb-ram-is-strongly-recommended" class="section level3">
+<h3>16GB RAM is strongly recommended</h3>
 </div>
 </div>
-<div id="cloning-an-existing-repository-from-github"
-class="section level1">
-<h1>Cloning an existing repository from Github</h1>
-<div id="step-1" class="section level2">
-<h2>Step 1</h2>
-<p>Menu &gt; File &gt; Clone Repository</p>
-<p><img
-src="Images/Github_Clone.png" /></p>
 </div>
-<div id="step-2" class="section level2">
-<h2>Step 2</h2>
-<p>Select the repository you want to clone and the destination to clone
-into.</p>
+<div id="introduction-videos" class="section level1">
+<h1>Introduction Videos</h1>
+<div id="zero-to-qupath-hero-youtube-playlist" class="section level2">
+<h2>Zero to QuPath Hero YouTube Playlist</h2>
+<p><a
+href="https://www.youtube.com/watch?v=MBrAVUsUdio&amp;list=PLSCpSsEmyRpANBGQXB_oGslW9NIJz4A12"
+class="uri">https://www.youtube.com/watch?v=MBrAVUsUdio&amp;list=PLSCpSsEmyRpANBGQXB_oGslW9NIJz4A12</a></p>
 <p><img
-src="Images/Github_Clone2.png" /></p>
+src="Images/qupath/youtube1.png" /></p>
 </div>
-<div id="step-3" class="section level2">
-<h2>Step 3</h2>
-<p>Check the folders where the repository has been cloned.</p>
+<div id="qupath-tutorial-by-creator" class="section level2">
+<h2>QuPath Tutorial (by Creator)</h2>
+<p><a
+href="https://www.youtube.com/watch?v=J-47tzXAFdE&amp;list=PL4ta8RxZklWkPB_pwW-ZDVAGPGktAlE5Y"
+class="uri">https://www.youtube.com/watch?v=J-47tzXAFdE&amp;list=PL4ta8RxZklWkPB_pwW-ZDVAGPGktAlE5Y</a></p>
 <p><img
-src="Images/Github_Clone_Folders.png" /></p>
+src="Images/qupath/youtube2.png" /></p>
 </div>
-<div id="step-4" class="section level2">
-<h2>Step 4</h2>
-<p>Verify that the repository has been cloned in Github Desktop.</p>
+<div id="qupath-introduction-presentation" class="section level2">
+<h2>QuPath Introduction Presentation</h2>
+<p><a
+href="https://www.pathology.columbia.edu/file/22673/download?token=CB2IFkDQ"
+class="uri">https://www.pathology.columbia.edu/file/22673/download?token=CB2IFkDQ</a></p>
 <p><img
-src="Images/Github_Clone_Menu.png" /></p>
+src="Images/qupath/pdf.png" /></p>
+</div>
+</div>
+<div id="installing-qupath" class="section level1">
+<h1>Installing QuPath</h1>
+<div id="download-qupath" class="section level2">
+<h2>Download QuPAth</h2>
+<p><a href="https://qupath.github.io/"
+class="uri">https://qupath.github.io/</a></p>
 <p><img
-src="Images/Github_Clone2.png" /></p>
+src="Images/qupath/website.png" /></p>
+<div id="what-program-looks-like-after-installation"
+class="section level3">
+<h3>What Program Looks Like After Installation</h3>
 <p><img
-src="Images/Github_Clone_Folders.png" /></p>
-<p><img
-src="Images/Github_Clone_Menu.png" /></p>
+src="Images/qupath/qupath.png" /></p>
+</div>
+</div>
+</div>
+<div id="support-for-qupath" class="section level1">
+<h1>Support for QuPath</h1>
+<div id="qupath-has-an-active-community" class="section level2">
+<h2>QuPath has an active community</h2>
+<p>I’m usually able to solve the problems that I encounter by googling
+my problem</p>
 </div>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -391,6 +492,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

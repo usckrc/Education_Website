@@ -1,0 +1,91 @@
+---
+title: "QuPath Installation Tutorial"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 3
+    toc_float: true
+layout: page
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("patchwork")) {install.packages("patchwork"); require("patchwork")}
+if (!require("knitr")) {install.packages("knitr"); require("knitr")}
+if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
+if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("devtools")) {install.packages("devtools"); require("devtools")}
+if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
+if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
+if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
+if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
+if (!require("gplots")) {install.packages("gplots"); require("gplots")}
+if (!require("viridis")) {install.packages("viridis"); require("viridis")}
+if (!require("tibble")) {install.packages("tibble"); require("tibble")}
+
+set.seed((12345))
+#here()
+```
+
+
+![](`r here::here("Images", "qupath", "logo.png")`)
+
+# What is QuPath?
+
+**QuPath** is an open source , powerful, flexible, extensible software platform for whole slide image analysis. Some typical applications include: cell counting, positive cell determination, cell classification, multiplex fluorescence analysis, etc.<br>
+
+
+## Minimum requirements to run QuPath
+### QuPath can work on 64 bit Windows, MAC and Linux environment 
+### Recommended hardware setup: intel core i7 or above, 16GB RAM 
+### If you are dealing with large data set (for example: Z-stack, multiplexed image) 
+### 16GB RAM is strongly recommended
+
+
+# Introduction Videos
+
+## Zero to QuPath Hero YouTube Playlist
+
+https://www.youtube.com/watch?v=MBrAVUsUdio&list=PLSCpSsEmyRpANBGQXB_oGslW9NIJz4A12
+
+![](`r here::here("Images", "qupath", "youtube1.png")`)
+
+## QuPath Tutorial (by Creator)
+
+https://www.youtube.com/watch?v=J-47tzXAFdE&list=PL4ta8RxZklWkPB_pwW-ZDVAGPGktAlE5Y
+
+![](`r here::here("Images", "qupath", "youtube2.png")`)
+
+## QuPath Introduction Presentation
+
+https://www.pathology.columbia.edu/file/22673/download?token=CB2IFkDQ
+
+![](`r here::here("Images", "qupath", "pdf.png")`)
+
+# Installing QuPath
+
+## Download QuPAth
+
+https://qupath.github.io/
+
+![](`r here::here("Images", "qupath", "website.png")`)
+
+### What Program Looks Like After Installation
+
+![](`r here::here("Images", "qupath", "qupath.png")`)
+
+# Support for QuPath
+
+## QuPath has an active community
+
+I'm usually able to solve the problems that I encounter by googling my problem
+
+
+
+
+
+
