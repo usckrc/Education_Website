@@ -43,7 +43,7 @@ This tutorial is designed to help you write the DEGs that define each cluster in
 
 ## Here is a video tutorial that I made of each of the steps of analysis
 
-https://screenrec.com/share/uONfdVMWZA
+https://screenrec.com/share/qX03rTZ9VK
 
 ![](`r here::here("Images", "excel", "video.png")`)
 
