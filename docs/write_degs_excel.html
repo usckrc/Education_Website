@@ -11,7 +11,7 @@
 
 
 
-<title>QuPath Manual Annotation</title>
+<title>Write DEG Lists to Excel</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -381,24 +381,39 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">QuPath Manual Annotation</h1>
+<h1 class="title toc-ignore">Write DEG Lists to Excel</h1>
 
 </div>
 
 
 <p><img
-src="Images/qupath/select4.png" /></p>
+src="Images/excel/intro.png" /></p>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The goal of this tutorial is to provide a step-by-step guide to
-manually annotate cells in QuPath. This tutorial is designed for users
-who are new to QuPath and want to learn how to manually annotate cells
-in <strong>QuPath</strong>.</p>
-<p>In this tutorial we will show how to setup multiple regions of
-interest (ROIs) in QuPath and how to manually annotate cells within each
-ROI. This will enable us to collect data (number of cells, cell shape,
-channel intensity, etc.) on a cell-by-cell basis and analyze the data
-using R.</p>
+<p>This tutorial is designed to help you write the DEGs that define each
+cluster in your Seurat object to an excel file. This is a very useful
+step in the analysis process because often times, this is the output
+that gets shared with collaborators and submitted as supplemental
+material to journal articles upon publishing an snRNAseq dataset.</p>
+<div id="download-.rmd-file-for-step-by-step-analysis"
+class="section level2">
+<h2>Download .RMD file for step-by-step analysis</h2>
+<div id="these-files-are-on-google-drive" class="section level3">
+<h3>These files are on google drive</h3>
+<div id="rmd-is-for-running-in-rstudio" class="section level4">
+<h4>.Rmd is for running in RStudio</h4>
+</div>
+<div id="html-is-for-viewing-output-in-a-browser"
+class="section level4">
+<h4>.html is for viewing output in a browser</h4>
+<p><a
+href="https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing"
+class="uri">https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing</a></p>
+<p><img
+src="Images/excel/drive.png" /></p>
+</div>
+</div>
+</div>
 </div>
 <div id="video-of-analysis-steps" class="section level1">
 <h1>Video of Analysis Steps</h1>
@@ -407,228 +422,163 @@ id="here-is-a-video-tutorial-that-i-made-of-each-of-the-steps-of-analysis"
 class="section level2">
 <h2>Here is a video tutorial that I made of each of the steps of
 analysis</h2>
-<p><a href="https://screenrec.com/share/mkX5LSWe7x"
-class="uri">https://screenrec.com/share/mkX5LSWe7x</a></p>
-</div>
-</div>
-<div id="steps-of-analysis" class="section level1">
-<h1>Steps of Analysis</h1>
-<div id="step-1-open-qupath" class="section level2">
-<h2>Step 1: Open QuPath</h2>
+<p><a href="https://screenrec.com/share/uONfdVMWZA"
+class="uri">https://screenrec.com/share/uONfdVMWZA</a></p>
 <p><img
-src="Images/qupath/qupath.png" /></p>
-</div>
-<div id="step-2-create-a-new-project" class="section level2">
-<h2>Step 2: Create a New Project</h2>
-<p><img
-src="Images/qupath/create.png" /></p>
-<div id="need-to-create-a-new-empty-folder" class="section level3">
-<h3>Need to create a new empty folder</h3>
-<p><img
-src="Images/qupath/folder.png" /></p>
+src="Images/excel/video.png" /></p>
 </div>
 </div>
-<div id="step-3-drag-image-file-into-qupath" class="section level2">
-<h2>Step 3: Drag image file into QuPath</h2>
-<p><img
-src="Images/qupath/drag1.png" />
-<img
-src="Images/qupath/drag2.png" /></p>
-</div>
-<div id="step-4-change-image-setting" class="section level2">
-<h2>Step 4: Change Image Setting</h2>
-<div id="default-settings" class="section level3">
-<h3>Default Settings</h3>
-<p><img
-src="Images/qupath/settings1.png" /></p>
-</div>
-<div id="using-shift-c" class="section level3">
-<h3>Using <strong>Shift + C</strong></h3>
-<div id="unselect-opal-520" class="section level4">
-<h4>Unselect Opal 520</h4>
-</div>
-<div id="change-sample-af-to-white-left-click-on-color-square"
-class="section level4">
-<h4>Change Sample AF to White: left click on color-square</h4>
-</div>
-<div id="change-opal-570-to-green-left-click-on-color-square"
-class="section level4">
-<h4>Change Opal 570 to Green: left click on color-square</h4>
-<p><img
-src="Images/qupath/settings2.png" /></p>
-</div>
-</div>
-<div id="view-after-zooming-in-on-glomerulus" class="section level3">
-<h3>View after zooming in on Glomerulus</h3>
-<p><img
-src="Images/qupath/settings3.png" /></p>
-</div>
-</div>
-<div id="step-5-draw-roi" class="section level2">
-<h2>Step 5: Draw ROI</h2>
-<div id="super-important" class="section level3">
-<h3>Super-important!!!</h3>
-</div>
-<div id="cant-do-any-analysis-without-defining-roi"
+<div id="write-deg-lists-to-excel" class="section level1">
+<h1>Write DEG Lists to Excel</h1>
+<div id="open-the-rmd-file-and-load-the-packages"
+class="section level2">
+<h2>Open the RMD file and load the packages</h2>
+<div id="important-packages-are-here-seurat-dplyr-and-openxlsx"
 class="section level3">
-<h3>Can’t do any analysis without defining ROI</h3>
-</div>
-<div id="this-is-using-the-simple-rectangle-tool"
-class="section level3">
-<h3>This is using the simple rectangle tool</h3>
+<h3><strong>Important Packages</strong> are <strong>here</strong>,
+<strong>seurat</strong>, <strong>dplyr</strong>, and
+<strong>openxlsx</strong></h3>
 <p><img
-src="Images/qupath/roi1.png" /></p>
-</div>
-<div id="active-roi-is-outlined-in-yellow" class="section level3">
-<h3>Active ROI is outlined in Yellow</h3>
-<p><img
-src="Images/qupath/roi2.png" /></p>
+src="Images/excel/chunk1.png" /></p>
 </div>
 </div>
-<div id="step-6-cell-detection" class="section level2">
-<h2>Step 6: Cell Detection</h2>
-<div id="super-important-1" class="section level3">
-<h3>Super-important!!!</h3>
-</div>
-<div id="rest-of-analysis-depends-on-cell-annotations"
-class="section level3">
-<h3>Rest of analysis depends on cell annotations</h3>
-</div>
-<div id="analyze-cell-detection-cell-detection" class="section level3">
-<h3>Analyze &gt; Cell detection &gt; Cell detection</h3>
-<p><img
-src="Images/qupath/cell1.png" /></p>
-</div>
-<div id="most-of-the-time-default-settings-ok" class="section level3">
-<h3>Most of the time default settings ok</h3>
-<p><img
-src="Images/qupath/cell2.png" /></p>
-</div>
-<div id="but-double-check-after-outlining-detections"
-class="section level3">
-<h3>But double check after outlining detections</h3>
-<div id="are-there-phantom-cell-detections" class="section level4">
-<h4>Are there phantom cell detections?</h4>
-</div>
-<div id="are-the-majority-of-cells-not-detected" class="section level4">
-<h4>Are the majority of cells not detected?</h4>
-</div>
-<div id="if-so-then-tweek-cell-detection-settings"
-class="section level4">
-<h4>If so, then tweek <strong>Cell detection</strong> settings</h4>
-<p><img
-src="Images/qupath/cell3.png" /></p>
-</div>
-</div>
-<div id="i-change-the-settings-to-remove-nuclei-outline"
-class="section level3">
-<h3>I change the settings to remove nuclei outline</h3>
-</div>
-<div id="right-click-cells-cell-boundries-only" class="section level3">
-<h3>Right click &gt; Cells &gt; Cell boundries only</h3>
-<p><img
-src="Images/qupath/cell4.png" /></p>
-</div>
-</div>
-<div id="step-7-select-cells" class="section level2">
-<h2>Step 7: Select Cells</h2>
+<div id="step-0-load-the-dataset" class="section level2">
+<h2>Step 0: <strong>Load</strong> the dataset</h2>
 <div
-id="double-click-on-cell-to-select-and-then-hold-down-ctrl-to-select-multiple-cells"
+id="i-always-create-a-record-of-the-metadata-and-run-a-dimplot-as-sanity-checks"
 class="section level3">
-<h3>Double click on cell to select and then hold down ctrl to select
-multiple cells</h3>
-</div>
-<div id="click-on-annotation-tab" class="section level3">
-<h3>Click on Annotation Tab</h3>
-<div id="add-new-class-if-nessesary" class="section level4">
-<h4>Add <strong>new class</strong> if nessesary</h4>
-</div>
-<div id="right-click-addremove-add-class" class="section level4">
-<h4>Right click &gt; Add/Remove &gt; Add class</h4>
-</div>
-</div>
-<div id="click-on-set-selected" class="section level3">
-<h3>click on <strong>Set selected</strong></h3>
+<h3>I always create a record of the <strong>metadata</strong> and run a
+<strong>DimPlot</strong> as <strong>sanity checks</strong></h3>
 <p><img
-src="Images/qupath/select1.png" /></p>
+src="Images/excel/chunk2.png" /></p>
+</div>
+</div>
+<div id="step-1-set-the-active-identity-of-the-object"
+class="section level2">
+<h2>Step 1: <strong>Set</strong> the active identity of the object</h2>
+<p><img
+src="Images/excel/chunk3.png" /></p>
+</div>
+<div id="step-2-collect-the-names-of-the-clusters"
+class="section level2">
+<h2>Step 2: <strong>Collect</strong> the names of the clusters</h2>
+<div
+id="this-is-a-list-of-the-clusters-that-is-automaticaly-generated-from-seurat-object"
+class="section level3">
+<h3>This is a list of the clusters that is automaticaly generated from
+seurat object</h3>
 </div>
 <div
-id="after-selection-set-the-cells-should-be-the-color-of-the-class-pale-green"
+id="super-important-to-record-the-level-of-the-object-to-write-the-spreadsheet-in-the-order-you-want"
 class="section level3">
-<h3>After selection set the cells should be the color of the class (pale
-green)</h3>
+<h3><strong>Super Important</strong> to record the level of the object
+to <strong>write</strong> the spreadsheet <strong>in the order you
+want</strong></h3>
 <p><img
-src="Images/qupath/select2.png" /></p>
+src="Images/excel/chunk4.png" /></p>
 </div>
-<div id="repeat-for-another-class-brown" class="section level3">
-<h3>Repeat for another class (brown)</h3>
-<p><img
-src="Images/qupath/select3.png" /></p>
-</div>
-<div id="after-second-selection" class="section level3">
-<h3>After second selection</h3>
-<p><img
-src="Images/qupath/select4.png" /></p>
-</div>
-</div>
-<div id="step-8-repeat" class="section level2">
-<h2>Step 8: Repeat</h2>
-<div id="repeat-the-previous-steps-for-multiple-rois-in-the-image"
-class="section level3">
-<h3>Repeat the previous steps for multiple ROI’s in the image</h3>
-</div>
-<div id="for-kidney-rnascope-id-like-between-10-20-rois-of-glomeruli"
-class="section level3">
-<h3>For kidney RNAscope I’d like between 10-20 ROI’s of glomeruli</h3>
-</div>
-</div>
-<div id="step-9-export-the-data" class="section level2">
-<h2>Step 9: Export the Data</h2>
-<div id="click-on-show-detection-measurements" class="section level3">
-<h3>Click on <strong>Show detection measurements</strong></h3>
-<p><img
-src="Images/qupath/data1.png" /></p>
-</div>
-<div id="this-pane-shows-the-cells-and-measurements"
-class="section level3">
-<h3>This pane shows the cells and measurements</h3>
 <div
-id="can-click-on-a-cell-in-qupath-yellow-and-it-will-highlight-in-the-pane"
-class="section level4">
-<h4>Can click on a cell in <strong>QuPath</strong> (yellow) and it will
-highlight in the pane</h4>
-<p><img
-src="Images/qupath/data2.png" /></p>
-</div>
-</div>
-<div id="click-on-save-to-save-the-data" class="section level3">
-<h3>Click on <strong>Save</strong> to save the data</h3>
-<p><img
-src="Images/qupath/data3.png" /></p>
-</div>
-<div id="the-data-is-saved-as-a-text-file-.txt" class="section level3">
-<h3>The data is saved as a text file (.txt)</h3>
-<div id="from-here-we-can-upload-into-r-and-analyze-the-data"
-class="section level4">
-<h4>From here we can upload into R and analyze the data</h4>
-<p><img
-src="Images/qupath/data4.png" /></p>
-</div>
-</div>
-</div>
-<div id="step-10-save-project" class="section level2">
-<h2>Step 10: Save Project</h2>
-<div id="file-save-as" class="section level3">
-<h3>File &gt; Save As</h3>
-</div>
-<div id="super-important-2" class="section level3">
-<h3>Super-important!!!</h3>
-</div>
-<div id="we-need-to-document-our-analysis-for-reproducibility"
+id="after-running-this-step-the-environment-should-have-the-names-of-the-clusters-in-the-correct-order"
 class="section level3">
-<h3>We need to document our analysis for reproducibility</h3>
+<h3>After running this step the environment should have the names of the
+clusters <strong>in the correct order</strong></h3>
 <p><img
-src="Images/qupath/save.png" /></p>
+src="Images/excel/chunk4b.png" /></p>
+</div>
+</div>
+<div id="step-3-create-a-new-environment-to-stash-the-deg-lists"
+class="section level2">
+<h2>Step 3: <strong>Create</strong> a new environment to stash the DEG
+lists</h2>
+<p><img
+src="Images/excel/chunk5.png" /></p>
+<div
+id="after-running-this-code-you-should-see-a-new-environment-in-the-environment-tab"
+class="section level3">
+<h3>After running this code you should see a <strong>new
+environment</strong> in the environment tab</h3>
+<p><img
+src="Images/excel/chunk5b.png" /></p>
+</div>
+</div>
+<div
+id="step-4-loop-through-each-cluster-and-creating-deg-for-each-population"
+class="section level2">
+<h2>Step 4: <strong>Loop</strong> through each cluster and creating DEG
+for each population</h2>
+<div id="creates-deg-list" class="section level3">
+<h3>Creates DEG list</h3>
+</div>
+<div id="filter-on-p_val_adj-0.05" class="section level3">
+<h3>Filter on p_val_adj &lt; 0.05</h3>
+</div>
+<div id="orders-deg-list-by-log2fc" class="section level3">
+<h3>Orders DEG list by log2FC</h3>
+</div>
+<div id="save-deg-list-into-special-environment" class="section level3">
+<h3>Save DEG list into special environment</h3>
+</div>
+<div id="prints-out-top-10-deg-list" class="section level3">
+<h3>Prints out top 10 DEG list</h3>
+</div>
+<div id="save-deg-lists-into-a-.rdata-file" class="section level3">
+<h3>Save DEG lists into a .RData file</h3>
+<p><img
+src="Images/excel/chunk6.png" /></p>
+</div>
+<div
+id="after-running-this-code-you-should-see-the-deg-lists-in-the-env"
+class="section level3">
+<h3>After running this code you should see the <strong>DEG
+lists</strong> in the env</h3>
+<p><img
+src="Images/excel/chunk6b.png" /></p>
+</div>
+<div
+id="if-you-click-on-the-deg.env-you-should-see-the-deg-lists-in-alphabetical-order"
+class="section level3">
+<h3>If you click on the DEG.env you should see the DEG lists in
+<strong>alphabetical order</strong></h3>
+<p><img
+src="Images/excel/chunk6c.png" /></p>
+</div>
+</div>
+<div id="step-5-write-degs-to-excel" class="section level2">
+<h2>Step 5: <strong>Write</strong> DEGs to Excel</h2>
+<div id="grab-the-list-of-degs-from-the-special-enviroment"
+class="section level3">
+<h3>Grab the list of DEGs from the special enviroment</h3>
+</div>
+<div id="set-the-order-to-write-the-degs-otherwise-alphabetical"
+class="section level3">
+<h3>Set the order to write the DEGs (otherwise alphabetical)</h3>
+</div>
+<div id="write-the-excel-file-using-openxlsx-package"
+class="section level3">
+<h3>Write the excel file (using openxlsx package)</h3>
+<p><img
+src="Images/excel/chunk7.png" /></p>
+</div>
+<div id="after-running-this-code-the-envornment-should-look-like-this"
+class="section level3">
+<h3>After running this code the envornment should look like this</h3>
+<p><img
+src="Images/excel/chunk7b.png" /></p>
+</div>
+<div id="the-.rdata-and-.xlsx-files-should-be-where-here-is"
+class="section level3">
+<h3>The .Rdata, and .xlsx files should be where <strong>here()</strong>
+is</h3>
+<p><img
+src="Images/excel/chunk7c.png" /></p>
+</div>
+<div
+id="you-should-have-an-excel-file-with-degs-listed-as-separate-tabs-in-the-order-of-the-clusters"
+class="section level3">
+<h3>You should have an <strong>excel file</strong> with DEGs listed as
+separate tabs in the order of the clusters</h3>
+<p><img
+src="Images/excel/chunk7d.png" /></p>
 </div>
 </div>
 </div>
@@ -682,7 +632,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {

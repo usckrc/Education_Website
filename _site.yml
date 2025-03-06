@@ -22,6 +22,10 @@ navbar:
           href: qupath_install.html
         - text: "Manual Cell Annotation"
           href: qupath_manual_annotation.html
+    - text: "snRNAseq Analysis"
+      menu:
+        - text: "Write DEGs to Excel"
+          href: write_degs_excel.html
 output:
   html_document:
     theme: flatly
