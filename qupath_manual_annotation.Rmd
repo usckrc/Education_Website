@@ -46,6 +46,8 @@ In this tutorial we will show how to setup multiple regions of interest (ROIs) i
 
 https://screenrec.com/share/mkX5LSWe7x
 
+![](`r here::here("Images", "qupath", "qupath1_video.png")`)
+
 # Steps of Analysis
 
 ## Step 1: Open QuPath

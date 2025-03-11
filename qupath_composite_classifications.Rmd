@@ -1,8 +1,11 @@
 ---
 title: ""
-output: 
-  html_document:
-    toc: FALSE
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    toc_float: true
+layout: page
 ---
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
@@ -28,7 +31,212 @@ set.seed((12345))
 #here()
 ```
 
+# Creating Composite Classifications in QuPath
+
+![](`r here::here("Images", "qupath2", "composite.png")`)
+
 # Introduction
 
-# Creating Composite Classifications in QuPath
+The goal of this tutorial is to provide a step-by-step guide to create a **composite classification** in QuPath. This tutorial is designed for users who are new to QuPath and want to learn how to create a **composite classification** in **QuPath**.
+
+In this tutorial we will show how to setup multiple regions of interest (ROIs) in QuPath and how to create multiple single-object classifiers and then create a composite classifier. This will enable us to collect data (number of cells, cell shape, channel intensity, etc.) on a cell-by-cell basis and analyze the data using R.
+c
+# Video of Analysis Steps
+
+### Here is a video tutorial that I made of each of the steps of analysis
+
+https://screenrec.com/share/PJb2mVGAD5
+
+![](`r here::here("Images", "qupath2", "qupath2_video.png")`)
+
+# Steps of Analysis
+
+## Step 1: Open QuPath
+
+![](`r here::here("Images", "qupath", "qupath.png")`)
+
+## Step 2: Create a New Project
+
+![](`r here::here("Images", "qupath", "create.png")`)
+
+### Need to create a new empty folder
+
+![](`r here::here("Images", "qupath", "folder.png")`)
+
+## Step 3: Drag image file into QuPath
+
+![](`r here::here("Images", "qupath", "drag1.png")`)
+![](`r here::here("Images", "qupath", "drag2.png")`)
+
+## Step 4: Change Image Setting 
+
+### Default Settings
+
+![](`r here::here("Images", "qupath", "settings1.png")`)
+
+### Using **Shift + C**
+
+#### Unselect Opal 520
+#### Change Sample AF to White: left click on color-square
+#### Change Opal 570 to Green: left click on color-square
+
+![](`r here::here("Images", "qupath", "settings2.png")`)
+
+## Step 5: Creat the annotation ROI
+### I like using the polygon tool when creating an irregular shape like a kidney
+
+![](`r here::here("Images", "qupath2", "annotation.png")`)
+
+### Single-click to start going around the object and then double click to end it
+### you should see a yellow line around the object
+
+![](`r here::here("Images", "qupath2", "annotation2.png")`)
+
+## Step 6: Cell Analysis
+
+### Analyze > Cell detection > Cell detection
+![](`r here::here("Images", "qupath2", "cell_analysis1.png")`)
+
+### I had to adjust the settings from the default settings
+### This step can take a bit of time if analyzing a large object
+
+![](`r here::here("Images", "qupath2", "cell_analysis2.png")`)
+
+### After the analysis is complete the whole image should appear red
+
+![](`r here::here("Images", "qupath2", "cell_analysis3.png")`)
+
+### **Zoom in** to see how well the classification worked.
+### Assess if you need to adjust the settings and re-run the analysis
+![](`r here::here("Images", "qupath2", "cell_analysis4.png")`)
+![](`r here::here("Images", "qupath2", "cell_analysis5.png")`)
+![](`r here::here("Images", "qupath2", "cell_analysis6.png")`)
+
+## Step 7: Analyze the **First Channel**
+
+### Using **Shift + C** select the first channel that you want to analyze
+### It can be helpful to **adjust the channel max** to make the signal brighter
+
+![](`r here::here("Images", "qupath2", "first_channel.png")`)
+
+### Make sure you have class labels for the classifications you are going to create
+### For this examples it's two channels (Pdgfrb and Agtr1a) so I need **4 separate classifications**
+### Pdgfrb+, Pdgfrb-, Agtr1a+, Agtr1a-
+
+![](`r here::here("Images", "qupath2", "first_channel1.png")`)
+
+### Classify > Object classification > Create single measurment classifier
+
+![](`r here::here("Images", "qupath2", "first_channel2.png")`)
+
+### Select the **Object Filter**, **Channel Filter**, and **Measurement** you want to threshold on
+### In this case, it's Cells/Opal690 (Pdgfrb)/Cell Opal 690 max
+### Select the **Above** and **Below** threshold classifications for the cells to fit into
+### Make sure the click the **Live Preview** so you can see the cells selected as you adjust the threshold
+
+![](`r here::here("Images", "qupath2", "first_channel4.png")`)
+
+### **Save and Apply** the classification
+### **Record** the threshold that you select 
+
+![](`r here::here("Images", "qupath2", "first_channel3.png")`)
+
+## Step 8: Analyze the **Second Channel**
+
+### Using **Shift + C** select the second channel that you want to analyze
+
+![](`r here::here("Images", "qupath2", "second_channel1.png")`)
+
+### Classify > Object classification > Create single measurment classifier
+
+![](`r here::here("Images", "qupath2", "second_channel2.png")`)
+
+### Select the **Object Filter**, **Channel Filter**, and **Measurement** you want to threshold on
+### In this case, it's Cells/Opal570 (Agtr1a)/Cell Opal 570 max
+### Select the **Above** and **Below** threshold classifications for the cells to fit into
+### Make sure the click the **Live Preview** so you can see the cells selected as you adjust the threshold
+
+![](`r here::here("Images", "qupath2", "second_channel3.png")`)
+
+### **Save and Apply** the classification
+### **Record** the threshold that you select
+
+![](`r here::here("Images", "qupath2", "first_channel3.png")`)
+
+## Step 8: Create Composite Classification
+
+### Classify > Object classification > Create composite classifier
+
+![](`r here::here("Images", "qupath2", "composite1.png")`)
+
+### Select the **First** and **Second** classifications that you created
+
+![](`r here::here("Images", "qupath2", "composite2.png")`)
+
+### They should appear in the **Selected** column in the order you want them classified
+### **Save** the composite classifier
+
+![](`r here::here("Images", "qupath2", "composite3.png")`)
+
+### Examine the classifications while being zoomed in
+
+![](`r here::here("Images", "qupath2", "composite4.png")`)
+
+### Zoom out to see the entire kidney
+
+![](`r here::here("Images", "qupath2", "composite5.png")`)
+
+## Step 9: Grab the data
+
+### In the left corner will be the data on the cell numbers for each classification
+### You can copy and paste the table into excel
+
+![](`r here::here("Images", "qupath2", "count.png")`)
+
+## Step 10: Additional Annotation
+### If you want to annotate a new area to get additional information you can create a new annotation
+### In this case I'm creating a **new annotation** in the **kidney medulla**
+### Using the **same polygon tool** as before
+
+![](`r here::here("Images", "qupath2", "second_annotation1.png")`)
+
+### Right-click > Set Properties allows you to give it a custom name
+### In this case, "long_medulla"
+
+![](`r here::here("Images", "qupath2", "second_annotation2.png")`)
+
+[](`r here::here("Images", "qupath2", "second_annotation3.png")`)
+
+### Objects > Annotations > Resolve hierarchy will allow you to see the different annotations in the data
+
+![](`r here::here("Images", "qupath2", "rename_annotations.png")`)
+
+## Step 10: Extract More Data
+
+### To gather the QuPath data on all the cells click on the **Show detection measurements**
+
+![](`r here::here("Images", "qupath2", "extract_data1.png")`)
+
+### Then click **Save** and select the location and name of the file
+
+![](`r here::here("Images", "qupath2", "extract_data2.png")`)
+
+### The data is saved as a text file (.txt)
+#### From here we can upload into R and analyze the data
+
+![](`r here::here("Images", "qupath2", "extract_data3.png")`)
+
+## Step 11: Save Project
+### File > Save As
+### Super-important!!!
+### We need to document our analysis for reproducibility
+
+
+
+
+
+
+
+
+
 
