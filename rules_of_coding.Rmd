@@ -74,6 +74,13 @@ Being a good coder isn't about memorizing syntax. Its about **creative problem s
 ## Only update packages if you are in a **good mood**
 More often then not, this **breaks something**. Be ready to problem solve. 
 
+## **Every** problem you solve is **worth documenting**
+
+## **Make mistakes** and learn
+
+## The code you are currently working on...will magically apply to all the projects you are working on
+
+## **Celebrate** the victories
 
 
 
