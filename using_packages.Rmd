@@ -51,9 +51,10 @@ Secondly, you will want to switch from the default **Plots** page to the **Packa
 
 Some packages you cannot access from R and will have to get from outside sources, like GitHub. For example, the package **DoubletFinder** is useful for predicting doublets in scRNA-seq data which cleans the data and makes it easier to work with. To download a package from GitHub you will access the users GitHub page and copy the line to install. 
 
+remotes::install_github('chris-mcginnis-ucsf/DoubletFinder')
+
+
 ![](`r here::here("Images", "PG_Screenshot 5.png")`)
-
-
 
 # Trouble Shooting
 

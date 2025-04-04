@@ -1,0 +1,447 @@
+---
+title: "ROC 1"
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+
+set.seed((12345))
+#here()
+```
+
+**Tutorial written by Jonathan Nelson**
+
+**Tutorial adapted by Sienna Blanche**
+
+# Getting Started
+
+For our first scRNA-seq analysis, we’ll be following a clear, step-by-step process divided into nine parts.
+
+# Necessary materials 
+The dataset that we are using is from Karaiskos et al. JASN 2018 (PMID: 29794128). This is 1 of 3 files (glom_rep3) downloaded from its corresponding GEO entry (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107. This dataset was chosen because it is a relatively small number of cells and a limited number of clusters to simplify calculations and analysis.
+ 
+# Step 0: Installing the Seurat (and dependency packages). 
+
+You only need to perform Step 0 once. Copy the command **install.packages('Seurat')** into your R script or RMD and run it. Confirm that the package has been downloaded. 
+
+# Step 1: Activate the R packages needed to run the analysis.
+
+Copy the following lines of code into your file and run them:
+
+**library(Seurat)**
+
+**library(cowplot)**
+
+**library(dplyr)**
+
+**library(patchwork)**
+
+# Step 2: Setting up a "Working Directory" and uploading the scRNAseq file to R studio
+
+First we need to tell R studio where our scRNAseq ".csv" file is. Click on Session>Set Working Directory>Choose Directory and find the folder on your computer that contains the downloaded dataset.
+
+![](`r here::here("Images", "ROC_1_Screenshot 1.png")`)
+
+Once you've set your working directory copy and run the following code: **Glom = read.csv('Glom_scRNAseq.csv',row.names=1)**. If you have pointed to the right folder then the Environment window should contain a data object called "Glom" after a few seconds
+
+![](`r here::here("Images", "ROC_1_Screenshot 2.png")`)
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+ 
+Glom = read.csv('docs/datasets/Glom_scRNAseq (1).csv',row.names=1)
+```
+
+# Step 3: Transforming scRNAseq ".csv" file into a matrix and loading it into Seurat
+
+We will next convert the ".csv" file into a data matrix that is able to be uploaded into Seurat. Copy and run the following code: **Glom = data.matrix(Glom)**. The object in the Environment window will change to be a "Large Matrix"
+
+![](`r here::here("Images", "ROC_1_Screenshot 3.png")`)
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom = data.matrix(Glom)
+```
+
+Next we will run a "Sanity check" to make sure our Matrix file is formatted correctly. Run the following code **Glom[1:5,1:5]** to see the first 5 rows and columns of the matrix in the console window. Top row should be bar codes and first column should be gene names, as seen below.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom[1:5,1:5]
+```
+
+Next we will load this data into Seurat and create our Seurat Object. Run the following code:
+
+**Glom <- CreateSeuratObject(counts = Glom, project = "ROC_Glom", min.cells = 3, min.features = 200)**
+
+The object in the Environment window will change to be a "Large Seurat"
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom <- CreateSeuratObject(counts = Glom, project = "ROC_Glom", min.cells = 3, min.features = 200)
+```
+
+![](`r here::here("Images", "ROC_1_Screenshot 4.png")`)
+
+This is our first filtering step. The code selects only genes that are expressed in at least 3 cells and cells that express at least 200 genes. Next we will run another sanity check to see how many cells and genes were filtered by running the following code **Glom**.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom 
+```
+
+You should now get an output with 3035 Samples (cells) by 16991 Features (genes) which means we filtered out 42 cells and 5319 Genes! We know this by comparing out new object to the object we first loaded into the session.
+
+# Step 4: Visualizing Quality Control Metrics
+
+Run the following code **Glom[["percent.mt"]] <- PercentageFeatureSet(Glom, pattern = "^mt-")** to create a new meta.data feature in the Seurat object that measures how much mitochondrial DNA there is in each cell.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom[["percent.mt"]] <- PercentageFeatureSet(Glom, pattern = "^mt-")
+```
+
+We will now visualize the dataset for quality control using 3 different metrics by running the following line of code: **VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)**
+
+nFeature_RNA is the number of differing genes detected in each cell, nCount_RNA refers to the number of mRNA molecules detected in each cell, and percent.mt is the percent of counts that come from mitochondrial genes.
+
+The graph you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
+```
+
+Now we will interpret this information to filter out doublets and damaged cells by running the following code: **Glom <- subset(Glom, subset = nFeature_RNA < 2000 & nCount_RNA < 4000 & percent.mt < 20)**
+
+High nFeature_RNA or nCount_RNA could equate to doublets or mixed cell debris. We will filter out cells with more than 2000 genes and 4000 mRNA molecules to exclude potential doublets or mixed cell debris. High percent.mt could equate to damaged cells. We will filter out cells with more than 20% mitochondrial content to exclude damaged cells.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom <- subset(Glom, subset = nFeature_RNA < 2000 & nCount_RNA < 4000 & percent.mt < 20)
+```
+
+Now we will replot the graphs to visualize the plots again with the newly filtered data by running **VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)**
+
+The new graph should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
+```
+
+Next we will run another sanity check to see how many cells and genes were filtered from the previous command by running **Glom**. 
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom
+```
+
+The output we get is as follows: 2899 Samples (cells) by 16991 Features (genes). This means we filtered out 136 cells and 0 Genes! Again we know this by comparing the current object to the one we had in previous steps.  
+
+# Step 5: Data Normalization and Identification of Genes Driving Variability (cluster formation)
+Run the following code 
+
+**Glom <- NormalizeData(Glom, normalization.method = "LogNormalize", scale.factor = 10000)**
+
+**Glom <- NormalizeData(Glom)**
+
+**Glom <- FindVariableFeatures(Glom, selection.method = "vst", nfeatures = 2000)**
+
+This normalizes the matrix and creates a plot of the genes that are the most variable in the dataset.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom <- NormalizeData(Glom, normalization.method = "LogNormalize", scale.factor = 10000)
+
+Glom <- NormalizeData(Glom)
+
+Glom <- FindVariableFeatures(Glom, selection.method = "vst", nfeatures = 2000)
+```
+
+Next we can identify the 10 most highly variable genes by creating a new object in the environment called "top10". To do this copy the following code: **top10 <- head(VariableFeatures(Glom), 10)**.
+
+The top 10 genes I got were as follows: 
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+top10 <- head(VariableFeatures(Glom), 10)
+
+top10
+```
+
+Next we can create a plot of the variable features within the dataset and label the top 10 genes to see which are driving the clustering. To do so copy the following code: 
+
+**plot1 <- VariableFeaturePlot(Glom)**
+
+**plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)**
+
+**plot2**
+
+The graph you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+plot1 <- VariableFeaturePlot(Glom)
+
+plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+
+plot2
+```
+
+# Step 6: Creation and Visualization of Principal Components
+
+Run the following code:
+
+**all.genes <- rownames(Glom)**
+
+**Glom <- ScaleData(Glom, features = all.genes)**
+
+**Glom <- RunPCA(Glom, features = VariableFeatures(object = Glom))**
+
+**print(Glom[["pca"]], dims = 1:10, nfeatures = 3)**
+
+This calculates the principal components and then prints the 5 genes that drive the first 5 principal components.
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+all.genes <- rownames(Glom)
+
+Glom <- ScaleData(Glom, features = all.genes)
+
+Glom <- RunPCA(Glom, features = VariableFeatures(object = Glom))
+
+print(Glom[["pca"]], dims = 1:10, nfeatures = 3)
+```
+
+Can you get a sense for how the cells might be clustering based off of these genes?
+
+Now we will visualize the genes driving the PCA a few ways. Run the next lines code individually.
+
+This line visualizes the genes driving the first 2 PCA dimensions:
+
+**VizDimLoadings(Glom, dims = 1:2, reduction = "pca")**
+
+The graph you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+VizDimLoadings(Glom, dims = 1:2, reduction = "pca")
+```
+
+
+Next, this line visualizes the scRNAseq dataset as a PCA (hopefully you can appreciate the poor clustering):
+
+**DimPlot(Glom, reduction = "pca")**
+
+The graph you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+DimPlot(Glom, reduction = "pca")
+```
+
+Lastly, this line creates a heatmap of the top 500 genes that drive the first 2 PCA dimensions:
+
+**DimHeatmap(Glom, dims = 10:11, cells = 500, balanced = TRUE)**
+
+The heatmap you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+DimHeatmap(Glom, dims = 10:11, cells = 500, balanced = TRUE)
+```
+
+This plot shows the variability and helps to decide how many PCA dimensions to use when measuring the clusters. When the standard deviation in the PC dimensions becomes small it no longer has a big effect. In this case we will use 10 PC's.
+
+**ElbowPlot(Glom)**
+
+The elbowplot you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+ElbowPlot(Glom)
+```
+
+# Step 7: Calculation and Creation of a UMAP visualization
+
+This is where scRNAseq becomes more like like and art form. The following lines determine the shape of the clusters and the number of populations in our scRNASeq visualization.
+
+These lines control the resolution of the clusters and the number of separate populations. _FindNeighbors_ changes the separation between clusters. _FindClusters_ changes the number of differential populations.
+
+**Glom <- FindNeighbors(Glom, dims = 1:10)**
+
+**Glom <- FindClusters(Glom, resolution = 0.1)**
+
+**Glom <- RunUMAP(Glom, dims = 1:10)**
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom <- FindNeighbors(Glom, dims = 1:10)
+
+Glom <- FindClusters(Glom, resolution = 0.1)
+
+Glom <- RunUMAP(Glom, dims = 1:10)
+```
+
+This line generates the UMAP visualization. How many clusters do you see? Do they seem like they are real clusters?
+
+**DimPlot(Glom, reduction = "umap")**
+
+The plot you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+DimPlot(Glom, reduction = "umap")
+```
+
+This line generates the UMAP visualization. How many clusters do you see? Do they seem like they are real clusters?
+
+**Glom2 <- FindClusters(Glom, resolution = 0.3)**
+
+**Glom2 <- RunUMAP(Glom2, dims = 1:10)**
+
+**DimPlot(Glom2, reduction = "umap")**
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom2 <- FindClusters(Glom, resolution = 0.3)
+
+Glom2 <- RunUMAP(Glom2, dims = 1:10)
+```
+
+The dimplot you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+DimPlot(Glom2, reduction = "umap")
+```
+
+# Step 8: Generation of Heatmaps of differential genes between clusters to identify cell types
+
+Now that we have a UMAP we have to identify the cell type that each cluster represents. We will do this by finding the top 5 genes that define each cluster and making a heatmap. Notice if there are any clues to what each cluster is based on the genes enriched in the population.
+
+Run the following code:
+
+**Glom.markers <- FindAllMarkers(Glom, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)**
+
+**Glom.markers %>% group_by(cluster) %>% top_n(n = 5, wt = avg_log2FC)**
+
+**top5 <- Glom.markers %>% group_by(cluster) %>% top_n(5, avg_log2FC)**
+
+**DoHeatmap(Glom, features = top5$gene)**
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+Glom.markers <- FindAllMarkers(Glom, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+
+Glom.markers %>% group_by(cluster) %>% top_n(n = 5, wt = avg_log2FC)
+
+top5 <- Glom.markers %>% group_by(cluster) %>% top_n(5, avg_log2FC)
+```
+
+The heatmap you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+DoHeatmap(Glom, features = top5$gene) 
+```
+
+We will double check our work by visualizing some "traditional" cell-type markers with violin plots. The markers used in this tutorial are as follows:
+
+Nphs2 = Podocyte
+
+Pecam1 = Endothelial
+
+Slc12a3 = Tubule
+
+Tagln = Mural
+
+Run the following code to visulaize the markers in each cluster:
+**VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))**
+
+The graph you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
+```
+
+# Step 9: Re-naming clusters by cell-type
+
+Now that we think that We know the cluster identifiers, we will insert that meta.data into the Seurat object by running the following code:
+
+**new.cluster.ids <- c("Podo", "Endo", "Tubule", "Mural")**
+
+**names(new.cluster.ids) <- levels(Glom)**
+
+**Glom <- RenameIdents(Glom, new.cluster.ids)**
+
+**DimPlot(Glom, reduction = "umap", label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+The dimplot you get should now look like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+new.cluster.ids <- c("Podo", "Endo", "Tubule", "Mural")
+
+names(new.cluster.ids) <- levels(Glom)
+
+Glom <- RenameIdents(Glom, new.cluster.ids)
+
+DimPlot(Glom, reduction = "umap", label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
+```
+
+These labels will now follow each cluster on any visualization we do. See how they look on the violin plot we ran before by running the following code:
+
+**VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))**
+
+The graph you get should now look like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
+```
+
+Next we can visualize the expression of each gene on the UMAP diagram by running the following lines individually.         
+
+**FeaturePlot(Glom, features = c("Nphs2"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+**FeaturePlot(Glom, features = c("Pecam1"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+**FeaturePlot(Glom, features = c("Slc12a3"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+**FeaturePlot(Glom, features = c("Tagln"),label = FALSE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+The series of feature plots you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+FeaturePlot(Glom, features = c("Nphs2"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
+FeaturePlot(Glom, features = c("Pecam1"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
+FeaturePlot(Glom, features = c("Slc12a3"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
+FeaturePlot(Glom, features = c("Tagln"),label = FALSE, pt.size = 0.5, label.size = 7, repel = FALSE)
+```
+
+Using the following code we can highlight a "hidden cluster" that is probably immune cells because of the unique expression of Ptprc (CD45):
+
+**FeaturePlot(Glom, features = c("Ptprc"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+The feature plot you get should look something like this:
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+FeaturePlot(Glom, features = c("Ptprc"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
+```
+
+# Session Info
+
+```{r, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE}
+
+sessionInfo()
+```
