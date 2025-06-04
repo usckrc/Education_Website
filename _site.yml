@@ -30,10 +30,8 @@ navbar:
           href: github_tutorial.html
     - text: "snRNAseq Analysis"
       menu:
-<<<<<<< HEAD
         - text: "ROC 1"
           href: roc_1.html
-=======
         - text: "Write DEGs to Excel"
           href: write_degs_excel.html
         - text: "SCORE: Coding Crumbs"
@@ -54,7 +52,6 @@ navbar:
       menu:
         - text: "Write DEGs to Excel"
           href: write_degs_excel.html
->>>>>>> main
 output:
   html_document:
     theme: flatly
