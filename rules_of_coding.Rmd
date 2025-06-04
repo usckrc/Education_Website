@@ -1,0 +1,86 @@
+---
+title: ""
+output: 
+  html_document:
+    toc: FALSE
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("patchwork")) {install.packages("patchwork"); require("patchwork")}
+if (!require("knitr")) {install.packages("knitr"); require("knitr")}
+if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
+if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("devtools")) {install.packages("devtools"); require("devtools")}
+if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
+if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
+if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
+if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
+if (!require("gplots")) {install.packages("gplots"); require("gplots")}
+if (!require("viridis")) {install.packages("viridis"); require("viridis")}
+if (!require("tibble")) {install.packages("tibble"); require("tibble")}
+
+set.seed((12345))
+#here()
+```
+
+# Introduction
+
+Learning to code is a **beautiful journey**. <br>
+
+As an undergraduate, **I was allergic to computer science** and stayed as far away from coding as possible. <br>
+
+Instead I became a **biologist**. First as a **geneticist**, and later as a **physiologist**. <br>
+
+
+
+Coding is something I love <br>
+
+Teaching others to code...I love more <br>
+
+As a self-taught bioinformatian, I've learned a lot along the ways. Mostly the hard way. <br>
+
+Here is my list of **Coding Rules** to live by...in no particular order of importance.
+
+# Jonathan's Rules of Coding
+
+## Code while listening to **music**
+Whatever gets you into your **flow state**...do it! My best coding happens when my hands are dancing. 
+
+## Your code is **wrong** until proven **right**
+Be skeptical! There can **never** be enough sanity checks in your code. 
+
+## **Be generous** with your code
+I've **never regretted** sharing my code with anyone. Don't be afraid of someone finding a mistake. Don't be a gatekeeper of analysis. I became a scientist to **create and share** knowledge.  
+
+## **Knit**...or you'll regret it
+**I've never regretted knitting a file**...I've only regretting not knitting a file to document analysis. When I don't knit a file, it's usually because I haven't spent the time (well spent) to make my code clean and legible. 
+
+## **Teaching code** is the best way to learn
+
+## You could always **write better code**
+The **best code** you possibly could write today invariably could be written better 6 months from now. Don't let this stop you from trying hard to push the bounderies of your coding, but also, don't feel like you need to go back in time and re-write your old code.
+
+
+## **ChatGPT** is your friend
+Being a good coder isn't about memorizing syntax. Its about **creative problem solving**. Spend your time solving problems and learning to becoming efficient. 
+
+## Always be curious
+
+## Only update packages if you are in a **good mood**
+More often then not, this **breaks something**. Be ready to problem solve. 
+
+## **Every** problem you solve is **worth documenting**
+
+## **Make mistakes** and learn
+
+## The code you are currently working on...will magically apply to all the projects you are working on
+
+## **Celebrate** the victories
+
+
+

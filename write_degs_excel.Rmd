@@ -1,0 +1,130 @@
+---
+title: "Write DEG Lists to Excel"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 2
+    toc_float: true
+layout: page
+---
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("knitr")) {install.packages("knitr"); require("knitr")}
+if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
+if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
+if (!require("tibble")) {install.packages("tibble"); require("tibble")}
+
+set.seed((12345))
+#here()
+```
+
+![](`r here::here("Images", "excel", "intro.png")`)
+
+# Introduction
+
+This tutorial is designed to help you write the DEGs that define each cluster in your Seurat object to an excel file. This is a very useful step in the analysis process because often times, this is the output that gets shared with collaborators and submitted as supplemental material to journal articles upon publishing an snRNAseq dataset.
+
+## Download .RMD file for step-by-step analysis
+
+### These files are on google drive
+#### .Rmd is for running in RStudio
+#### .html is for viewing output in a browser
+
+<https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing>
+
+![](`r here::here("Images", "excel", "drive.png")`)
+
+# Video of Analysis Steps
+
+## Here is a video tutorial that I made of each of the steps of analysis
+
+https://screenrec.com/share/qX03rTZ9VK
+
+![](`r here::here("Images", "excel", "video.png")`)
+
+# Write DEG Lists to Excel
+
+## Open the RMD file and load the packages
+### **Important Packages** are **here**, **seurat**, **dplyr**, and **openxlsx**
+
+![](`r here::here("Images", "excel", "chunk1.png")`)
+
+## Step 0: **Load** the dataset
+
+### I always create a record of the **metadata** and run a **DimPlot** as **sanity checks**
+
+![](`r here::here("Images", "excel", "chunk2.png")`)
+
+## Step 1: **Set** the active identity of the object
+
+![](`r here::here("Images", "excel", "chunk3.png")`)
+
+## Step 2: **Collect** the names of the clusters
+
+### This is a list of the clusters that is automaticaly generated from seurat object
+### **Super Important** to record the level of the object to **write** the spreadsheet **in the order you want**
+
+![](`r here::here("Images", "excel", "chunk4.png")`)
+
+### After running this step the environment should have the names of the clusters **in the correct order**
+
+![](`r here::here("Images", "excel", "chunk4b.png")`)
+
+## Step 3: **Create** a new environment to stash the DEG lists
+
+![](`r here::here("Images", "excel", "chunk5.png")`)
+
+### After running this code you should see a **new environment** in the environment tab
+
+![](`r here::here("Images", "excel", "chunk5b.png")`)
+
+## Step 4: **Loop** through each cluster and creating DEG for each population
+
+### Creates DEG list
+### Filter on p_val_adj < 0.05
+### Orders DEG list by log2FC
+### Save DEG list into special environment
+### Prints out top 10 DEG list
+
+### Save DEG lists into a .RData file
+
+![](`r here::here("Images", "excel", "chunk6.png")`)
+
+### After running this code you should see the **DEG lists** in the env
+
+![](`r here::here("Images", "excel", "chunk6b.png")`)
+
+### If you click on the DEG.env you should see the DEG lists in **alphabetical order**
+
+![](`r here::here("Images", "excel", "chunk6c.png")`)
+
+## Step 5: **Write** DEGs to Excel
+
+### Grab the list of DEGs from the special enviroment
+
+### Set the order to write the DEGs (otherwise alphabetical)
+
+### Write the excel file (using openxlsx package)
+
+![](`r here::here("Images", "excel", "chunk7.png")`)
+
+### After running this code the envornment should look like this
+
+![](`r here::here("Images", "excel", "chunk7b.png")`)
+
+### The .Rdata, and .xlsx files should be where **here()** is
+
+![](`r here::here("Images", "excel", "chunk7c.png")`)
+
+### You should have an **excel file** with DEGs listed as separate tabs in the order of the clusters
+
+![](`r here::here("Images", "excel", "chunk7d.png")`)
+
+
+
+

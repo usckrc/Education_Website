@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>QuPath Manual Annotation</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Learning Bioinformatics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    About
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">About</a>
+    </li>
+    <li>
+      <a href="contributors.html">Contributors</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Getting Started
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="computer_requirements.html">Computer Requirements</a>
+    </li>
+    <li>
+      <a href="downloading_R.html">Downloading R</a>
+    </li>
+    <li>
+      <a href="using_packages.html">Using Packages</a>
+    </li>
+    <li>
+      <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+    </li>
+    <li>
+      <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Github Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Understanding Github</a>
+    </li>
+    <li>
+      <a href="github_tutorial.html">Github Tutorial</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    snRNAseq Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+    <li>
+      <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+    </li>
+    <li>
+      <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    QuPath Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Installing QuPath</a>
+    </li>
+    <li>
+      <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+    </li>
+    <li>
+      <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+    </li>
+    <li>
+      <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Problem Solving
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">QuPath Manual Annotation</h1>
+
+</div>
+
+
+<p><img
+src="Images/qupath/select4.png" /></p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The goal of this tutorial is to provide a step-by-step guide to
+manually annotate cells in QuPath. This tutorial is designed for users
+who are new to QuPath and want to learn how to manually annotate cells
+in <strong>QuPath</strong>.</p>
+<p>In this tutorial we will show how to setup multiple regions of
+interest (ROIs) in QuPath and how to manually annotate cells within each
+ROI. This will enable us to collect data (number of cells, cell shape,
+channel intensity, etc.) on a cell-by-cell basis and analyze the data
+using R.</p>
+</div>
+<div id="video-of-analysis-steps" class="section level1">
+<h1>Video of Analysis Steps</h1>
+<div
+id="here-is-a-video-tutorial-that-i-made-of-each-of-the-steps-of-analysis"
+class="section level2">
+<h2>Here is a video tutorial that I made of each of the steps of
+analysis</h2>
+<p><a href="https://screenrec.com/share/mkX5LSWe7x"
+class="uri">https://screenrec.com/share/mkX5LSWe7x</a></p>
+<p><img
+src="Images/qupath/qupath1_video.png" /></p>
+</div>
+</div>
+<div id="steps-of-analysis" class="section level1">
+<h1>Steps of Analysis</h1>
+<div id="step-1-open-qupath" class="section level2">
+<h2>Step 1: Open QuPath</h2>
+<p><img
+src="Images/qupath/qupath.png" /></p>
+</div>
+<div id="step-2-create-a-new-project" class="section level2">
+<h2>Step 2: Create a New Project</h2>
+<p><img
+src="Images/qupath/create.png" /></p>
+<div id="need-to-create-a-new-empty-folder" class="section level3">
+<h3>Need to create a new empty folder</h3>
+<p><img
+src="Images/qupath/folder.png" /></p>
+</div>
+</div>
+<div id="step-3-drag-image-file-into-qupath" class="section level2">
+<h2>Step 3: Drag image file into QuPath</h2>
+<p><img
+src="Images/qupath/drag1.png" />
+<img
+src="Images/qupath/drag2.png" /></p>
+</div>
+<div id="step-4-change-image-setting" class="section level2">
+<h2>Step 4: Change Image Setting</h2>
+<div id="default-settings" class="section level3">
+<h3>Default Settings</h3>
+<p><img
+src="Images/qupath/settings1.png" /></p>
+</div>
+<div id="using-shift-c" class="section level3">
+<h3>Using <strong>Shift + C</strong></h3>
+<div id="unselect-opal-520" class="section level4">
+<h4>Unselect Opal 520</h4>
+</div>
+<div id="change-sample-af-to-white-left-click-on-color-square"
+class="section level4">
+<h4>Change Sample AF to White: left click on color-square</h4>
+</div>
+<div id="change-opal-570-to-green-left-click-on-color-square"
+class="section level4">
+<h4>Change Opal 570 to Green: left click on color-square</h4>
+<p><img
+src="Images/qupath/settings2.png" /></p>
+</div>
+</div>
+<div id="view-after-zooming-in-on-glomerulus" class="section level3">
+<h3>View after zooming in on Glomerulus</h3>
+<p><img
+src="Images/qupath/settings3.png" /></p>
+</div>
+</div>
+<div id="step-5-draw-roi" class="section level2">
+<h2>Step 5: Draw ROI</h2>
+<div id="super-important" class="section level3">
+<h3>Super-important!!!</h3>
+</div>
+<div id="cant-do-any-analysis-without-defining-roi"
+class="section level3">
+<h3>Can’t do any analysis without defining ROI</h3>
+</div>
+<div id="this-is-using-the-simple-rectangle-tool"
+class="section level3">
+<h3>This is using the simple rectangle tool</h3>
+<p><img
+src="Images/qupath/roi1.png" /></p>
+</div>
+<div id="active-roi-is-outlined-in-yellow" class="section level3">
+<h3>Active ROI is outlined in Yellow</h3>
+<p><img
+src="Images/qupath/roi2.png" /></p>
+</div>
+</div>
+<div id="step-6-cell-detection" class="section level2">
+<h2>Step 6: Cell Detection</h2>
+<div id="super-important-1" class="section level3">
+<h3>Super-important!!!</h3>
+</div>
+<div id="rest-of-analysis-depends-on-cell-annotations"
+class="section level3">
+<h3>Rest of analysis depends on cell annotations</h3>
+</div>
+<div id="analyze-cell-detection-cell-detection" class="section level3">
+<h3>Analyze &gt; Cell detection &gt; Cell detection</h3>
+<p><img
+src="Images/qupath/cell1.png" /></p>
+</div>
+<div id="most-of-the-time-default-settings-ok" class="section level3">
+<h3>Most of the time default settings ok</h3>
+<p><img
+src="Images/qupath/cell2.png" /></p>
+</div>
+<div id="but-double-check-after-outlining-detections"
+class="section level3">
+<h3>But double check after outlining detections</h3>
+<div id="are-there-phantom-cell-detections" class="section level4">
+<h4>Are there phantom cell detections?</h4>
+</div>
+<div id="are-the-majority-of-cells-not-detected" class="section level4">
+<h4>Are the majority of cells not detected?</h4>
+</div>
+<div id="if-so-then-tweek-cell-detection-settings"
+class="section level4">
+<h4>If so, then tweek <strong>Cell detection</strong> settings</h4>
+<p><img
+src="Images/qupath/cell3.png" /></p>
+</div>
+</div>
+<div id="i-change-the-settings-to-remove-nuclei-outline"
+class="section level3">
+<h3>I change the settings to remove nuclei outline</h3>
+</div>
+<div id="right-click-cells-cell-boundries-only" class="section level3">
+<h3>Right click &gt; Cells &gt; Cell boundries only</h3>
+<p><img
+src="Images/qupath/cell4.png" /></p>
+</div>
+</div>
+<div id="step-7-select-cells" class="section level2">
+<h2>Step 7: Select Cells</h2>
+<div
+id="double-click-on-cell-to-select-and-then-hold-down-ctrl-to-select-multiple-cells"
+class="section level3">
+<h3>Double click on cell to select and then hold down ctrl to select
+multiple cells</h3>
+</div>
+<div id="click-on-annotation-tab" class="section level3">
+<h3>Click on Annotation Tab</h3>
+<div id="add-new-class-if-nessesary" class="section level4">
+<h4>Add <strong>new class</strong> if nessesary</h4>
+</div>
+<div id="right-click-addremove-add-class" class="section level4">
+<h4>Right click &gt; Add/Remove &gt; Add class</h4>
+</div>
+</div>
+<div id="click-on-set-selected" class="section level3">
+<h3>click on <strong>Set selected</strong></h3>
+<p><img
+src="Images/qupath/select1.png" /></p>
+</div>
+<div
+id="after-selection-set-the-cells-should-be-the-color-of-the-class-pale-green"
+class="section level3">
+<h3>After selection set the cells should be the color of the class (pale
+green)</h3>
+<p><img
+src="Images/qupath/select2.png" /></p>
+</div>
+<div id="repeat-for-another-class-brown" class="section level3">
+<h3>Repeat for another class (brown)</h3>
+<p><img
+src="Images/qupath/select3.png" /></p>
+</div>
+<div id="after-second-selection" class="section level3">
+<h3>After second selection</h3>
+<p><img
+src="Images/qupath/select4.png" /></p>
+</div>
+</div>
+<div id="step-8-repeat" class="section level2">
+<h2>Step 8: Repeat</h2>
+<div id="repeat-the-previous-steps-for-multiple-rois-in-the-image"
+class="section level3">
+<h3>Repeat the previous steps for multiple ROI’s in the image</h3>
+</div>
+<div id="for-kidney-rnascope-id-like-between-10-20-rois-of-glomeruli"
+class="section level3">
+<h3>For kidney RNAscope I’d like between 10-20 ROI’s of glomeruli</h3>
+</div>
+</div>
+<div id="step-9-export-the-data" class="section level2">
+<h2>Step 9: Export the Data</h2>
+<div id="click-on-show-detection-measurements" class="section level3">
+<h3>Click on <strong>Show detection measurements</strong></h3>
+<p><img
+src="Images/qupath/data1.png" /></p>
+</div>
+<div id="this-pane-shows-the-cells-and-measurements"
+class="section level3">
+<h3>This pane shows the cells and measurements</h3>
+<div
+id="can-click-on-a-cell-in-qupath-yellow-and-it-will-highlight-in-the-pane"
+class="section level4">
+<h4>Can click on a cell in <strong>QuPath</strong> (yellow) and it will
+highlight in the pane</h4>
+<p><img
+src="Images/qupath/data2.png" /></p>
+</div>
+</div>
+<div id="click-on-save-to-save-the-data" class="section level3">
+<h3>Click on <strong>Save</strong> to save the data</h3>
+<p><img
+src="Images/qupath/data3.png" /></p>
+</div>
+<div id="the-data-is-saved-as-a-text-file-.txt" class="section level3">
+<h3>The data is saved as a text file (.txt)</h3>
+<div id="from-here-we-can-upload-into-r-and-analyze-the-data"
+class="section level4">
+<h4>From here we can upload into R and analyze the data</h4>
+<p><img
+src="Images/qupath/data4.png" /></p>
+</div>
+</div>
+</div>
+<div id="step-10-save-project" class="section level2">
+<h2>Step 10: Save Project</h2>
+<div id="file-save-as" class="section level3">
+<h3>File &gt; Save As</h3>
+</div>
+<div id="super-important-2" class="section level3">
+<h3>Super-important!!!</h3>
+</div>
+<div id="we-need-to-document-our-analysis-for-reproducibility"
+class="section level3">
+<h3>We need to document our analysis for reproducibility</h3>
+<p><img
+src="Images/qupath/save.png" /></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

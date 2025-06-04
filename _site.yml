@@ -1,11 +1,15 @@
-name: "Learning R and Bioinformatics"
+name: "Learning Bioinformatics"
 output_dir: "docs"
 
 navbar:
-  title: "Learning R and Bioinformatics"
+  title: "Learning Bioinformatics"
   left:
     - text: "About"
-      href: about.html
+      menu:
+        - text: "About"
+          href: about.html
+        - text: "Contributors"
+          href: contributors.html
     - text: "Getting Started"
       menu:
         - text: "Computer Requirements"
@@ -13,13 +17,44 @@ navbar:
         - text: "Downloading R"
           href: downloading_R.html
         - text: "Using Packages"
-          href: using_packages.html
+          href: using_packages.html        
+        - text: "Jonathan's Best Coding Practices"
+          href: best_practices.html
+        - text: "Jonathan's Rule of Coding"
+          href: rules_of_coding.html
+    - text: "Github Tutorials"
+      menu:
+        - text: "Understanding Github"
+          href: qupath_install.html
         - text: "Github Tutorial"
           href: github_tutorial.html
-    - text: "ROC"
+    - text: "snRNAseq Analysis"
       menu:
+<<<<<<< HEAD
         - text: "ROC 1"
           href: roc_1.html
+=======
+        - text: "Write DEGs to Excel"
+          href: write_degs_excel.html
+        - text: "SCORE: Coding Crumbs"
+          href: coding_crumbs.html
+        - text: "SCORE: Recreating Figures"
+          href: recreating_figures.html 
+    - text: "QuPath Tutorials"
+      menu:
+        - text: "Installing QuPath"
+          href: qupath_install.html
+        - text: "Manual Cell Annotation"
+          href: qupath_manual_annotation.html
+        - text: "Creating Composite Classifications"
+          href: qupath_composite_classifications.html
+        - text: "Analyzing QuPath data in R"
+          href: qupath_analyze_in_r.html
+    - text: "Problem Solving"
+      menu:
+        - text: "Write DEGs to Excel"
+          href: write_degs_excel.html
+>>>>>>> main
 output:
   html_document:
     theme: flatly
