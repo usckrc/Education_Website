@@ -238,12 +238,24 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Learning R and Bioinformatics</a>
+      <a class="navbar-brand" href="index.html">Learning Bioinformatics</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="about.html">About</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    About
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">About</a>
+    </li>
+    <li>
+      <a href="contributors.html">Contributors</a>
+    </li>
+  </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -262,19 +274,79 @@ $(document).ready(function () {
       <a href="using_packages.html">Using Packages</a>
     </li>
     <li>
+      <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+    </li>
+    <li>
+      <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Github Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Understanding Github</a>
+    </li>
+    <li>
       <a href="github_tutorial.html">Github Tutorial</a>
     </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    ROC
+    snRNAseq Analysis
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="roc_1.html">ROC 1</a>
+    </li>
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+    <li>
+      <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+    </li>
+    <li>
+      <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    QuPath Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Installing QuPath</a>
+    </li>
+    <li>
+      <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+    </li>
+    <li>
+      <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+    </li>
+    <li>
+      <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Problem Solving
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
     </li>
   </ul>
 </li>
@@ -701,9 +773,9 @@ probably immune cells because of the unique expression of Ptprc
 ##  [5] pheatmap_1.0.12    ggvenn_0.1.10      lubridate_1.9.4    forcats_1.0.0     
 ##  [9] stringr_1.5.1      purrr_1.0.2        readr_2.1.5        tidyr_1.3.1       
 ## [13] tibble_3.2.1       tidyverse_2.0.0    devtools_2.4.5     usethis_3.1.0     
-## [17] ggpmisc_0.6.1      ggpp_0.5.8-1       ggplot2_3.5.1      knitr_1.49        
-## [21] patchwork_1.3.0    Seurat_5.2.1       SeuratObject_5.0.2 sp_2.1-4          
-## [25] dplyr_1.1.4        here_1.0.1        
+## [17] here_1.0.1         ggpmisc_0.6.1      ggpp_0.5.8-1       ggplot2_3.5.1     
+## [21] knitr_1.49         patchwork_1.3.0    Seurat_5.2.1       SeuratObject_5.0.2
+## [25] sp_2.1-4           dplyr_1.1.4       
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] RColorBrewer_1.1-3     rstudioapi_0.17.1      jsonlite_1.8.9        

@@ -54,7 +54,7 @@ Once you've set your working directory copy and run the following code: **Glom =
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
  
-Glom = read.csv('docs/datasets/Glom_scRNAseq (1).csv',row.names=1)
+Glom = read.csv('docs/Glom_scRNAseq.csv',row.names=1)
 ```
 
 # Step 3: Transforming scRNAseq ".csv" file into a matrix and loading it into Seurat

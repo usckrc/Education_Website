@@ -1,32 +1,198 @@
 ---
-title: ""
-output: 
-  html_document:
-    toc: FALSE
+title: "Coding Crumbs"
+author: "Jonathan Nelson"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: 
+    toc: false
 ---
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
-# Load Packages 
-
-if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
-if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
-if (!require("patchwork")) {install.packages("patchwork"); require("patchwork")}
-if (!require("knitr")) {install.packages("knitr"); require("knitr")}
-if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
-if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
-if (!require("here")) {install.packages("here"); require("here")}
-if (!require("devtools")) {install.packages("devtools"); require("devtools")}
-if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
-if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
-if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
-if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
-if (!require("gplots")) {install.packages("gplots"); require("gplots")}
-if (!require("viridis")) {install.packages("viridis"); require("viridis")}
-if (!require("tibble")) {install.packages("tibble"); require("tibble")}
-
-set.seed((12345))
-#here()
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Coding Crumbs
-## These are coding vignettes that have been presented at SCORE
+
+# Session 1: January 27th, 2025
+
+![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+
+## Who has code that looks like this?
+
+df2 <br>
+df.2 <br>
+df_2 <br>
+Df_2 <br>
+DF_2 <br>
+
+## Type Cases
+
+**Great Article** on Type Cases -> https://www.alexhyett.com/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case/
+
+### Each of these names has a different name
+
+![](`r here::here("Images", "CodingCase.png")`)
+
+## Names Matter!
+
+### Increadible important for R -> **Case Sensative**
+
+### Also increadible important to **be consistent when collaborating** on code
+
+### What is **Consensus in the Community?**
+
+https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
+
+![](`r here::here("Images", "CodingCaseStack.png")`)
+
+### What am I going to do?
+
+I'm trying to consistently use **PascalCase** for my objects in R.
+
+## Take Home
+
+While you have a lot of flexibility in naming objects in R, **I'd encourage you to be more intentional and consistent** with how you decide to name your objects. 
+
+# Session 2: February 24th, 2025
+
+![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+
+## Who has code that looks like this?
+
+![](`r here::here("Images", "Multiple_Objects.png")`)
+
+### That's called the **Multiple Object Option**
+
+### There is also the **Nested Option**
+
+![](`r here::here("Images", "Nested_Option.png")`)
+
+### Or...the **Piping Option**
+
+![](`r here::here("Images", "Piping_Option.png")`)
+
+## Piping
+
+![](`r here::here("Images", "Pipe_logo.png")`)
+
+**Great Article** on Type Piping -> https://uc-r.github.io/pipe <br>
+**Reference** to magrittr package -> https://magrittr.tidyverse.org/
+
+## Piping verbage
+
+![](`r here::here("Images", "Piping_Verbage.png")`)
+
+## Feed into Plots
+
+![](`r here::here("Images", "Pipe_Plots.png")`)
+
+## Integration into other packages
+
+![](`r here::here("Images", "Pipe_Packages.png")`)
+
+## Special Cases
+
+### **%T>%**
+
+![](`r here::here("Images", "Piping_T.png")`)
+
+### **%<>%**
+
+![](`r here::here("Images", "Piping_Compound.png")`)
+
+### **%$%**
+
+![](`r here::here("Images", "Piping_Column.png")`)
+
+## **Take Home**
+
+**Piping** is a great way to **clean up your code** and make it more **readable**!
+
+**Practically**: I usually write code as **multiple objects** and then convert to **piping**.
+
+
+# Session 3: March 31st, 2025
+
+![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+
+## And I **LOVE** clean code
+
+## Confession: **I write ugly code**
+
+## There is **Help**
+
+## Clean legible code is important for reproducibility
+
+### Hadley Wickham's Style Guide
+
+http://adv-r.had.co.nz/Style.html
+
+
+
+### Option 1: **Native R**
+
+### Code > Reformat Code (**Ctrl+Shift+A**)
+
+#### Before
+
+![](`r here::here("Images", "before.png")`)
+
+![](`r here::here("Images", "native_click.png")`)
+
+#### After
+
+![](`r here::here("Images", "after1.png")`)
+
+### Option 2: **Styler Package**
+
+![](`r here::here("Images", "styler_logo.png")`)
+
+https://github.com/r-lib/styler?tab=readme-ov-file
+
+install.packages("styler")
+
+https://www.youtube.com/watch?app=desktop&v=yUA3NpJLH6I&t=220s&t=156
+
+#### Before
+
+![](`r here::here("Images", "before.png")`)
+
+#### After
+
+![](`r here::here("Images", "styler_click.png")`)
+
+
+![](`r here::here("Images", "after2.png")`)
+
+### Option 3: **ChatGPT**
+
+![](`r here::here("Images", "chat_prompt.png")`)
+
+#### Before
+
+![](`r here::here("Images", "before.png")`)
+
+##### After
+
+![](`r here::here("Images", "after3.png")`)
+
+![](`r here::here("Images", "chat_notes.png")`)
+
+## **Take Home**
+
+### **Styling** your code is important
+### But spend your time **thinking about the logic** of your code
+### **Styler** is a great tool to help with minimal effort
+### **ChatGPT** is also a great tool to help
+### I'm going to try to run my code through **chatGPT** before publishing it
+
+# Session 4: June 30th, 2025
+
+
+# Session 5: July 28th, 2025
+
+
+```{r echo=TRUE, warning=FALSE, error=FALSE, message=FALSE, fig.align = 'center'}
+
+sessionInfo()
+```
