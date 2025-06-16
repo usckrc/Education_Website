@@ -5,6 +5,10 @@ output:
     toc: FALSE
 ---
 
+# Recreating Figures
+## These are coding vignettes that have been presented at SCORE
+# Let's Recreate a Figure!
+
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 # Load Packages 
 
@@ -28,6 +32,13 @@ set.seed((12345))
 #here()
 ```
 
+# Session 1: January 27th, 2025
 
-# Recreating Figures
-## These are coding vignettes that have been presented at SCORE
+# Session 3: March 31st, 2025
+
+
+# Session 4: June 30th, 2025
+
+
+# Session 5: July 28th, 2025
+

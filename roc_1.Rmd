@@ -3,6 +3,7 @@ title: "ROC 1"
 output: 
   html_document:
     toc: FALSE
+    code_folding: hide
 ---
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
@@ -52,7 +53,7 @@ Once you've set your working directory copy and run the following code: **Glom =
 
 ![](`r here::here("Images", "ROC_1_Screenshot 2.png")`)
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=FALSE}
  
 Glom = read.csv('docs/datasets/Glom_scRNAseq (1).csv',row.names=1)
 ```
@@ -63,14 +64,14 @@ We will next convert the ".csv" file into a data matrix that is able to be uploa
 
 ![](`r here::here("Images", "ROC_1_Screenshot 3.png")`)
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom = data.matrix(Glom)
 ```
 
 Next we will run a "Sanity check" to make sure our Matrix file is formatted correctly. Run the following code **Glom[1:5,1:5]** to see the first 5 rows and columns of the matrix in the console window. Top row should be bar codes and first column should be gene names, as seen below.
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom[1:5,1:5]
 ```
@@ -81,7 +82,7 @@ Next we will load this data into Seurat and create our Seurat Object. Run the fo
 
 The object in the Environment window will change to be a "Large Seurat"
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom <- CreateSeuratObject(counts = Glom, project = "ROC_Glom", min.cells = 3, min.features = 200)
 ```
@@ -90,7 +91,7 @@ Glom <- CreateSeuratObject(counts = Glom, project = "ROC_Glom", min.cells = 3, m
 
 This is our first filtering step. The code selects only genes that are expressed in at least 3 cells and cells that express at least 200 genes. Next we will run another sanity check to see how many cells and genes were filtered by running the following code **Glom**.
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom 
 ```
@@ -101,7 +102,7 @@ You should now get an output with 3035 Samples (cells) by 16991 Features (genes)
 
 Run the following code **Glom[["percent.mt"]] <- PercentageFeatureSet(Glom, pattern = "^mt-")** to create a new meta.data feature in the Seurat object that measures how much mitochondrial DNA there is in each cell.
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom[["percent.mt"]] <- PercentageFeatureSet(Glom, pattern = "^mt-")
 ```
@@ -112,7 +113,7 @@ nFeature_RNA is the number of differing genes detected in each cell, nCount_RNA 
 
 The graph you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 ```
@@ -121,7 +122,7 @@ Now we will interpret this information to filter out doublets and damaged cells 
 
 High nFeature_RNA or nCount_RNA could equate to doublets or mixed cell debris. We will filter out cells with more than 2000 genes and 4000 mRNA molecules to exclude potential doublets or mixed cell debris. High percent.mt could equate to damaged cells. We will filter out cells with more than 20% mitochondrial content to exclude damaged cells.
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom <- subset(Glom, subset = nFeature_RNA < 2000 & nCount_RNA < 4000 & percent.mt < 20)
 ```
@@ -130,14 +131,14 @@ Now we will replot the graphs to visualize the plots again with the newly filter
 
 The new graph should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 ```
 
 Next we will run another sanity check to see how many cells and genes were filtered from the previous command by running **Glom**. 
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom
 ```
@@ -155,7 +156,7 @@ Run the following code
 
 This normalizes the matrix and creates a plot of the genes that are the most variable in the dataset.
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom <- NormalizeData(Glom, normalization.method = "LogNormalize", scale.factor = 10000)
 
@@ -168,7 +169,7 @@ Next we can identify the 10 most highly variable genes by creating a new object 
 
 The top 10 genes I got were as follows: 
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 top10 <- head(VariableFeatures(Glom), 10)
 
@@ -185,7 +186,7 @@ Next we can create a plot of the variable features within the dataset and label 
 
 The graph you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 plot1 <- VariableFeaturePlot(Glom)
 
@@ -208,7 +209,7 @@ Run the following code:
 
 This calculates the principal components and then prints the 5 genes that drive the first 5 principal components.
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 all.genes <- rownames(Glom)
 
@@ -229,7 +230,7 @@ This line visualizes the genes driving the first 2 PCA dimensions:
 
 The graph you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 VizDimLoadings(Glom, dims = 1:2, reduction = "pca")
 ```
@@ -241,7 +242,7 @@ Next, this line visualizes the scRNAseq dataset as a PCA (hopefully you can appr
 
 The graph you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 DimPlot(Glom, reduction = "pca")
 ```
@@ -252,7 +253,7 @@ Lastly, this line creates a heatmap of the top 500 genes that drive the first 2 
 
 The heatmap you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 DimHeatmap(Glom, dims = 10:11, cells = 500, balanced = TRUE)
 ```
@@ -263,7 +264,7 @@ This plot shows the variability and helps to decide how many PCA dimensions to u
 
 The elbowplot you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 ElbowPlot(Glom)
 ```
@@ -280,7 +281,7 @@ These lines control the resolution of the clusters and the number of separate po
 
 **Glom <- RunUMAP(Glom, dims = 1:10)**
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom <- FindNeighbors(Glom, dims = 1:10)
 
@@ -295,7 +296,7 @@ This line generates the UMAP visualization. How many clusters do you see? Do the
 
 The plot you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 DimPlot(Glom, reduction = "umap")
 ```
@@ -308,7 +309,7 @@ This line generates the UMAP visualization. How many clusters do you see? Do the
 
 **DimPlot(Glom2, reduction = "umap")**
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom2 <- FindClusters(Glom, resolution = 0.3)
 
@@ -317,7 +318,7 @@ Glom2 <- RunUMAP(Glom2, dims = 1:10)
 
 The dimplot you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 DimPlot(Glom2, reduction = "umap")
 ```
@@ -336,7 +337,7 @@ Run the following code:
 
 **DoHeatmap(Glom, features = top5$gene)**
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom.markers <- FindAllMarkers(Glom, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 
@@ -347,7 +348,7 @@ top5 <- Glom.markers %>% group_by(cluster) %>% top_n(5, avg_log2FC)
 
 The heatmap you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 DoHeatmap(Glom, features = top5$gene) 
 ```
@@ -367,7 +368,7 @@ Run the following code to visulaize the markers in each cluster:
 
 The graph you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
 ```
@@ -386,7 +387,7 @@ Now that we think that We know the cluster identifiers, we will insert that meta
 
 The dimplot you get should now look like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 new.cluster.ids <- c("Podo", "Endo", "Tubule", "Mural")
 
@@ -403,7 +404,7 @@ These labels will now follow each cluster on any visualization we do. See how th
 
 The graph you get should now look like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
 ```
@@ -420,7 +421,7 @@ Next we can visualize the expression of each gene on the UMAP diagram by running
 
 The series of feature plots you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 FeaturePlot(Glom, features = c("Nphs2"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
 FeaturePlot(Glom, features = c("Pecam1"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
@@ -434,7 +435,7 @@ Using the following code we can highlight a "hidden cluster" that is probably im
 
 The feature plot you get should look something like this:
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 FeaturePlot(Glom, features = c("Ptprc"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
 ```
