@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Jonathan Nelson" />
+
+<meta name="date" content="2025-06-16" />
+
+<title>Coding Crumbs</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Learning Bioinformatics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    About
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">About</a>
+    </li>
+    <li>
+      <a href="contributors.html">Contributors</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Getting Started
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="computer_requirements.html">Computer Requirements</a>
+    </li>
+    <li>
+      <a href="downloading_R.html">Downloading R</a>
+    </li>
+    <li>
+      <a href="using_packages.html">Using Packages</a>
+    </li>
+    <li>
+      <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+    </li>
+    <li>
+      <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Github Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Understanding Github</a>
+    </li>
+    <li>
+      <a href="github_tutorial.html">Github Tutorial</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    snRNAseq Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="roc_1.html">ROC 1</a>
+    </li>
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+    <li>
+      <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+    </li>
+    <li>
+      <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    QuPath Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Installing QuPath</a>
+    </li>
+    <li>
+      <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+    </li>
+    <li>
+      <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+    </li>
+    <li>
+      <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Problem Solving
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Coding Crumbs</h1>
+<h4 class="author">Jonathan Nelson</h4>
+<h4 class="date">16 June 2025</h4>
+
+</div>
+
+
+<div id="coding-crumbs" class="section level1">
+<h1>Coding Crumbs</h1>
+</div>
+<div id="session-1-january-27th-2025" class="section level1">
+<h1>Session 1: January 27th, 2025</h1>
+<p><img
+src="Images/Coding_Crumbs2.webp" /></p>
+<div id="who-has-code-that-looks-like-this" class="section level2">
+<h2>Who has code that looks like this?</h2>
+<p>df2 <br> df.2 <br> df_2 <br> Df_2 <br> DF_2 <br></p>
+</div>
+<div id="type-cases" class="section level2">
+<h2>Type Cases</h2>
+<p><strong>Great Article</strong> on Type Cases -&gt; <a
+href="https://www.alexhyett.com/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case/"
+class="uri">https://www.alexhyett.com/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case/</a></p>
+<div id="each-of-these-names-has-a-different-name"
+class="section level3">
+<h3>Each of these names has a different name</h3>
+<p><img
+src="Images/CodingCase.png" /></p>
+</div>
+</div>
+<div id="names-matter" class="section level2">
+<h2>Names Matter!</h2>
+<div id="increadible-important-for-r---case-sensative"
+class="section level3">
+<h3>Increadible important for R -&gt; <strong>Case
+Sensative</strong></h3>
+</div>
+<div
+id="also-increadible-important-to-be-consistent-when-collaborating-on-code"
+class="section level3">
+<h3>Also increadible important to <strong>be consistent when
+collaborating</strong> on code</h3>
+</div>
+<div id="what-is-consensus-in-the-community" class="section level3">
+<h3>What is <strong>Consensus in the Community?</strong></h3>
+<p><a
+href="https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r"
+class="uri">https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r</a></p>
+<p><img
+src="Images/CodingCaseStack.png" /></p>
+</div>
+<div id="what-am-i-going-to-do" class="section level3">
+<h3>What am I going to do?</h3>
+<p>I’m trying to consistently use <strong>PascalCase</strong> for my
+objects in R.</p>
+</div>
+</div>
+<div id="take-home" class="section level2">
+<h2>Take Home</h2>
+<p>While you have a lot of flexibility in naming objects in R,
+<strong>I’d encourage you to be more intentional and consistent</strong>
+with how you decide to name your objects.</p>
+</div>
+</div>
+<div id="session-2-february-24th-2025" class="section level1">
+<h1>Session 2: February 24th, 2025</h1>
+<p><img
+src="Images/Coding_Crumbs2.webp" /></p>
+<div id="who-has-code-that-looks-like-this-1" class="section level2">
+<h2>Who has code that looks like this?</h2>
+<p><img
+src="Images/Multiple_Objects.png" /></p>
+<div id="thats-called-the-multiple-object-option"
+class="section level3">
+<h3>That’s called the <strong>Multiple Object Option</strong></h3>
+</div>
+<div id="there-is-also-the-nested-option" class="section level3">
+<h3>There is also the <strong>Nested Option</strong></h3>
+<p><img
+src="Images/Nested_Option.png" /></p>
+</div>
+<div id="orthe-piping-option" class="section level3">
+<h3>Or…the <strong>Piping Option</strong></h3>
+<p><img
+src="Images/Piping_Option.png" /></p>
+</div>
+</div>
+<div id="piping" class="section level2">
+<h2>Piping</h2>
+<p><img
+src="Images/Pipe_logo.png" /></p>
+<p><strong>Great Article</strong> on Type Piping -&gt; <a
+href="https://uc-r.github.io/pipe"
+class="uri">https://uc-r.github.io/pipe</a> <br>
+<strong>Reference</strong> to magrittr package -&gt; <a
+href="https://magrittr.tidyverse.org/"
+class="uri">https://magrittr.tidyverse.org/</a></p>
+</div>
+<div id="piping-verbage" class="section level2">
+<h2>Piping verbage</h2>
+<p><img
+src="Images/Piping_Verbage.png" /></p>
+</div>
+<div id="feed-into-plots" class="section level2">
+<h2>Feed into Plots</h2>
+<p><img
+src="Images/Pipe_Plots.png" /></p>
+</div>
+<div id="integration-into-other-packages" class="section level2">
+<h2>Integration into other packages</h2>
+<p><img
+src="Images/Pipe_Packages.png" /></p>
+</div>
+<div id="special-cases" class="section level2">
+<h2>Special Cases</h2>
+<div id="t" class="section level3">
+<h3><strong>%T&gt;%</strong></h3>
+<p><img
+src="Images/Piping_T.png" /></p>
+</div>
+<div id="section" class="section level3">
+<h3><strong>%&lt;&gt;%</strong></h3>
+<p><img
+src="Images/Piping_Compound.png" /></p>
+</div>
+<div id="section-1" class="section level3">
+<h3><strong>%$%</strong></h3>
+<p><img
+src="Images/Piping_Column.png" /></p>
+</div>
+</div>
+<div id="take-home-1" class="section level2">
+<h2><strong>Take Home</strong></h2>
+<p><strong>Piping</strong> is a great way to <strong>clean up your
+code</strong> and make it more <strong>readable</strong>!</p>
+<p><strong>Practically</strong>: I usually write code as
+<strong>multiple objects</strong> and then convert to
+<strong>piping</strong>.</p>
+</div>
+</div>
+<div id="session-3-march-31st-2025" class="section level1">
+<h1>Session 3: March 31st, 2025</h1>
+<p><img
+src="Images/Coding_Crumbs2.webp" /></p>
+<div id="and-i-love-clean-code" class="section level2">
+<h2>And I <strong>LOVE</strong> clean code</h2>
+</div>
+<div id="confession-i-write-ugly-code" class="section level2">
+<h2>Confession: <strong>I write ugly code</strong></h2>
+</div>
+<div id="there-is-help" class="section level2">
+<h2>There is <strong>Help</strong></h2>
+</div>
+<div id="clean-legible-code-is-important-for-reproducibility"
+class="section level2">
+<h2>Clean legible code is important for reproducibility</h2>
+<div id="hadley-wickhams-style-guide" class="section level3">
+<h3>Hadley Wickham’s Style Guide</h3>
+<p><a href="http://adv-r.had.co.nz/Style.html"
+class="uri">http://adv-r.had.co.nz/Style.html</a></p>
+</div>
+<div id="option-1-native-r" class="section level3">
+<h3>Option 1: <strong>Native R</strong></h3>
+</div>
+<div id="code-reformat-code-ctrlshifta" class="section level3">
+<h3>Code &gt; Reformat Code (<strong>Ctrl+Shift+A</strong>)</h3>
+<div id="before" class="section level4">
+<h4>Before</h4>
+<p><img
+src="Images/before.png" /></p>
+<p><img
+src="Images/native_click.png" /></p>
+</div>
+<div id="after" class="section level4">
+<h4>After</h4>
+<p><img
+src="Images/after1.png" /></p>
+</div>
+</div>
+<div id="option-2-styler-package" class="section level3">
+<h3>Option 2: <strong>Styler Package</strong></h3>
+<p><img
+src="Images/styler_logo.png" /></p>
+<p><a href="https://github.com/r-lib/styler?tab=readme-ov-file"
+class="uri">https://github.com/r-lib/styler?tab=readme-ov-file</a></p>
+<p>install.packages(“styler”)</p>
+<p><a
+href="https://www.youtube.com/watch?app=desktop&amp;v=yUA3NpJLH6I&amp;t=220s&amp;t=156"
+class="uri">https://www.youtube.com/watch?app=desktop&amp;v=yUA3NpJLH6I&amp;t=220s&amp;t=156</a></p>
+<div id="before-1" class="section level4">
+<h4>Before</h4>
+<p><img
+src="Images/before.png" /></p>
+</div>
+<div id="after-1" class="section level4">
+<h4>After</h4>
+<p><img
+src="Images/styler_click.png" /></p>
+<p><img
+src="Images/after2.png" /></p>
+</div>
+</div>
+<div id="option-3-chatgpt" class="section level3">
+<h3>Option 3: <strong>ChatGPT</strong></h3>
+<p><img
+src="Images/chat_prompt.png" /></p>
+<div id="before-2" class="section level4">
+<h4>Before</h4>
+<p><img
+src="Images/before.png" /></p>
+<div id="after-2" class="section level5">
+<h5>After</h5>
+<p><img
+src="Images/after3.png" /></p>
+<p><img
+src="Images/chat_notes.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="take-home-2" class="section level2">
+<h2><strong>Take Home</strong></h2>
+<div id="styling-your-code-is-important" class="section level3">
+<h3><strong>Styling</strong> your code is important</h3>
+</div>
+<div id="but-spend-your-time-thinking-about-the-logic-of-your-code"
+class="section level3">
+<h3>But spend your time <strong>thinking about the logic</strong> of
+your code</h3>
+</div>
+<div id="styler-is-a-great-tool-to-help-with-minimal-effort"
+class="section level3">
+<h3><strong>Styler</strong> is a great tool to help with minimal
+effort</h3>
+</div>
+<div id="chatgpt-is-also-a-great-tool-to-help" class="section level3">
+<h3><strong>ChatGPT</strong> is also a great tool to help</h3>
+</div>
+<div
+id="im-going-to-try-to-run-my-code-through-chatgpt-before-publishing-it"
+class="section level3">
+<h3>I’m going to try to run my code through <strong>chatGPT</strong>
+before publishing it</h3>
+</div>
+</div>
+</div>
+<div id="session-4-june-30th-2025" class="section level1">
+<h1>Session 4: June 30th, 2025</h1>
+</div>
+<div id="session-5-july-28th-2025" class="section level1">
+<h1>Session 5: July 28th, 2025</h1>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 4.4.2 (2024-10-31)
+## Platform: aarch64-apple-darwin20
+## Running under: macOS Sequoia 15.1
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## time zone: America/Los_Angeles
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  methods  
+## [8] base     
+## 
+## other attached packages:
+##  [1] viridis_0.6.5      viridisLite_0.4.2  gplots_3.2.0       reshape2_1.4.4    
+##  [5] pheatmap_1.0.12    ggvenn_0.1.10      lubridate_1.9.4    forcats_1.0.0     
+##  [9] stringr_1.5.1      purrr_1.0.2        readr_2.1.5        tidyr_1.3.1       
+## [13] tibble_3.2.1       tidyverse_2.0.0    devtools_2.4.5     usethis_3.1.0     
+## [17] here_1.0.1         ggpmisc_0.6.1      ggpp_0.5.8-1       ggplot2_3.5.1     
+## [21] knitr_1.49         patchwork_1.3.0    Seurat_5.2.1       SeuratObject_5.0.2
+## [25] sp_2.1-4           dplyr_1.1.4       
+## 
+## loaded via a namespace (and not attached):
+##   [1] RColorBrewer_1.1-3     rstudioapi_0.17.1      jsonlite_1.8.9        
+##   [4] magrittr_2.0.3         spatstat.utils_3.1-2   farver_2.1.2          
+##   [7] rmarkdown_2.29         fs_1.6.5               vctrs_0.6.5           
+##  [10] ROCR_1.0-11            memoise_2.0.1          spatstat.explore_3.3-4
+##  [13] htmltools_0.5.8.1      polynom_1.4-1          sass_0.4.9            
+##  [16] sctransform_0.4.1      parallelly_1.41.0      KernSmooth_2.23-24    
+##  [19] bslib_0.8.0            htmlwidgets_1.6.4      ica_1.0-3             
+##  [22] plyr_1.8.9             plotly_4.10.4          zoo_1.8-12            
+##  [25] cachem_1.1.0           igraph_2.1.4           mime_0.12             
+##  [28] lifecycle_1.0.4        pkgconfig_2.0.3        Matrix_1.7-1          
+##  [31] R6_2.5.1               fastmap_1.2.0          fitdistrplus_1.2-2    
+##  [34] future_1.34.0          shiny_1.10.0           digest_0.6.37         
+##  [37] colorspace_2.1-1       rprojroot_2.0.4        tensor_1.5            
+##  [40] RSpectra_0.16-2        irlba_2.3.5.1          pkgload_1.4.0         
+##  [43] progressr_0.15.1       timechange_0.3.0       spatstat.sparse_3.1-0 
+##  [46] httr_1.4.7             polyclip_1.10-7        abind_1.4-8           
+##  [49] compiler_4.4.2         remotes_2.5.0          withr_3.0.2           
+##  [52] fastDummies_1.7.5      pkgbuild_1.4.6         MASS_7.3-61           
+##  [55] quantreg_5.99.1        sessioninfo_1.2.2      caTools_1.18.3        
+##  [58] gtools_3.9.5           tools_4.4.2            lmtest_0.9-40         
+##  [61] httpuv_1.6.15          future.apply_1.11.3    goftest_1.2-3         
+##  [64] glue_1.8.0             nlme_3.1-166           promises_1.3.2        
+##  [67] Rtsne_0.17             cluster_2.1.6          generics_0.1.3        
+##  [70] gtable_0.3.6           spatstat.data_3.1-4    tzdb_0.4.0            
+##  [73] hms_1.1.3              data.table_1.16.4      spatstat.geom_3.3-5   
+##  [76] RcppAnnoy_0.0.22       ggrepel_0.9.6          RANN_2.6.2            
+##  [79] pillar_1.10.1          spam_2.11-1            RcppHNSW_0.6.0        
+##  [82] later_1.4.1            splines_4.4.2          lattice_0.22-6        
+##  [85] survival_3.7-0         deldir_2.0-4           SparseM_1.84-2        
+##  [88] tidyselect_1.2.1       miniUI_0.1.1.1         pbapply_1.7-2         
+##  [91] gridExtra_2.3          scattermore_1.2        xfun_0.50             
+##  [94] matrixStats_1.5.0      stringi_1.8.4          lazyeval_0.2.2        
+##  [97] yaml_2.3.10            evaluate_1.0.3         codetools_0.2-20      
+## [100] cli_3.6.3              uwot_0.2.2             xtable_1.8-4          
+## [103] reticulate_1.40.0      munsell_0.5.1          jquerylib_0.1.4       
+## [106] Rcpp_1.0.14            globals_0.16.3         spatstat.random_3.3-2 
+## [109] png_0.1-8              spatstat.univar_3.1-1  parallel_4.4.2        
+## [112] MatrixModels_0.5-3     ellipsis_0.3.2         dotCall64_1.2         
+## [115] profvis_0.4.0          urlchecker_1.0.1       bitops_1.0-9          
+## [118] listenv_0.9.1          scales_1.3.0           ggridges_0.5.6        
+## [121] rlang_1.1.5            cowplot_1.1.3</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
