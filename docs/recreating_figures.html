@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Paged maintained by Sienna Blanche" />
 
+<meta name="date" content="2025-06-23" />
 
-<title>recreating_figures.knit</title>
+<title>Recreating Figures</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +31,13 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -42,18 +48,119 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
   }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
 </script>
-
-
 
 
 
@@ -216,7 +323,73 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
 
 
 
@@ -226,6 +399,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -360,24 +543,242 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
+
+<h1 class="title toc-ignore">Recreating Figures</h1>
+<h4 class="author">Paged maintained by Sienna Blanche</h4>
+<h4 class="date">23 June 2025</h4>
 
 </div>
 
 
-<div id="recreating-figures" class="section level1">
-<h1>Recreating Figures</h1>
 <div id="these-are-coding-vignettes-that-have-been-presented-at-score"
 class="section level2">
 <h2>These are coding vignettes that have been presented at SCORE</h2>
-</div>
 </div>
 <div id="lets-recreate-a-figure" class="section level1">
 <h1>Let’s Recreate a Figure!</h1>
 </div>
 <div id="session-1-january-27th-2025" class="section level1">
 <h1>Session 1: January 27th, 2025</h1>
+<p><img
+src="Images/Replica.png" /></p>
+<div id="venn-diagrams" class="section level3">
+<h3>Venn Diagrams</h3>
+<p><img
+src="Images/Potter.png" /></p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/28851704/"
+class="uri">https://pubmed.ncbi.nlm.nih.gov/28851704/</a></p>
+<div id="packages-i-use" class="section level4">
+<h4>Packages I Use</h4>
+<p><strong>ggvenn</strong> -&gt; Good for visualizing plots</p>
+<p><a href="https://github.com/NicolasH2/ggvenn"
+class="uri">https://github.com/NicolasH2/ggvenn</a></p>
+<p><strong>gplots</strong> -&gt; Good for identifying genes in
+categories</p>
+<p><a href="https://talgalili.github.io/gplots/index.html"
+class="uri">https://talgalili.github.io/gplots/index.html</a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;gplots&quot;</span>)) {<span class="fu">install.packages</span>(<span class="st">&quot;gplots&quot;</span>); <span class="fu">require</span>(<span class="st">&quot;gplots&quot;</span>)}</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ggvenn&quot;</span>)) {<span class="fu">install.packages</span>(<span class="st">&quot;ggvenn&quot;</span>); <span class="fu">require</span>(<span class="st">&quot;ggvenn&quot;</span>)}</span></code></pre></div>
+</div>
+</div>
+<div id="deg-lists" class="section level2">
+<h2>DEG Lists</h2>
+<p><img
+src="Images/DEGlists.png" /></p>
+<div id="make-the-lists" class="section level3">
+<h3>Make the Lists</h3>
+<p><strong>ggvenn package</strong></p>
+<p><strong>Maximum of 7 comparisons</strong>, but really…is it possible
+to read that many? Better to do and <strong>Upset Plot</strong> (Next
+SCORE?)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>set1 <span class="ot">&lt;-</span> <span class="fu">rownames</span>(DEGA)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>set2 <span class="ot">&lt;-</span> <span class="fu">rownames</span>(DEGB)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>venn <span class="ot">&lt;-</span> <span class="fu">ggvenn</span>(<span class="fu">list</span>(<span class="at">DEGA =</span> set1, <span class="at">DEGB =</span> set2))</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">print</span>(venn)</span></code></pre></div>
+<p><img
+src="Images/Venn1.png" /></p>
+</div>
+<div id="find-the-intersections" class="section level3">
+<h3>Find the Intersections</h3>
+<p><strong>gplots package</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>lst <span class="ot">&lt;-</span> <span class="fu">list</span>(set1, set2)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>ItemsList <span class="ot">&lt;-</span> <span class="fu">venn</span>(lst, <span class="at">show.plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">attributes</span>(ItemsList)<span class="sc">$</span>intersections</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">head</span>(test<span class="sc">$</span>A, <span class="dv">5</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="fu">head</span>(test<span class="sc">$</span>B, <span class="dv">5</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="fu">head</span>(test<span class="sc">$</span><span class="st">&#39;A:B&#39;</span>, <span class="dv">5</span>)</span></code></pre></div>
+<p><img
+src="Images/Venn2.png" /></p>
+</div>
+</div>
+</div>
+<div id="session-2-february-24th-2025" class="section level1">
+<h1>Session 2: February 24th, 2025</h1>
+<p><img
+src="Images/Replica.png" /></p>
+<div id="upset-plots" class="section level2">
+<h2>Upset Plots</h2>
+<div id="complicated-venn-diagrams" class="section level3">
+<h3>Complicated Venn Diagrams</h3>
+<p><img
+src="Images/Potter.png" /></p>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/28851704/"
+class="uri">https://pubmed.ncbi.nlm.nih.gov/28851704/</a></p>
+</div>
+<div id="simplify-intersections-with-upset-plots"
+class="section level3">
+<h3>Simplify Intersections with Upset Plots</h3>
+<p><img
+src="Images/Upset_Example.png" /></p>
+<p><a href="https://www.nature.com/articles/s41467-022-32972-z"
+class="uri">https://www.nature.com/articles/s41467-022-32972-z</a></p>
+</div>
+<div id="packages-i-use-1" class="section level3">
+<h3>Packages I Use</h3>
+<p><strong>UpSetR</strong> <br> <strong>ComplexHeatmap</strong> <br></p>
+<p><a
+href="https://jokergoo.github.io/ComplexHeatmap-reference/book/upset-plot.html"
+class="uri">https://jokergoo.github.io/ComplexHeatmap-reference/book/upset-plot.html</a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;UpSetR&quot;</span>)) {<span class="fu">install.packages</span>(<span class="st">&quot;UpSetR&quot;</span>); <span class="fu">require</span>(<span class="st">&quot;UpSetR&quot;</span>)}</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;ComplexHeatmap&quot;</span>)) {<span class="fu">install.packages</span>(<span class="st">&quot;ComplexHeatmap&quot;</span>); <span class="fu">require</span>(<span class="st">&quot;ComplexHeatmap&quot;</span>)}</span></code></pre></div>
+</div>
+<div id="steps" class="section level3">
+<h3>Steps</h3>
+<ol start="0" style="list-style-type: decimal">
+<li>Create DEG lists <br></li>
+<li>Organize a set of lists <br></li>
+<li>Make Combination Matrix <br></li>
+<li>Plot the Upset Plot <br></li>
+</ol>
+</div>
+<div id="real-world-example" class="section level3">
+<h3>Real World Example</h3>
+<p>FindAllMarkers -&gt; Upset Plot</p>
+<div id="proximal-tubule-cells-of-the-kidney-after-injury"
+class="section level4">
+<h4>Proximal Tubule Cells of the Kidney after Injury</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>SO <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">here</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;All_PT.rds&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(<span class="at">object =</span> SO)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">FindVariableFeatures</span>(<span class="at">object =</span> SO2)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">ScaleData</span>(<span class="at">object =</span> SO2)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">RunPCA</span>(<span class="at">object =</span> SO2)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">FindNeighbors</span>(<span class="at">object =</span> SO2, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">RunUMAP</span>(<span class="at">object =</span> SO2, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">Idents</span>(SO2) <span class="ot">&lt;-</span> SO2<span class="sc">@</span>meta.data<span class="sc">$</span>subclass.All</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>SO<span class="sc">@</span>meta.data<span class="sc">$</span>subclass.All <span class="ot">&lt;-</span> <span class="fu">factor</span>(SO<span class="sc">@</span>meta.data<span class="sc">$</span>subclass.All, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;PTS1&quot;</span>, <span class="st">&quot;PTS2&quot;</span>, <span class="st">&quot;PTS3&quot;</span>, <span class="st">&quot;PTinj&quot;</span>)) </span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="fu">Idents</span>(SO) <span class="ot">&lt;-</span> SO<span class="sc">@</span>meta.data<span class="sc">$</span>subclass.All</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="fu">DimPlot</span>(SO)<span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;UMAP 2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;UMAP 1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>    <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),          <span class="co"># Remove axis text</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),         <span class="co"># Optional: Remove axis ticks</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Proximal Tubule Cell Types&quot;</span>) </span></code></pre></div>
+</div>
+<div id="step-0-findallmarkers-to-create-deg-lists"
+class="section level4">
+<h4>Step 0: FindAllMarkers to Create DEG Lists</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(SO, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.25</span>, <span class="at">logfc.threshold =</span> <span class="fl">0.25</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">wt =</span> avg_log2FC)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>top5 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(gene, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">5</span>, avg_log2FC)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="fu">DoHeatmap</span>(SO2, <span class="at">features =</span> top5<span class="sc">$</span>gene) <span class="sc">+</span> <span class="fu">NoLegend</span>()</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="fu">DotPlot</span>(SO,</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>        <span class="at">features =</span> top5<span class="sc">$</span>gene,</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>        <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;#0099ff&quot;</span>, <span class="st">&quot;#dc143c&quot;</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>        <span class="at">dot.scale =</span> <span class="dv">8</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>           <span class="at">dot.min =</span> <span class="dv">0</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>           <span class="at">scale.max =</span> <span class="dv">100</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>           <span class="at">scale.min =</span> <span class="dv">0</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>           <span class="at">col.min =</span> <span class="sc">-</span><span class="fl">2.5</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>           <span class="at">col.max =</span> <span class="fl">2.5</span>) <span class="sc">+</span> </span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a> <span class="co"># scale_y_discrete(limits = c(Prol&quot;MD&quot;, &quot;TAL β&quot;, &quot;TAL α&quot;)) + </span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(),</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)) <span class="sc">+</span> </span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>  <span class="fu">RotatedAxis</span>() <span class="sc">+</span> </span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Top 5 Proximal Tubule DEG&quot;</span>) </span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a>?DoHeatmap</span></code></pre></div>
+</div>
+<div id="step-1-split-the-dataframe-into-lists" class="section level4">
+<h4>Step 1: <strong>Split</strong> the dataframe into lists</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>clustered_genes <span class="ot">&lt;-</span> <span class="fu">split</span>(df<span class="sc">$</span>gene, df<span class="sc">$</span>cluster)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">str</span>(clustered_genes)</span></code></pre></div>
+</div>
+<div id="step-2-create-a-matrix" class="section level4">
+<h4>Step 2: <strong>Create</strong> a matrix</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">list_to_matrix</span>(clustered_genes)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">list_to_matrix</span>(clustered_genes)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">head</span>(df2)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>m1 <span class="ot">&lt;-</span>  <span class="fu">make_comb_mat</span>(clustered_genes)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>m1</span></code></pre></div>
+</div>
+<div id="step-3-plot-the-upset-plot" class="section level4">
+<h4>Step 3: <strong>Plot</strong> the Upset Plot</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">UpSet</span>(m1, <span class="at">set_order =</span> <span class="fu">c</span>(<span class="st">&quot;PTS1&quot;</span>, <span class="st">&quot;PTS2&quot;</span>, <span class="st">&quot;PTS3&quot;</span>, <span class="st">&quot;PTinj&quot;</span>), <span class="at">comb_order =</span> <span class="fu">order</span>(<span class="fu">comb_size</span>(m1)))</span></code></pre></div>
+</div>
+</div>
+<div id="extract-information" class="section level3">
+<h3>Extract information</h3>
+<div id="extract-pts1" class="section level4">
+<h4>Extract PTS1</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">extract_comb</span>(m1,<span class="st">&quot;1000&quot;</span>)</span></code></pre></div>
+</div>
+<div id="sanity-check" class="section level4">
+<h4>Sanity Check</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">VlnPlot</span>(SO, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;0610040J01Rik&quot;</span>), <span class="at">pt.size =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">1</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>        ) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) </span></code></pre></div>
+</div>
+<div id="extract-pts2pts3" class="section level4">
+<h4>Extract PTS2:PTS3</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">extract_comb</span>(m1,<span class="st">&quot;0110&quot;</span>)</span></code></pre></div>
+</div>
+<div id="sanity-check-1" class="section level4">
+<h4>Sanity Check</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">VlnPlot</span>(SO, <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;0610005C13Rik&quot;</span>), <span class="at">pt.size =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">size =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">20</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="dv">1</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>        ) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) </span></code></pre></div>
+</div>
+</div>
+</div>
 </div>
 <div id="session-3-march-31st-2025" class="section level1">
 <h1>Session 3: March 31st, 2025</h1>
@@ -391,6 +792,8 @@ class="section level2">
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -422,7 +825,41 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

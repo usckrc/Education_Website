@@ -1,9 +1,19 @@
 ---
 title: "ROC 1"
-output: 
-  html_document:
-    toc: FALSE
+subtitle: ""
+author:
+  - "Tutorial written by Jonathan Nelson"
+  - "Tutorial adapted by Sienna Blanche"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 5
+    toc_float: true
+    number_sections: no
+    df_print: paged
     code_folding: hide
+    highlight: pygments
 ---
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
@@ -15,10 +25,6 @@ if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
 set.seed((12345))
 #here()
 ```
-
-**Tutorial written by Jonathan Nelson**
-
-**Tutorial adapted by Sienna Blanche**
 
 # Getting Started
 
@@ -53,9 +59,9 @@ Once you've set your working directory copy and run the following code: **Glom =
 
 ![](`r here::here("Images", "ROC_1_Screenshot 2.png")`)
 
-```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```{r, eval=FALSE, echo=FALSE, error=FALSE, message=FALSE, warning=FALSE}
  
-Glom = read.csv('docs/Glom_scRNAseq.csv',row.names=1)
+Glom = read.csv('~/Desktop/Gurley:Nelson Lab/Glom/Glom_scRNAseq.csv',row.names=1)
 ```
 
 # Step 3: Transforming scRNAseq ".csv" file into a matrix and loading it into Seurat
@@ -76,6 +82,8 @@ Next we will run a "Sanity check" to make sure our Matrix file is formatted corr
 Glom[1:5,1:5]
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 4.png")`)
+
 Next we will load this data into Seurat and create our Seurat Object. Run the following code:
 
 **Glom <- CreateSeuratObject(counts = Glom, project = "ROC_Glom", min.cells = 3, min.features = 200)**
@@ -87,7 +95,7 @@ The object in the Environment window will change to be a "Large Seurat"
 Glom <- CreateSeuratObject(counts = Glom, project = "ROC_Glom", min.cells = 3, min.features = 200)
 ```
 
-![](`r here::here("Images", "ROC_1_Screenshot 4.png")`)
+![](`r here::here("Images", "ROC_1_Screenshot 5.png")`)
 
 This is our first filtering step. The code selects only genes that are expressed in at least 3 cells and cells that express at least 200 genes. Next we will run another sanity check to see how many cells and genes were filtered by running the following code **Glom**.
 
@@ -95,6 +103,8 @@ This is our first filtering step. The code selects only genes that are expressed
 
 Glom 
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 6.png")`)
 
 You should now get an output with 3035 Samples (cells) by 16991 Features (genes) which means we filtered out 42 cells and 5319 Genes! We know this by comparing out new object to the object we first loaded into the session.
 
@@ -118,7 +128,9 @@ The graph you get should look something like this:
 VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 ```
 
-Now we will interpret this information to filter out doublets and damaged cells by running the following code: **Glom <- subset(Glom, subset = nFeature_RNA < 2000 & nCount_RNA < 4000 & percent.mt < 20)**
+![](`r here::here("Images", "ROC_1_Screenshot 7.png")`)
+
+Using this information  we can filter out doublets and damaged cells by running the following code: **Glom <- subset(Glom, subset = nFeature_RNA < 2000 & nCount_RNA < 4000 & percent.mt < 20)**
 
 High nFeature_RNA or nCount_RNA could equate to doublets or mixed cell debris. We will filter out cells with more than 2000 genes and 4000 mRNA molecules to exclude potential doublets or mixed cell debris. High percent.mt could equate to damaged cells. We will filter out cells with more than 20% mitochondrial content to exclude damaged cells.
 
@@ -136,12 +148,16 @@ The new graph should look something like this:
 VlnPlot(Glom, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 8.png")`)
+
 Next we will run another sanity check to see how many cells and genes were filtered from the previous command by running **Glom**. 
 
 ```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
 Glom
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 9.png")`)
 
 The output we get is as follows: 2899 Samples (cells) by 16991 Features (genes). This means we filtered out 136 cells and 0 Genes! Again we know this by comparing the current object to the one we had in previous steps.  
 
@@ -176,6 +192,8 @@ top10 <- head(VariableFeatures(Glom), 10)
 top10
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 10.png")`)
+
 Next we can create a plot of the variable features within the dataset and label the top 10 genes to see which are driving the clustering. To do so copy the following code: 
 
 **plot1 <- VariableFeaturePlot(Glom)**
@@ -195,6 +213,8 @@ plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
 plot2
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 11.png")`)
+
 # Step 6: Creation and Visualization of Principal Components
 
 Run the following code:
@@ -207,7 +227,7 @@ Run the following code:
 
 **print(Glom[["pca"]], dims = 1:10, nfeatures = 3)**
 
-This calculates the principal components and then prints the 5 genes that drive the first 5 principal components.
+This calculates the principal components using the variable genes and then prints the 3 genes that drive the first 10 principal components.
 
 ```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
@@ -219,6 +239,8 @@ Glom <- RunPCA(Glom, features = VariableFeatures(object = Glom))
 
 print(Glom[["pca"]], dims = 1:10, nfeatures = 3)
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 12.png")`)
 
 Can you get a sense for how the cells might be clustering based off of these genes?
 
@@ -235,6 +257,7 @@ The graph you get should look something like this:
 VizDimLoadings(Glom, dims = 1:2, reduction = "pca")
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 13.png")`)
 
 Next, this line visualizes the scRNAseq dataset as a PCA (hopefully you can appreciate the poor clustering):
 
@@ -247,6 +270,8 @@ The graph you get should look something like this:
 DimPlot(Glom, reduction = "pca")
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 14.png")`)
+
 Lastly, this line creates a heatmap of the top 500 genes that drive the first 2 PCA dimensions:
 
 **DimHeatmap(Glom, dims = 10:11, cells = 500, balanced = TRUE)**
@@ -258,6 +283,8 @@ The heatmap you get should look something like this:
 DimHeatmap(Glom, dims = 10:11, cells = 500, balanced = TRUE)
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 15.png")`)
+
 This plot shows the variability and helps to decide how many PCA dimensions to use when measuring the clusters. When the standard deviation in the PC dimensions becomes small it no longer has a big effect. In this case we will use 10 PC's.
 
 **ElbowPlot(Glom)**
@@ -268,6 +295,8 @@ The elbowplot you get should look something like this:
 
 ElbowPlot(Glom)
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 16.png")`)
 
 # Step 7: Calculation and Creation of a UMAP visualization
 
@@ -301,6 +330,8 @@ The plot you get should look something like this:
 DimPlot(Glom, reduction = "umap")
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 17.png")`)
+
 This line generates the UMAP visualization. How many clusters do you see? Do they seem like they are real clusters?
 
 **Glom2 <- FindClusters(Glom, resolution = 0.3)**
@@ -322,6 +353,8 @@ The dimplot you get should look something like this:
 
 DimPlot(Glom2, reduction = "umap")
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 18.png")`)
 
 # Step 8: Generation of Heatmaps of differential genes between clusters to identify cell types
 
@@ -353,6 +386,8 @@ The heatmap you get should look something like this:
 DoHeatmap(Glom, features = top5$gene) 
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 19.png")`)
+
 We will double check our work by visualizing some "traditional" cell-type markers with violin plots. The markers used in this tutorial are as follows:
 
 Nphs2 = Podocyte
@@ -372,6 +407,8 @@ The graph you get should look something like this:
 
 VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 20.png")`)
 
 # Step 9: Re-naming clusters by cell-type
 
@@ -398,6 +435,8 @@ Glom <- RenameIdents(Glom, new.cluster.ids)
 DimPlot(Glom, reduction = "umap", label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
 ```
 
+![](`r here::here("Images", "ROC_1_Screenshot 21.png")`)
+
 These labels will now follow each cluster on any visualization we do. See how they look on the violin plot we ran before by running the following code:
 
 **VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))**
@@ -409,17 +448,25 @@ The graph you get should now look like this:
 VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
 ```
 
-Next we can visualize the expression of each gene on the UMAP diagram by running the following lines individually.         
+![](`r here::here("Images", "ROC_1_Screenshot 22.png")`)
+
+Next we can visualize the expression of each gene on the UMAP diagram by running the following lines individually. The series of feature plots you get should look something like this:
 
 **FeaturePlot(Glom, features = c("Nphs2"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
 
+![](`r here::here("Images", "ROC_1_Screenshot 23.png")`)
+
 **FeaturePlot(Glom, features = c("Pecam1"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
+
+![](`r here::here("Images", "ROC_1_Screenshot 24.png")`)
 
 **FeaturePlot(Glom, features = c("Slc12a3"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)**
 
+![](`r here::here("Images", "ROC_1_Screenshot 25.png")`)
+
 **FeaturePlot(Glom, features = c("Tagln"),label = FALSE, pt.size = 0.5, label.size = 7, repel = FALSE)**
 
-The series of feature plots you get should look something like this:
+![](`r here::here("Images", "ROC_1_Screenshot 26.png")`)
 
 ```{r, eval=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 
@@ -439,6 +486,8 @@ The feature plot you get should look something like this:
 
 FeaturePlot(Glom, features = c("Ptprc"),label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE)
 ```
+
+![](`r here::here("Images", "ROC_1_Screenshot 27.png")`)
 
 # Session Info
 

@@ -1,11 +1,19 @@
 ---
-title: ""
-output: 
-  html_document:
-    toc: FALSE
+title: "Recreating Figures"
+subtitle: ""
+author: "Paged maintained by Sienna Blanche"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 5
+    toc_float: true
+    number_sections: no
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
 ---
 
-# Recreating Figures
 ## These are coding vignettes that have been presented at SCORE
 # Let's Recreate a Figure!
 
@@ -21,10 +29,8 @@ if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
 if (!require("here")) {install.packages("here"); require("here")}
 if (!require("devtools")) {install.packages("devtools"); require("devtools")}
 if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
-if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
 if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
 if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
-if (!require("gplots")) {install.packages("gplots"); require("gplots")}
 if (!require("viridis")) {install.packages("viridis"); require("viridis")}
 if (!require("tibble")) {install.packages("tibble"); require("tibble")}
 
@@ -33,6 +39,265 @@ set.seed((12345))
 ```
 
 # Session 1: January 27th, 2025
+
+![](`r here::here("Images", "Replica.png")`)
+
+### Venn Diagrams
+
+![](`r here::here("Images", "Potter.png")`)
+
+https://pubmed.ncbi.nlm.nih.gov/28851704/
+
+#### Packages I Use
+
+**ggvenn** -> Good for visualizing plots
+
+https://github.com/NicolasH2/ggvenn
+
+**gplots** -> Good for identifying genes in categories
+
+https://talgalili.github.io/gplots/index.html
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+if (!require("gplots")) {install.packages("gplots"); require("gplots")}
+if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
+
+```
+
+## DEG Lists
+
+![](`r here::here("Images", "DEGlists.png")`)
+
+### Make the Lists
+
+**ggvenn package**
+
+**Maximum of 7 comparisons**, but really...is it possible to read that many? Better to do and **Upset Plot** (Next SCORE?) 
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+set1 <- rownames(DEGA)
+set2 <- rownames(DEGB)
+venn <- ggvenn(list(DEGA = set1, DEGB = set2))
+print(venn)
+
+```
+
+![](`r here::here("Images", "Venn1.png")`)
+
+### Find the Intersections
+
+**gplots package**
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+lst <- list(set1, set2)
+ItemsList <- venn(lst, show.plot = TRUE)
+
+test <- attributes(ItemsList)$intersections
+
+head(test$A, 5)
+
+head(test$B, 5)
+
+head(test$'A:B', 5)
+
+```
+
+![](`r here::here("Images", "Venn2.png")`)
+
+# Session 2: February 24th, 2025
+
+![](`r here::here("Images", "Replica.png")`)
+
+## Upset Plots
+
+### Complicated Venn Diagrams
+
+![](`r here::here("Images", "Potter.png")`)
+
+https://pubmed.ncbi.nlm.nih.gov/28851704/
+
+### Simplify Intersections with Upset Plots
+
+![](`r here::here("Images", "Upset_Example.png")`)
+
+https://www.nature.com/articles/s41467-022-32972-z
+
+### Packages I Use
+
+**UpSetR** <br>
+**ComplexHeatmap** <br>
+
+https://jokergoo.github.io/ComplexHeatmap-reference/book/upset-plot.html
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+if (!require("UpSetR")) {install.packages("UpSetR"); require("UpSetR")}
+if (!require("ComplexHeatmap")) {install.packages("ComplexHeatmap"); require("ComplexHeatmap")}
+
+```
+
+### Steps
+
+0) Create DEG lists <br>
+1) Organize a set of lists <br>
+2) Make Combination Matrix <br>
+3) Plot the Upset Plot <br>
+
+### Real World Example
+
+FindAllMarkers -> Upset Plot
+
+#### Proximal Tubule Cells of the Kidney after Injury
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+SO <- readRDS(here("Data", "All_PT.rds"))
+
+SO2 <- NormalizeData(object = SO)
+SO2 <- FindVariableFeatures(object = SO2)
+SO2 <- ScaleData(object = SO2)
+SO2 <- RunPCA(object = SO2)
+SO2 <- FindNeighbors(object = SO2, dims = 1:30)
+SO2 <- RunUMAP(object = SO2, dims = 1:30)
+
+Idents(SO2) <- SO2@meta.data$subclass.All
+
+SO@meta.data$subclass.All <- factor(SO@meta.data$subclass.All, levels = c("PTS1", "PTS2", "PTS3", "PTinj")) 
+
+Idents(SO) <- SO@meta.data$subclass.All
+
+DimPlot(SO)+
+  ylab("UMAP 2") +
+  xlab("UMAP 1") +
+  theme_classic() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 20),
+    axis.line = element_line(size = 1, colour = "black"),
+    axis.text = element_blank(),          # Remove axis text
+    axis.ticks = element_blank(),         # Optional: Remove axis ticks
+    text = element_text(size = 20)
+  ) + ggtitle("Proximal Tubule Cell Types") 
+```
+
+#### Step 0: FindAllMarkers to Create DEG Lists
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+df <- FindAllMarkers(SO, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+
+df %>% group_by(cluster) %>% top_n(n = 5, wt = avg_log2FC)
+
+top5 <- df %>% distinct(gene, .keep_all = TRUE) %>% group_by(cluster) %>% top_n(5, avg_log2FC)
+
+DoHeatmap(SO2, features = top5$gene) + NoLegend()
+
+DotPlot(SO,
+        features = top5$gene,
+        cols = c("#0099ff", "#dc143c"),
+        dot.scale = 8,
+           dot.min = 0,
+           scale.max = 100,
+           scale.min = 0,
+           col.min = -2.5,
+           col.max = 2.5) + 
+ # scale_y_discrete(limits = c(Prol"MD", "TAL β", "TAL α")) + 
+  theme(axis.text.x = element_text(),
+        axis.title = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        legend.text = element_text(size = 9),
+        legend.title = element_text(size = 9)) + 
+  RotatedAxis() + 
+  ggtitle("Top 5 Proximal Tubule DEG") 
+
+?DoHeatmap
+
+```
+
+#### Step 1: **Split** the dataframe into lists
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+clustered_genes <- split(df$gene, df$cluster)
+
+str(clustered_genes)
+
+```
+
+
+#### Step 2: **Create** a matrix
+
+```{r echo=TRUE, eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, results='hide'}
+
+list_to_matrix(clustered_genes)
+
+df2 <- list_to_matrix(clustered_genes)
+
+```
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+head(df2)
+
+m1 <-  make_comb_mat(clustered_genes)
+m1
+
+```
+
+#### Step 3: **Plot** the Upset Plot
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+UpSet(m1, set_order = c("PTS1", "PTS2", "PTS3", "PTinj"), comb_order = order(comb_size(m1)))
+
+```
+
+### Extract information
+
+#### Extract PTS1
+ 
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+extract_comb(m1,"1000")
+
+```
+
+#### Sanity Check
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+VlnPlot(SO, features = c("0610040J01Rik"), pt.size = 0) +
+  theme(axis.line = element_line(size = 1, colour = "black"),
+        text = element_text(size=20),
+        axis.text.x = element_text(color = "black", size = 16, angle = 45, hjust = 1, vjust = 1),
+        legend.position = "none"
+        ) + xlab("") 
+
+```
+
+
+#### Extract PTS2:PTS3
+ 
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+extract_comb(m1,"0110")
+
+```
+
+#### Sanity Check
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+VlnPlot(SO, features = c("0610005C13Rik"), pt.size = 0) +
+  theme(axis.line = element_line(size = 1, colour = "black"),
+        text = element_text(size=20),
+        axis.text.x = element_text(color = "black", size = 16, angle = 45, hjust = 1, vjust = 1),
+        legend.position = "none"
+        ) + xlab("") 
+
+```
 
 # Session 3: March 31st, 2025
 

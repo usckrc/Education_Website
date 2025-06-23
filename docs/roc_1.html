@@ -9,7 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Tutorial written by Jonathan Nelson" />
+<meta name="author" content="Tutorial adapted by Sienna Blanche" />
 
+<meta name="date" content="2025-06-23" />
 
 <title>ROC 1</title>
 
@@ -29,10 +32,13 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,18 +49,119 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
   }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
 </script>
-
-
 
 
 
@@ -223,6 +330,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -230,6 +400,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -375,12 +555,13 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">ROC 1</h1>
+<h4 class="author">Tutorial written by Jonathan Nelson</h4>
+<h4 class="author">Tutorial adapted by Sienna Blanche</h4>
+<h4 class="date">23 June 2025</h4>
 
 </div>
 
 
-<p><strong>Tutorial written by Jonathan Nelson</strong></p>
-<p><strong>Tutorial adapted by Sienna Blanche</strong></p>
 <div id="getting-started" class="section level1">
 <h1>Getting Started</h1>
 <p>For our first scRNA-seq analysis, we’ll be following a clear,
@@ -446,6 +627,8 @@ formatted correctly. Run the following code
 <strong>Glom[1:5,1:5]</strong> to see the first 5 rows and columns of
 the matrix in the console window. Top row should be bar codes and first
 column should be gene names, as seen below.</p>
+<p><img
+src="Images/ROC_1_Screenshot%204.png" /></p>
 <p>Next we will load this data into Seurat and create our Seurat Object.
 Run the following code:</p>
 <p><strong>Glom &lt;- CreateSeuratObject(counts = Glom, project =
@@ -453,12 +636,14 @@ Run the following code:</p>
 <p>The object in the Environment window will change to be a “Large
 Seurat”</p>
 <p><img
-src="Images/ROC_1_Screenshot%204.png" /></p>
+src="Images/ROC_1_Screenshot%205.png" /></p>
 <p>This is our first filtering step. The code selects only genes that
 are expressed in at least 3 cells and cells that express at least 200
 genes. Next we will run another sanity check to see how many cells and
 genes were filtered by running the following code
 <strong>Glom</strong>.</p>
+<p><img
+src="Images/ROC_1_Screenshot%206.png" /></p>
 <p>You should now get an output with 3035 Samples (cells) by 16991
 Features (genes) which means we filtered out 42 cells and 5319 Genes! We
 know this by comparing out new object to the object we first loaded into
@@ -480,10 +665,12 @@ nCount_RNA refers to the number of mRNA molecules detected in each cell,
 and percent.mt is the percent of counts that come from mitochondrial
 genes.</p>
 <p>The graph you get should look something like this:</p>
-<p>Now we will interpret this information to filter out doublets and
-damaged cells by running the following code: <strong>Glom &lt;-
-subset(Glom, subset = nFeature_RNA &lt; 2000 &amp; nCount_RNA &lt; 4000
-&amp; percent.mt &lt; 20)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%207.png" /></p>
+<p>Using this information we can filter out doublets and damaged cells
+by running the following code: <strong>Glom &lt;- subset(Glom, subset =
+nFeature_RNA &lt; 2000 &amp; nCount_RNA &lt; 4000 &amp; percent.mt &lt;
+20)</strong></p>
 <p>High nFeature_RNA or nCount_RNA could equate to doublets or mixed
 cell debris. We will filter out cells with more than 2000 genes and 4000
 mRNA molecules to exclude potential doublets or mixed cell debris. High
@@ -493,9 +680,13 @@ more than 20% mitochondrial content to exclude damaged cells.</p>
 newly filtered data by running <strong>VlnPlot(Glom, features =
 c(“nFeature_RNA”, “nCount_RNA”, “percent.mt”), ncol = 3)</strong></p>
 <p>The new graph should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%208.png" /></p>
 <p>Next we will run another sanity check to see how many cells and genes
 were filtered from the previous command by running
 <strong>Glom</strong>.</p>
+<p><img
+src="Images/ROC_1_Screenshot%209.png" /></p>
 <p>The output we get is as follows: 2899 Samples (cells) by 16991
 Features (genes). This means we filtered out 136 cells and 0 Genes!
 Again we know this by comparing the current object to the one we had in
@@ -519,6 +710,8 @@ new object in the environment called “top10”. To do this copy the
 following code: <strong>top10 &lt;- head(VariableFeatures(Glom),
 10)</strong>.</p>
 <p>The top 10 genes I got were as follows:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2010.png" /></p>
 <p>Next we can create a plot of the variable features within the dataset
 and label the top 10 genes to see which are driving the clustering. To
 do so copy the following code:</p>
@@ -527,6 +720,8 @@ do so copy the following code:</p>
 TRUE)</strong></p>
 <p><strong>plot2</strong></p>
 <p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2011.png" /></p>
 </div>
 <div id="step-6-creation-and-visualization-of-principal-components"
 class="section level1">
@@ -537,8 +732,11 @@ class="section level1">
 <p><strong>Glom &lt;- RunPCA(Glom, features = VariableFeatures(object =
 Glom))</strong></p>
 <p><strong>print(Glom[[“pca”]], dims = 1:10, nfeatures = 3)</strong></p>
-<p>This calculates the principal components and then prints the 5 genes
-that drive the first 5 principal components.</p>
+<p>This calculates the principal components using the variable genes and
+then prints the 3 genes that drive the first 10 principal
+components.</p>
+<p><img
+src="Images/ROC_1_Screenshot%2012.png" /></p>
 <p>Can you get a sense for how the cells might be clustering based off
 of these genes?</p>
 <p>Now we will visualize the genes driving the PCA a few ways. Run the
@@ -548,21 +746,29 @@ dimensions:</p>
 <p><strong>VizDimLoadings(Glom, dims = 1:2, reduction =
 “pca”)</strong></p>
 <p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2013.png" /></p>
 <p>Next, this line visualizes the scRNAseq dataset as a PCA (hopefully
 you can appreciate the poor clustering):</p>
 <p><strong>DimPlot(Glom, reduction = “pca”)</strong></p>
 <p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2014.png" /></p>
 <p>Lastly, this line creates a heatmap of the top 500 genes that drive
 the first 2 PCA dimensions:</p>
 <p><strong>DimHeatmap(Glom, dims = 10:11, cells = 500, balanced =
 TRUE)</strong></p>
 <p>The heatmap you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2015.png" /></p>
 <p>This plot shows the variability and helps to decide how many PCA
 dimensions to use when measuring the clusters. When the standard
 deviation in the PC dimensions becomes small it no longer has a big
 effect. In this case we will use 10 PC’s.</p>
 <p><strong>ElbowPlot(Glom)</strong></p>
 <p>The elbowplot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2016.png" /></p>
 </div>
 <div id="step-7-calculation-and-creation-of-a-umap-visualization"
 class="section level1">
@@ -581,12 +787,16 @@ differential populations.</p>
 see? Do they seem like they are real clusters?</p>
 <p><strong>DimPlot(Glom, reduction = “umap”)</strong></p>
 <p>The plot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2017.png" /></p>
 <p>This line generates the UMAP visualization. How many clusters do you
 see? Do they seem like they are real clusters?</p>
 <p><strong>Glom2 &lt;- FindClusters(Glom, resolution = 0.3)</strong></p>
 <p><strong>Glom2 &lt;- RunUMAP(Glom2, dims = 1:10)</strong></p>
 <p><strong>DimPlot(Glom2, reduction = “umap”)</strong></p>
 <p>The dimplot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2018.png" /></p>
 </div>
 <div
 id="step-8-generation-of-heatmaps-of-differential-genes-between-clusters-to-identify-cell-types"
@@ -607,6 +817,8 @@ min.pct = 0.25, logfc.threshold = 0.25)</strong></p>
 top_n(5, avg_log2FC)</strong></p>
 <p><strong>DoHeatmap(Glom, features = top5$gene)</strong></p>
 <p>The heatmap you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2019.png" /></p>
 <p>We will double check our work by visualizing some “traditional”
 cell-type markers with violin plots. The markers used in this tutorial
 are as follows:</p>
@@ -618,6 +830,8 @@ are as follows:</p>
 <strong>VlnPlot(Glom, features = c(“Nphs2”, “Pecam1”, “Slc12a3”,
 “Tagln”))</strong></p>
 <p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2020.png" /></p>
 </div>
 <div id="step-9-re-naming-clusters-by-cell-type" class="section level1">
 <h1>Step 9: Re-naming clusters by cell-type</h1>
@@ -631,34 +845,47 @@ code:</p>
 <p><strong>DimPlot(Glom, reduction = “umap”, label = TRUE, pt.size =
 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p>The dimplot you get should now look like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2021.png" /></p>
 <p>These labels will now follow each cluster on any visualization we do.
 See how they look on the violin plot we ran before by running the
 following code:</p>
 <p><strong>VlnPlot(Glom, features = c(“Nphs2”, “Pecam1”, “Slc12a3”,
 “Tagln”))</strong></p>
 <p>The graph you get should now look like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2022.png" /></p>
 <p>Next we can visualize the expression of each gene on the UMAP diagram
-by running the following lines individually.</p>
+by running the following lines individually. The series of feature plots
+you get should look something like this:</p>
 <p><strong>FeaturePlot(Glom, features = c(“Nphs2”),label = TRUE, pt.size
 = 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2023.png" /></p>
 <p><strong>FeaturePlot(Glom, features = c(“Pecam1”),label = TRUE,
 pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2024.png" /></p>
 <p><strong>FeaturePlot(Glom, features = c(“Slc12a3”),label = TRUE,
 pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2025.png" /></p>
 <p><strong>FeaturePlot(Glom, features = c(“Tagln”),label = FALSE,
 pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
-<p>The series of feature plots you get should look something like
-this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2026.png" /></p>
 <p>Using the following code we can highlight a “hidden cluster” that is
 probably immune cells because of the unique expression of Ptprc
 (CD45):</p>
 <p><strong>FeaturePlot(Glom, features = c(“Ptprc”),label = TRUE, pt.size
 = 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p>The feature plot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2027.png" /></p>
 </div>
 <div id="session-info" class="section level1">
 <h1>Session Info</h1>
-<pre class="r"><code>sessionInfo()</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.4.2 (2024-10-31)
 ## Platform: aarch64-apple-darwin20
 ## Running under: macOS Sequoia 15.1
@@ -683,7 +910,7 @@ probably immune cells because of the unique expression of Ptprc
 ##  [9] stringr_1.5.1      purrr_1.0.2        readr_2.1.5        tidyr_1.3.1       
 ## [13] tibble_3.2.1       tidyverse_2.0.0    devtools_2.4.5     usethis_3.1.0     
 ## [17] here_1.0.1         ggpmisc_0.6.1      ggpp_0.5.8-1       ggplot2_3.5.1     
-## [21] knitr_1.49         patchwork_1.3.0    Seurat_5.2.1       SeuratObject_5.0.2
+## [21] knitr_1.49         patchwork_1.3.0    Seurat_5.3.0       SeuratObject_5.0.2
 ## [25] sp_2.1-4           dplyr_1.1.4       
 ## 
 ## loaded via a namespace (and not attached):
@@ -732,6 +959,8 @@ probably immune cells because of the unique expression of Ptprc
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -769,6 +998,35 @@ $(document).ready(function () {
 });
 </script>
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
