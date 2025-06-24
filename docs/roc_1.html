@@ -12,7 +12,7 @@
 <meta name="author" content="Tutorial written by Jonathan Nelson" />
 <meta name="author" content="Tutorial adapted by Sienna Blanche" />
 
-<meta name="date" content="2025-06-23" />
+<meta name="date" content="2025-06-24" />
 
 <title>ROC 1</title>
 
@@ -557,7 +557,7 @@ div.tocify {
 <h1 class="title toc-ignore">ROC 1</h1>
 <h4 class="author">Tutorial written by Jonathan Nelson</h4>
 <h4 class="author">Tutorial adapted by Sienna Blanche</h4>
-<h4 class="date">23 June 2025</h4>
+<h4 class="date">24 June 2025</h4>
 
 </div>
 
@@ -578,27 +578,35 @@ This dataset was chosen because it is a relatively small number of cells
 and a limited number of clusters to simplify calculations and
 analysis.</p>
 </div>
-<div id="step-0-installing-the-seurat-and-dependency-packages."
-class="section level1">
-<h1>Step 0: Installing the Seurat (and dependency packages).</h1>
+<div id="step-0" class="section level1">
+<h1>Step 0</h1>
+<div id="installing-the-seurat-and-dependency-packages."
+class="section level2">
+<h2>Installing the Seurat (and dependency packages).</h2>
 <p>You only need to perform Step 0 once. Copy the command
 <strong>install.packages(‘Seurat’)</strong> into your R script or RMD
 and run it. Confirm that the package has been downloaded.</p>
 </div>
-<div id="step-1-activate-the-r-packages-needed-to-run-the-analysis."
-class="section level1">
-<h1>Step 1: Activate the R packages needed to run the analysis.</h1>
+</div>
+<div id="step-1" class="section level1">
+<h1>Step 1</h1>
+<div id="activate-the-r-packages-needed-to-run-the-analysis."
+class="section level2">
+<h2>Activate the R packages needed to run the analysis.</h2>
 <p>Copy the following lines of code into your file and run them:</p>
 <p><strong>library(Seurat)</strong></p>
 <p><strong>library(cowplot)</strong></p>
 <p><strong>library(dplyr)</strong></p>
 <p><strong>library(patchwork)</strong></p>
 </div>
+</div>
+<div id="step-2" class="section level1">
+<h1>Step 2</h1>
 <div
-id="step-2-setting-up-a-working-directory-and-uploading-the-scrnaseq-file-to-r-studio"
-class="section level1">
-<h1>Step 2: Setting up a “Working Directory” and uploading the scRNAseq
-file to R studio</h1>
+id="setting-up-a-working-directory-and-uploading-the-scrnaseq-file-to-r-studio"
+class="section level2">
+<h2>Setting up a “Working Directory” and uploading the scRNAseq file to
+R studio</h2>
 <p>First we need to tell R studio where our scRNAseq “.csv” file is.
 Click on Session&gt;Set Working Directory&gt;Choose Directory and find
 the folder on your computer that contains the downloaded dataset.</p>
@@ -611,11 +619,14 @@ should contain a data object called “Glom” after a few seconds</p>
 <p><img
 src="Images/ROC_1_Screenshot%202.png" /></p>
 </div>
+</div>
+<div id="step-3" class="section level1">
+<h1>Step 3</h1>
 <div
-id="step-3-transforming-scrnaseq-.csv-file-into-a-matrix-and-loading-it-into-seurat"
-class="section level1">
-<h1>Step 3: Transforming scRNAseq “.csv” file into a matrix and loading
-it into Seurat</h1>
+id="transforming-scrnaseq-.csv-file-into-a-matrix-and-loading-it-into-seurat"
+class="section level2">
+<h2>Transforming scRNAseq “.csv” file into a matrix and loading it into
+Seurat</h2>
 <p>We will next convert the “.csv” file into a data matrix that is able
 to be uploaded into Seurat. Copy and run the following code:
 <strong>Glom = data.matrix(Glom)</strong>. The object in the Environment
@@ -649,9 +660,11 @@ Features (genes) which means we filtered out 42 cells and 5319 Genes! We
 know this by comparing out new object to the object we first loaded into
 the session.</p>
 </div>
-<div id="step-4-visualizing-quality-control-metrics"
-class="section level1">
-<h1>Step 4: Visualizing Quality Control Metrics</h1>
+</div>
+<div id="step-4" class="section level1">
+<h1>Step 4</h1>
+<div id="visualizing-quality-control-metrics" class="section level2">
+<h2>Visualizing Quality Control Metrics</h2>
 <p>Run the following code <strong>Glom[[“percent.mt”]] &lt;-
 PercentageFeatureSet(Glom, pattern = “^mt-”)</strong> to create a new
 meta.data feature in the Seurat object that measures how much
@@ -692,11 +705,14 @@ Features (genes). This means we filtered out 136 cells and 0 Genes!
 Again we know this by comparing the current object to the one we had in
 previous steps.</p>
 </div>
+</div>
+<div id="step-5" class="section level1">
+<h1>Step 5</h1>
 <div
-id="step-5-data-normalization-and-identification-of-genes-driving-variability-cluster-formation"
-class="section level1">
-<h1>Step 5: Data Normalization and Identification of Genes Driving
-Variability (cluster formation)</h1>
+id="data-normalization-and-identification-of-genes-driving-variability-cluster-formation"
+class="section level2">
+<h2>Data Normalization and Identification of Genes Driving Variability
+(cluster formation)</h2>
 <p>Run the following code</p>
 <p><strong>Glom &lt;- NormalizeData(Glom, normalization.method =
 “LogNormalize”, scale.factor = 10000)</strong></p>
@@ -723,9 +739,12 @@ TRUE)</strong></p>
 <p><img
 src="Images/ROC_1_Screenshot%2011.png" /></p>
 </div>
-<div id="step-6-creation-and-visualization-of-principal-components"
-class="section level1">
-<h1>Step 6: Creation and Visualization of Principal Components</h1>
+</div>
+<div id="step-6" class="section level1">
+<h1>Step 6</h1>
+<div id="creation-and-visualization-of-principal-components"
+class="section level2">
+<h2>Creation and Visualization of Principal Components</h2>
 <p>Run the following code:</p>
 <p><strong>all.genes &lt;- rownames(Glom)</strong></p>
 <p><strong>Glom &lt;- ScaleData(Glom, features = all.genes)</strong></p>
@@ -770,9 +789,12 @@ effect. In this case we will use 10 PC’s.</p>
 <p><img
 src="Images/ROC_1_Screenshot%2016.png" /></p>
 </div>
-<div id="step-7-calculation-and-creation-of-a-umap-visualization"
-class="section level1">
-<h1>Step 7: Calculation and Creation of a UMAP visualization</h1>
+</div>
+<div id="step-7" class="section level1">
+<h1>Step 7</h1>
+<div id="calculation-and-creation-of-a-umap-visualization"
+class="section level2">
+<h2>Calculation and Creation of a UMAP visualization</h2>
 <p>This is where scRNAseq becomes more like like and art form. The
 following lines determine the shape of the clusters and the number of
 populations in our scRNASeq visualization.</p>
@@ -798,11 +820,14 @@ see? Do they seem like they are real clusters?</p>
 <p><img
 src="Images/ROC_1_Screenshot%2018.png" /></p>
 </div>
+</div>
+<div id="step-8" class="section level1">
+<h1>Step 8</h1>
 <div
-id="step-8-generation-of-heatmaps-of-differential-genes-between-clusters-to-identify-cell-types"
-class="section level1">
-<h1>Step 8: Generation of Heatmaps of differential genes between
-clusters to identify cell types</h1>
+id="generation-of-heatmaps-of-differential-genes-between-clusters-to-identify-cell-types"
+class="section level2">
+<h2>Generation of Heatmaps of differential genes between clusters to
+identify cell types</h2>
 <p>Now that we have a UMAP we have to identify the cell type that each
 cluster represents. We will do this by finding the top 5 genes that
 define each cluster and making a heatmap. Notice if there are any clues
@@ -833,8 +858,11 @@ are as follows:</p>
 <p><img
 src="Images/ROC_1_Screenshot%2020.png" /></p>
 </div>
-<div id="step-9-re-naming-clusters-by-cell-type" class="section level1">
-<h1>Step 9: Re-naming clusters by cell-type</h1>
+</div>
+<div id="step-9" class="section level1">
+<h1>Step 9</h1>
+<div id="re-naming-clusters-by-cell-type" class="section level2">
+<h2>Re-naming clusters by cell-type</h2>
 <p>Now that we think that We know the cluster identifiers, we will
 insert that meta.data into the Seurat object by running the following
 code:</p>
@@ -883,6 +911,7 @@ probably immune cells because of the unique expression of Ptprc
 <p><img
 src="Images/ROC_1_Screenshot%2027.png" /></p>
 </div>
+</div>
 <div id="session-info" class="section level1">
 <h1>Session Info</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
@@ -905,13 +934,14 @@ src="Images/ROC_1_Screenshot%2027.png" /></p>
 ## [8] base     
 ## 
 ## other attached packages:
-##  [1] viridis_0.6.5      viridisLite_0.4.2  gplots_3.2.0       reshape2_1.4.4    
-##  [5] pheatmap_1.0.12    ggvenn_0.1.10      lubridate_1.9.4    forcats_1.0.0     
-##  [9] stringr_1.5.1      purrr_1.0.2        readr_2.1.5        tidyr_1.3.1       
-## [13] tibble_3.2.1       tidyverse_2.0.0    devtools_2.4.5     usethis_3.1.0     
-## [17] here_1.0.1         ggpmisc_0.6.1      ggpp_0.5.8-1       ggplot2_3.5.1     
-## [21] knitr_1.49         patchwork_1.3.0    Seurat_5.3.0       SeuratObject_5.0.2
-## [25] sp_2.1-4           dplyr_1.1.4       
+##  [1] ggsankey_0.0.99999 plotly_4.10.4      openxlsx_4.2.8     viridis_0.6.5     
+##  [5] viridisLite_0.4.2  gplots_3.2.0       reshape2_1.4.4     pheatmap_1.0.12   
+##  [9] ggvenn_0.1.10      lubridate_1.9.4    forcats_1.0.0      stringr_1.5.1     
+## [13] purrr_1.0.2        readr_2.1.5        tidyr_1.3.1        tibble_3.2.1      
+## [17] tidyverse_2.0.0    devtools_2.4.5     usethis_3.1.0      here_1.0.1        
+## [21] ggpmisc_0.6.1      ggpp_0.5.8-1       ggplot2_3.5.1      knitr_1.49        
+## [25] patchwork_1.3.0    Seurat_5.3.0       SeuratObject_5.0.2 sp_2.1-4          
+## [29] dplyr_1.1.4       
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] RColorBrewer_1.1-3     rstudioapi_0.17.1      jsonlite_1.8.9        
@@ -921,40 +951,41 @@ src="Images/ROC_1_Screenshot%2027.png" /></p>
 ##  [13] htmltools_0.5.8.1      polynom_1.4-1          sass_0.4.9            
 ##  [16] sctransform_0.4.1      parallelly_1.41.0      KernSmooth_2.23-24    
 ##  [19] bslib_0.8.0            htmlwidgets_1.6.4      ica_1.0-3             
-##  [22] plyr_1.8.9             plotly_4.10.4          zoo_1.8-12            
-##  [25] cachem_1.1.0           igraph_2.1.4           mime_0.12             
-##  [28] lifecycle_1.0.4        pkgconfig_2.0.3        Matrix_1.7-1          
-##  [31] R6_2.5.1               fastmap_1.2.0          fitdistrplus_1.2-2    
-##  [34] future_1.34.0          shiny_1.10.0           digest_0.6.37         
-##  [37] colorspace_2.1-1       rprojroot_2.0.4        tensor_1.5            
-##  [40] RSpectra_0.16-2        irlba_2.3.5.1          pkgload_1.4.0         
-##  [43] progressr_0.15.1       timechange_0.3.0       spatstat.sparse_3.1-0 
-##  [46] httr_1.4.7             polyclip_1.10-7        abind_1.4-8           
-##  [49] compiler_4.4.2         remotes_2.5.0          withr_3.0.2           
-##  [52] fastDummies_1.7.5      pkgbuild_1.4.6         MASS_7.3-61           
-##  [55] quantreg_5.99.1        sessioninfo_1.2.2      caTools_1.18.3        
-##  [58] gtools_3.9.5           tools_4.4.2            lmtest_0.9-40         
-##  [61] httpuv_1.6.15          future.apply_1.11.3    goftest_1.2-3         
-##  [64] glue_1.8.0             nlme_3.1-166           promises_1.3.2        
-##  [67] Rtsne_0.17             cluster_2.1.6          generics_0.1.3        
-##  [70] gtable_0.3.6           spatstat.data_3.1-4    tzdb_0.4.0            
-##  [73] hms_1.1.3              data.table_1.16.4      spatstat.geom_3.3-5   
-##  [76] RcppAnnoy_0.0.22       ggrepel_0.9.6          RANN_2.6.2            
-##  [79] pillar_1.10.1          spam_2.11-1            RcppHNSW_0.6.0        
-##  [82] later_1.4.1            splines_4.4.2          lattice_0.22-6        
-##  [85] survival_3.7-0         deldir_2.0-4           SparseM_1.84-2        
-##  [88] tidyselect_1.2.1       miniUI_0.1.1.1         pbapply_1.7-2         
-##  [91] gridExtra_2.3          scattermore_1.2        xfun_0.50             
-##  [94] matrixStats_1.5.0      stringi_1.8.4          lazyeval_0.2.2        
-##  [97] yaml_2.3.10            evaluate_1.0.3         codetools_0.2-20      
-## [100] cli_3.6.3              uwot_0.2.2             xtable_1.8-4          
-## [103] reticulate_1.40.0      munsell_0.5.1          jquerylib_0.1.4       
-## [106] Rcpp_1.0.14            globals_0.16.3         spatstat.random_3.3-2 
-## [109] png_0.1-8              spatstat.univar_3.1-1  parallel_4.4.2        
-## [112] MatrixModels_0.5-3     ellipsis_0.3.2         dotCall64_1.2         
-## [115] profvis_0.4.0          urlchecker_1.0.1       bitops_1.0-9          
-## [118] listenv_0.9.1          scales_1.3.0           ggridges_0.5.6        
-## [121] rlang_1.1.5            cowplot_1.1.3</code></pre>
+##  [22] plyr_1.8.9             zoo_1.8-12             cachem_1.1.0          
+##  [25] igraph_2.1.4           mime_0.12              lifecycle_1.0.4       
+##  [28] pkgconfig_2.0.3        Matrix_1.7-1           R6_2.5.1              
+##  [31] fastmap_1.2.0          fitdistrplus_1.2-2     future_1.34.0         
+##  [34] shiny_1.10.0           digest_0.6.37          colorspace_2.1-1      
+##  [37] rprojroot_2.0.4        tensor_1.5             RSpectra_0.16-2       
+##  [40] irlba_2.3.5.1          pkgload_1.4.0          crosstalk_1.2.1       
+##  [43] labeling_0.4.3         progressr_0.15.1       timechange_0.3.0      
+##  [46] spatstat.sparse_3.1-0  httr_1.4.7             polyclip_1.10-7       
+##  [49] abind_1.4-8            compiler_4.4.2         remotes_2.5.0         
+##  [52] withr_3.0.2            fastDummies_1.7.5      pkgbuild_1.4.6        
+##  [55] MASS_7.3-61            quantreg_5.99.1        sessioninfo_1.2.2     
+##  [58] caTools_1.18.3         gtools_3.9.5           tools_4.4.2           
+##  [61] lmtest_0.9-40          zip_2.3.1              httpuv_1.6.15         
+##  [64] future.apply_1.11.3    goftest_1.2-3          glue_1.8.0            
+##  [67] nlme_3.1-166           promises_1.3.2         Rtsne_0.17            
+##  [70] cluster_2.1.6          generics_0.1.3         gtable_0.3.6          
+##  [73] spatstat.data_3.1-4    tzdb_0.4.0             hms_1.1.3             
+##  [76] data.table_1.16.4      spatstat.geom_3.3-5    RcppAnnoy_0.0.22      
+##  [79] ggrepel_0.9.6          RANN_2.6.2             pillar_1.10.1         
+##  [82] spam_2.11-1            RcppHNSW_0.6.0         later_1.4.1           
+##  [85] splines_4.4.2          lattice_0.22-6         survival_3.7-0        
+##  [88] deldir_2.0-4           SparseM_1.84-2         tidyselect_1.2.1      
+##  [91] miniUI_0.1.1.1         pbapply_1.7-2          gridExtra_2.3         
+##  [94] scattermore_1.2        xfun_0.50              matrixStats_1.5.0     
+##  [97] stringi_1.8.4          lazyeval_0.2.2         yaml_2.3.10           
+## [100] evaluate_1.0.3         codetools_0.2-20       cli_3.6.3             
+## [103] uwot_0.2.2             xtable_1.8-4           reticulate_1.40.0     
+## [106] munsell_0.5.1          jquerylib_0.1.4        Rcpp_1.0.14           
+## [109] globals_0.16.3         spatstat.random_3.3-2  png_0.1-8             
+## [112] spatstat.univar_3.1-1  parallel_4.4.2         MatrixModels_0.5-3    
+## [115] ellipsis_0.3.2         dotCall64_1.2          profvis_0.4.0         
+## [118] urlchecker_1.0.1       bitops_1.0-9           listenv_0.9.1         
+## [121] scales_1.3.0           ggridges_0.5.6         rlang_1.1.5           
+## [124] cowplot_1.1.3</code></pre>
 </div>
 
 

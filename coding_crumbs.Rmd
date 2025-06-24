@@ -20,7 +20,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## These are coding vignettes that have been presented at SCORE
 
-# Session 1: January 27th, 2025
+[Naming](#session-1---january-27th-2025) <br>
+[Clean Code](#session-2---february-24th-2025)<br>
+[R Styling](#session-3---march-31st-2025) <br>
+[Gene Conversion](#session-4---april-28th-2025) <br>
+[TBD](#session-5---june-30th-2025) <br>
+[TBD](#session-6---july-28th-2025) <br>
+
+# Session 1 - January 27th 2025
+
+## Naming
 
 ![](`r here::here("Images", "Coding_Crumbs2.webp")`)
 
@@ -60,7 +69,9 @@ I'm trying to consistently use **PascalCase** for my objects in R.
 
 While you have a lot of flexibility in naming objects in R, **I'd encourage you to be more intentional and consistent** with how you decide to name your objects. 
 
-# Session 2: February 24th, 2025
+# Session 2 - February 24th 2025
+
+## Clean Code
 
 ![](`r here::here("Images", "Coding_Crumbs2.webp")`)
 
@@ -118,7 +129,9 @@ While you have a lot of flexibility in naming objects in R, **I'd encourage you 
 **Practically**: I usually write code as **multiple objects** and then convert to **piping**.
 
 
-# Session 3: March 31st, 2025
+# Session 3 - March 31st 2025
+
+## R styling
 
 ![](`r here::here("Images", "Coding_Crumbs2.webp")`)
 
@@ -193,10 +206,126 @@ https://www.youtube.com/watch?app=desktop&v=yUA3NpJLH6I&t=220s&t=156
 ### **ChatGPT** is also a great tool to help
 ### I'm going to try to run my code through **chatGPT** before publishing it
 
-# Session 4: June 30th, 2025
+# Session 4 - April 28th 2025
+
+## Gene Conversion
+
+![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+
+## Changing between **Mouse** and **Human** gene names is common maneuver
+
+## Why?
+
+### Translational Research
+### Target Identification for Therapies
+### Pathway and Functional Annotation
+
+## It's a Challenge
+
+### Gene Duplications
+### Unique Names
+
+## Approaches I've used before
+
+### **Packages**
+
+#### **geneName**
+
+https://github.com/mustafapir/geneName
+
+##### Install
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+if (!require("geneName")) {install.packages("geneName"); require("geneName")}
+
+```
+
+#### Usage
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+df_human <- mousegnameConverter(df_mouse, "gene")
+
+```
+
+### **ChatGPT**
+
+![](`r here::here("Images", "chatGPT.png")`)
+
+#### Use at your own risk.
+##### Quick...but unreliable
+
+### **Functions**
+
+https://www.biostars.org/p/9567892/
+
+#### Human -> Mouse
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+convert_human_to_mouse <- function(gene_list) {
+    output = c()
+    mouse_human_genes = read.csv("https://www.informatics.jax.org/downloads/reports/HOM_MouseHumanSequence.rpt",sep="\t")
+
+    for(gene in gene_list) {
+          class_key = (mouse_human_genes %>% filter(Symbol == gene & Common.Organism.Name == "human"))[['DB.Class.Key']]
+          if( !identical(class_key, integer(0)) ) {
+            human_genes = (mouse_human_genes %>% filter(DB.Class.Key == class_key & Common.Organism.Name=="mouse, laboratory"))[,"Symbol"]
+            for(human_gene in human_genes) {
+                output = rbind(c(gene, human_gene), output)
+            }
+          }
+     }
+     return (output)
+}
+
+df_mouse_gene <- convert_human_to_mouse(gene_list)
+
+df_mouse_gene <- as.data.frame(df_mouse_gene)
 
 
-# Session 5: July 28th, 2025
+```
+
+#### Mouse -> Human
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+convert_mouse_to_human <- function(gene_list) { 
+     output = c()
+     mouse_human_genes = read.csv("https://www.informatics.jax.org/downloads/reports/HOM_MouseHumanSequence.rpt",sep="\t")
+
+     for(gene in gene_list) {
+          class_key = (mouse_human_genes %>% filter(Symbol == gene & Common.Organism.Name == "mouse, laboratory"))[['DB.Class.Key']]
+          if( !identical(class_key, integer(0)) ) {
+               human_genes = (mouse_human_genes %>% filter(DB.Class.Key == class_key & Common.Organism.Name=="human"))[,"Symbol"]
+               for(human_gene in human_genes) {
+                    output = rbind(c(gene, human_gene), output)
+               }
+          }
+     }
+     return (output)
+}
+
+df_human_gene <- convert_mouse_to_human(gene_list)
+
+df_human_gene <- as.data.frame(df_human_gene)
+
+```
+
+## **Take Home**
+
+### **Function** is what I use now. 
+#### I should probably **download the database** localy onto my computer
+### I suspect there are **other options**.
+#### BioMart?
+#### How do others in the **chat** do this?
+
+
+# Session 5 - June 30th 2025
+
+
+# Session 6 - July 28th 2025
 
 
 ```{r echo=TRUE, warning=FALSE, error=FALSE, message=FALSE, fig.align = 'center'}

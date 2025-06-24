@@ -33,11 +33,15 @@ For our first scRNA-seq analysis, we’ll be following a clear, step-by-step pro
 # Necessary materials 
 The dataset that we are using is from Karaiskos et al. JASN 2018 (PMID: 29794128). This is 1 of 3 files (glom_rep3) downloaded from its corresponding GEO entry (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107. This dataset was chosen because it is a relatively small number of cells and a limited number of clusters to simplify calculations and analysis.
  
-# Step 0: Installing the Seurat (and dependency packages). 
+# Step 0 
+
+## Installing the Seurat (and dependency packages). 
 
 You only need to perform Step 0 once. Copy the command **install.packages('Seurat')** into your R script or RMD and run it. Confirm that the package has been downloaded. 
 
-# Step 1: Activate the R packages needed to run the analysis.
+# Step 1 
+
+## Activate the R packages needed to run the analysis.
 
 Copy the following lines of code into your file and run them:
 
@@ -49,7 +53,9 @@ Copy the following lines of code into your file and run them:
 
 **library(patchwork)**
 
-# Step 2: Setting up a "Working Directory" and uploading the scRNAseq file to R studio
+# Step 2
+
+## Setting up a "Working Directory" and uploading the scRNAseq file to R studio
 
 First we need to tell R studio where our scRNAseq ".csv" file is. Click on Session>Set Working Directory>Choose Directory and find the folder on your computer that contains the downloaded dataset.
 
@@ -64,7 +70,9 @@ Once you've set your working directory copy and run the following code: **Glom =
 Glom = read.csv('~/Desktop/Gurley:Nelson Lab/Glom/Glom_scRNAseq.csv',row.names=1)
 ```
 
-# Step 3: Transforming scRNAseq ".csv" file into a matrix and loading it into Seurat
+# Step 3
+
+## Transforming scRNAseq ".csv" file into a matrix and loading it into Seurat
 
 We will next convert the ".csv" file into a data matrix that is able to be uploaded into Seurat. Copy and run the following code: **Glom = data.matrix(Glom)**. The object in the Environment window will change to be a "Large Matrix"
 
@@ -108,7 +116,9 @@ Glom
 
 You should now get an output with 3035 Samples (cells) by 16991 Features (genes) which means we filtered out 42 cells and 5319 Genes! We know this by comparing out new object to the object we first loaded into the session.
 
-# Step 4: Visualizing Quality Control Metrics
+# Step 4
+
+## Visualizing Quality Control Metrics
 
 Run the following code **Glom[["percent.mt"]] <- PercentageFeatureSet(Glom, pattern = "^mt-")** to create a new meta.data feature in the Seurat object that measures how much mitochondrial DNA there is in each cell.
 
@@ -161,7 +171,9 @@ Glom
 
 The output we get is as follows: 2899 Samples (cells) by 16991 Features (genes). This means we filtered out 136 cells and 0 Genes! Again we know this by comparing the current object to the one we had in previous steps.  
 
-# Step 5: Data Normalization and Identification of Genes Driving Variability (cluster formation)
+# Step 5
+
+## Data Normalization and Identification of Genes Driving Variability (cluster formation)
 Run the following code 
 
 **Glom <- NormalizeData(Glom, normalization.method = "LogNormalize", scale.factor = 10000)**
@@ -215,7 +227,9 @@ plot2
 
 ![](`r here::here("Images", "ROC_1_Screenshot 11.png")`)
 
-# Step 6: Creation and Visualization of Principal Components
+# Step 6
+
+## Creation and Visualization of Principal Components
 
 Run the following code:
 
@@ -298,7 +312,9 @@ ElbowPlot(Glom)
 
 ![](`r here::here("Images", "ROC_1_Screenshot 16.png")`)
 
-# Step 7: Calculation and Creation of a UMAP visualization
+# Step 7
+
+## Calculation and Creation of a UMAP visualization
 
 This is where scRNAseq becomes more like like and art form. The following lines determine the shape of the clusters and the number of populations in our scRNASeq visualization.
 
@@ -356,7 +372,9 @@ DimPlot(Glom2, reduction = "umap")
 
 ![](`r here::here("Images", "ROC_1_Screenshot 18.png")`)
 
-# Step 8: Generation of Heatmaps of differential genes between clusters to identify cell types
+# Step 8
+
+## Generation of Heatmaps of differential genes between clusters to identify cell types
 
 Now that we have a UMAP we have to identify the cell type that each cluster represents. We will do this by finding the top 5 genes that define each cluster and making a heatmap. Notice if there are any clues to what each cluster is based on the genes enriched in the population.
 
@@ -410,7 +428,9 @@ VlnPlot(Glom, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))
 
 ![](`r here::here("Images", "ROC_1_Screenshot 20.png")`)
 
-# Step 9: Re-naming clusters by cell-type
+# Step 9
+
+## Re-naming clusters by cell-type
 
 Now that we think that We know the cluster identifiers, we will insert that meta.data into the Seurat object by running the following code:
 
