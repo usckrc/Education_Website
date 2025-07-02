@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE)
 [Clean Code](#session-2---february-24th-2025)<br>
 [R Styling](#session-3---march-31st-2025) <br>
 [Gene Conversion](#session-4---april-28th-2025) <br>
-[TBD](#session-5---june-30th-2025) <br>
+[renv package](#session-5---june-30th-2025) <br>
 [TBD](#session-6---july-28th-2025) <br>
 
 # Session 1 - January 27th 2025
@@ -321,8 +321,73 @@ df_human_gene <- as.data.frame(df_human_gene)
 #### BioMart?
 #### How do others in the **chat** do this?
 
-
 # Session 5 - June 30th 2025
+
+## renv package
+
+![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+
+## It **finally** happened!
+
+### I got too tired of **switching** between my Seurat v4 and Seurat v5 computers
+
+#### This was my solution for the Seurat v5 
+![](`r here::here("Images", "btf.webp")`)
+
+#### Screenshot from **Score #1**
+
+![](`r here::here("Images", "badadvice.png")`)
+
+#### Someone (Jesse Goodrich or Matt Salomon?) recommended trying out the *renv* package
+
+## What is renv?
+
+![](`r here::here("Images", "renv_logo.png")`)
+
+https://rstudio.github.io/renv/articles/renv.html
+
+### A package for managing R project environments
+
+### Let's be honest...we often get stuck in between projects as packages change
+
+![](`r here::here("Images", "renv_image.svg")`)
+
+### It allows you to create a **snapshot** of your R packages and versions
+
+![](`r here::here("Images", "renv_graphic.png")`)
+
+### It allows you to **restore** your R packages and versions
+
+![](`r here::here("Images", "renv_files.png")`)
+
+### **Great** video from **Albert Rapp** on using renv 
+
+https://www.youtube.com/watch?v=Oen9xhEh8PY
+
+![](`r here::here("Images", "youtube.jpg")`)
+
+### It took me **5 minutes** to set this up on my system
+
+### I started by using the *renv* package in a new github repo that I was working on
+
+### **This easy!**
+
+#### Open up project from the folder where you want to use renv
+
+![](`r here::here("Images", "thiseasy.png")`)
+
+![](`r here::here("Images", "filesize.png")`)
+
+### Now when I open the project from this location:  **Seurat v5**
+
+### When I open project from any other folder: **Seurat v4**
+
+## **Take Home**
+
+### Implimenting *renv* is a great way to manage your R packages and versions
+### It's been seamless and helped me to move between **Seurat v4** and **Seurat v5**
+### Important for making your code **reproducible!**
+#### Add a renv.lock file to your git repo so that others can use the same packages and versions
 
 
 # Session 6 - July 28th 2025

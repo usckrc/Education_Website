@@ -21,7 +21,7 @@ output:
 [Upset Plots](#session-2---february-24th-2025)<br>
 [Gantt Chart](#session-3---march-31st-2025) <br>
 [Sankey Plot](#session-4---april-28th-2025) <br>
-[TBD](#session-5---june-30th-2025) <br>
+[Stacked Violin Plot](#session-5---june-30th-2025) <br>
 [TBD](#session-6---july-28th-2025) <br>
 
 ```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
@@ -1035,6 +1035,152 @@ p2
 
 # Session 5 - June 30th 2025
 
+## Stacked Violin Plot
+
+![](`r here::here("Images", "Replica.png")`)
+
+## Final Product!
+
+![](`r here::here("Images", "stacked.png")`)
+
+## Publication Examples of Stacked Violin Plot
+
+### Figure 1 from Park et al. Science 2018
+
+https://pubmed.ncbi.nlm.nih.gov/29622724/
+
+![](`r here::here("Images", "park.png")`)
+
+### Figure 1 from Karaiskos et al. JASN 2018
+
+https://pubmed.ncbi.nlm.nih.gov/29794128/
+
+![](`r here::here("Images", "karaiskos.png")`)
+
+## Start with a Seurat Object
+
+### Data from Figure 1 from Burfeind et al. Phys Genomics 2025
+
+https://pubmed.ncbi.nlm.nih.gov/39982410/
+
+![](`r here::here("Images", "burfiend.png")`)
+
+### Load Dataset
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+
+SO <- readRDS(here("Week 4 CellChat", "data", "CACPR_integrated.rds"))
+
+DimPlot(SO, group.by = "subclass.CACPR") + ggtitle("")
+
+DefaultAssay(SO) <- "RNA"
+
+SO@meta.data
+
+```
+
+![](`r here::here("Images", "dimplot.png")`)
+
+### Step 1: Create a list of genes
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, fig.width=10, fig.height=8}
+
+markers.to.plot1 <- c("Lrp2",         # PT
+                      "Slc5a12",      # PT-S1
+                      "Slc13a3",      # PT-S2
+                      "Slc16a9",      # PT-S3
+                      "Havcr1",       # Injured PT
+                      "Epha7",        # dTL
+                      "Slc12a1",      # TAL
+                      "Cldn10",       # TAL
+                      "Cldn16",       # TAL
+                      "Nos1",         # MD
+                      "Slc12a3",      # DCT
+                      "Pvalb",        # DCT1
+                      "Slc8a1",       # DCT2, CNT
+                      "Aqp2",         # PC
+                      "Slc4a1",       # IC-A
+                      "Slc26a4",      # IC-B
+                      "Upk1b",        # Uro
+                      "Ncam1",        # PEC
+                      "Pdgfrb",       # Perivascular
+                      "Piezo2",       # Mesangial
+                      "Pdgfra",       # Fib
+                      "Acta2",        # Mural
+                      "Nphs1",        # Podo
+                      "Kdr",          # Capillary Endo
+                      "Lyve1",        # Lymph
+                      "Ptprc",        # Immune
+                      "Cd74",         # Macrophage
+                      "Skap1"         # B/T Cells 
+                      )
+
+```
+
+### Step 1b: Multidimentional Dotplot code
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, fig.width=10, fig.height=8}
+
+DotPlot(SO,
+features = markers.to.plot1,
+dot.scale = 8,
+dot.min = 0,
+scale.max = 100,
+scale.min = 0,
+col.min = -2.5,
+col.max = 2.5,
+group.by = "class.CACPR") +
+  coord_flip() +
+  theme_classic() +
+  theme(axis.line = element_line(size = 1, colour = "black"),
+        axis.ticks.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank(),
+        text = element_text(size=20),
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
+  xlab(NULL) +
+  ylab(NULL)
+
+```
+
+### Step 2: Violin Plot of List in Features
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, fig.width=20, fig.height=20}
+VlnPlot(SO,
+features = markers.to.plot1,
+group.by = "subclass.CACPR")
+
+```
+
+![](`r here::here("Images", "vlnplots.png")`)
+
+#### Looks really bad!
+
+### Step 3: Change the `stack =` argument
+
+#### **?VlnPlot**
+#### Gives you the modifiable arguements in the Vln Function
+
+![](`r here::here("Images", "vlnplot.png")`)
+
+```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, fig.width=10, fig.height=6}
+
+VlnPlot(SO,
+features = markers.to.plot1,
+group.by = "subclass.CACPR",
+stack = TRUE)  # This is the key argument to change
+
+```
+
+![](`r here::here("Images", "stacked.png")`)
+
+## Lessons for Me
+
+### Sometimes creating graphs is as simple as knowing the *arguments* in a function
+### Still need to work on coloring by *subclass.CACPR* rather than *feature*
+##### Challenge for the next SCORE?
 
 # Session 6 - July 28th 2025
 
