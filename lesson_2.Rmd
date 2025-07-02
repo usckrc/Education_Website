@@ -1,5 +1,5 @@
 ---
-title: "ROC 2"
+title: "Lesson 2"
 subtitle: ""
 author:
   - "Tutorial written by Kevin Burfeind"

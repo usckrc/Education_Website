@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Tutorial written by Jonathan Nelson" />
+<meta name="author" content="Tutorial adapted by Sienna Blanche" />
+
+<meta name="date" content="2025-07-02" />
+
+<title>Lesson 1</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Learning Bioinformatics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    About
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">About</a>
+    </li>
+    <li>
+      <a href="contributors.html">Contributors</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Getting Started
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="computer_requirements.html">Computer Requirements</a>
+    </li>
+    <li>
+      <a href="downloading_R.html">Downloading R</a>
+    </li>
+    <li>
+      <a href="using_packages.html">Using Packages</a>
+    </li>
+    <li>
+      <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+    </li>
+    <li>
+      <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Github Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Understanding Github</a>
+    </li>
+    <li>
+      <a href="github_tutorial.html">Github Tutorial</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    snRNAseq Analysis
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lesson_1.html">Lesson 1</a>
+    </li>
+    <li>
+      <a href="lesson_2.html">Lesson 2</a>
+    </li>
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+    <li>
+      <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+    </li>
+    <li>
+      <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    QuPath Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="qupath_install.html">Installing QuPath</a>
+    </li>
+    <li>
+      <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+    </li>
+    <li>
+      <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+    </li>
+    <li>
+      <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Problem Solving
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="write_degs_excel.html">Write DEGs to Excel</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Lesson 1</h1>
+<h4 class="author">Tutorial written by Jonathan Nelson</h4>
+<h4 class="author">Tutorial adapted by Sienna Blanche</h4>
+<h4 class="date">02 July 2025</h4>
+
+</div>
+
+
+<div id="getting-started" class="section level1">
+<h1>Getting Started</h1>
+<p>For our first scRNA-seq analysis, we’ll be following a clear,
+step-by-step process divided into nine parts.</p>
+</div>
+<div id="necessary-materials" class="section level1">
+<h1>Necessary materials</h1>
+<p>The dataset that we are using is from <a
+href="https://pubmed.ncbi.nlm.nih.gov/29794128/">Karaiskos et al. JASN
+2018 (PMID: 29794128)</a>. This is 1 of 3 files (glom_rep3) downloaded
+from its corresponding <a
+href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107">GEO
+entry</a>. This dataset was chosen because it is a relatively small
+number of cells and a limited number of clusters to simplify
+calculations and analysis.</p>
+<p>You can download this file from the <a
+href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107">GEO
+entry</a> or download it from <a
+href="https://drive.google.com/file/d/16JzkZN2qmUzK8bg1_D2x3vRstWrqvHUE/view?usp=sharing">Google
+Drive</a>. To follow along with this tutorial you can download the <a
+href="https://drive.google.com/file/d/1RODN4wE31qgnaK6_WjnC1BihtVgX7fMu/view?usp=sharing">R
+Script</a> and run it or create your own and copy the code from the
+tutorial into the script.</p>
+<p>To be able to follow along with this tutorial you should have R and
+RStudio downloaded. If you need help doing this a tutorial can be found
+<a
+href="file:///Users/sblanche/Desktop/GitHub/Education_Website/docs/downloading_R.html">here</a></p>
+</div>
+<div id="step-0" class="section level1">
+<h1>Step 0</h1>
+<div id="installing-the-seurat-and-dependency-packages."
+class="section level2">
+<h2>Installing the Seurat (and dependency packages).</h2>
+<p>You only need to perform Step 0 once. Copy the command
+<strong>install.packages(‘Seurat’)</strong> into your R script or RMD
+and run it. Confirm that the package has been downloaded.</p>
+</div>
+</div>
+<div id="step-1" class="section level1">
+<h1>Step 1</h1>
+<div id="activate-the-r-packages-needed-to-run-the-analysis."
+class="section level2">
+<h2>Activate the R packages needed to run the analysis.</h2>
+<p>Copy the following lines of code into your file and run them:</p>
+<p><strong>library(Seurat)</strong></p>
+<p><strong>library(cowplot)</strong></p>
+<p><strong>library(dplyr)</strong></p>
+<p><strong>library(patchwork)</strong></p>
+</div>
+</div>
+<div id="step-2" class="section level1">
+<h1>Step 2</h1>
+<div
+id="setting-up-a-working-directory-and-uploading-the-scrnaseq-file-to-r-studio"
+class="section level2">
+<h2>Setting up a “Working Directory” and uploading the scRNAseq file to
+R studio</h2>
+<p>First we need to tell R studio where our scRNAseq “.csv” file is.
+Click on Session&gt;Set Working Directory&gt;Choose Directory and find
+the folder on your computer that contains the downloaded dataset.</p>
+<p><img
+src="Images/ROC_1_Screenshot%201.png" /></p>
+<p>Once you’ve set your working directory copy and run the following
+code: <strong>Glom = read.csv(‘Glom_scRNAseq.csv’,row.names=1)</strong>.
+If you have pointed to the right folder then the Environment window
+should contain a data object called “Glom” after a few seconds</p>
+<p><img
+src="Images/ROC_1_Screenshot%202.png" /></p>
+</div>
+</div>
+<div id="step-3" class="section level1">
+<h1>Step 3</h1>
+<div
+id="transforming-scrnaseq-.csv-file-into-a-matrix-and-loading-it-into-seurat"
+class="section level2">
+<h2>Transforming scRNAseq “.csv” file into a matrix and loading it into
+Seurat</h2>
+<p>We will next convert the “.csv” file into a data matrix that is able
+to be uploaded into Seurat. Copy and run the following code:
+<strong>Glom = data.matrix(Glom)</strong>. The object in the Environment
+window will change to be a “Large Matrix”</p>
+<p><img
+src="Images/ROC_1_Screenshot%203.png" /></p>
+<p>Next we will run a “Sanity check” to make sure our Matrix file is
+formatted correctly. Run the following code
+<strong>Glom[1:5,1:5]</strong> to see the first 5 rows and columns of
+the matrix in the console window. Top row should be bar codes and first
+column should be gene names, as seen below.</p>
+<p><img
+src="Images/ROC_1_Screenshot%204.png" /></p>
+<p>Next we will load this data into Seurat and create our Seurat Object.
+Run the following code:</p>
+<p><strong>Glom &lt;- CreateSeuratObject(counts = Glom, project =
+“ROC_Glom”, min.cells = 3, min.features = 200)</strong></p>
+<p>The object in the Environment window will change to be a “Large
+Seurat”</p>
+<p><img
+src="Images/ROC_1_Screenshot%205.png" /></p>
+<p>This is our first filtering step. The code selects only genes that
+are expressed in at least 3 cells and cells that express at least 200
+genes. Next we will run another sanity check to see how many cells and
+genes were filtered by running the following code
+<strong>Glom</strong>.</p>
+<p><img
+src="Images/ROC_1_Screenshot%206.png" /></p>
+<p>You should now get an output with 3035 Samples (cells) by 16991
+Features (genes) which means we filtered out 42 cells and 5319 Genes! We
+know this by comparing out new object to the object we first loaded into
+the session.</p>
+</div>
+</div>
+<div id="step-4" class="section level1">
+<h1>Step 4</h1>
+<div id="visualizing-quality-control-metrics" class="section level2">
+<h2>Visualizing Quality Control Metrics</h2>
+<p>Run the following code <strong>Glom[[“percent.mt”]] &lt;-
+PercentageFeatureSet(Glom, pattern = “^mt-”)</strong> to create a new
+meta.data feature in the Seurat object that measures how much
+mitochondrial DNA there is in each cell.</p>
+<p>We will now visualize the dataset for quality control using 3
+different metrics by running the following line of code:
+<strong>VlnPlot(Glom, features = c(“nFeature_RNA”, “nCount_RNA”,
+“percent.mt”), ncol = 3)</strong></p>
+<p>nFeature_RNA is the number of differing genes detected in each cell,
+nCount_RNA refers to the number of mRNA molecules detected in each cell,
+and percent.mt is the percent of counts that come from mitochondrial
+genes.</p>
+<p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%207.png" /></p>
+<p>Using this information we can filter out doublets and damaged cells
+by running the following code: <strong>Glom &lt;- subset(Glom, subset =
+nFeature_RNA &lt; 2000 &amp; nCount_RNA &lt; 4000 &amp; percent.mt &lt;
+20)</strong></p>
+<p>High nFeature_RNA or nCount_RNA could equate to doublets or mixed
+cell debris. We will filter out cells with more than 2000 genes and 4000
+mRNA molecules to exclude potential doublets or mixed cell debris. High
+percent.mt could equate to damaged cells. We will filter out cells with
+more than 20% mitochondrial content to exclude damaged cells.</p>
+<p>Now we will replot the graphs to visualize the plots again with the
+newly filtered data by running <strong>VlnPlot(Glom, features =
+c(“nFeature_RNA”, “nCount_RNA”, “percent.mt”), ncol = 3)</strong></p>
+<p>The new graph should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%208.png" /></p>
+<p>Next we will run another sanity check to see how many cells and genes
+were filtered from the previous command by running
+<strong>Glom</strong>.</p>
+<p><img
+src="Images/ROC_1_Screenshot%209.png" /></p>
+<p>The output we get is as follows: 2899 Samples (cells) by 16991
+Features (genes). This means we filtered out 136 cells and 0 Genes!
+Again we know this by comparing the current object to the one we had in
+previous steps.</p>
+</div>
+</div>
+<div id="step-5" class="section level1">
+<h1>Step 5</h1>
+<div
+id="data-normalization-and-identification-of-genes-driving-variability-cluster-formation"
+class="section level2">
+<h2>Data Normalization and Identification of Genes Driving Variability
+(cluster formation)</h2>
+<p>Run the following code</p>
+<p><strong>Glom &lt;- NormalizeData(Glom, normalization.method =
+“LogNormalize”, scale.factor = 10000)</strong></p>
+<p><strong>Glom &lt;- NormalizeData(Glom)</strong></p>
+<p><strong>Glom &lt;- FindVariableFeatures(Glom, selection.method =
+“vst”, nfeatures = 2000)</strong></p>
+<p>This normalizes the matrix and creates a plot of the genes that are
+the most variable in the dataset.</p>
+<p>Next we can identify the 10 most highly variable genes by creating a
+new object in the environment called “top10”. To do this copy the
+following code: <strong>top10 &lt;- head(VariableFeatures(Glom),
+10)</strong>.</p>
+<p>The top 10 genes I got were as follows:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2010.png" /></p>
+<p>Next we can create a plot of the variable features within the dataset
+and label the top 10 genes to see which are driving the clustering. To
+do so copy the following code:</p>
+<p><strong>plot1 &lt;- VariableFeaturePlot(Glom)</strong></p>
+<p><strong>plot2 &lt;- LabelPoints(plot = plot1, points = top10, repel =
+TRUE)</strong></p>
+<p><strong>plot2</strong></p>
+<p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2011.png" /></p>
+</div>
+</div>
+<div id="step-6" class="section level1">
+<h1>Step 6</h1>
+<div id="creation-and-visualization-of-principal-components"
+class="section level2">
+<h2>Creation and Visualization of Principal Components</h2>
+<p>Run the following code:</p>
+<p><strong>all.genes &lt;- rownames(Glom)</strong></p>
+<p><strong>Glom &lt;- ScaleData(Glom, features = all.genes)</strong></p>
+<p><strong>Glom &lt;- RunPCA(Glom, features = VariableFeatures(object =
+Glom))</strong></p>
+<p><strong>print(Glom[[“pca”]], dims = 1:10, nfeatures = 3)</strong></p>
+<p>This calculates the principal components using the variable genes and
+then prints the 3 genes that drive the first 10 principal
+components.</p>
+<p><img
+src="Images/ROC_1_Screenshot%2012.png" /></p>
+<p>Can you get a sense for how the cells might be clustering based off
+of these genes?</p>
+<p>Now we will visualize the genes driving the PCA a few ways. Run the
+next lines code individually.</p>
+<p>This line visualizes the genes driving the first 2 PCA
+dimensions:</p>
+<p><strong>VizDimLoadings(Glom, dims = 1:2, reduction =
+“pca”)</strong></p>
+<p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2013.png" /></p>
+<p>Next, this line visualizes the scRNAseq dataset as a PCA (hopefully
+you can appreciate the poor clustering):</p>
+<p><strong>DimPlot(Glom, reduction = “pca”)</strong></p>
+<p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2014.png" /></p>
+<p>Lastly, this line creates a heatmap of the top 500 genes that drive
+the first 2 PCA dimensions:</p>
+<p><strong>DimHeatmap(Glom, dims = 10:11, cells = 500, balanced =
+TRUE)</strong></p>
+<p>The heatmap you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2015.png" /></p>
+<p>This plot shows the variability and helps to decide how many PCA
+dimensions to use when measuring the clusters. When the standard
+deviation in the PC dimensions becomes small it no longer has a big
+effect. In this case we will use 10 PC’s.</p>
+<p><strong>ElbowPlot(Glom)</strong></p>
+<p>The elbowplot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2016.png" /></p>
+</div>
+</div>
+<div id="step-7" class="section level1">
+<h1>Step 7</h1>
+<div id="calculation-and-creation-of-a-umap-visualization"
+class="section level2">
+<h2>Calculation and Creation of a UMAP visualization</h2>
+<p>This is where scRNAseq becomes more like like and art form. The
+following lines determine the shape of the clusters and the number of
+populations in our scRNASeq visualization.</p>
+<p>These lines control the resolution of the clusters and the number of
+separate populations. <em>FindNeighbors</em> changes the separation
+between clusters. <em>FindClusters</em> changes the number of
+differential populations.</p>
+<p><strong>Glom &lt;- FindNeighbors(Glom, dims = 1:10)</strong></p>
+<p><strong>Glom &lt;- FindClusters(Glom, resolution = 0.1)</strong></p>
+<p><strong>Glom &lt;- RunUMAP(Glom, dims = 1:10)</strong></p>
+<p>This line generates the UMAP visualization. How many clusters do you
+see? Do they seem like they are real clusters?</p>
+<p><strong>DimPlot(Glom, reduction = “umap”)</strong></p>
+<p>The plot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2017.png" /></p>
+<p>This line generates the UMAP visualization. How many clusters do you
+see? Do they seem like they are real clusters?</p>
+<p><strong>Glom2 &lt;- FindClusters(Glom, resolution = 0.3)</strong></p>
+<p><strong>Glom2 &lt;- RunUMAP(Glom2, dims = 1:10)</strong></p>
+<p><strong>DimPlot(Glom2, reduction = “umap”)</strong></p>
+<p>The dimplot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2018.png" /></p>
+</div>
+</div>
+<div id="step-8" class="section level1">
+<h1>Step 8</h1>
+<div
+id="generation-of-heatmaps-of-differential-genes-between-clusters-to-identify-cell-types"
+class="section level2">
+<h2>Generation of Heatmaps of differential genes between clusters to
+identify cell types</h2>
+<p>Now that we have a UMAP we have to identify the cell type that each
+cluster represents. We will do this by finding the top 5 genes that
+define each cluster and making a heatmap. Notice if there are any clues
+to what each cluster is based on the genes enriched in the
+population.</p>
+<p>Run the following code:</p>
+<p><strong>Glom.markers &lt;- FindAllMarkers(Glom, only.pos = TRUE,
+min.pct = 0.25, logfc.threshold = 0.25)</strong></p>
+<p><strong>Glom.markers %&gt;% group_by(cluster) %&gt;% top_n(n = 5, wt
+= avg_log2FC)</strong></p>
+<p><strong>top5 &lt;- Glom.markers %&gt;% group_by(cluster) %&gt;%
+top_n(5, avg_log2FC)</strong></p>
+<p><strong>DoHeatmap(Glom, features = top5$gene)</strong></p>
+<p>The heatmap you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2019.png" /></p>
+<p>We will double check our work by visualizing some “traditional”
+cell-type markers with violin plots. The markers used in this tutorial
+are as follows:</p>
+<p>Nphs2 = Podocyte</p>
+<p>Pecam1 = Endothelial</p>
+<p>Slc12a3 = Tubule</p>
+<p>Tagln = Mural</p>
+<p>Run the following code to visulaize the markers in each cluster:
+<strong>VlnPlot(Glom, features = c(“Nphs2”, “Pecam1”, “Slc12a3”,
+“Tagln”))</strong></p>
+<p>The graph you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2020.png" /></p>
+</div>
+</div>
+<div id="step-9" class="section level1">
+<h1>Step 9</h1>
+<div id="re-naming-clusters-by-cell-type" class="section level2">
+<h2>Re-naming clusters by cell-type</h2>
+<p>Now that we think that We know the cluster identifiers, we will
+insert that meta.data into the Seurat object by running the following
+code:</p>
+<p><strong>new.cluster.ids &lt;- c(“Podo”, “Endo”, “Tubule”,
+“Mural”)</strong></p>
+<p><strong>names(new.cluster.ids) &lt;- levels(Glom)</strong></p>
+<p><strong>Glom &lt;- RenameIdents(Glom, new.cluster.ids)</strong></p>
+<p><strong>DimPlot(Glom, reduction = “umap”, label = TRUE, pt.size =
+0.5, label.size = 7, repel = FALSE)</strong></p>
+<p>The dimplot you get should now look like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2021.png" /></p>
+<p>These labels will now follow each cluster on any visualization we do.
+See how they look on the violin plot we ran before by running the
+following code:</p>
+<p><strong>VlnPlot(Glom, features = c(“Nphs2”, “Pecam1”, “Slc12a3”,
+“Tagln”))</strong></p>
+<p>The graph you get should now look like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2022.png" /></p>
+<p>Next we can visualize the expression of each gene on the UMAP diagram
+by running the following lines individually. The series of feature plots
+you get should look something like this:</p>
+<p><strong>FeaturePlot(Glom, features = c(“Nphs2”),label = TRUE, pt.size
+= 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2023.png" /></p>
+<p><strong>FeaturePlot(Glom, features = c(“Pecam1”),label = TRUE,
+pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2024.png" /></p>
+<p><strong>FeaturePlot(Glom, features = c(“Slc12a3”),label = TRUE,
+pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2025.png" /></p>
+<p><strong>FeaturePlot(Glom, features = c(“Tagln”),label = FALSE,
+pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p><img
+src="Images/ROC_1_Screenshot%2026.png" /></p>
+<p>Using the following code we can highlight a “hidden cluster” that is
+probably immune cells because of the unique expression of Ptprc
+(CD45):</p>
+<p><strong>FeaturePlot(Glom, features = c(“Ptprc”),label = TRUE, pt.size
+= 0.5, label.size = 7, repel = FALSE)</strong></p>
+<p>The feature plot you get should look something like this:</p>
+<p><img
+src="Images/ROC_1_Screenshot%2027.png" /></p>
+</div>
+</div>
+<div id="session-info" class="section level1">
+<h1>Session Info</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.4.2 (2024-10-31)
+## Platform: aarch64-apple-darwin20
+## Running under: macOS Sequoia 15.1
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## time zone: America/Los_Angeles
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_1.1.4        Seurat_5.3.0       SeuratObject_5.0.2 sp_2.1-4          
+## [5] here_1.0.1        
+## 
+## loaded via a namespace (and not attached):
+##   [1] deldir_2.0-4           pbapply_1.7-2          gridExtra_2.3         
+##   [4] rlang_1.1.5            magrittr_2.0.3         RcppAnnoy_0.0.22      
+##   [7] spatstat.geom_3.3-5    matrixStats_1.5.0      ggridges_0.5.6        
+##  [10] compiler_4.4.2         png_0.1-8              vctrs_0.6.5           
+##  [13] reshape2_1.4.4         stringr_1.5.1          pkgconfig_2.0.3       
+##  [16] fastmap_1.2.0          promises_1.3.2         rmarkdown_2.29        
+##  [19] purrr_1.0.2            xfun_0.50              cachem_1.1.0          
+##  [22] jsonlite_1.8.9         goftest_1.2-3          later_1.4.1           
+##  [25] spatstat.utils_3.1-2   irlba_2.3.5.1          parallel_4.4.2        
+##  [28] cluster_2.1.6          R6_2.5.1               ica_1.0-3             
+##  [31] spatstat.data_3.1-4    bslib_0.8.0            stringi_1.8.4         
+##  [34] RColorBrewer_1.1-3     reticulate_1.40.0      spatstat.univar_3.1-1 
+##  [37] parallelly_1.41.0      lmtest_0.9-40          jquerylib_0.1.4       
+##  [40] scattermore_1.2        Rcpp_1.0.14            knitr_1.49            
+##  [43] tensor_1.5             future.apply_1.11.3    zoo_1.8-12            
+##  [46] sctransform_0.4.1      httpuv_1.6.15          Matrix_1.7-1          
+##  [49] splines_4.4.2          igraph_2.1.4           tidyselect_1.2.1      
+##  [52] abind_1.4-8            rstudioapi_0.17.1      yaml_2.3.10           
+##  [55] spatstat.random_3.3-2  spatstat.explore_3.3-4 codetools_0.2-20      
+##  [58] miniUI_0.1.1.1         listenv_0.9.1          lattice_0.22-6        
+##  [61] tibble_3.2.1           plyr_1.8.9             shiny_1.10.0          
+##  [64] ROCR_1.0-11            evaluate_1.0.3         Rtsne_0.17            
+##  [67] future_1.34.0          fastDummies_1.7.5      survival_3.7-0        
+##  [70] polyclip_1.10-7        fitdistrplus_1.2-2     pillar_1.10.1         
+##  [73] KernSmooth_2.23-24     plotly_4.10.4          generics_0.1.3        
+##  [76] rprojroot_2.0.4        RcppHNSW_0.6.0         ggplot2_3.5.1         
+##  [79] munsell_0.5.1          scales_1.3.0           globals_0.16.3        
+##  [82] xtable_1.8-4           glue_1.8.0             lazyeval_0.2.2        
+##  [85] tools_4.4.2            data.table_1.16.4      RSpectra_0.16-2       
+##  [88] RANN_2.6.2             dotCall64_1.2          cowplot_1.1.3         
+##  [91] grid_4.4.2             tidyr_1.3.1            colorspace_2.1-1      
+##  [94] nlme_3.1-166           patchwork_1.3.0        cli_3.6.3             
+##  [97] spatstat.sparse_3.1-0  spam_2.11-1            viridisLite_0.4.2     
+## [100] uwot_0.2.2             gtable_0.3.6           sass_0.4.9            
+## [103] digest_0.6.37          progressr_0.15.1       ggrepel_0.9.6         
+## [106] htmlwidgets_1.6.4      farver_2.1.2           htmltools_0.5.8.1     
+## [109] lifecycle_1.0.4        httr_1.4.7             mime_0.12             
+## [112] MASS_7.3-61</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
