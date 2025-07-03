@@ -34,9 +34,9 @@ For our first scRNA-seq analysis, we’ll be following a clear, step-by-step pro
 
 The dataset that we are using is from [Karaiskos et al. JASN 2018 (PMID: 29794128)](https://pubmed.ncbi.nlm.nih.gov/29794128/). This is 1 of 3 files (glom_rep3) downloaded from its corresponding [GEO entry](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107). This dataset was chosen because it is a relatively small number of cells and a limited number of clusters to simplify calculations and analysis.
 
-You can download this file from the [GEO entry](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107) or download it from [Google Drive](https://drive.google.com/file/d/16JzkZN2qmUzK8bg1_D2x3vRstWrqvHUE/view?usp=sharing). To follow along with this tutorial you can download the [R Script](https://drive.google.com/file/d/1RODN4wE31qgnaK6_WjnC1BihtVgX7fMu/view?usp=sharing) and run it or create your own and copy the code from the tutorial into the script.
+You can download this file from the [GEO entry](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107) or download it from [Google Drive](https://drive.google.com/file/d/16JzkZN2qmUzK8bg1_D2x3vRstWrqvHUE/view?usp=sharing) (**recommended**). To follow along with this tutorial you can download the [R Script](https://drive.google.com/file/d/1RODN4wE31qgnaK6_WjnC1BihtVgX7fMu/view?usp=sharing) and run it or create your own and copy the code from the tutorial into the script.
 
-To be able to follow along with this tutorial you should have R and RStudio downloaded. If you need help doing this a tutorial can be found [here](file:///Users/sblanche/Desktop/GitHub/Education_Website/docs/downloading_R.html)
+To be able to follow along with this tutorial you should have R and RStudio downloaded. If you need help doing this a tutorial can be found [here](https://usckrc.github.io/Education_Website/downloading_R.html).
 
 # Step 0 
 
