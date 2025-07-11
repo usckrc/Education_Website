@@ -30,13 +30,27 @@ set.seed((12345))
 
 For our first scRNA-seq analysis, we’ll be following a clear, step-by-step process divided into nine parts.
 
-# Necessary materials 
+## Necessary materials 
 
 The dataset that we are using is from [Karaiskos et al. JASN 2018 (PMID: 29794128)](https://pubmed.ncbi.nlm.nih.gov/29794128/). This is 1 of 3 files (glom_rep3) downloaded from its corresponding [GEO entry](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107). This dataset was chosen because it is a relatively small number of cells and a limited number of clusters to simplify calculations and analysis.
 
 You can download this file from the [GEO entry](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107) or download it from [Google Drive](https://drive.google.com/file/d/16JzkZN2qmUzK8bg1_D2x3vRstWrqvHUE/view?usp=sharing) (**recommended**). To follow along with this tutorial you can download the [R Script](https://drive.google.com/file/d/1RODN4wE31qgnaK6_WjnC1BihtVgX7fMu/view?usp=sharing) and run it or create your own and copy the code from the tutorial into the script.
 
 To be able to follow along with this tutorial you should have R and RStudio downloaded. If you need help doing this a tutorial can be found [here](https://usckrc.github.io/Education_Website/downloading_R.html).
+
+## Set up folder
+
+Create a new folder on your desktop titled **scRNAseq_learning** and place the necessary materials into that folder. Once you have downloaded the necessary materials, this is what the folder should look like: 
+
+![](`r here::here("Images", "ROC_1_Screenshot 0.1.png")`)
+
+ Creating a new folder is important as RStudio will use this folder as your working directory. To set the working directory click on **Session>Set Working Directory>Choose Directory**, This tells R studio where our downloaded files are.
+
+![](`r here::here("Images", "ROC_1_Screenshot 0.png")`)
+
+When the file browser opens, navigate to and select the scRNAseq_learning folder, then select open. This sets the working directory so RStudio knows where to look for your files.
+
+![](`r here::here("Images", "ROC_1_Screenshot 1.png")`)
 
 # Step 0 
 
@@ -60,11 +74,7 @@ Copy the following lines of code into your file and run them:
 
 # Step 2
 
-## Setting up a "Working Directory" and uploading the scRNAseq file to R studio
-
-First we need to tell R studio where our scRNAseq ".csv" file is. Click on Session>Set Working Directory>Choose Directory and find the folder on your computer that contains the downloaded dataset.
-
-![](`r here::here("Images", "ROC_1_Screenshot 1.png")`)
+## Upload the scRNAseq file to R studio
 
 Once you've set your working directory copy and run the following code: **Glom = read.csv('Glom_scRNAseq.csv',row.names=1)**. If you have pointed to the right folder then the Environment window should contain a data object called "Glom" after a few seconds
 

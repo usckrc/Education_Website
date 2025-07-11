@@ -14,30 +14,24 @@ output:
     highlight: pygments
 ---
 
-```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
-# Load Packages 
-
-if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
-if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
-if (!require("patchwork")) {install.packages("patchwork"); require("patchwork")}
-if (!require("knitr")) {install.packages("knitr"); require("knitr")}
-if (!require("ggplot2")) {install.packages("ggplot2"); require("ggplot2")}
-if (!require("ggpmisc")) {install.packages("ggpmisc"); require("ggpmisc")}
-if (!require("here")) {install.packages("here"); require("here")}
-if (!require("devtools")) {install.packages("devtools"); require("devtools")}
-if (!require("tidyverse")) {install.packages("tidyverse"); require("tidyverse")}
-if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
-if (!require("pheatmap")) {install.packages("pheatmap"); require("pheatmap")}
-if (!require("reshape2")) {install.packages("reshape2"); require("reshape2")}
-if (!require("gplots")) {install.packages("gplots"); require("gplots")}
-if (!require("viridis")) {install.packages("viridis"); require("viridis")}
-if (!require("tibble")) {install.packages("tibble"); require("tibble")}
-
-set.seed((12345))
-#here()
-```
-
 # Contributors
 
+## Jonathan Nelson
+
+Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Division of Nephrology & Hypertension at the Keck School of Medicine of USC. I completed my undergraduate studies in Biochemistry at the University of Washington before earning my PhD in Molecular and Medical Genetics at Oregon Health & Science University. My research focuses on vascular biology and the renin-angiotensin system, particularly how it regulates the kidney microvasculature. I am passionate about using translational research to better understand kidney disease and improve outcomes for patients with vascular and renal conditions.
+
+## Arjun Lakshmanan
+
+## Sienna Blanche
+
+<img src="`r here::here('Images', 'sienna.png')`" width="300px">
+
+Hello, my name is Sienna Blanche, and I am a Master's student at the University of Southern California studying Global Medicine. In Dr. Nelson's lab, work as a research assistant analyzing kidney gene expression using single-nucleus RNA sequencing. In the future, I aspire to become a physician dedicated to advancing women’s health and global health equity by integrating clinical practice with research to improve patient outcomes.
+
+## Roman Thomas
+
+<img src="`r here::here('Images', 'roman.jpeg')`" width="300px">
+
+Hi! My name is Roman Thomas, and I am a fourth year undergraduate student at Vanderbilt University majoring in Biochemistry and Medicine, Health, & Society on the premed track. I am doing research in Dr. Jonathan Nelson’s lab to develop a manuscript that provides insight into a standardized way to identify cell types in the kidney through single nucleus RNA sequencing analysis with the use of R.
 
 
