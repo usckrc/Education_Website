@@ -18,6 +18,8 @@ output:
 
 ## Jonathan Nelson
 
+<img src="`r here::here('Images', 'Nelson_headshot.jpg')`" width="300px">
+
 Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Division of Nephrology & Hypertension at the Keck School of Medicine of USC. I completed my undergraduate studies in Biochemistry at the University of Washington before earning my PhD in Molecular and Medical Genetics at Oregon Health & Science University. My research focuses on vascular biology and the renin-angiotensin system, particularly how it regulates the kidney microvasculature. I am passionate about using translational research to better understand kidney disease and improve outcomes for patients with vascular and renal conditions.
 
 ## Arjun Lakshmanan

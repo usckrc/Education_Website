@@ -44,11 +44,11 @@ Create a new folder on your desktop titled **scRNAseq_learning** and place the n
 
 ![](`r here::here("Images", "ROC_1_Screenshot 0.1.png")`)
 
- Creating a new folder is important as RStudio will use this folder as your working directory. To set the working directory click on **Session>Set Working Directory>Choose Directory**, This tells R studio where our downloaded files are.
+Creating a new folder is important as RStudio will use this folder as your working directory. To set the working directory click on **Session>Set Working Directory>Choose Directory**, This tells R studio where our downloaded files are.
 
 ![](`r here::here("Images", "ROC_1_Screenshot 0.png")`)
 
-When the file browser opens, navigate to and select the scRNAseq_learning folder, then select open. This sets the working directory so RStudio knows where to look for your files.
+When the file browser opens, navigate to and  **select the scRNAseq_learning folder**, then select open. This sets the working directory so RStudio knows where to look for your files.
 
 ![](`r here::here("Images", "ROC_1_Screenshot 1.png")`)
 
