@@ -50,7 +50,7 @@ Creating a new folder is important as RStudio will use this folder as your worki
 
 When the file browser opens, navigate to and  **select the scRNAseq_learning folder**, then select open. This sets the working directory so RStudio knows where to look for your files.
 
-![](`r here::here("Images", "ROC_1_Screenshot 1.png")`)
+![](`r here::here("Images", "ROC_1_Screenshot 1.1.png")`)
 
 # Step 0 
 
