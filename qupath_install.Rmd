@@ -38,7 +38,7 @@ set.seed((12345))
 ```
 
 
-![](`r here::here("Images", "qupath", "logo.png")`)
+![](`r here::here("images", "qupath", "logo.png")`)
 
 # What is QuPath?
 
@@ -58,19 +58,19 @@ set.seed((12345))
 
 https://www.youtube.com/watch?v=MBrAVUsUdio&list=PLSCpSsEmyRpANBGQXB_oGslW9NIJz4A12
 
-![](`r here::here("Images", "qupath", "youtube1.png")`)
+![](`r here::here("images", "qupath", "youtube1.png")`)
 
 ## QuPath Tutorial (by Creator)
 
 https://www.youtube.com/watch?v=J-47tzXAFdE&list=PL4ta8RxZklWkPB_pwW-ZDVAGPGktAlE5Y
 
-![](`r here::here("Images", "qupath", "youtube2.png")`)
+![](`r here::here("images", "qupath", "youtube2.png")`)
 
 ## QuPath Introduction Presentation
 
 https://www.pathology.columbia.edu/file/22673/download?token=CB2IFkDQ
 
-![](`r here::here("Images", "qupath", "pdf.png")`)
+![](`r here::here("images", "qupath", "pdf.png")`)
 
 # Installing QuPath
 
@@ -78,11 +78,11 @@ https://www.pathology.columbia.edu/file/22673/download?token=CB2IFkDQ
 
 https://qupath.github.io/
 
-![](`r here::here("Images", "qupath", "website.png")`)
+![](`r here::here("images", "qupath", "website.png")`)
 
 ### What Program Looks Like After Installation
 
-![](`r here::here("Images", "qupath", "qupath.png")`)
+![](`r here::here("images", "qupath", "qupath.png")`)
 
 # Support for QuPath
 

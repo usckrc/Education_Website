@@ -38,7 +38,7 @@ set.seed((12345))
 ```
 
 
-![](`r here::here("Images", "qupath", "select4.png")`)
+![](`r here::here("images", "qupath", "select4.png")`)
 
 # Introduction
 
@@ -52,32 +52,32 @@ In this tutorial we will show how to setup multiple regions of interest (ROIs) i
 
 https://screenrec.com/share/mkX5LSWe7x
 
-![](`r here::here("Images", "qupath", "qupath1_video.png")`)
+![](`r here::here("images", "qupath", "qupath1_video.png")`)
 
 # Steps of Analysis
 
 ## Step 1: Open QuPath
 
-![](`r here::here("Images", "qupath", "qupath.png")`)
+![](`r here::here("images", "qupath", "qupath.png")`)
 
 ## Step 2: Create a New Project
 
-![](`r here::here("Images", "qupath", "create.png")`)
+![](`r here::here("images", "qupath", "create.png")`)
 
 ### Need to create a new empty folder
 
-![](`r here::here("Images", "qupath", "folder.png")`)
+![](`r here::here("images", "qupath", "folder.png")`)
 
 ## Step 3: Drag image file into QuPath
 
-![](`r here::here("Images", "qupath", "drag1.png")`)
-![](`r here::here("Images", "qupath", "drag2.png")`)
+![](`r here::here("images", "qupath", "drag1.png")`)
+![](`r here::here("images", "qupath", "drag2.png")`)
 
 ## Step 4: Change Image Setting 
 
 ### Default Settings
 
-![](`r here::here("Images", "qupath", "settings1.png")`)
+![](`r here::here("images", "qupath", "settings1.png")`)
 
 ### Using **Shift + C**
 
@@ -85,11 +85,11 @@ https://screenrec.com/share/mkX5LSWe7x
 #### Change Sample AF to White: left click on color-square
 #### Change Opal 570 to Green: left click on color-square
 
-![](`r here::here("Images", "qupath", "settings2.png")`)
+![](`r here::here("images", "qupath", "settings2.png")`)
 
 ### View after zooming in on Glomerulus
 
-![](`r here::here("Images", "qupath", "settings3.png")`)
+![](`r here::here("images", "qupath", "settings3.png")`)
 
 ## Step 5: Draw ROI
 
@@ -97,11 +97,11 @@ https://screenrec.com/share/mkX5LSWe7x
 ### Can't do any analysis without defining ROI
 ### This is using the simple rectangle tool
 
-![](`r here::here("Images", "qupath", "roi1.png")`)
+![](`r here::here("images", "qupath", "roi1.png")`)
 
 ### Active ROI is outlined in Yellow
 
-![](`r here::here("Images", "qupath", "roi2.png")`)
+![](`r here::here("images", "qupath", "roi2.png")`)
 
 ## Step 6: Cell Detection
 
@@ -110,23 +110,23 @@ https://screenrec.com/share/mkX5LSWe7x
 ### Rest of analysis depends on cell annotations
 ### Analyze > Cell detection > Cell detection
 
-![](`r here::here("Images", "qupath", "cell1.png")`)
+![](`r here::here("images", "qupath", "cell1.png")`)
 
 ### Most of the time default settings ok
 
-![](`r here::here("Images", "qupath", "cell2.png")`)
+![](`r here::here("images", "qupath", "cell2.png")`)
 
 ### But double check after outlining detections
 #### Are there phantom cell detections?
 #### Are the majority of cells not detected?
 #### If so, then tweek **Cell detection** settings
 
-![](`r here::here("Images", "qupath", "cell3.png")`)
+![](`r here::here("images", "qupath", "cell3.png")`)
 
 ### I change the settings to remove nuclei outline
 ### Right click > Cells > Cell boundries only
 
-![](`r here::here("Images", "qupath", "cell4.png")`)
+![](`r here::here("images", "qupath", "cell4.png")`)
 
 ## Step 7: Select Cells
 
@@ -136,19 +136,19 @@ https://screenrec.com/share/mkX5LSWe7x
 #### Right click > Add/Remove > Add class
 ### click on **Set selected**
 
-![](`r here::here("Images", "qupath", "select1.png")`)
+![](`r here::here("images", "qupath", "select1.png")`)
 
 ### After selection set the cells should be the color of the class (pale green)
 
-![](`r here::here("Images", "qupath", "select2.png")`)
+![](`r here::here("images", "qupath", "select2.png")`)
 
 ### Repeat for another class (brown)
 
-![](`r here::here("Images", "qupath", "select3.png")`)
+![](`r here::here("images", "qupath", "select3.png")`)
 
 ### After second selection
 
-![](`r here::here("Images", "qupath", "select4.png")`)
+![](`r here::here("images", "qupath", "select4.png")`)
 
 ## Step 8: Repeat
 
@@ -159,42 +159,26 @@ https://screenrec.com/share/mkX5LSWe7x
 
 ### Click on **Show detection measurements**
 
-![](`r here::here("Images", "qupath", "data1.png")`)
+![](`r here::here("images", "qupath", "data1.png")`)
 
 ### This pane shows the cells and measurements
 #### Can click on a cell in **QuPath** (yellow) and it will highlight in the pane
 
-![](`r here::here("Images", "qupath", "data2.png")`)
+![](`r here::here("images", "qupath", "data2.png")`)
 
 ### Click on **Save** to save the data
 
-![](`r here::here("Images", "qupath", "data3.png")`)
+![](`r here::here("images", "qupath", "data3.png")`)
 
 ### The data is saved as a text file (.txt)
 #### From here we can upload into R and analyze the data
 
-![](`r here::here("Images", "qupath", "data4.png")`)
+![](`r here::here("images", "qupath", "data4.png")`)
 
 ## Step 10: Save Project
 ### File > Save As
 ### Super-important!!!
 ### We need to document our analysis for reproducibility
 
-![](`r here::here("Images", "qupath", "save.png")`)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](`r here::here("images", "qupath", "save.png")`)
 

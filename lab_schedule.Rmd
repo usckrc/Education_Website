@@ -1,0 +1,54 @@
+---
+title: "Lab Schedule"
+author: ""
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 5
+    toc_float: true
+    number_sections: no
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load new packages, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("openxlsx")) {install.packages("openxlsx"); require("openxlsx")}
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+if (!require("kableExtra")) {install.packages("kableExtra"); require("kableExtra")}
+```
+
+# Lab Meeting Schedule: 
+
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+
+df <- read.xlsx(here("data", "lab meeting schedule.xlsx"))
+
+url1 <- df$url1
+url2 <- df$url2
+
+# drop raw url columns from display but keep for links
+df2 <- df %>% 
+  select(-url1, -url2) %>% 
+  mutate(across(everything(), ~replace(., is.na(.), "")))
+
+# build kable
+df3 <- df2 %>%
+  kbl(booktabs = TRUE, align = "c", escape = FALSE) %>%
+  kable_styling() %>%
+  column_spec(3, link = url1, bold = TRUE, color = "#990000", width = "10em") %>%
+  column_spec(4, link = url2, bold = TRUE, color = "#990000", width = "10em") %>%
+  column_spec(1, width = "10em") %>%
+  column_spec(2, width = "10em") %>%
+  column_spec(3, width = "10em") %>%
+  row_spec(3:nrow(df2), align = "c")
+
+df3
+```

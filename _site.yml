@@ -1,15 +1,15 @@
-name: "Learning Bioinformatics"
+name: "Neslon Lab"
 output_dir: "docs"
 
 navbar:
-  title: "Learning Bioinformatics"
+  title: "Nelson Lab"
   left:
-    - text: "About"
+    - text: "Lab Info"
       menu:
-        - text: "About"
-          href: about.html
-        - text: "Contributors"
-          href: contributors.html
+        - text: "Lab Schedule"
+          href: lab_schedule.html
+        - text: "Lab Members"
+          href: lab_members.html
     - text: "Getting Started"
       menu:
         - text: "Computer Requirements"

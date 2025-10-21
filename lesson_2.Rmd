@@ -3,6 +3,7 @@ title: "Lesson 2"
 subtitle: ""
 author:
   - "Tutorial written by Kevin Burfeind"
+  - "Tutorial revised by Jonathan Nelson"
   - "Tutorial adapted by Sienna Blanche"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -16,3 +17,513 @@ output:
     highlight: pygments
 ---
 
+```{r, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+# Load Packages 
+if (!require("here")) {install.packages("here"); require("here")}
+if (!require("Seurat")) {install.packages("Seurat"); require("Seurat")}
+if (!require("dplyr")) {install.packages("dplyr"); require("dplyr")}
+
+set.seed((12345))
+#here()
+```
+
+At this point everyone should have RStudio installed along with Seurat. Please refer to the [Downloading R ](https://usckrc.github.io/Education_Website/downloading_R.html) section of the website if you need to do that again.
+
+# Getting Started
+
+Create the "snRNA_seq_learning" folder on your desktop if you have not already done so. Properly set your working directory to the **snRNA_seq_learning folder** by clicking on **Session>Set Working Directory>Choose Directory**. This tells R studio where our downloaded files are.
+
+![](`r here::here("images", "lesson_1", "ROC_1_Screenshot 0.png")`)
+
+When the file browser opens, navigate to and  **select the scRNAseq_learning folder**, then select open. This sets the working directory so RStudio knows where to look for your files.
+
+![](`r here::here("images", "lesson_1", "ROC_1_Screenshot 1.1.png")`)
+
+## Necessary Materials
+
+You can download the necessary file from the [GEO entry](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111107) and click the sample titled **"Glom_rep1"(GSM3022239)** then download it by clicking on the "ftp" link next to **GSM3022239_dge_glom_rep1.txt.gz** at the bottom of the page.
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 1.png")`)
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 2.png")`)
+
+Drag and drop the file into the "snRNA_seq_learning" folder. Double click on the file to unzip it. Do the same for the sample titled **"Glom_rep2" (GSM3022240)**.
+
+Alternatively, you can download it from [Google Drive] NEED (https://drive.google.com/file/d/16JzkZN2qmUzK8bg1_D2x3vRstWrqvHUE/view?usp=sharing) (**recommended**). To follow along with this tutorial you can download the [R Script] NEED (https://drive.google.com/file/d/1RODN4wE31qgnaK6_WjnC1BihtVgX7fMu/view?usp=sharing) and run it or create your own and copy the code from the tutorial into the script.
+
+# Step 1 
+
+## Activate the R packages needed to run the analysis.
+
+Copy the following lines of code into your file and run them:
+
+**library(Seurat)**
+
+**library(dplyr)**
+
+**library(patchwork)**
+
+# Step 2
+
+## Upload the data 
+
+We will be uploading the data slightly differently this time, by using the read.table function. Copy and paste the following code which converts the .txt file into a data file.
+
+**Glom_rep1.data <- read.table(file = "snRNAseq_learning/GSM3022239_deg_glom_rep1.txt", header = TRUE, row.names = 1, colClasses =c("character", rep("numeric")))**
+
+Glom_rep1.data is a data frame that can be utilized in several different ways. We will next create a seurat object out of the data frame using the following code.
+
+**Glom_rep1 <- CreateSeuratObject(counts = Glom_rep1.data, project = "Glom_merged", min.cells = 3, min.features = 200)**
+
+**Glom_rep1**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 3.png")`)
+
+Now Glom_rep1 is an object of class Seurat with 17511 features (genes) across 4556 samples (cells). Since we are planning to merge this dataset with another, we will need to check to see if its identity is coded in the metadata.
+
+**head(Glom_rep1@meta.data)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 4.png")`)
+
+As you can see, the column orig.ident contains "Glom_merged", which is is the project name. Once we add another dataset, that will be overwritten, and can't be used to pull out data. We will add a column to the metadata that denotes the replicate.
+
+**Glom_rep1 <- AddMetaData(object = Glom_rep1, metadata = "rep1", col.name = "replicate")**
+
+**head(Glom_rep1@meta.data)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 5.png")`)
+
+Next, make the second second replicate a data frame.
+
+**Glom_rep2.data <- read.table(file = "Glom/GSM3022240_dge_glom_rep2.txt", header = TRUE, row.names = 1, colClasses =c("character", rep("numeric")))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 6.png")`)
+
+We will now create a seurat object out of Glom_rep2 as we did for Glom_rep1.
+
+**Glom_rep2 <- CreateSeuratObject(counts = Glom_rep2.data, project = "Glom_merged", min.cells = 3, min.features = 200)**
+
+**Glom_rep2**
+
+Now Glom_rep2 is an object of class Seurat with 18309 features (genes) across 4366 samples (cells). We will next add a column to the metadata indicate the replicate.
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 7.png")`)
+
+**Glom_rep2 <- AddMetaData(object = Glom_rep2, metadata = "rep2", col.name = "replicate")**
+
+**head(Glom_rep2@meta.data)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 8.png")`)
+
+# Step 3:
+
+## Merge the two Seurat objects. 
+
+To merge the two objects, we will use the "merge" function, but there are several different ways to merge Seurat objects. Note: the "merge" function does not work when datasets are very different from one another - i.e., stim cell vs. unstim cell. However, It does seem to work when comparing disease vs. no disease
+
+**Glom_merged <- merge(Glom_rep1, y = Glom_rep2, add.cell.ids = c("Glom_rep1", "Glom_rep2"), project = "Glom_merged")**
+
+**Glom_merged**
+
+Glom_merged is now an object with 19183 features (genes) across 8922 samples (cells). Note that the sample number is the sum of the two reps: 4556 + 4366 = 8922.
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 9.png")`)
+
+Also notice the cell names now have an added identifier
+
+**head(colnames(Glom_merged))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 10.png")`)
+
+We can also double check the number of cells in each group using the "table" function, pulling out "replicate".
+
+**table(Glom_merged$replicate)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 11.png")`)
+
+Now, begin the QC that we did last lesson, starting with filtering out samples with a high % of mito genes. This adds a column in the metadata called "percent.mito".
+
+**Glom_merged[["percent.mt"]] <- PercentageFeatureSet(Glom_merged, pattern = "^mt-")**
+
+**head(Glom_merged@meta.data)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 12.png")`)
+
+As with last lesson, visualize the dataset for quality control using 3 different metrics: 
+
+nFeature_RNA = Number of differing genes detected in each cell
+nCount_RNA = Number of mRNA molecules detected in each cell
+percent.mt = Percent of counts that come from mitochondrial genes
+
+**VlnPlot(Glom_merged, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 13.png")`)
+
+We will interpret this information to filter out doublets and damaged cells. High nFeature_RNA or nCount_RNA could equate to doublets or mixed cell debris. We will filter out cells with more than 2000 genes and 4000 mRNA molecules. High percent.mt could equate to damaged cells. We will filter out cells with more than 20% mitochondrial content.
+
+**Glom_merged <- subset(Glom_merged, subset = nFeature_RNA < 2000 & nFeature_RNA < 4000 & percent.mt < 20)**
+
+Now we will replot the graphs to visualize the plots again with the newly filtered data
+
+**VlnPlot(Glom_merged, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)**
+
+**Glom_merged**
+
+Glom_merged is now an object with 19183 features (genes) across 8361 samples (cells). This filtered out 561 cells and 0 genes!
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 14.png")`)
+
+# Step 4
+
+## Data Normalization and Identification of Genes Driving Variability (cluster formation)
+
+Normalize the matrix and create a plot of the genes that are the most variable in the dataset.
+
+**Glom_merged <- NormalizeData(Glom_merged, normalization.method = "LogNormalize", scale.factor = 10000)**
+
+**Glom_merged <- FindVariableFeatures(Glom_merged, selection.method = "vst", nfeatures = 2000)**
+
+This line identifies the 10 most highly variable genes and creates a new object in the enviornment called "top10".
+
+**top10 <- head(VariableFeatures(Glom_merged), 10)**
+
+These lines creates a plot of the variable features within the dataset and labels the top 10 genes to see which are driving the clustering.
+
+**plot1 <- VariableFeaturePlot(Glom_merged)**
+
+**plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)**
+
+**plot2**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 15.png")`)
+
+# Step 5
+
+## Creation and Visualization of Principal Components
+
+Calculate the principal components and then print the 5 genes that drive the first 5 principal components. Can you get a sense for how the cells might be clustering based off of these genes? Note: the "ScaleData" and "RunPCA" steps can take very long with large datasets
+
+**all.genes <- rownames(Glom_merged)**
+
+**Glom_merged <- ScaleData(Glom_merged, features = all.genes)**
+
+**Glom_merged <- RunPCA(Glom_merged, features = VariableFeatures(object = Glom_merged))**
+
+**print(Glom_merged[["pca"]], dims = 1:5, nfeatures = 5)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 16.png")`)
+
+Now we will visualize the genes driving the PCA a few ways. This line visualizes the genes driving the first 2 PCA dimensions.
+
+**VizDimLoadings(Glom_merged, dims = 1:2, reduction = "pca")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 17.png")`)
+
+This line visualizes the scRNAseq dataset as a PCA (hopefully you can appreciate the poor clustering).
+
+**DimPlot(Glom_merged, reduction = "pca")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 18.png")`)
+
+This line creates a heatmap of the top 500 genes that drive the first 2 PCA dimensions.
+
+**DimHeatmap(Glom_merged, dims = 1:2, cells = 500, balanced = TRUE)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 19.png")`)
+
+This plot shows the variability and helps to decide how many PCA dimensions to use when measuring the clusters. When the standard deviation in the PC dimensions becomes small it no longer has a big effect. In this case we will use 10 PC's.
+
+**ElbowPlot(Glom_merged)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 20.png")`)
+
+# Step 6
+
+## Calculation and Creation of a UMAP visualization
+
+Determine the shape of the clusters and the number of populations in our scRNASeq visualization. These lines control the resolution of the clusters and the number of separate populations.
+
+"FindNeighbors" changes the separation between clusters
+"FindClusters" changes the number of differntial populations
+
+**Glom_merged <- FindNeighbors(Glom_merged, dims = 1:10)**
+
+**Glom_merged <- FindClusters(Glom_merged, resolution = 0.15)**
+
+**Glom_merged <- RunUMAP(Glom_merged, dims = 1:10)**
+
+This line generates the UMAP visualization. Take a moment to reflect on how do you think the clusters look.
+
+**DimPlot(Glom_merged, reduction = "umap")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 21.png")`)
+
+The first sanity/QC check for merged datasets is to see if cells are clustering based on replicate. Since we have replicate info in the metadata, we can check this using the "group.by" function.
+
+**DimPlot(Glom_merged, reduction = "umap", group.by = "replicate")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 22.png")`)
+
+The replicates are integrated nicely. It does not appear there is any batch effect. If there is a batch effect, consider using the ["FindIntegrationAnchors"](https://satijalab.org/seurat/archive/v3.0/immune_alignment.html) function, which we will not address in today's lesson You can also decrease the number of variable features in the "FindVariableFeatures" function. Right now it is set to 2000, decreasing it will help deal with batch effect, but will decrease the resolution of clustering. 
+
+We will next go through the cell identification features we covered in the last lesson. First generation Heatmaps of differential genes between clusters to identify cell types. This can take a VERY long time with large datasets
+
+**Glom_merged[["RNA"]] <- JoinLayers(Glom_merged[["RNA"]])**
+
+**Glom.markers <- FindAllMarkers(Glom_merged, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)**
+
+**Glom.markers %>% group_by(cluster) %>% top_n(n = 5, wt = avg_log2FC)**
+
+**top5 <- Glom.markers %>% group_by(cluster) %>% top_n(5, avg_log2FC)**
+
+**DoHeatmap(Glom_merged, features = top5$gene)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 23.png")`)
+
+This looks very similar to the heatmap we generated from the dataset last lesson, let's just double check that the identities are the same.
+
+Nphs2 = Podocyte
+Pecam1 = Endothelial
+Slc12a3 = Tubule
+Tagln = Mural
+
+**VlnPlot(Glom_merged, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 24.png")`)
+
+It looks like there are two different podocyte populations. We can check out there differences between clusters 0 and 1 using the "FindMarkers" function.
+
+**cluster0.markers <- FindMarkers(Glom_merged, ident.1 = 0, ident.2 = 1, min.pct = 0.25)**
+
+**head(cluster0.markers, n = 25)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 25.png")`)
+
+Using this information, we can visualize the differences using the "Violin Plot" function.
+
+**VlnPlot(Glom_merged, features = c("Ctgf"))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 26.png")`)
+
+We won't spend a lot of time trying to identify different podocyte populations, but you could look at more distinct populations, such as endothelial (population 2) and epithelial (population 3) cells.
+
+**cluster2.markers <- FindMarkers(Glom_merged, ident.1 = 2, ident.2 = 3, min.pct = 0.25)**
+
+**head(cluster2.markers, n = 10)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 27.png")`)
+
+# Step 7
+
+## Re-name the clusters by cell-type, and add that to the metadata
+
+**new.cluster.ids <- c("Podo1", "Podo2", "Endo", "Tubule", "Mural")**
+
+**names(new.cluster.ids) <- levels(Glom_merged)**
+
+**Glom_merged <- RenameIdents(Glom_merged, new.cluster.ids)**
+
+**DimPlot(Glom_merged, reduction = "umap", label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE) + NoLegend()**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 28.png")`)
+
+Note that Podo1 and Podo2 are right next to each other, yet the Endo population is split apart. I personally think this means the two podocyte populations are not significant. The other Endo "cluster" may represent doublets, but we will not spend much time addressing this. If you want, you can spend time with the "FeaturePlot" function to visualize what genes are expressed in the other Endo "Cluster", then adjust your "FindNeighbors" and "FindClusters" values a bit.
+
+**FeaturePlot(Glom_merged, features = c("Nphs2"))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 29.png")`)
+
+# Step 8
+
+## Subclustering
+
+Let's do subclustering of the Tubule cells to demonstrate how one can identify sub populations by isolating a certain cluster then reclustering those cells. First, create a subset out of the tubule cells using the "subset" function. We will make a new Seurat object called "Glom_tubule".
+
+**Glom_tubule <-subset(Glom_merged, idents = c("Tubule"))**
+
+**Glom_tubule**
+
+Glom_tuble is an object with 19183 features (genes) across 556 samples (cells).
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 30.png")`)
+
+Next we will re-cluster the cells in Glom_tubule, starting with data normalization.
+
+**Glom_tubule <- NormalizeData(Glom_tubule, normalization.method = "LogNormalize", scale.factor = 10000)**
+
+**Glom_tubule <- FindVariableFeatures(Glom_tubule, selection.method = "vst", nfeatures = 2000)**
+
+Similarly, we will re-scale the data. Note that the row names are now based on the row names of the new Seurat object.
+
+**tubule.genes <- rownames(Glom_tubule)**
+
+**Glom_tubule <- ScaleData(Glom_tubule, features = tubule.genes)**
+
+**Glom_tubule <- RunPCA(Glom_tubule, features = VariableFeatures(object = Glom_tubule))**
+
+**print(Glom_tubule[["pca"]], dims = 1:5, nfeatures = 5)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 31.png")`)
+
+Visualize the genes driving the first two PCAs with the following code.
+
+**VizDimLoadings(Glom_tubule, dims = 1:2, reduction = "pca")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 32.png")`)
+
+Also visualize the PCA.
+
+**DimPlot(Glom_tubule, reduction = "pca")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 33.png")`)
+
+Create a heatmap of the top 500 genes that drive the first 2 PCA dimensions. 
+
+**DimHeatmap(Glom_tubule, dims = 1:2, cells = 500, balanced = TRUE)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 34.png")`)
+
+Visualize the variance induced by each PC using the "Elbow Plot" function.
+
+**ElbowPlot(Glom_tubule)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 35.png")`)
+
+Now we can recluster the cells. Based on the elbow plot, we will set the dims to 10 again.
+
+**Glom_tubule <- FindNeighbors(Glom_tubule, dims = 1:10)**
+
+**Glom_tubule <- FindClusters(Glom_tubule, resolution = 0.1)**
+
+**Glom_tubule <- RunUMAP(Glom_tubule, dims = 1:10)**
+
+This line generates the UMAP visualization. How many clusters do you see? Do they seem like they are real clusters?
+
+**DimPlot(Glom_tubule, reduction = "umap")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 36.png")`)
+
+Check to make sure the replicates aren't driving the clustering.
+
+**DimPlot(Glom_tubule, reduction = "umap", group.by = "replicate")**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 44.png")`)
+
+Let's do a sanity check just to make sure we aren't doing the same cluster all over again. Do a violin plot of the same genes that defined the original clusters.
+
+**VlnPlot(Glom_tubule, features = c("Nphs2", "Pecam1", "Slc12a3", "Tagln"))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 37.png")`)
+
+It looks like there may be one population that contains podocyte-tubule cell doublets, both otherwise looks pretty good. Now let's generate another heatmap of differential genes between clusters to identify cell types.
+
+**Tubule.markers <- FindAllMarkers(Glom_tubule, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)**
+
+**Tubule.markers %>% group_by(cluster) %>% top_n(n = 5, wt = avg_log2FC)**
+
+**top5_tubule <- Tubule.markers %>% group_by(cluster) %>% top_n(5, avg_log2FC)**
+
+**DoHeatmap(Glom_tubule, features = top5_tubule$gene)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 38.png")`)
+
+Pvalb, Egf, and Umod are all expressed by DCT.
+
+Aqp2 is a marker of principal cells (PC) of the Collecting Duct.
+
+Wt1 is expressed by podocytes.
+
+Slc4a1 is expressed by intercalated cells (IC) of the collecting duct.
+
+Let's check with a violin plot.
+
+**VlnPlot(Glom_tubule, features = c("Aqp2", "Egf", "Nphs2", "Atp6v1g3"))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 39.png")`)
+
+Note the Egf is expressed in population 0 and 2, which suggests that population 2 containes DCT/Podocyte doublets. Next, re-name the clusters by cell-type, and add that to the metadata.
+
+**new.cluster.ids.tubule <- c("DCT", "PC", "Doublet", "IC")**
+
+**names(new.cluster.ids.tubule) <- levels(Glom_tubule)**
+
+**Glom_tubule <- RenameIdents(Glom_tubule, new.cluster.ids.tubule)**
+
+**DimPlot(Glom_tubule, reduction = "umap", label = TRUE, pt.size = 0.5, label.size = 7, repel = FALSE) + NoLegend()**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 40.png")`)
+
+Now let's get to know the clusters a little better. To determine how many cells are in each cluster we can run the following code.
+
+**table(Idents(Glom_tubule))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 41.png")`)
+
+To determine the proportion of cells are in each cluster, run the following code.
+
+**prop.table(table(Idents(Glom_tubule)))**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 42.png")`)
+
+To determine the how does cluster membership vary by replicate, run the following code.
+
+**table(Idents(Glom_merged), Glom_merged$replicate)**
+
+**table(Idents(Glom_tubule), Glom_tubule$replicate)**
+
+![](`r here::here("images", "lesson_2", "roc_2_screenshot 43.png")`)
+
+We can also save the "Tubule.markers" as a .csv so we can look over it in excel, or use it for downstream analysis.
+
+**write.csv(Tubule.markers, "Glom/Tubule.markers.csv")**
+
+Lastly, we will save the "Glom_tubule" object so it can be loaded later. 
+
+# Step 9
+
+## Save Seurat object. 
+
+Will save into the folder that the Rscript file is located in.
+
+**saveRDS(Glom_tubule, file = "Glom/Glom_tutorial.rds")**
+
+To load a SeuratObject that was saved as an RDS, run the following code.
+
+**Glom_tubule <- readRDS("Glom/Glom_tutorial.rds")**
+
+# Extra code for uploading different data files to Seuat
+
+All three of these examples start with turning the data into a data frame which Seurat can read, then creating a Seurat object out of the data frame. Barcodes, features, and matrix files - common 10X output. Make sure the three files (usually zipped) are in one folder. They must be titled "barcodes.tsv.gz", "features.tsv.gz", and "matrix.mtx.gz".
+
+First upload the data using the "Read10X" function.
+
+**Object.data <- Read10X(data.dir = "Path to file")**
+
+## H5 files
+
+To load H5 files, you will need to install the "hd5r" package.
+
+**install.packages("hdf5r")**
+
+**library(hdf5r)**
+
+to upload the data, it must end in ".h5".
+
+**Object.data <- Read10X_h5("Path to .h5 file")**
+
+## DGE table
+
+To read DGE tables, use the the "read.table" function.The file must be in ".txt" format. It will likely be in ".dge.txt" format.
+
+**Object.data <- read.table(file = "Path to .dge.txt", header = TRUE, row.names = 1, colClasses =c("character", rep("numeric")))**
+
+For all of these, make a Seurat object out of the data frame.
+
+**Object_name <- CreateSeuratObject(counts = Object.data, min.cells = 3, min.genes = 200, project = "Project_name")**
+
+# Session Info
+
+```{r, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE}
+
+sessionInfo()
+```

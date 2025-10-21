@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the World of Bioinformatics"
+title: "Nelson Lab Website"
 subtitle: ""
 author: "Sienna Blanche"
 date: "`r format(Sys.time(), '%d %B %Y')`"
@@ -20,5 +20,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Welcome! This site will help beginners learn bioinformatics using R.
-
+Welcome! This is the Nelson Lab website. Our site serves two main purposes: <br>
+  1. To help our lab coordinate research efforts, share updates, and stay organized. <br>
+  2. To provide resources that help beginners learn bioinformatics using R. <br>

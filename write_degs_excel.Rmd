@@ -29,7 +29,7 @@ set.seed((12345))
 #here()
 ```
 
-![](`r here::here("Images", "excel", "intro.png")`)
+![](`r here::here("images", "excel", "intro.png")`)
 
 # Introduction
 
@@ -43,7 +43,7 @@ This tutorial is designed to help you write the DEGs that define each cluster in
 
 <https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing>
 
-![](`r here::here("Images", "excel", "drive.png")`)
+![](`r here::here("images", "excel", "drive.png")`)
 
 # Video of Analysis Steps
 
@@ -51,43 +51,43 @@ This tutorial is designed to help you write the DEGs that define each cluster in
 
 https://screenrec.com/share/qX03rTZ9VK
 
-![](`r here::here("Images", "excel", "video.png")`)
+![](`r here::here("images", "excel", "video.png")`)
 
 # Write DEG Lists to Excel
 
 ## Open the RMD file and load the packages
 ### **Important Packages** are **here**, **seurat**, **dplyr**, and **openxlsx**
 
-![](`r here::here("Images", "excel", "chunk1.png")`)
+![](`r here::here("images", "excel", "chunk1.png")`)
 
 ## Step 0: **Load** the dataset
 
 ### I always create a record of the **metadata** and run a **DimPlot** as **sanity checks**
 
-![](`r here::here("Images", "excel", "chunk2.png")`)
+![](`r here::here("images", "excel", "chunk2.png")`)
 
 ## Step 1: **Set** the active identity of the object
 
-![](`r here::here("Images", "excel", "chunk3.png")`)
+![](`r here::here("images", "excel", "chunk3.png")`)
 
 ## Step 2: **Collect** the names of the clusters
 
 ### This is a list of the clusters that is automaticaly generated from seurat object
 ### **Super Important** to record the level of the object to **write** the spreadsheet **in the order you want**
 
-![](`r here::here("Images", "excel", "chunk4.png")`)
+![](`r here::here("images", "excel", "chunk4.png")`)
 
 ### After running this step the environment should have the names of the clusters **in the correct order**
 
-![](`r here::here("Images", "excel", "chunk4b.png")`)
+![](`r here::here("images", "excel", "chunk4b.png")`)
 
 ## Step 3: **Create** a new environment to stash the DEG lists
 
-![](`r here::here("Images", "excel", "chunk5.png")`)
+![](`r here::here("images", "excel", "chunk5.png")`)
 
 ### After running this code you should see a **new environment** in the environment tab
 
-![](`r here::here("Images", "excel", "chunk5b.png")`)
+![](`r here::here("images", "excel", "chunk5b.png")`)
 
 ## Step 4: **Loop** through each cluster and creating DEG for each population
 
@@ -99,15 +99,15 @@ https://screenrec.com/share/qX03rTZ9VK
 
 ### Save DEG lists into a .RData file
 
-![](`r here::here("Images", "excel", "chunk6.png")`)
+![](`r here::here("images", "excel", "chunk6.png")`)
 
 ### After running this code you should see the **DEG lists** in the env
 
-![](`r here::here("Images", "excel", "chunk6b.png")`)
+![](`r here::here("images", "excel", "chunk6b.png")`)
 
 ### If you click on the DEG.env you should see the DEG lists in **alphabetical order**
 
-![](`r here::here("Images", "excel", "chunk6c.png")`)
+![](`r here::here("images", "excel", "chunk6c.png")`)
 
 ## Step 5: **Write** DEGs to Excel
 
@@ -117,20 +117,16 @@ https://screenrec.com/share/qX03rTZ9VK
 
 ### Write the excel file (using openxlsx package)
 
-![](`r here::here("Images", "excel", "chunk7.png")`)
+![](`r here::here("images", "excel", "chunk7.png")`)
 
 ### After running this code the envornment should look like this
 
-![](`r here::here("Images", "excel", "chunk7b.png")`)
+![](`r here::here("images", "excel", "chunk7b.png")`)
 
 ### The .Rdata, and .xlsx files should be where **here()** is
 
-![](`r here::here("Images", "excel", "chunk7c.png")`)
+![](`r here::here("images", "excel", "chunk7c.png")`)
 
 ### You should have an **excel file** with DEGs listed as separate tabs in the order of the clusters
 
-![](`r here::here("Images", "excel", "chunk7d.png")`)
-
-
-
-
+![](`r here::here("images", "excel", "chunk7d.png")`)

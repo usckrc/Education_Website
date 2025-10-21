@@ -47,11 +47,11 @@ set.seed((12345))
 
 # Session 1 - January 27th 2025
 
-![](`r here::here("Images", "Replica.png")`)
+![](`r here::here("images", "recreating_figures", "Replica.png")`)
 
 ## Venn Diagrams
 
-![](`r here::here("Images", "Potter.png")`)
+![](`r here::here("images", "recreating_figures", "Potter.png")`)
 
 https://pubmed.ncbi.nlm.nih.gov/28851704/
 
@@ -74,7 +74,7 @@ if (!require("ggvenn")) {install.packages("ggvenn"); require("ggvenn")}
 
 ### DEG Lists
 
-![](`r here::here("Images", "DEGlists.png")`)
+![](`r here::here("images", "recreating_figures", "DEGlists.png")`)
 
 ### Make the Lists
 
@@ -91,7 +91,7 @@ print(venn)
 
 ```
 
-![](`r here::here("Images", "Venn1.png")`)
+![](`r here::here("images", "recreating_figures", "Venn1.png")`)
 
 ### Find the Intersections
 
@@ -112,23 +112,23 @@ head(test$'A:B', 5)
 
 ```
 
-![](`r here::here("Images", "Venn2.png")`)
+![](`r here::here("images", "recreating_figures", "Venn2.png")`)
 
 # Session 2 - February 24th 2025
 
-![](`r here::here("Images", "Replica.png")`)
+![](`r here::here("images", "recreating_figures", "Replica.png")`)
 
 ## Upset Plots
 
 ### Complicated Venn Diagrams
 
-![](`r here::here("Images", "Potter.png")`)
+![](`r here::here("images", "recreating_figures", "Potter.png")`)
 
 https://pubmed.ncbi.nlm.nih.gov/28851704/
 
 ### Simplify Intersections with Upset Plots
 
-![](`r here::here("Images", "Upset_Example.png")`)
+![](`r here::here("images", "recreating_figures", "Upset_Example.png")`)
 
 https://www.nature.com/articles/s41467-022-32972-z
 
@@ -233,7 +233,6 @@ str(clustered_genes)
 
 ```
 
-
 #### Step 2: **Create** a matrix
 
 ```{r echo=TRUE, eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, results='hide'}
@@ -309,23 +308,23 @@ VlnPlot(SO, features = c("0610005C13Rik"), pt.size = 0) +
 
 ## Gantt Chart
 
-![](`r here::here("Images", "Replica.png")`)
+![](`r here::here("images", "recreating_figures", "Replica.png")`)
 
 ## Final Product!
 
-![](`r here::here("Images", "gantt_chart.png")`)
+![](`r here::here("images", "recreating_figures", "gantt_chart.png")`)
 
 ## History
 
-![](`r here::here("Images", "gantt.png")`)
+![](`r here::here("images", "recreating_figures", "gantt.png")`)
 
-![](`r here::here("Images", "gantt_history.png")`)
+![](`r here::here("images", "recreating_figures", "gantt_history.png")`)
 
 https://en.wikipedia.org/wiki/Gantt_chart
 
 ## Great for Project Management
 
-![](`r here::here("Images", "GanttChartAnatomy.svg.png")`)
+![](`r here::here("images", "recreating_figures", "GanttChartAnatomy.svg.png")`)
 
 ## ggplot2 Lessons for Me
 
@@ -337,26 +336,26 @@ https://en.wikipedia.org/wiki/Gantt_chart
 
 I wanted to **start with one csv file** that was flexible to fill out.
 
-![](`r here::here("Images", "mentor_csv.png")`)
+![](`r here::here("images", "recreating_figures", "mentor_csv.png")`)
 
 ## Load Data, Define Institutes vs. Individuals, and Pivot Longer
 
-![](`r here::here("Images", "gantt_code1.png")`)
+![](`r here::here("images", "recreating_figures", "gantt_code1.png")`)
 
-![](`r here::here("Images", "pivot.png")`)
+![](`r here::here("images", "recreating_figures", "pivot.png")`)
 
 ## Create Institutions Dataframe, Define the Order of Graph + Legend, and Set the Color Palette
 ### **Note:** Set the **same factor** on two different dataframes
 ### **Note:** I asked **ChatGPT** to help me select the color palette
 
-![](`r here::here("Images", "gantt_code2.png")`)
+![](`r here::here("images", "recreating_figures", "gantt_code2.png")`)
 
 ## ggplot2 code
 ### **Note:** geom_segment() **AND** geom_line()
 ### **Note:** labs(color = "") sets the legend title
 ### **Note:** scale_y_discrete() sets the order of mentors
 
-![](`r here::here("Images", "gantt_code3.png")`)
+![](`r here::here("images", "recreating_figures", "gantt_code3.png")`)
 
 ## **Code** to produce the **Gantt chart**
 ### Yes, **I asked chatGPT** to clean up and annotate the code!
@@ -461,41 +460,41 @@ ggplot() +
 
 ```
 
-![](`r here::here("Images", "gantt_chart.png")`)
+![](`r here::here("images", "recreating_figures", "gantt_chart.png")`)
 
 # Session 4 - April 28th 2025
 
 ## Sankey Plot
 
-![](`r here::here("Images", "Replica.png")`)
+![](`r here::here("images", "recreating_figures", "Replica.png")`)
 
 ## Final Product!
 
-![](`r here::here("Images", "sankey_final.png")`)
+![](`r here::here("images", "recreating_figures", "sankey_final.png")`)
 
 ## Inspiration
 
-![](`r here::here("Images", "airplane_sankey.jpg")`)
+![](`r here::here("images", "recreating_figures", "airplane_sankey.jpg")`)
 
 [**Source**](https://www.linkedin.com/posts/lirimzenuni-bi-king_sankey-pl-for-the-most-profitable-10-hour-activity-7213840792409272320-nwO1)
 
-![](`r here::here("Images", "professor_sankey.jpg")`)
+![](`r here::here("images", "recreating_figures", "professor_sankey.jpg")`)
 
 [**Source**](https://academia.stackexchange.com/questions/17431/what-ratio-of-phd-graduates-in-stem-fields-ultimately-end-up-as-tenured-profes)
 
-![](`r here::here("Images", "job_sankey.webp")`)
+![](`r here::here("images", "recreating_figures", "job_sankey.webp")`)
 
 [**Source**](https://www.reddit.com/r/math/comments/ccd9sl/my_job_hunt_as_a_new_phd/)
 
-![](`r here::here("Images", "job_sankey2.png")`)
+![](`r here::here("images", "recreating_figures", "job_sankey2.png")`)
 
 [**Source**](https://www.reddit.com/r/academia/comments/16lyfx3/3_year_faculty_application_journey_in_sankey/)
 
 ## History
 
-![](`r here::here("Images", "sankey_wiki.png")`)
+![](`r here::here("images", "recreating_figures", "sankey_wiki.png")`)
 
-![](`r here::here("Images", "sankey_wiki2.png")`)
+![](`r here::here("images", "recreating_figures", "sankey_wiki2.png")`)
 
 [**Sankey Wiki**](https://en.wikipedia.org/wiki/Sankey_diagram)
 
@@ -511,11 +510,11 @@ I wanted to **start with easy .xlsx file** that was flexible to fill out.
 
 ### Research Input
 
-![](`r here::here("Images", "sankey_xlsx1.png")`)
+![](`r here::here("images", "recreating_figures", "sankey_xlsx1.png")`)
 
 ### Research Output
 
-![](`r here::here("Images", "sankey_xlsx2.png")`)
+![](`r here::here("images", "recreating_figures", "sankey_xlsx2.png")`)
 
 ```{r, echo=TRUE, warning=FALSE, error=FALSE, message=FALSE}
 
@@ -562,7 +561,7 @@ df_merged <- cbind(df1_extended , df2_extended)
 df_merged$Corporeal <- "JWN"
 ```
 
-![](`r here::here("Images", "sankey1.png")`)
+![](`r here::here("images", "recreating_figures", "sankey1.png")`)
 
 ### Convert into a **Sankey** format
 
@@ -572,7 +571,7 @@ df3 <- df_merged %>% make_long(Subcontracts, Grants, Corporeal) %>%
   filter(!is.na(node))
 ```
 
-![](`r here::here("Images", "sankey2.png")`)
+![](`r here::here("images", "recreating_figures", "sankey2.png")`)
 
 ## **Create** Sankey plot
 
@@ -1037,11 +1036,11 @@ p2
 
 ## Stacked Violin Plot
 
-![](`r here::here("Images", "Replica.png")`)
+![](`r here::here("images", "recreating_figures", "Replica.png")`)
 
 ## Final Product!
 
-![](`r here::here("Images", "stacked.png")`)
+![](`r here::here("images", "recreating_figures", "stacked.png")`)
 
 ## Publication Examples of Stacked Violin Plot
 
@@ -1049,13 +1048,13 @@ p2
 
 https://pubmed.ncbi.nlm.nih.gov/29622724/
 
-![](`r here::here("Images", "park.png")`)
+![](`r here::here("images", "recreating_figures", "park.png")`)
 
 ### Figure 1 from Karaiskos et al. JASN 2018
 
 https://pubmed.ncbi.nlm.nih.gov/29794128/
 
-![](`r here::here("Images", "karaiskos.png")`)
+![](`r here::here("images", "recreating_figures", "karaiskos.png")`)
 
 ## Start with a Seurat Object
 
@@ -1063,7 +1062,7 @@ https://pubmed.ncbi.nlm.nih.gov/29794128/
 
 https://pubmed.ncbi.nlm.nih.gov/39982410/
 
-![](`r here::here("Images", "burfiend.png")`)
+![](`r here::here("images", "recreating_figures", "burfiend.png")`)
 
 ### Load Dataset
 
@@ -1079,7 +1078,7 @@ SO@meta.data
 
 ```
 
-![](`r here::here("Images", "dimplot.png")`)
+![](`r here::here("images", "recreating_figures", "dimplot.png")`)
 
 ### Step 1: Create a list of genes
 
@@ -1154,7 +1153,7 @@ group.by = "subclass.CACPR")
 
 ```
 
-![](`r here::here("Images", "vlnplots.png")`)
+![](`r here::here("images", "recreating_figures", "vlnplots.png")`)
 
 #### Looks really bad!
 
@@ -1163,7 +1162,7 @@ group.by = "subclass.CACPR")
 #### **?VlnPlot**
 #### Gives you the modifiable arguements in the Vln Function
 
-![](`r here::here("Images", "vlnplot.png")`)
+![](`r here::here("images", "recreating_figures", "vlnplot.png")`)
 
 ```{r eval=FALSE, error=FALSE, message=FALSE, warning=FALSE, include=TRUE, fig.width=10, fig.height=6}
 
@@ -1174,7 +1173,7 @@ stack = TRUE)  # This is the key argument to change
 
 ```
 
-![](`r here::here("Images", "stacked.png")`)
+![](`r here::here("images", "recreating_figures", "stacked.png")`)
 
 ## Lessons for Me
 

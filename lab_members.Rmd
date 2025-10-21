@@ -1,0 +1,56 @@
+---
+title: "Lab Members"
+subtitle: ""
+author: ""
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 5
+    toc_float: true
+    number_sections: no
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
+---
+
+# Lab Members 
+
+## Jonathan Nelson
+
+<img src="`r here::here('images', "lab_members", 'Nelson_headshot.jpg')`" width="300px">
+
+Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Division of Nephrology & Hypertension at the Keck School of Medicine of USC. I completed my undergraduate studies in Biochemistry at the University of Washington before earning my PhD in Molecular and Medical Genetics at Oregon Health & Science University. My research focuses on vascular biology and the renin-angiotensin system, particularly how it regulates the kidney microvasculature. I am passionate about using translational research to better understand kidney disease and improve outcomes for patients with vascular and renal conditions.
+
+## Nicky Kim
+
+## Arjun Lakshmanan
+
+## Sienna Blanche
+
+<img src="`r here::here('images', "lab_members", 'sienna.png')`" width="300px">
+
+Hello, my name is Sienna Blanche, and I am a Master's student at the University of Southern California studying Global Medicine.  I graduated from the University of Southern California in 2025 with a Bachelor of Science in Human Biology and a minor in Gender and Sexuality Studies.I work as a research assistant in Dr. Nelson's lab where I analyze kidney gene expression using single-nucleus RNA sequencing. In the future, I aspire to become a physician dedicated to advancing women’s health and global health equity by integrating clinical practice with research to improve patient outcomes.
+
+## Victoria Quon-Chow
+
+<img src="`r here::here('images', "lab_members", 'victoria.jpeg')`" width="300px">
+
+Hello! My name is Victoria Quon-Chow, and I am a research technician in Dr. Nelson’s lab. My research work focuses on the associations between per- and polyfluoroalkyl substances (PFAS), diabetes, and renal diseases. I graduated from the University of Southern California in 2024 with a Bachelor of Science in Human Biology and a minor in Nutrition and Health Promotion. I am currently applying to medical school and aspire to serve diverse populations while providing compassionate, patient-centered care.
+
+## Jeff Karnsomprot
+
+## Roman Thomas
+
+<img src="`r here::here('images', "lab_members", 'roman.jpeg')`" width="300px">
+
+Hi! My name is Roman Thomas, and I am a fourth-year undergraduate student at Vanderbilt University, double majoring in Biochemistry and Medicine, Health & Society on the premed track. I am currently conducting research in Dr. Jonathan Nelson’s lab, where we are developing a manuscript that provides insights into a standardized method for identifying kidney cell types using single nucleus RNA sequencing analysis in R. I plan to apply these skills in my Neuropharmacology lab, where we investigate the effects of the M5 Muscarinic Acetylcholine Receptor on drug-seeking behaviors in mice. My long-term goal is to become a plastic surgeon while working to address healthcare disparities and ensure that my patients, especially from historically underserved groups, receive the autonomy and care that has often been denied to them in the past.
+
+## Deeshan Weeraratne
+
+## Deborah Sohn
+
+## Paul Cho
+
+## Omid Sajjadi
+

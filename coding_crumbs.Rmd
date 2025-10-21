@@ -31,7 +31,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Naming
 
-![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+![](`r here::here("images", "coding_crumbs", "Coding_Crumbs2.webp")`)
 
 ## Who has code that looks like this?
 
@@ -47,7 +47,7 @@ DF_2 <br>
 
 ### Each of these names has a different name
 
-![](`r here::here("Images", "CodingCase.png")`)
+![](`r here::here("images", "coding_crumbs", "CodingCase.png")`)
 
 ## Names Matter!
 
@@ -59,7 +59,7 @@ DF_2 <br>
 
 https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r
 
-![](`r here::here("Images", "CodingCaseStack.png")`)
+![](`r here::here("images", "coding_crumbs", "CodingCaseStack.png")`)
 
 ### What am I going to do?
 
@@ -73,54 +73,54 @@ While you have a lot of flexibility in naming objects in R, **I'd encourage you 
 
 ## Clean Code
 
-![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+![](`r here::here("images", "coding_crumbs", "Coding_Crumbs2.webp")`)
 
 ## Who has code that looks like this?
 
-![](`r here::here("Images", "Multiple_Objects.png")`)
+![](`r here::here("images", "coding_crumbs", "Multiple_Objects.png")`)
 
 ### That's called the **Multiple Object Option**
 
 ### There is also the **Nested Option**
 
-![](`r here::here("Images", "Nested_Option.png")`)
+![](`r here::here("images", "coding_crumbs", "Nested_Option.png")`)
 
 ### Or...the **Piping Option**
 
-![](`r here::here("Images", "Piping_Option.png")`)
+![](`r here::here("images", "coding_crumbs", "Piping_Option.png")`)
 
 ## Piping
 
-![](`r here::here("Images", "Pipe_logo.png")`)
+![](`r here::here("images", "coding_crumbs", "Pipe_logo.png")`)
 
 **Great Article** on Type Piping -> https://uc-r.github.io/pipe <br>
 **Reference** to magrittr package -> https://magrittr.tidyverse.org/
 
 ## Piping verbage
 
-![](`r here::here("Images", "Piping_Verbage.png")`)
+![](`r here::here("images", "coding_crumbs", "Piping_Verbage.png")`)
 
 ## Feed into Plots
 
-![](`r here::here("Images", "Pipe_Plots.png")`)
+![](`r here::here("images", "coding_crumbs", "Pipe_Plots.png")`)
 
 ## Integration into other packages
 
-![](`r here::here("Images", "Pipe_Packages.png")`)
+![](`r here::here("images", "coding_crumbs", "Pipe_Packages.png")`)
 
 ## Special Cases
 
 ### **%T>%**
 
-![](`r here::here("Images", "Piping_T.png")`)
+![](`r here::here("images", "coding_crumbs", "Piping_T.png")`)
 
 ### **%<>%**
 
-![](`r here::here("Images", "Piping_Compound.png")`)
+![](`r here::here("images", "coding_crumbs", "Piping_Compound.png")`)
 
 ### **%$%**
 
-![](`r here::here("Images", "Piping_Column.png")`)
+![](`r here::here("images", "coding_crumbs", "Piping_Column.png")`)
 
 ## **Take Home**
 
@@ -133,7 +133,7 @@ While you have a lot of flexibility in naming objects in R, **I'd encourage you 
 
 ## R styling
 
-![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+![](`r here::here("images", "coding_crumbs", "Coding_Crumbs2.webp")`)
 
 ## And I **LOVE** clean code
 
@@ -155,17 +155,17 @@ http://adv-r.had.co.nz/Style.html
 
 #### Before
 
-![](`r here::here("Images", "before.png")`)
+![](`r here::here("images", "coding_crumbs", "before.png")`)
 
-![](`r here::here("Images", "native_click.png")`)
+![](`r here::here("images", "coding_crumbs", "native_click.png")`)
 
 #### After
 
-![](`r here::here("Images", "after1.png")`)
+![](`r here::here("images", "coding_crumbs", "after1.png")`)
 
 ### Option 2: **Styler Package**
 
-![](`r here::here("Images", "styler_logo.png")`)
+![](`r here::here("images", "coding_crumbs", "styler_logo.png")`)
 
 https://github.com/r-lib/styler?tab=readme-ov-file
 
@@ -175,28 +175,28 @@ https://www.youtube.com/watch?app=desktop&v=yUA3NpJLH6I&t=220s&t=156
 
 #### Before
 
-![](`r here::here("Images", "before.png")`)
+![](`r here::here("images", "coding_crumbs", "before.png")`)
 
 #### After
 
-![](`r here::here("Images", "styler_click.png")`)
+![](`r here::here("images", "coding_crumbs", "styler_click.png")`)
 
 
-![](`r here::here("Images", "after2.png")`)
+![](`r here::here("images", "coding_crumbs", "after2.png")`)
 
 ### Option 3: **ChatGPT**
 
-![](`r here::here("Images", "chat_prompt.png")`)
+![](`r here::here("images", "coding_crumbs", "chat_prompt.png")`)
 
 #### Before
 
-![](`r here::here("Images", "before.png")`)
+![](`r here::here("images", "coding_crumbs", "before.png")`)
 
 ##### After
 
-![](`r here::here("Images", "after3.png")`)
+![](`r here::here("images", "coding_crumbs", "after3.png")`)
 
-![](`r here::here("Images", "chat_notes.png")`)
+![](`r here::here("images", "coding_crumbs", "chat_notes.png")`)
 
 ## **Take Home**
 
@@ -210,7 +210,7 @@ https://www.youtube.com/watch?app=desktop&v=yUA3NpJLH6I&t=220s&t=156
 
 ## Gene Conversion
 
-![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+![](`r here::here("images", "coding_crumbs", "Coding_Crumbs2.webp")`)
 
 ## Changing between **Mouse** and **Human** gene names is common maneuver
 
@@ -251,7 +251,7 @@ df_human <- mousegnameConverter(df_mouse, "gene")
 
 ### **ChatGPT**
 
-![](`r here::here("Images", "chatGPT.png")`)
+![](`r here::here("images", "coding_crumbs", "chatGPT.png")`)
 
 #### Use at your own risk.
 ##### Quick...but unreliable
@@ -325,24 +325,24 @@ df_human_gene <- as.data.frame(df_human_gene)
 
 ## renv package
 
-![](`r here::here("Images", "Coding_Crumbs2.webp")`)
+![](`r here::here("images", "coding_crumbs", "Coding_Crumbs2.webp")`)
 
 ## It **finally** happened!
 
 ### I got too tired of **switching** between my Seurat v4 and Seurat v5 computers
 
 #### This was my solution for the Seurat v5 
-![](`r here::here("Images", "btf.webp")`)
+![](`r here::here("images", "coding_crumbs", "btf.webp")`)
 
 #### Screenshot from **Score #1**
 
-![](`r here::here("Images", "badadvice.png")`)
+![](`r here::here("images", "coding_crumbs", "badadvice.png")`)
 
 #### Someone (Jesse Goodrich or Matt Salomon?) recommended trying out the *renv* package
 
 ## What is renv?
 
-![](`r here::here("Images", "renv_logo.png")`)
+![](`r here::here("images", "coding_crumbs", "renv_logo.png")`)
 
 https://rstudio.github.io/renv/articles/renv.html
 
@@ -350,21 +350,21 @@ https://rstudio.github.io/renv/articles/renv.html
 
 ### Let's be honest...we often get stuck in between projects as packages change
 
-![](`r here::here("Images", "renv_image.svg")`)
+![](`r here::here("images", "coding_crumbs", "renv_image.svg")`)
 
 ### It allows you to create a **snapshot** of your R packages and versions
 
-![](`r here::here("Images", "renv_graphic.png")`)
+![](`r here::here("images", "coding_crumbs", "renv_graphic.png")`)
 
 ### It allows you to **restore** your R packages and versions
 
-![](`r here::here("Images", "renv_files.png")`)
+![](`r here::here("images", "coding_crumbs", "renv_files.png")`)
 
 ### **Great** video from **Albert Rapp** on using renv 
 
 https://www.youtube.com/watch?v=Oen9xhEh8PY
 
-![](`r here::here("Images", "youtube.jpg")`)
+![](`r here::here("images", "coding_crumbs", "youtube.jpg")`)
 
 ### It took me **5 minutes** to set this up on my system
 
@@ -374,9 +374,9 @@ https://www.youtube.com/watch?v=Oen9xhEh8PY
 
 #### Open up project from the folder where you want to use renv
 
-![](`r here::here("Images", "thiseasy.png")`)
+![](`r here::here("images", "coding_crumbs", "thiseasy.png")`)
 
-![](`r here::here("Images", "filesize.png")`)
+![](`r here::here("images", "coding_crumbs", "filesize.png")`)
 
 ### Now when I open the project from this location:  **Seurat v5**
 
