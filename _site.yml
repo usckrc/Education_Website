@@ -10,50 +10,61 @@ navbar:
           href: lab_schedule.html
         - text: "Lab Members"
           href: lab_members.html
-    - text: "Getting Started"
+    - text: "Informative Tutorials"
       menu:
-        - text: "Computer Requirements"
-          href: computer_requirements.html
-        - text: "Downloading R"
-          href: downloading_R.html
-        - text: "Using Packages"
-          href: using_packages.html        
-        - text: "Jonathan's Best Coding Practices"
-          href: best_practices.html
-        - text: "Jonathan's Rule of Coding"
-          href: rules_of_coding.html
-    - text: "Github Tutorials"
+      - text: "Getting Started"
+        menu:
+          - text: "Computer Requirements"
+            href: computer_requirements.html
+          - text: "Downloading R"
+            href: downloading_R.html
+          - text: "Using Packages"
+            href: using_packages.html        
+          - text: "Jonathan's Best Coding Practices"
+            href: best_practices.html
+          - text: "Jonathan's Rule of Coding"
+            href: rules_of_coding.html
+      - text: "Github Tutorials"
+        menu:
+          - text: "Understanding Github"
+            href: qupath_install.html
+          - text: "Github Tutorial"
+            href: github_tutorial.html
+      - text: "snRNAseq Analysis"
+        menu:
+          - text: "Lesson 1"
+            href: lesson_1.html
+          - text: "Lesson 2"
+            href: lesson_2.html
+          - text: "Write DEGs to Excel"
+            href: write_degs_excel.html
+          - text: "SCORE: Coding Crumbs"
+            href: coding_crumbs.html
+          - text: "SCORE: Recreating Figures"
+            href: recreating_figures.html 
+      - text: "QuPath Tutorials"
+        menu:
+          - text: "Installing QuPath"
+            href: qupath_install.html
+          - text: "Manual Cell Annotation"
+            href: qupath_manual_annotation.html
+          - text: "Creating Composite Classifications"
+            href: qupath_composite_classifications.html
+          - text: "Analyzing QuPath data in R"
+            href: qupath_analyze_in_r.html
+      - text: "Problem Solving"
+        menu:
+          - text: "Write DEGs to Excel"
+            href: write_degs_excel.html
+      - text: "Creating Tutorials for the Nelson Lab Website"
+        href: creating_tutorials.html
+    - text: "Lab Protocols"
       menu:
-        - text: "Understanding Github"
-          href: qupath_install.html
-        - text: "Github Tutorial"
-          href: github_tutorial.html
-    - text: "snRNAseq Analysis"
+        - text: "Nuclei Isolation"
+    - text: "Foundational Learning"
       menu:
-        - text: "Lesson 1"
-          href: lesson_1.html
-        - text: "Lesson 2"
-          href: lesson_2.html
-        - text: "Write DEGs to Excel"
-          href: write_degs_excel.html
-        - text: "SCORE: Coding Crumbs"
-          href: coding_crumbs.html
-        - text: "SCORE: Recreating Figures"
-          href: recreating_figures.html 
-    - text: "QuPath Tutorials"
-      menu:
-        - text: "Installing QuPath"
-          href: qupath_install.html
-        - text: "Manual Cell Annotation"
-          href: qupath_manual_annotation.html
-        - text: "Creating Composite Classifications"
-          href: qupath_composite_classifications.html
-        - text: "Analyzing QuPath data in R"
-          href: qupath_analyze_in_r.html
-    - text: "Problem Solving"
-      menu:
-        - text: "Write DEGs to Excel"
-          href: write_degs_excel.html
+        - text: "Foundational Learning"
+
 output:
   html_document:
     theme: flatly

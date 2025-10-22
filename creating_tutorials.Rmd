@@ -1,0 +1,52 @@
+---
+title: "Creating Tutorials"
+author: "Sienna Blanche"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document: 
+    toc: yes
+    toc_depth: 5
+    toc_float: true
+    number_sections: no
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
+---
+
+Hello thank you so much for your contributions to the Nelson lab! and This page explains how to structure and format your tutorials so they are consistent across the site.
+
+# File Naming
+
+Please name all files using **snake_case**, lowercase letters with underscores between words.
+
+Examples:
+
+**github_tutorial.Rmd** <br>
+**lesson_1.Rmd** <br>
+**index.Rmd** <br>
+
+# Tutorial Structure
+
+Please including headings and subheadings in your tutorials where appropriate! 
+
+# Including Images 
+
+Please feel free to include images and videos in your tutorials! When including them please follow these guidelines:
+
+1. Save all images in the images/ folder inside your tutorial’s directory. Please make sure the images folder is saved in all lowercase. <br>
+2. Use snake_case for all image file names (for example, gene_expression_plot.png). <br>
+3. To display an image in your tutorial, write the following line of code as shown below (do not remove the backticks or quotes) and include an **r** after the first backtick and before the here: <br>
+
+```
+![](` here::here("images", "your_folder", "your_image_name.png")`)
+```
+
+# How to Submit
+
+When your tutorial is ready:
+
+Save your .Rmd file and all related images (in an images folder) in a single folder.
+
+Email the folder to slblanch@usc.edu with the subject line:
+“Tutorial Submission – [Tutorial Title]”
+
