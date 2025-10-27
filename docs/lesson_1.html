@@ -612,18 +612,18 @@ href="https://usckrc.github.io/Education_Website/downloading_R.html">here</a>.</
 into that folder. Once you have downloaded the necessary materials, this
 is what the folder should look like:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%200.1.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%200.1.png" /></p>
 <p>Creating a new folder is important as RStudio will use this folder as
 your working directory. To set the working directory click on
 <strong>Session&gt;Set Working Directory&gt;Choose Directory</strong>,
 This tells R studio where our downloaded files are.</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%200.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%200.png" /></p>
 <p>When the file browser opens, navigate to and <strong>select the
 scRNAseq_learning folder</strong>, then select open. This sets the
 working directory so RStudio knows where to look for your files.</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%201.1.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%201.1.png" /></p>
 </div>
 </div>
 <div id="step-0" class="section level1">
@@ -657,7 +657,7 @@ code: <strong>Glom = read.csv(‘Glom_scRNAseq.csv’,row.names=1)</strong>.
 If you have pointed to the right folder then the Environment window
 should contain a data object called “Glom” after a few seconds</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%202.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%202.png" /></p>
 </div>
 </div>
 <div id="step-3" class="section level1">
@@ -672,14 +672,14 @@ to be uploaded into Seurat. Copy and run the following code:
 <strong>Glom = data.matrix(Glom)</strong>. The object in the Environment
 window will change to be a “Large Matrix”</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%203.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%203.png" /></p>
 <p>Next we will run a “Sanity check” to make sure our Matrix file is
 formatted correctly. Run the following code
 <strong>Glom[1:5,1:5]</strong> to see the first 5 rows and columns of
 the matrix in the console window. Top row should be bar codes and first
 column should be gene names, as seen below.</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%204.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%204.png" /></p>
 <p>Next we will load this data into Seurat and create our Seurat Object.
 Run the following code:</p>
 <p><strong>Glom &lt;- CreateSeuratObject(counts = Glom, project =
@@ -687,14 +687,14 @@ Run the following code:</p>
 <p>The object in the Environment window will change to be a “Large
 Seurat”</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%205.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%205.png" /></p>
 <p>This is our first filtering step. The code selects only genes that
 are expressed in at least 3 cells and cells that express at least 200
 genes. Next we will run another sanity check to see how many cells and
 genes were filtered by running the following code
 <strong>Glom</strong>.</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%206.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%206.png" /></p>
 <p>You should now get an output with 3035 Samples (cells) by 16991
 Features (genes) which means we filtered out 42 cells and 5319 Genes! We
 know this by comparing out new object to the object we first loaded into
@@ -719,7 +719,7 @@ and percent.mt is the percent of counts that come from mitochondrial
 genes.</p>
 <p>The graph you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%207.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%207.png" /></p>
 <p>Using this information we can filter out doublets and damaged cells
 by running the following code: <strong>Glom &lt;- subset(Glom, subset =
 nFeature_RNA &lt; 2000 &amp; nCount_RNA &lt; 4000 &amp; percent.mt &lt;
@@ -734,12 +734,12 @@ newly filtered data by running <strong>VlnPlot(Glom, features =
 c(“nFeature_RNA”, “nCount_RNA”, “percent.mt”), ncol = 3)</strong></p>
 <p>The new graph should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%208.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%208.png" /></p>
 <p>Next we will run another sanity check to see how many cells and genes
 were filtered from the previous command by running
 <strong>Glom</strong>.</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%209.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%209.png" /></p>
 <p>The output we get is as follows: 2899 Samples (cells) by 16991
 Features (genes). This means we filtered out 136 cells and 0 Genes!
 Again we know this by comparing the current object to the one we had in
@@ -767,7 +767,7 @@ following code: <strong>top10 &lt;- head(VariableFeatures(Glom),
 10)</strong>.</p>
 <p>The top 10 genes I got were as follows:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2010.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2010.png" /></p>
 <p>Next we can create a plot of the variable features within the dataset
 and label the top 10 genes to see which are driving the clustering. To
 do so copy the following code:</p>
@@ -777,7 +777,7 @@ TRUE)</strong></p>
 <p><strong>plot2</strong></p>
 <p>The graph you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2011.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2011.png" /></p>
 </div>
 </div>
 <div id="step-6" class="section level1">
@@ -795,7 +795,7 @@ Glom))</strong></p>
 then prints the 3 genes that drive the first 10 principal
 components.</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2012.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2012.png" /></p>
 <p>Can you get a sense for how the cells might be clustering based off
 of these genes?</p>
 <p>Now we will visualize the genes driving the PCA a few ways. Run the
@@ -806,20 +806,20 @@ dimensions:</p>
 “pca”)</strong></p>
 <p>The graph you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2013.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2013.png" /></p>
 <p>Next, this line visualizes the scRNAseq dataset as a PCA (hopefully
 you can appreciate the poor clustering):</p>
 <p><strong>DimPlot(Glom, reduction = “pca”)</strong></p>
 <p>The graph you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2014.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2014.png" /></p>
 <p>Lastly, this line creates a heatmap of the top 500 genes that drive
 the first 2 PCA dimensions:</p>
 <p><strong>DimHeatmap(Glom, dims = 10:11, cells = 500, balanced =
 TRUE)</strong></p>
 <p>The heatmap you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2015.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2015.png" /></p>
 <p>This plot shows the variability and helps to decide how many PCA
 dimensions to use when measuring the clusters. When the standard
 deviation in the PC dimensions becomes small it no longer has a big
@@ -827,7 +827,7 @@ effect. In this case we will use 10 PC’s.</p>
 <p><strong>ElbowPlot(Glom)</strong></p>
 <p>The elbowplot you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2016.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2016.png" /></p>
 </div>
 </div>
 <div id="step-7" class="section level1">
@@ -850,7 +850,7 @@ see? Do they seem like they are real clusters?</p>
 <p><strong>DimPlot(Glom, reduction = “umap”)</strong></p>
 <p>The plot you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2017.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2017.png" /></p>
 <p>This line generates the UMAP visualization. How many clusters do you
 see? Do they seem like they are real clusters?</p>
 <p><strong>Glom2 &lt;- FindClusters(Glom, resolution = 0.3)</strong></p>
@@ -858,7 +858,7 @@ see? Do they seem like they are real clusters?</p>
 <p><strong>DimPlot(Glom2, reduction = “umap”)</strong></p>
 <p>The dimplot you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2018.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2018.png" /></p>
 </div>
 </div>
 <div id="step-8" class="section level1">
@@ -883,7 +883,7 @@ top_n(5, avg_log2FC)</strong></p>
 <p><strong>DoHeatmap(Glom, features = top5$gene)</strong></p>
 <p>The heatmap you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2019.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2019.png" /></p>
 <p>We will double check our work by visualizing some “traditional”
 cell-type markers with violin plots. The markers used in this tutorial
 are as follows:</p>
@@ -896,7 +896,7 @@ are as follows:</p>
 “Tagln”))</strong></p>
 <p>The graph you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2020.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2020.png" /></p>
 </div>
 </div>
 <div id="step-9" class="section level1">
@@ -914,7 +914,7 @@ code:</p>
 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p>The dimplot you get should now look like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2021.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2021.png" /></p>
 <p>These labels will now follow each cluster on any visualization we do.
 See how they look on the violin plot we ran before by running the
 following code:</p>
@@ -922,26 +922,26 @@ following code:</p>
 “Tagln”))</strong></p>
 <p>The graph you get should now look like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2022.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2022.png" /></p>
 <p>Next we can visualize the expression of each gene on the UMAP diagram
 by running the following lines individually. The series of feature plots
 you get should look something like this:</p>
 <p><strong>FeaturePlot(Glom, features = c(“Nphs2”),label = TRUE, pt.size
 = 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2023.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2023.png" /></p>
 <p><strong>FeaturePlot(Glom, features = c(“Pecam1”),label = TRUE,
 pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2024.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2024.png" /></p>
 <p><strong>FeaturePlot(Glom, features = c(“Slc12a3”),label = TRUE,
 pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2025.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2025.png" /></p>
 <p><strong>FeaturePlot(Glom, features = c(“Tagln”),label = FALSE,
 pt.size = 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2026.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2026.png" /></p>
 <p>Using the following code we can highlight a “hidden cluster” that is
 probably immune cells because of the unique expression of Ptprc
 (CD45):</p>
@@ -949,7 +949,7 @@ probably immune cells because of the unique expression of Ptprc
 = 0.5, label.size = 7, repel = FALSE)</strong></p>
 <p>The feature plot you get should look something like this:</p>
 <p><img
-src="Images/lesson_1/ROC_1_Screenshot%2027.png" /></p>
+src="images/lesson_1/ROC_1_Screenshot%2027.png" /></p>
 </div>
 </div>
 <div id="session-info" class="section level1">
