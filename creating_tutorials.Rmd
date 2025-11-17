@@ -35,10 +35,10 @@ Please feel free to include images and videos in your tutorials! When including 
 
 1. Save all images in the images/ folder inside your tutorial’s directory. Please make sure the images folder is saved in all lowercase. <br>
 2. Use snake_case for all image file names (for example, gene_expression_plot.png). <br>
-3. To display an image in your tutorial, write the following line of code as shown below (do not remove the backticks or quotes) and include an **r** after the first backtick and before the here: <br>
+3. To display an image in your tutorial, write the following line of code as shown below: <br>
 
-```
-![](` here::here("images", "your_folder", "your_image_name.png")`)
+```{verbatim}
+![](`r here::here("images", "your_folder", "your_image_name.png")`)
 ```
 
 # How to Submit
