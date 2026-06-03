@@ -1,5 +1,5 @@
 ---
-title: "Downloading R"
+title: "Installing R and RStudio"
 subtitle: ""
 author: "Sienna Blanche"
 date: "`r format(Sys.time(), '%d %B %Y')`"
