@@ -608,7 +608,7 @@ Because categories are not labeled in chart.
 
 ```{r, error=FALSE, message=FALSE, warning=FALSE, include=TRUE}
 
-p_plotly <- plotly::ggplotly(p1, tooltip = "text")
+p_plotly <- ggplotly(p1, tooltip = "text")
 
 p_plotly
 
