@@ -1,7 +1,8 @@
+
 ---
 title: "Nelson Lab Website"
 subtitle: ""
-author: "Sienna Blanche"
+author: 
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document: 

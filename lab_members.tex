@@ -1,0 +1,188 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Lab Members},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Lab Members}
+\author{}
+\date{\vspace{-2.5em}05 June 2026}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{5}
+\tableofcontents
+}
+\section{Lab Members}\label{lab-members}
+
+\subsection{Principal Investigator}\label{principal-investigator}
+
+\subsubsection{Jonathan Nelson}\label{jonathan-nelson}
+
+Hello, my name is Dr.~Jonathan Nelson, and I am an Assistant Professor
+in the Division of Nephrology \& Hypertension at the Keck School of
+Medicine of USC. I completed my undergraduate studies in Biochemistry at
+the University of Washington before earning my PhD in Molecular and
+Medical Genetics at Oregon Health \& Science University. My research
+focuses on vascular biology and the renin-angiotensin system,
+particularly how it regulates the kidney microvasculature. I am
+passionate about using translational research to better understand
+kidney disease and improve outcomes for patients with vascular and renal
+conditions.
+
+\subsection{Current Members}\label{current-members}
+
+\subsubsection{Nicky Kim}\label{nicky-kim}
+
+\subsubsection{Kevin Shih}\label{kevin-shih}
+
+Hello, my name is Kevin, and I work in the Division of Nephrology at the
+Keck School of Medicine at USC in Dr.~Nelson's Laboratory. I received my
+Bachelor's of Science in Molecular, Cellular, and Developmental Biology
+and my Master's of Science in Physiological Sciences at the University
+of California, Los Angeles.
+
+\subsubsection{Ronald Vaca}\label{ronald-vaca}
+
+Ronald is working towards graduating with a Master's of Science in
+Public Health from the University of Southern California. He is also the
+manager of the USC Translational Pathology Core and Clinical
+Immunohistochemistry Laboratories at the Keck School of Medicine. He
+received his Bachelor of Science in Kinesiology and Exercise Science
+from California State University, Fullerton.
+
+\subsubsection{Arjun Lakshmanan}\label{arjun-lakshmanan}
+
+\subsubsection{Jeff Karnsomprot}\label{jeff-karnsomprot}
+
+\subsubsection{Deeshan Weeraratne}\label{deeshan-weeraratne}
+
+\subsubsection{Paul Cho}\label{paul-cho}
+
+\subsubsection{Erik Siranosian}\label{erik-siranosian}
+
+\section{}\label{section}
+
+\subsection{Alumnus Members}\label{alumnus-members}
+
+\subsubsection{Sienna Blanche}\label{sienna-blanche}
+
+Hello, my name is Sienna Blanche, and I am a Master's student at the
+University of Southern California studying Global Medicine. I graduated
+from the University of Southern California in 2025 with a Bachelor of
+Science in Human Biology and a minor in Gender and Sexuality Studies.I
+work as a research assistant in Dr.~Nelson's lab where I analyze kidney
+gene expression using single-nucleus RNA sequencing. In the future, I
+aspire to become a physician dedicated to advancing women's health and
+global health equity by integrating clinical practice with research to
+improve patient outcomes.
+
+Sienna has since graduated with a Master's of Science from the
+University of Southern California and now works as a Clinical Research
+Associate as she applies to medical school.
+
+\subsection{Victoria Quon-Chow}\label{victoria-quon-chow}
+
+Hello! My name is Victoria Quon-Chow, and I am a research technician in
+Dr.~Nelson's lab. My research work focuses on the associations between
+per- and polyfluoroalkyl substances (PFAS), diabetes, and renal
+diseases. I graduated from the University of Southern California in 2024
+with a Bachelor of Science in Human Biology and a minor in Nutrition and
+Health Promotion. I am currently applying to medical school and aspire
+to serve diverse populations while providing compassionate,
+patient-centered care.
+
+Victoria was accepted into the Kansas City University College of
+Osteopathic Medicine and will begin her training in 2026.
+Congratulations!
+
+\subsubsection{Roman Thomas}\label{roman-thomas}
+
+Hi! My name is Roman Thomas, and I am a fourth-year undergraduate
+student at Vanderbilt University, double majoring in Biochemistry and
+Medicine, Health \& Society on the premed track. I am currently
+conducting research in Dr.~Jonathan Nelson's lab, where we are
+developing a manuscript that provides insights into a standardized
+method for identifying kidney cell types using single nucleus RNA
+sequencing analysis in R. I plan to apply these skills in my
+Neuropharmacology lab, where we investigate the effects of the M5
+Muscarinic Acetylcholine Receptor on drug-seeking behaviors in mice. My
+long-term goal is to become a plastic surgeon while working to address
+healthcare disparities and ensure that my patients, especially from
+historically underserved groups, receive the autonomy and care that has
+often been denied to them in the past.
+
+Roman is graduating from Vanderbilt with his Bachelor's of Arts in 2026.
+Congratulations!
+
+\subsubsection{Deborah Sohn}\label{deborah-sohn}
+
+Deborah is a 3rd year student at the University of Southern California.
+
+\subsubsection{Omid Sajjadi}\label{omid-sajjadi}
+
+Omid graduated from the University of Southern California with his
+Master's of Science in Stem Cell Biology and Regenerative Medicine.
+
+\end{document}
