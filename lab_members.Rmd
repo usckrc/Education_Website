@@ -31,6 +31,8 @@ Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Di
 ### Nicky Kim
 
 
+Hi! My name is Nicky Kim and I am working in the Division of Nephrology & Hypertension in the Department of Medicine at Keck School of Medicine of USC. I graduated with a Bachelor of Arts in Neuroscience from Reed College in 2023, and I am now currently a research laboratory technician in Dr. Susan Gurley and Dr. Jonathan Nelson’s labs, researching kidney disease through understanding the functions and effects of specific genes, as well as examining roles of outside factors such as PFAS, in transgenic disease mouse models.
+
 ### Kevin Shih
 
 <img src="`r here::here('images', "lab_members", 'kevin.jpeg')`" width="300px">
