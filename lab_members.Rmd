@@ -59,7 +59,7 @@ Ronald is working towards graduating with a Master's of Science in Public Health
 
 <img src="`r here::here('images', "lab_members", 'deshan.jpeg')`" width="300px">
 
-Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC majoring in Human Biology and minoring in Healthcare Studies. I joined the Nelson Lab in August 2025, and am currently investigating how angiotensin II affects genetic function in kidney cells. 
+Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC majoring in Human Biology and minoring in Healthcare Studies. I joined the Nelson Lab in August 2025, and am currently investigating how angiotensin II affects genetic function in kidney cells.  
 
 ### Paul Cho
 
