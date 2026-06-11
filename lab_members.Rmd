@@ -19,7 +19,7 @@ subtitle: ''
 
 # Lab Members 
 
-## Principal Investigator
+## Principal Investigator 
 
 ### Jonathan Nelson
 
