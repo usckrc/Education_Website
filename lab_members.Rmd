@@ -17,17 +17,20 @@ output:
 subtitle: ''
 ---
 
-# Lab Members 
-
-## Principal Investigator 
+# Principal Investigator
 
 ### Jonathan Nelson
 
-<img src="`r here::here('images', "lab_members", 'Nelson_headshot.jpg')`" width="300px">
+
+<img src="`r here::here('images', "lab_members", 'Nelson_headshot.jpg')`" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;">
 
 Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Division of Nephrology & Hypertension at the Keck School of Medicine of USC. I completed my undergraduate studies in Biochemistry at the University of Washington before earning my PhD in Molecular and Medical Genetics at Oregon Health & Science University. My research focuses on vascular biology and the renin-angiotensin system, particularly how it regulates the kidney microvasculature. I am passionate about using translational research to better understand kidney disease and improve outcomes for patients with vascular and renal conditions.
 
-## Current Members
+# Current Members
+
 ### Nicky Kim
 
 <img src="`r here::here('images', 'lab_members', 'Nicky.JPG')`"
@@ -83,9 +86,9 @@ Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC 
 
 ### Erik Siranosian
 
-#
 
-## Alumnus Members
+
+# Alumnus Members
 
 ### Sienna Blanche
 
