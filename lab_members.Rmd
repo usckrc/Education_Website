@@ -33,7 +33,7 @@ Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Di
 
 ### Nicky Kim
 
-<img src="`r here::here('images', 'lab_members', 'Nicky.JPG')`"
+<img src="`r here::here('images', 'lab_members', 'Nicky1.JPG')`"
      width="300px"
      height="300px"
      style="object-fit: cover; object-position: top;">
