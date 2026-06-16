@@ -67,7 +67,7 @@ Ronald is working towards graduating with a Master's of Science in Public Health
 
 ### Jeff Karnsomprot
 
-<img src="`r here::here('images', "lab_members", 'jeff1.jpg')`" 
+<img src="`r here::here('images', "lab_members", 'jeff1.JPG')`" 
     width="300px"
     height="300px"
     style="object-fit: cover; object-position: middle;">
