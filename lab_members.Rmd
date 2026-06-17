@@ -86,6 +86,12 @@ Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC 
 
 ### Erik Siranosian
 
+<img src="`r here::here('images', "lab_members", 'erik.jpg')`" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;">
+
+Hello! My name is Erik Siranosian, and I am a 4th-year undergraduate at the University of California, Los Angeles (UCLA), majoring in Psychobiology and minoring in Chicano and Chicana Studies. I am also part of UCLA’s Science Teacher Education Program (STEP), where I'm getting my Master of Education (M.Ed) and will be a secondary science teacher. I conduct research in Dr. Nelson’s lab where I use R to analyze kidney gene expression data to develop a reproducible spatial transcriptomics workflow for identifying kidney cell types while preserving their location within tissue. This work can be used for further kidney research, hopefully improving downstream patient outcomes. In the future, I hope to become a physician-scientist who combines clinical practice, research, and education to improve care for patients from underserved communities.
 
 
 # Alumnus Members
