@@ -83,6 +83,12 @@ Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC 
 
 ### Paul Cho, Undergraduate Student
 
+<img src="`r here::here('images', "lab_members", 'paul.jpeg')`" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;">
+
+Hello, my name is Paul Cho, a third-year undergraduate student at the University of Southern California majoring in Human Biology and minoring in Cinematic Arts! I’ve been a part of Dr. Nelson's Lab since August 2025. My research focuses on how and to what degree Angiotensin II affects the transcriptional pattern of different kidney cells.
 
 ### Erik Siranosian, Bridging the Gaps Student
 
