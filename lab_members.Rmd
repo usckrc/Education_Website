@@ -31,7 +31,9 @@ Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Di
 
 # Current Members
 
-### Nicky Kim, Laboratory Technician II
+### Nicky Kim
+
+#### Laboratory Technician II
 
 <img src="`r here::here('images', 'lab_members', 'Nicky1.JPG')`"
      width="300px"
@@ -40,7 +42,9 @@ Hello, my name is Dr. Jonathan Nelson, and I am an Assistant Professor in the Di
 
 Hi! My name is Nicky Kim and I am working in the Division of Nephrology & Hypertension in the Department of Medicine at Keck School of Medicine of USC. I graduated with a Bachelor of Arts in Neuroscience from Reed College in 2023, and I am now currently a research laboratory technician in Dr. Susan Gurley and Dr. Jonathan Nelson’s labs, researching kidney disease through understanding the functions and effects of specific genes, as well as examining roles of outside factors such as PFAS, in transgenic disease mouse models.
 
-### Kevin Shih, Laboratory Technician II
+### Kevin Shih
+
+#### Laboratory Technician II
 
 <img src="`r here::here('images', "lab_members", 'kevin.jpeg')`" 
     width="300px"
@@ -49,7 +53,9 @@ Hi! My name is Nicky Kim and I am working in the Division of Nephrology & Hypert
 
 Hello, my name is Kevin, and I work in the Division of Nephrology at the Keck School of Medicine at USC in Dr. Nelson's Laboratory. I received my Bachelor's of Science in Molecular, Cellular, and Developmental Biology and my Master's of Science in Physiological Sciences at the University of California, Los Angeles. 
 
-### Ronald Vaca, Master's Student
+### Ronald Vaca
+
+#### Master's Student
 
 <img src="`r here::here('images', "lab_members", 'ronald.jpg')`" 
     width="300px"
@@ -58,21 +64,27 @@ Hello, my name is Kevin, and I work in the Division of Nephrology at the Keck Sc
 
 Ronald is working towards graduating with a Master's of Science in Public Health from the University of Southern California. He is also the manager of the USC Translational Pathology Core and Clinical Immunohistochemistry Laboratories at the Keck School of Medicine. He received his Bachelor of Science in Kinesiology and Exercise Science from California State University, Fullerton.
 
-### Arjun Lakshmanan, Undergraduate Student
+### Arjun Lakshmanan
+
+#### Undergraduate Student
 
 <img src="`r here::here('images', "lab_members", 'arjun.jpg')`" 
     width="300px"
     height="300px"
     style="object-fit: cover; object-position: middle;">
 
-### Jeff Karnsomprot, Undergraduate Student
+### Jeff Karnsomprot
+
+#### Undergraduate Student
 
 <img src="`r here::here('images', "lab_members", 'jeff1.JPG')`" 
     width="300px"
     height="300px"
     style="object-fit: cover; object-position: middle;">
 
-### Deeshan Weeraratne, Undergraduate Student
+### Deeshan Weeraratne
+
+#### Undergraduate Student
 
 <img src="`r here::here('images', "lab_members", 'deshan.jpeg')`" 
     width="300px"
@@ -81,7 +93,9 @@ Ronald is working towards graduating with a Master's of Science in Public Health
 
 Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC majoring in Human Biology and minoring in Healthcare Studies. I joined the Nelson Lab in August 2025, and am currently investigating how angiotensin II affects genetic function in kidney cells.  
 
-### Paul Cho, Undergraduate Student
+### Paul Cho
+
+#### Undergraduate Student
 
 <img src="`r here::here('images', "lab_members", 'paul.jpeg')`" 
     width="300px"
@@ -90,7 +104,9 @@ Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC 
 
 Hello, my name is Paul Cho, a third-year undergraduate student at the University of Southern California majoring in Human Biology and minoring in Cinematic Arts! I’ve been a part of Dr. Nelson's Lab since August 2025. My research focuses on how and to what degree Angiotensin II affects the transcriptional pattern of different kidney cells.
 
-### Erik Siranosian, Bridging the Gaps Student
+### Erik Siranosian
+
+#### Bridging the Gaps Student
 
 <img src="`r here::here('images', "lab_members", 'erik.jpg')`" 
     width="300px"
@@ -100,9 +116,32 @@ Hello, my name is Paul Cho, a third-year undergraduate student at the University
 Hello! My name is Erik Siranosian, and I am a 4th-year undergraduate at the University of California, Los Angeles (UCLA), majoring in Psychobiology and minoring in Chicano and Chicana Studies. I am also part of UCLA’s Science Teacher Education Program (STEP), where I'm getting my Master of Education (M.Ed) and will be a secondary science teacher. I conduct research in Dr. Nelson’s lab where I use R to analyze kidney gene expression data to develop a reproducible spatial transcriptomics workflow for identifying kidney cell types while preserving their location within tissue. This work can be used for further kidney research, hopefully improving downstream patient outcomes. In the future, I hope to become a physician-scientist who combines clinical practice, research, and education to improve care for patients from underserved communities.
 
 
+### Omid Sajjadi
+
+#### Master's Student
+
+<img src="`r here::here('images', "lab_members", 'omid.jpg')`" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;">
+
+Omid graduated from the University of Southern California with his Master's of Science in Stem Cell Biology and Regenerative Medicine.
+
+
+### Sam de Leve
+
+#### Resource Employee
+
+<img src="`r here::here('images', "lab_members", 'sam.jpg')`" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;">
+
 # Alumnus Members
 
-### Sienna Blanche, Master's Student
+### Sienna Blanche
+
+#### Master's Student
 
 <img src="`r here::here('images', "lab_members", 'sienna.png')`" width="300px">
 
@@ -110,7 +149,9 @@ Hello, my name is Sienna Blanche, and I am a Master's student at the University 
 
 Sienna has since graduated with a Master's of Science from the University of Southern California and now works as a Clinical Research Associate as she applies to medical school. 
 
-### Victoria Quon-Chow, Laboratory Technician
+### Victoria Quon-Chow
+
+#### Laboratory Technician
 
 <img src="`r here::here('images', "lab_members", 'victoria.jpeg')`" width="300px">
 
@@ -118,7 +159,9 @@ Hello! My name is Victoria Quon-Chow, and I am a research technician in Dr. Nels
 
 Victoria was accepted into the Kansas City University College of Osteopathic Medicine and will begin her training in 2026. Congratulations!
 
-### Roman Thomas, Bridging the Gaps Student
+### Roman Thomas
+
+#### Bridging the Gaps Student
 
 <img src="`r here::here('images', "lab_members", 'roman.jpeg')`" width="300px">
 
@@ -126,14 +169,12 @@ Hi! My name is Roman Thomas, and I am a fourth-year undergraduate student at Van
 
 Roman is graduating from Vanderbilt with his Bachelor's of Arts in 2026. Congratulations!
 
-### Deborah Sohn, Undergraduate Student
+### Deborah Sohn
+
+#### Undergraduate Student
 
 <img src="`r here::here('images', "lab_members", 'deborah.jpeg')`" width="300px">
 
 Deborah is a 3rd year student at the University of Southern California.
 
-### Omid Sajjadi, Master's Student
 
-<img src="`r here::here('images', "lab_members", 'omid.jpg')`" width="300px">
-
-Omid graduated from the University of Southern California with his Master's of Science in Stem Cell Biology and Regenerative Medicine.
