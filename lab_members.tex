@@ -1,12 +1,10 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
+%
 \documentclass[
 ]{article}
-\usepackage{xcolor}
-\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -37,6 +35,8 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \makeatletter
 \newsavebox\pandoc@box
@@ -55,6 +55,7 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -65,7 +66,7 @@
 
 \title{Lab Members}
 \author{}
-\date{\vspace{-2.5em}05 June 2026}
+\date{\vspace{-2.5em}29 June 2026}
 
 \begin{document}
 \maketitle
@@ -74,11 +75,9 @@
 \setcounter{tocdepth}{5}
 \tableofcontents
 }
-\section{Lab Members}\label{lab-members}
+\section{Principal Investigator}\label{principal-investigator}
 
-\subsection{Principal Investigator}\label{principal-investigator}
-
-\subsubsection{Jonathan Nelson}\label{jonathan-nelson}
+\subsubsection{Jonathan Nelson, Ph.D.}\label{jonathan-nelson-ph.d.}
 
 Hello, my name is Dr.~Jonathan Nelson, and I am an Assistant Professor
 in the Division of Nephrology \& Hypertension at the Keck School of
@@ -91,11 +90,24 @@ passionate about using translational research to better understand
 kidney disease and improve outcomes for patients with vascular and renal
 conditions.
 
-\subsection{Current Members}\label{current-members}
+\section{Current Members}\label{current-members}
 
 \subsubsection{Nicky Kim}\label{nicky-kim}
 
+\paragraph{Laboratory Technician II}\label{laboratory-technician-ii}
+
+Hi! My name is Nicky Kim and I am working in the Division of Nephrology
+\& Hypertension in the Department of Medicine at Keck School of Medicine
+of USC. I graduated with a Bachelor of Arts in Neuroscience from Reed
+College in 2023, and I am now currently a research laboratory technician
+in Dr.~Susan Gurley and Dr.~Jonathan Nelson's labs, researching kidney
+disease through understanding the functions and effects of specific
+genes, as well as examining roles of outside factors such as PFAS, in
+transgenic disease mouse models.
+
 \subsubsection{Kevin Shih}\label{kevin-shih}
+
+\paragraph{Laboratory Technician II}\label{laboratory-technician-ii-1}
 
 Hello, my name is Kevin, and I work in the Division of Nephrology at the
 Keck School of Medicine at USC in Dr.~Nelson's Laboratory. I received my
@@ -104,6 +116,8 @@ and my Master's of Science in Physiological Sciences at the University
 of California, Los Angeles.
 
 \subsubsection{Ronald Vaca}\label{ronald-vaca}
+
+\paragraph{Master's Student}\label{masters-student}
 
 Ronald is working towards graduating with a Master's of Science in
 Public Health from the University of Southern California. He is also the
@@ -114,19 +128,65 @@ from California State University, Fullerton.
 
 \subsubsection{Arjun Lakshmanan}\label{arjun-lakshmanan}
 
+\paragraph{Undergraduate Student}\label{undergraduate-student}
+
 \subsubsection{Jeff Karnsomprot}\label{jeff-karnsomprot}
+
+\paragraph{Undergraduate Student}\label{undergraduate-student-1}
 
 \subsubsection{Deeshan Weeraratne}\label{deeshan-weeraratne}
 
+\paragraph{Undergraduate Student}\label{undergraduate-student-2}
+
+Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate
+at USC majoring in Human Biology and minoring in Healthcare Studies. I
+joined the Nelson Lab in August 2025, and am currently investigating how
+angiotensin II affects genetic function in kidney cells.
+
 \subsubsection{Paul Cho}\label{paul-cho}
+
+\paragraph{Undergraduate Student}\label{undergraduate-student-3}
+
+Hello, my name is Paul Cho, a third-year undergraduate student at the
+University of Southern California majoring in Human Biology and minoring
+in Cinematic Arts! I've been a part of Dr.~Nelson's Lab since August
+2025. My research focuses on how and to what degree Angiotensin II
+affects the transcriptional pattern of different kidney cells.
 
 \subsubsection{Erik Siranosian}\label{erik-siranosian}
 
-\section{}\label{section}
+\paragraph{Bridging the Gaps Student}\label{bridging-the-gaps-student}
 
-\subsection{Alumnus Members}\label{alumnus-members}
+Hello! My name is Erik Siranosian, and I am a 4th-year undergraduate at
+the University of California, Los Angeles (UCLA), majoring in
+Psychobiology and minoring in Chicano and Chicana Studies. I am also
+part of UCLA's Science Teacher Education Program (STEP), where I'm
+getting my Master of Education (M.Ed) and will be a secondary science
+teacher. I conduct research in Dr.~Nelson's lab where I use R to analyze
+kidney gene expression data to develop a reproducible spatial
+transcriptomics workflow for identifying kidney cell types while
+preserving their location within tissue. This work can be used for
+further kidney research, hopefully improving downstream patient
+outcomes. In the future, I hope to become a physician-scientist who
+combines clinical practice, research, and education to improve care for
+patients from underserved communities.
+
+\subsubsection{Omid Sajjadi}\label{omid-sajjadi}
+
+\paragraph{Master's Student}\label{masters-student-1}
+
+Omid graduated from the University of Southern California with his
+Master's of Science in Stem Cell Biology and Regenerative Medicine.
+
+\subsubsection{Sam de Leve}\label{sam-de-leve}
+
+\paragraph{Resource Employee}\label{resource-employee}
+
+\section{Alumnus Members}\label{alumnus-members}
 
 \subsubsection{Sienna Blanche}\label{sienna-blanche}
+
+\paragraph{Master's Student}\label{masters-student-2}
 
 Hello, my name is Sienna Blanche, and I am a Master's student at the
 University of Southern California studying Global Medicine. I graduated
@@ -142,7 +202,9 @@ Sienna has since graduated with a Master's of Science from the
 University of Southern California and now works as a Clinical Research
 Associate as she applies to medical school.
 
-\subsection{Victoria Quon-Chow}\label{victoria-quon-chow}
+\subsubsection{Victoria Quon-Chow}\label{victoria-quon-chow}
+
+\paragraph{Laboratory Technician}\label{laboratory-technician}
 
 Hello! My name is Victoria Quon-Chow, and I am a research technician in
 Dr.~Nelson's lab. My research work focuses on the associations between
@@ -158,6 +220,8 @@ Osteopathic Medicine and will begin her training in 2026.
 Congratulations!
 
 \subsubsection{Roman Thomas}\label{roman-thomas}
+
+\paragraph{Bridging the Gaps Student}\label{bridging-the-gaps-student-1}
 
 Hi! My name is Roman Thomas, and I am a fourth-year undergraduate
 student at Vanderbilt University, double majoring in Biochemistry and
@@ -178,11 +242,8 @@ Congratulations!
 
 \subsubsection{Deborah Sohn}\label{deborah-sohn}
 
+\paragraph{Undergraduate Student}\label{undergraduate-student-4}
+
 Deborah is a 3rd year student at the University of Southern California.
-
-\subsubsection{Omid Sajjadi}\label{omid-sajjadi}
-
-Omid graduated from the University of Southern California with his
-Master's of Science in Stem Cell Biology and Regenerative Medicine.
 
 \end{document}
