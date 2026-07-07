@@ -185,4 +185,4 @@ Update this guide if any of the following change:
 - Lab policy on remote desktop use
 
 
-This was last revised on July 7th, 2026
+This was last revised on July 7th, 2026 by Erik Siranosian and Kevin Shih
