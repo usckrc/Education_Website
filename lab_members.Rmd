@@ -172,6 +172,6 @@ Roman is graduating from Vanderbilt with his Bachelor's of Arts in 2026. Congrat
 
 <img src="`r here::here('images', "lab_members", 'deborah.jpeg')`" width="300px">
 
-Deborah is a 3rd year student at the University of Southern California.
+Deborah graduated with her Master's in Bioinformatics from the Nelson Laboratory. Congratulations!
 
 
