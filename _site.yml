@@ -64,6 +64,7 @@ navbar:
     - text: "Foundational Learning"
       menu:
         - text: "Foundational Learning"
+          href: foundational_learning.html
 
 output:
   html_document:
