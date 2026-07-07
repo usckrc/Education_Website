@@ -6,9 +6,13 @@ date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
   html_document:
     toc: true
-    toc_depth: 2
-    theme: readable
-    self_contained: false
+    toc_depth: 5
+    toc_float: true
+    number_sections: false
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
+
 ---
 
 # Internal use only

@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Erik Siranosian" />
+<meta name="author" content="Jonathan Nelson" />
 
 <meta name="date" content="2026-07-07" />
 
-<title>JWN Lab Remote Desktop Access Tutorial</title>
+<title>Write DEG Lists to Excel</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -462,232 +462,208 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">JWN Lab Remote Desktop Access Tutorial</h1>
-<h3 class="subtitle">Internal Lab Use Only</h3>
-<h4 class="author">Erik Siranosian</h4>
-<h4 class="date">July 07, 2026</h4>
+<h1 class="title toc-ignore">Write DEG Lists to Excel</h1>
+<h4 class="author">Jonathan Nelson</h4>
+<h4 class="date">07 July 2026</h4>
 
 </div>
 
 
-<div id="internal-use-only" class="section level1">
-<h1>Internal use only</h1>
-<p>This tutorial is for <strong>JWN lab members only</strong>. Don’t
-share this guide, the lab remote access account, the PIN, the desktop
-login information, screenshots, or any access instructions outside the
-lab.</p>
-<p>All login information is also written on the paper next to the lab
-desktop. If anything in this guide differs from the paper in the lab,
-use the information on the paper and notify the lab so this guide can be
-updated.</p>
-</div>
-<div id="what-this-remote-desktop-is-for" class="section level1">
-<h1>What this remote desktop is for</h1>
-<p>The JWN lab desktop is available for remote use when lab members need
-access to the desktop’s computing environment, files, software, or
-analysis setup.</p>
-<p>Use the lab Google Calendar as the sign-up system to reserve time on
-the remote desktop.</p>
-</div>
-<div id="important-warning" class="section level1">
-<h1>Important warning</h1>
-<p>When you remotely access the desktop, <strong>anything you do can be
-seen on the physical monitors in the lab</strong> by anyone who is
-present.</p>
-<p>Before using the desktop remotely:</p>
-<ul>
-<li>Don’t open private or sensitive personal files.</li>
-<li>Try to not log in to personal accounts unless absolutely
-necessary.</li>
-<li>Close sensitive files before ending your session.</li>
-<li>Sign out of any personal accounts before leaving.</li>
-<li>Save your work before disconnecting.</li>
-</ul>
-</div>
-<div id="before-you-start" class="section level1">
-<h1>Before you start</h1>
-<div id="reserve-your-session-on-google-calendar"
+<p><img
+src="images/excel/intro.png" /></p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This tutorial is designed to help you write the DEGs that define each
+cluster in your Seurat object to an excel file. This is a very useful
+step in the analysis process because often times, this is the output
+that gets shared with collaborators and submitted as supplemental
+material to journal articles upon publishing an snRNAseq dataset.</p>
+<div id="download-.rmd-file-for-step-by-step-analysis"
 class="section level2">
-<h2>1. Reserve your session on Google Calendar</h2>
-<p>Before using the remote desktop:</p>
-<ol style="list-style-type: decimal">
-<li>Open the lab Google Calendar.</li>
-<li>Check whether someone else has already reserved the remote
-desktop.</li>
-<li>Create a calendar event for your intended session.</li>
-<li>Title the event clearly, for example:<br />
-<strong>Remote Desktop: Your Name</strong></li>
-<li>Include your expected start and end time.</li>
-<li>Don’t overlap with another user’s reserved time unless you have
-asked them if you could.</li>
-</ol>
+<h2>Download .RMD file for step-by-step analysis</h2>
+<div id="these-files-are-on-google-drive" class="section level3">
+<h3>These files are on google drive</h3>
+<div id="rmd-is-for-running-in-rstudio" class="section level4">
+<h4>.Rmd is for running in RStudio</h4>
 </div>
-<div id="make-sure-the-desktop-is-turned-on" class="section level2">
-<h2>2. Make sure the desktop is turned on</h2>
-<p>The lab desktop must be <strong>turned on</strong> to be accessed
-remotely.</p>
-<p>If Chrome Remote Desktop does not connect after about <strong>30
-seconds</strong>, the desktop is probably off, asleep, disconnected, or
-not available.</p>
-<p>If the desktop is not on:</p>
-<ol style="list-style-type: decimal">
-<li>Check the lab Google Calendar to see who is physically in the lab
-that day.</li>
-<li>Message someone in lab and ask them to turn on the desktop.</li>
-<li>After they confirm it is on, try connecting again.</li>
-</ol>
+<div id="html-is-for-viewing-output-in-a-browser"
+class="section level4">
+<h4>.html is for viewing output in a browser</h4>
+<p><a
+href="https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing"
+class="uri">https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing</a></p>
+<p><img
+src="images/excel/drive.png" /></p>
 </div>
 </div>
-<div id="remote-access-login-information" class="section level1">
-<h1>Remote access login information</h1>
-<p>Here is the Google Doc with all of the login info for the
-<strong>Chrome Remote Desktop google account</strong> , <strong>Remote
-access PIN</strong>, and <strong>Desktop login</strong> :<a
-href="https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing"
-class="uri">https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing</a></p>
-<p>Use this information only for lab remote access.</p>
-<p>Again, this information is also written on the paper next to the lab
-desktop and must stay within the lab.</p>
-</div>
-<div id="step-by-step-instructions" class="section level1">
-<h1>Step-by-step instructions</h1>
-<div id="step-1-go-to-chrome-remote-desktop" class="section level2">
-<h2>Step 1: Go to Chrome Remote Desktop</h2>
-<p>On the device you want to remotely access from, open Chrome and go
-to:</p>
-<p><a href="https://remotedesktop.google.com/access/"
-class="uri">https://remotedesktop.google.com/access/</a></p>
-<p>Log in using the lab remote access Google account information.</p>
-</div>
-<div id="step-2-select-the-lab-desktop" class="section level2">
-<h2>Step 2: Select the lab desktop</h2>
-<p>Under <strong>Remote devices</strong>, click the lab desktop
-device.</p>
-<p>The device can be accessed by clicking on
-<strong>JWN_Remote_Desktop</strong> .</p>
-<p>If prompted for the PIN, enter it.</p>
-<div class="float">
-<img src="assets/screenshot_1_chrome_remote_desktop_device.png"
-alt="Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device." />
-<div class="figcaption">Screenshot 1. Chrome Remote Desktop access page
-showing the lab remote desktop device.</div>
-</div>
-<p>If it takes more than about <strong>30 seconds</strong> and does not
-connect, the desktop is likely not turned on. Check the lab calendar,
-identify who is in lab, and ask someone to turn it on.</p>
-</div>
-<div id="step-3-log-in-to-the-windows-desktop" class="section level2">
-<h2>Step 3: Log in to the Windows desktop</h2>
-<p>After Chrome Remote Desktop connects, log in to the lab desktop using
-the password.</p>
-<p>Once logged in, remember that the physical monitors in the lab will
-show your remote session to anyone in the lab walking by.</p>
 </div>
 </div>
-<div id="display-settings-during-remote-access" class="section level1">
-<h1>Display settings during remote access</h1>
-<p>After logging in, you can change which desktop monitor you want to
-view.</p>
-<p>On the right side of Chrome Remote Desktop, open the display settings
-panel. You can select which monitor to view or switch between
-displays.</p>
-<p>You can also switch displays using the strip at the top of the remote
-session window.</p>
-<div class="float">
-<img src="assets/screenshot_2_remote_session_display_settings.png"
-alt="Screenshot 2. Chrome Remote Desktop session with display settings and display-switching strip." />
-<div class="figcaption">Screenshot 2. Chrome Remote Desktop session with
-display settings and display-switching strip.</div>
-</div>
-</div>
-<div id="during-your-session" class="section level1">
-<h1>During your session</h1>
-<p>While using the remote desktop:</p>
-<ul>
-<li>Avoid moving or deleting other people’s files.</li>
-<li>Avoid logging into personal accounts unless necessary.</li>
-<li>Remember that anything displayed is visible on the physical monitors
-in the lab.</li>
-<li>If you are running long analyses, label your files clearly and
-communicate in Slack if the desktop will be occupied.</li>
-</ul>
-</div>
-<div id="ending-your-session" class="section level1">
-<h1>Ending your session</h1>
-<p>Before disconnecting:</p>
-<ol style="list-style-type: decimal">
-<li>Save your work.</li>
-<li>Close sensitive files.</li>
-<li>Sign out of any personal accounts.</li>
-<li>Close unnecessary programs.</li>
-<li>Leave any long-running analysis clearly labeled.</li>
-<li>Put the desktop to sleep remotely.</li>
-<li>Disconnect from Chrome Remote Desktop from your device you’re
-accessing from.</li>
-</ol>
-</div>
-<div id="troubleshooting" class="section level1">
-<h1>Troubleshooting</h1>
-<div id="the-desktop-does-not-appear-online" class="section level2">
-<h2>The desktop does not appear online</h2>
-<p>Possible causes:</p>
-<ul>
-<li>The desktop is turned off.</li>
-<li>The desktop is asleep.</li>
-<li>The internet connection is down.</li>
-<li>Chrome Remote Desktop is not running properly.</li>
-</ul>
-<p>What to do:</p>
-<ol style="list-style-type: decimal">
-<li>Check the lab Google Calendar.</li>
-<li>Find who is physically in lab that day.</li>
-<li>Ask them to turn the computer on or check whether it is awake.</li>
-<li>Try reconnecting.</li>
-</ol>
-</div>
-<div id="the-pin-does-not-work" class="section level2">
-<h2>The PIN does not work</h2>
-<ol style="list-style-type: decimal">
-<li>Check the paper next to the desktop for the current PIN.</li>
-<li>Make sure you are using the lab remote desktop card, not another
-device.</li>
-<li>If the PIN was changed, notify the lab so this guide can be
-updated.</li>
-</ol>
-</div>
-<div id="you-cannot-log-in-to-windows" class="section level2">
-<h2>You cannot log in to Windows</h2>
-<ol style="list-style-type: decimal">
-<li>Check the username and password on the paper next to the
-desktop.</li>
-<li>Confirm that Caps Lock is not on.</li>
-<li>Ask someone physically in lab to check the screen.</li>
-</ol>
-</div>
-<div id="you-only-see-one-monitor-or-the-wrong-monitor"
+<div id="video-of-analysis-steps" class="section level1">
+<h1>Video of Analysis Steps</h1>
+<div
+id="here-is-a-video-tutorial-that-i-made-of-each-of-the-steps-of-analysis"
 class="section level2">
-<h2>You only see one monitor or the wrong monitor</h2>
-<ol style="list-style-type: decimal">
-<li>Open the Chrome Remote Desktop side panel.</li>
-<li>Go to <strong>Displays</strong>.</li>
-<li>Select the monitor you want to view.</li>
-<li>You can also use the display strip at the top of the remote session
-window.</li>
-</ol>
+<h2>Here is a video tutorial that I made of each of the steps of
+analysis</h2>
+<p><a href="https://screenrec.com/share/qX03rTZ9VK"
+class="uri">https://screenrec.com/share/qX03rTZ9VK</a></p>
+<p><img
+src="images/excel/video.png" /></p>
 </div>
 </div>
-<div id="maintenance-notes" class="section level1">
-<h1>Maintenance notes</h1>
-<p>Update this guide if any of the following change:</p>
-<ul>
-<li>Remote desktop device name</li>
-<li>Chrome Remote Desktop account</li>
-<li>PIN</li>
-<li>Windows username or password</li>
-<li>Google Calendar scheduling rules</li>
-<li>File storage rules</li>
-<li>Lab policy on remote desktop use</li>
-</ul>
+<div id="write-deg-lists-to-excel" class="section level1">
+<h1>Write DEG Lists to Excel</h1>
+<div id="open-the-rmd-file-and-load-the-packages"
+class="section level2">
+<h2>Open the RMD file and load the packages</h2>
+<div id="important-packages-are-here-seurat-dplyr-and-openxlsx"
+class="section level3">
+<h3><strong>Important Packages</strong> are <strong>here</strong>,
+<strong>seurat</strong>, <strong>dplyr</strong>, and
+<strong>openxlsx</strong></h3>
+<p><img
+src="images/excel/chunk1.png" /></p>
+</div>
+</div>
+<div id="step-0-load-the-dataset" class="section level2">
+<h2>Step 0: <strong>Load</strong> the dataset</h2>
+<div
+id="i-always-create-a-record-of-the-metadata-and-run-a-dimplot-as-sanity-checks"
+class="section level3">
+<h3>I always create a record of the <strong>metadata</strong> and run a
+<strong>DimPlot</strong> as <strong>sanity checks</strong></h3>
+<p><img
+src="images/excel/chunk2.png" /></p>
+</div>
+</div>
+<div id="step-1-set-the-active-identity-of-the-object"
+class="section level2">
+<h2>Step 1: <strong>Set</strong> the active identity of the object</h2>
+<p><img
+src="images/excel/chunk3.png" /></p>
+</div>
+<div id="step-2-collect-the-names-of-the-clusters"
+class="section level2">
+<h2>Step 2: <strong>Collect</strong> the names of the clusters</h2>
+<div
+id="this-is-a-list-of-the-clusters-that-is-automaticaly-generated-from-seurat-object"
+class="section level3">
+<h3>This is a list of the clusters that is automaticaly generated from
+seurat object</h3>
+</div>
+<div
+id="super-important-to-record-the-level-of-the-object-to-write-the-spreadsheet-in-the-order-you-want"
+class="section level3">
+<h3><strong>Super Important</strong> to record the level of the object
+to <strong>write</strong> the spreadsheet <strong>in the order you
+want</strong></h3>
+<p><img
+src="images/excel/chunk4.png" /></p>
+</div>
+<div
+id="after-running-this-step-the-environment-should-have-the-names-of-the-clusters-in-the-correct-order"
+class="section level3">
+<h3>After running this step the environment should have the names of the
+clusters <strong>in the correct order</strong></h3>
+<p><img
+src="images/excel/chunk4b.png" /></p>
+</div>
+</div>
+<div id="step-3-create-a-new-environment-to-stash-the-deg-lists"
+class="section level2">
+<h2>Step 3: <strong>Create</strong> a new environment to stash the DEG
+lists</h2>
+<p><img
+src="images/excel/chunk5.png" /></p>
+<div
+id="after-running-this-code-you-should-see-a-new-environment-in-the-environment-tab"
+class="section level3">
+<h3>After running this code you should see a <strong>new
+environment</strong> in the environment tab</h3>
+<p><img
+src="images/excel/chunk5b.png" /></p>
+</div>
+</div>
+<div
+id="step-4-loop-through-each-cluster-and-creating-deg-for-each-population"
+class="section level2">
+<h2>Step 4: <strong>Loop</strong> through each cluster and creating DEG
+for each population</h2>
+<div id="creates-deg-list" class="section level3">
+<h3>Creates DEG list</h3>
+</div>
+<div id="filter-on-p_val_adj-0.05" class="section level3">
+<h3>Filter on p_val_adj &lt; 0.05</h3>
+</div>
+<div id="orders-deg-list-by-log2fc" class="section level3">
+<h3>Orders DEG list by log2FC</h3>
+</div>
+<div id="save-deg-list-into-special-environment" class="section level3">
+<h3>Save DEG list into special environment</h3>
+</div>
+<div id="prints-out-top-10-deg-list" class="section level3">
+<h3>Prints out top 10 DEG list</h3>
+</div>
+<div id="save-deg-lists-into-a-.rdata-file" class="section level3">
+<h3>Save DEG lists into a .RData file</h3>
+<p><img
+src="images/excel/chunk6.png" /></p>
+</div>
+<div
+id="after-running-this-code-you-should-see-the-deg-lists-in-the-env"
+class="section level3">
+<h3>After running this code you should see the <strong>DEG
+lists</strong> in the env</h3>
+<p><img
+src="images/excel/chunk6b.png" /></p>
+</div>
+<div
+id="if-you-click-on-the-deg.env-you-should-see-the-deg-lists-in-alphabetical-order"
+class="section level3">
+<h3>If you click on the DEG.env you should see the DEG lists in
+<strong>alphabetical order</strong></h3>
+<p><img
+src="images/excel/chunk6c.png" /></p>
+</div>
+</div>
+<div id="step-5-write-degs-to-excel" class="section level2">
+<h2>Step 5: <strong>Write</strong> DEGs to Excel</h2>
+<div id="grab-the-list-of-degs-from-the-special-enviroment"
+class="section level3">
+<h3>Grab the list of DEGs from the special enviroment</h3>
+</div>
+<div id="set-the-order-to-write-the-degs-otherwise-alphabetical"
+class="section level3">
+<h3>Set the order to write the DEGs (otherwise alphabetical)</h3>
+</div>
+<div id="write-the-excel-file-using-openxlsx-package"
+class="section level3">
+<h3>Write the excel file (using openxlsx package)</h3>
+<p><img
+src="images/excel/chunk7.png" /></p>
+</div>
+<div id="after-running-this-code-the-envornment-should-look-like-this"
+class="section level3">
+<h3>After running this code the envornment should look like this</h3>
+<p><img
+src="images/excel/chunk7b.png" /></p>
+</div>
+<div id="the-.rdata-and-.xlsx-files-should-be-where-here-is"
+class="section level3">
+<h3>The .Rdata, and .xlsx files should be where <strong>here()</strong>
+is</h3>
+<p><img
+src="images/excel/chunk7c.png" /></p>
+</div>
+<div
+id="you-should-have-an-excel-file-with-degs-listed-as-separate-tabs-in-the-order-of-the-clusters"
+class="section level3">
+<h3>You should have an <strong>excel file</strong> with DEGs listed as
+separate tabs in the order of the clusters</h3>
+<p><img
+src="images/excel/chunk7d.png" /></p>
+</div>
+</div>
 </div>
 
 
