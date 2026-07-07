@@ -58,6 +58,8 @@ navbar:
             href: write_degs_excel.html
       - text: "Creating Tutorials for the Nelson Lab Website"
         href: creating_tutorials.html
+      - text: "Remote Control to the Desktop"
+        href: JWN_Remote_Desktop_Tutorial.html
     - text: "Lab Protocols"
       menu:
         - text: "Nuclei Isolation"

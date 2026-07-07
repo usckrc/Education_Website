@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Erik Siranosian" />
+
+<meta name="date" content="2026-07-07" />
+
+<title>JWN Lab Remote Desktop Access Tutorial</title>
+
+<script src="JWN_Remote_Desktop_Tutorial_files/header-attrs-2.31/header-attrs.js"></script>
+<script src="JWN_Remote_Desktop_Tutorial_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="JWN_Remote_Desktop_Tutorial_files/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="JWN_Remote_Desktop_Tutorial_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="JWN_Remote_Desktop_Tutorial_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="JWN_Remote_Desktop_Tutorial_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="JWN_Remote_Desktop_Tutorial_files/navigation-1.1/tabsets.js"></script>
+<link href="JWN_Remote_Desktop_Tutorial_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="JWN_Remote_Desktop_Tutorial_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">JWN Lab Remote Desktop Access Tutorial</h1>
+<h3 class="subtitle">Internal Lab Use Only</h3>
+<h4 class="author">Erik Siranosian</h4>
+<h4 class="date">July 07, 2026</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#internal-use-only" id="toc-internal-use-only">Internal use
+only</a></li>
+<li><a href="#what-this-remote-desktop-is-for"
+id="toc-what-this-remote-desktop-is-for">What this remote desktop is
+for</a></li>
+<li><a href="#important-warning" id="toc-important-warning">Important
+warning</a></li>
+<li><a href="#before-you-start" id="toc-before-you-start">Before you
+start</a>
+<ul>
+<li><a href="#reserve-your-session-on-google-calendar"
+id="toc-reserve-your-session-on-google-calendar">1. Reserve your session
+on Google Calendar</a></li>
+<li><a href="#make-sure-the-desktop-is-turned-on"
+id="toc-make-sure-the-desktop-is-turned-on">2. Make sure the desktop is
+turned on</a></li>
+</ul></li>
+<li><a href="#remote-access-login-information"
+id="toc-remote-access-login-information">Remote access login
+information</a></li>
+<li><a href="#step-by-step-instructions"
+id="toc-step-by-step-instructions">Step-by-step instructions</a>
+<ul>
+<li><a href="#step-1-go-to-chrome-remote-desktop"
+id="toc-step-1-go-to-chrome-remote-desktop">Step 1: Go to Chrome Remote
+Desktop</a></li>
+<li><a href="#step-2-select-the-lab-desktop"
+id="toc-step-2-select-the-lab-desktop">Step 2: Select the lab
+desktop</a></li>
+<li><a href="#step-3-log-in-to-the-windows-desktop"
+id="toc-step-3-log-in-to-the-windows-desktop">Step 3: Log in to the
+Windows desktop</a></li>
+</ul></li>
+<li><a href="#display-settings-during-remote-access"
+id="toc-display-settings-during-remote-access">Display settings during
+remote access</a></li>
+<li><a href="#during-your-session" id="toc-during-your-session">During
+your session</a></li>
+<li><a href="#ending-your-session" id="toc-ending-your-session">Ending
+your session</a></li>
+<li><a href="#troubleshooting"
+id="toc-troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#the-desktop-does-not-appear-online"
+id="toc-the-desktop-does-not-appear-online">The desktop does not appear
+online</a></li>
+<li><a href="#the-pin-does-not-work" id="toc-the-pin-does-not-work">The
+PIN does not work</a></li>
+<li><a href="#you-cannot-log-in-to-windows"
+id="toc-you-cannot-log-in-to-windows">You cannot log in to
+Windows</a></li>
+<li><a href="#you-only-see-one-monitor-or-the-wrong-monitor"
+id="toc-you-only-see-one-monitor-or-the-wrong-monitor">You only see one
+monitor or the wrong monitor</a></li>
+</ul></li>
+<li><a href="#maintenance-notes" id="toc-maintenance-notes">Maintenance
+notes</a></li>
+</ul>
+</div>
+
+<div id="internal-use-only" class="section level1">
+<h1>Internal use only</h1>
+<p>This tutorial is for <strong>JWN lab members only</strong>. Don’t
+share this guide, the lab remote access account, the PIN, the desktop
+login information, screenshots, or any access instructions outside the
+lab.</p>
+<p>All login information is also written on the paper next to the lab
+desktop. If anything in this guide differs from the paper in the lab,
+use the information on the paper and notify the lab so this guide can be
+updated.</p>
+</div>
+<div id="what-this-remote-desktop-is-for" class="section level1">
+<h1>What this remote desktop is for</h1>
+<p>The JWN lab desktop is available for remote use when lab members need
+access to the desktop’s computing environment, files, software, or
+analysis setup.</p>
+<p>Use the lab Google Calendar as the sign-up system to reserve time on
+the remote desktop.</p>
+</div>
+<div id="important-warning" class="section level1">
+<h1>Important warning</h1>
+<p>When you remotely access the desktop, <strong>anything you do can be
+seen on the physical monitors in the lab</strong> by anyone who is
+present.</p>
+<p>Before using the desktop remotely:</p>
+<ul>
+<li>Don’t open private or sensitive personal files.</li>
+<li>Try to not log in to personal accounts unless absolutely
+necessary.</li>
+<li>Close sensitive files before ending your session.</li>
+<li>Sign out of any personal accounts before leaving.</li>
+<li>Save your work before disconnecting.</li>
+</ul>
+</div>
+<div id="before-you-start" class="section level1">
+<h1>Before you start</h1>
+<div id="reserve-your-session-on-google-calendar"
+class="section level2">
+<h2>1. Reserve your session on Google Calendar</h2>
+<p>Before using the remote desktop:</p>
+<ol style="list-style-type: decimal">
+<li>Open the lab Google Calendar.</li>
+<li>Check whether someone else has already reserved the remote
+desktop.</li>
+<li>Create a calendar event for your intended session.</li>
+<li>Title the event clearly, for example:<br />
+<strong>Remote Desktop: Your Name</strong></li>
+<li>Include your expected start and end time.</li>
+<li>Don’t overlap with another user’s reserved time unless you have
+asked them if you could.</li>
+</ol>
+</div>
+<div id="make-sure-the-desktop-is-turned-on" class="section level2">
+<h2>2. Make sure the desktop is turned on</h2>
+<p>The lab desktop must be <strong>turned on</strong> to be accessed
+remotely.</p>
+<p>If Chrome Remote Desktop does not connect after about <strong>30
+seconds</strong>, the desktop is probably off, asleep, disconnected, or
+not available.</p>
+<p>If the desktop is not on:</p>
+<ol style="list-style-type: decimal">
+<li>Check the lab Google Calendar to see who is physically in the lab
+that day.</li>
+<li>Message someone in lab and ask them to turn on the desktop.</li>
+<li>After they confirm it is on, try connecting again.</li>
+</ol>
+</div>
+</div>
+<div id="remote-access-login-information" class="section level1">
+<h1>Remote access login information</h1>
+<p>Here is the Google Doc with all of the login info for the
+<strong>Chrome Remote Desktop google account</strong> , <strong>Remote
+access PIN</strong>, and <strong>Desktop login</strong> :<a
+href="https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing"
+class="uri">https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing</a></p>
+<p>Use this information only for lab remote access.</p>
+<p>Again, this information is also written on the paper next to the lab
+desktop and must stay within the lab.</p>
+</div>
+<div id="step-by-step-instructions" class="section level1">
+<h1>Step-by-step instructions</h1>
+<div id="step-1-go-to-chrome-remote-desktop" class="section level2">
+<h2>Step 1: Go to Chrome Remote Desktop</h2>
+<p>On the device you want to remotely access from, open Chrome and go
+to:</p>
+<p><a href="https://remotedesktop.google.com/access/"
+class="uri">https://remotedesktop.google.com/access/</a></p>
+<p>Log in using the lab remote access Google account information.</p>
+</div>
+<div id="step-2-select-the-lab-desktop" class="section level2">
+<h2>Step 2: Select the lab desktop</h2>
+<p>Under <strong>Remote devices</strong>, click the lab desktop
+device.</p>
+<p>The device can be accessed by clicking on
+<strong>JWN_Remote_Desktop</strong> .</p>
+<p>If prompted for the PIN, enter it.</p>
+<div class="float">
+<img src="assets/screenshot_1_chrome_remote_desktop_device.png"
+alt="Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device." />
+<div class="figcaption">Screenshot 1. Chrome Remote Desktop access page
+showing the lab remote desktop device.</div>
+</div>
+<p>If it takes more than about <strong>30 seconds</strong> and does not
+connect, the desktop is likely not turned on. Check the lab calendar,
+identify who is in lab, and ask someone to turn it on.</p>
+</div>
+<div id="step-3-log-in-to-the-windows-desktop" class="section level2">
+<h2>Step 3: Log in to the Windows desktop</h2>
+<p>After Chrome Remote Desktop connects, log in to the lab desktop using
+the password.</p>
+<p>Once logged in, remember that the physical monitors in the lab will
+show your remote session to anyone in the lab walking by.</p>
+</div>
+</div>
+<div id="display-settings-during-remote-access" class="section level1">
+<h1>Display settings during remote access</h1>
+<p>After logging in, you can change which desktop monitor you want to
+view.</p>
+<p>On the right side of Chrome Remote Desktop, open the display settings
+panel. You can select which monitor to view or switch between
+displays.</p>
+<p>You can also switch displays using the strip at the top of the remote
+session window.</p>
+<div class="float">
+<img src="assets/screenshot_2_remote_session_display_settings.png"
+alt="Screenshot 2. Chrome Remote Desktop session with display settings and display-switching strip." />
+<div class="figcaption">Screenshot 2. Chrome Remote Desktop session with
+display settings and display-switching strip.</div>
+</div>
+</div>
+<div id="during-your-session" class="section level1">
+<h1>During your session</h1>
+<p>While using the remote desktop:</p>
+<ul>
+<li>Avoid moving or deleting other people’s files.</li>
+<li>Avoid logging into personal accounts unless necessary.</li>
+<li>Remember that anything displayed is visible on the physical monitors
+in the lab.</li>
+<li>If you are running long analyses, label your files clearly and
+communicate in Slack if the desktop will be occupied.</li>
+</ul>
+</div>
+<div id="ending-your-session" class="section level1">
+<h1>Ending your session</h1>
+<p>Before disconnecting:</p>
+<ol style="list-style-type: decimal">
+<li>Save your work.</li>
+<li>Close sensitive files.</li>
+<li>Sign out of any personal accounts.</li>
+<li>Close unnecessary programs.</li>
+<li>Leave any long-running analysis clearly labeled.</li>
+<li>Put the desktop to sleep remotely.</li>
+<li>Disconnect from Chrome Remote Desktop from your device you’re
+accessing from.</li>
+</ol>
+</div>
+<div id="troubleshooting" class="section level1">
+<h1>Troubleshooting</h1>
+<div id="the-desktop-does-not-appear-online" class="section level2">
+<h2>The desktop does not appear online</h2>
+<p>Possible causes:</p>
+<ul>
+<li>The desktop is turned off.</li>
+<li>The desktop is asleep.</li>
+<li>The internet connection is down.</li>
+<li>Chrome Remote Desktop is not running properly.</li>
+</ul>
+<p>What to do:</p>
+<ol style="list-style-type: decimal">
+<li>Check the lab Google Calendar.</li>
+<li>Find who is physically in lab that day.</li>
+<li>Ask them to turn the computer on or check whether it is awake.</li>
+<li>Try reconnecting.</li>
+</ol>
+</div>
+<div id="the-pin-does-not-work" class="section level2">
+<h2>The PIN does not work</h2>
+<ol style="list-style-type: decimal">
+<li>Check the paper next to the desktop for the current PIN.</li>
+<li>Make sure you are using the lab remote desktop card, not another
+device.</li>
+<li>If the PIN was changed, notify the lab so this guide can be
+updated.</li>
+</ol>
+</div>
+<div id="you-cannot-log-in-to-windows" class="section level2">
+<h2>You cannot log in to Windows</h2>
+<ol style="list-style-type: decimal">
+<li>Check the username and password on the paper next to the
+desktop.</li>
+<li>Confirm that Caps Lock is not on.</li>
+<li>Ask someone physically in lab to check the screen.</li>
+</ol>
+</div>
+<div id="you-only-see-one-monitor-or-the-wrong-monitor"
+class="section level2">
+<h2>You only see one monitor or the wrong monitor</h2>
+<ol style="list-style-type: decimal">
+<li>Open the Chrome Remote Desktop side panel.</li>
+<li>Go to <strong>Displays</strong>.</li>
+<li>Select the monitor you want to view.</li>
+<li>You can also use the display strip at the top of the remote session
+window.</li>
+</ol>
+</div>
+</div>
+<div id="maintenance-notes" class="section level1">
+<h1>Maintenance notes</h1>
+<p>Update this guide if any of the following change:</p>
+<ul>
+<li>Remote desktop device name</li>
+<li>Chrome Remote Desktop account</li>
+<li>PIN</li>
+<li>Windows username or password</li>
+<li>Google Calendar scheduling rules</li>
+<li>File storage rules</li>
+<li>Lab policy on remote desktop use</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

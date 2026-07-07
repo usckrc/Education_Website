@@ -1,0 +1,181 @@
+---
+title: "JWN Lab Remote Desktop Access Tutorial"
+subtitle: "Internal Lab Use Only"
+author: "Erik Siranosian"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: readable
+    self_contained: false
+---
+
+# Internal use only
+
+This tutorial is for **JWN lab members only**. Don't share this guide, the lab remote access account, the PIN, the desktop login information, screenshots, or any access instructions outside the lab.
+
+All login information is also written on the paper next to the lab desktop. If anything in this guide differs from the paper in the lab, use the information on the paper and notify the lab so this guide can be updated.
+
+# What this remote desktop is for
+
+The JWN lab desktop is available for remote use when lab members need access to the desktop's computing environment, files, software, or analysis setup.
+
+Use the lab Google Calendar as the sign-up system to reserve time on the remote desktop. 
+
+# Important warning
+
+When you remotely access the desktop, **anything you do can be seen on the physical monitors in the lab** by anyone who is present.
+
+Before using the desktop remotely:
+
+- Don't open private or sensitive personal files.
+- Try to not log in to personal accounts unless absolutely necessary.
+- Close sensitive files before ending your session.
+- Sign out of any personal accounts before leaving.
+- Save your work before disconnecting.
+
+# Before you start
+
+## 1. Reserve your session on Google Calendar
+
+Before using the remote desktop:
+
+1. Open the lab Google Calendar.
+2. Check whether someone else has already reserved the remote desktop.
+3. Create a calendar event for your intended session.
+4. Title the event clearly, for example:  
+   **Remote Desktop: Your Name**
+5. Include your expected start and end time.
+6. Don't overlap with another user's reserved time unless you have asked them if you could.
+
+## 2. Make sure the desktop is turned on
+
+The lab desktop must be **turned on** to be accessed remotely.
+
+If Chrome Remote Desktop does not connect after about **30 seconds**, the desktop is probably off, asleep, disconnected, or not available.
+
+If the desktop is not on:
+
+1. Check the lab Google Calendar to see who is physically in the lab that day.
+2. Message someone in lab and ask them to turn on the desktop.
+3. After they confirm it is on, try connecting again.
+
+# Remote access login information
+
+Here is the Google Doc with all of the login info for the **Chrome Remote Desktop google account** , **Remote access PIN**, and **Desktop login** :https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing
+
+Use this information only for lab remote access.
+
+Again, this information is also written on the paper next to the lab desktop and must stay within the lab.
+
+# Step-by-step instructions
+
+## Step 1: Go to Chrome Remote Desktop
+
+On the device you want to remotely access from, open Chrome and go to:
+
+<https://remotedesktop.google.com/access/>
+
+Log in using the lab remote access Google account information.
+
+
+## Step 2: Select the lab desktop
+
+Under **Remote devices**, click the lab desktop device.
+
+The device can be accessed by clicking on **JWN_Remote_Desktop** .
+
+If prompted for the PIN, enter it.
+
+
+![Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device.](assets/screenshot_1_chrome_remote_desktop_device.png)
+
+If it takes more than about **30 seconds** and does not connect, the desktop is likely not turned on. Check the lab calendar, identify who is in lab, and ask someone to turn it on.
+
+## Step 3: Log in to the Windows desktop
+
+After Chrome Remote Desktop connects, log in to the lab desktop using the password.
+
+
+Once logged in, remember that the physical monitors in the lab will show your remote session to anyone in the lab walking by.
+
+# Display settings during remote access
+
+After logging in, you can change which desktop monitor you want to view.
+
+On the right side of Chrome Remote Desktop, open the display settings panel. You can select which monitor to view or switch between displays.
+
+You can also switch displays using the strip at the top of the remote session window.
+
+![Screenshot 2. Chrome Remote Desktop session with display settings and display-switching strip.](assets/screenshot_2_remote_session_display_settings.png)
+
+# During your session
+
+While using the remote desktop:
+
+- Avoid moving or deleting other people's files.
+- Avoid logging into personal accounts unless necessary.
+- Remember that anything displayed is visible on the physical monitors in the lab.
+- If you are running long analyses, label your files clearly and communicate in Slack if the desktop will be occupied.
+
+# Ending your session
+
+Before disconnecting:
+
+1. Save your work.
+2. Close sensitive files.
+3. Sign out of any personal accounts.
+4. Close unnecessary programs.
+5. Leave any long-running analysis clearly labeled.
+6. Put the desktop to sleep remotely.
+6. Disconnect from Chrome Remote Desktop from your device you're accessing from.
+
+# Troubleshooting
+
+## The desktop does not appear online
+
+Possible causes:
+
+- The desktop is turned off.
+- The desktop is asleep.
+- The internet connection is down.
+- Chrome Remote Desktop is not running properly.
+
+What to do:
+
+1. Check the lab Google Calendar.
+2. Find who is physically in lab that day.
+3. Ask them to turn the computer on or check whether it is awake.
+4. Try reconnecting.
+
+## The PIN does not work
+
+1. Check the paper next to the desktop for the current PIN.
+2. Make sure you are using the lab remote desktop card, not another device.
+3. If the PIN was changed, notify the lab so this guide can be updated.
+
+## You cannot log in to Windows
+
+1. Check the username and password on the paper next to the desktop.
+2. Confirm that Caps Lock is not on.
+3. Ask someone physically in lab to check the screen.
+
+## You only see one monitor or the wrong monitor
+
+1. Open the Chrome Remote Desktop side panel.
+2. Go to **Displays**.
+3. Select the monitor you want to view.
+4. You can also use the display strip at the top of the remote session window.
+
+# Maintenance notes
+
+Update this guide if any of the following change:
+
+- Remote desktop device name
+- Chrome Remote Desktop account
+- PIN
+- Windows username or password
+- Google Calendar scheduling rules
+- File storage rules
+- Lab policy on remote desktop use
