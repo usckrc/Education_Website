@@ -64,7 +64,7 @@ navbar:
     - text: "Foundational Learning"
       menu:
         - text: "Foundational Learning"
-          href: foundational_learning.html
+          href: Kidney_Physiology_Learning_Materials_jwn.html
 
 output:
   html_document:
