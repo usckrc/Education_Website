@@ -67,7 +67,7 @@ If the desktop is not on:
 
 # Remote access login information
 
-Here is the Google Doc with all of the login info for the **Chrome Remote Desktop google account** , **Remote access PIN**, and **Desktop login** :https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing
+Here is the Google Doc with all of the login info for the **Chrome Remote Desktop google account** , **Remote access PIN**, and **Desktop login** : https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing
 
 Use this information only for lab remote access.
 
