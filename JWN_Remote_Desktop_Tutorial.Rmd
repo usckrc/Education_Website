@@ -27,7 +27,7 @@ The JWN lab desktop is available for remote use when lab members need access to 
 
 Use the lab Google Calendar as the sign-up system to reserve time on the remote desktop. 
 
-# Important warning
+# Important warning 
 
 When you remotely access the desktop, **anything you do can be seen on the physical monitors in the lab** by anyone who is present.
 
@@ -91,7 +91,7 @@ The device can be accessed by clicking on **JWN_Remote_Desktop** .
 If prompted for the PIN, enter it.
 
 
-![Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device.](docs/images/assets/screenshot_1_chrome_remote_desktop_device.png)
+![Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device.](images/assets/screenshot_1_chrome_remote_desktop_device.png)
 
 If it takes more than about **30 seconds** and does not connect, the desktop is likely not turned on. Check the lab calendar, identify who is in lab, and ask someone to turn it on.
 
