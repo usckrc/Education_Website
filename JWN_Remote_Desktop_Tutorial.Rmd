@@ -67,7 +67,7 @@ If the desktop is not on:
 
 # Remote access login information
 
-Here is the Google Doc with all of the login info for the **Chrome Remote Desktop google account** , **Remote access PIN**, and **Desktop login** : https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing
+Here is the Google Doc with all of the login info for the **Chrome Remote Desktop google account** , **Remote access PIN**, and [**Desktop login**](https://docs.google.com/document/d/1q6lwdwzfqouvVCgtaYp09QFshKIURAkdQeX3GJfREps/edit?usp=sharing)
 
 Use this information only for lab remote access.
 
@@ -77,9 +77,7 @@ Again, this information is also written on the paper next to the lab desktop and
 
 ## Step 1: Go to Chrome Remote Desktop
 
-On the device you want to remotely access from, open Chrome and go to:
-
-<https://remotedesktop.google.com/access/>
+On the device you want to remotely access from, open Chrome and go to the [Remote Desktop](https://remotedesktop.google.com/access/)
 
 Log in using the lab remote access Google account information.
 
@@ -185,4 +183,4 @@ Update this guide if any of the following change:
 - Lab policy on remote desktop use
 
 
-Last revised on July 7th, 2026 by Erik Siranosian and Kevin Shih
+Last revised on July 10th, 2026 by Erik Siranosian and Kevin Shih
