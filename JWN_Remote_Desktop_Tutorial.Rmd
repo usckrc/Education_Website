@@ -182,5 +182,6 @@ Update this guide if any of the following change:
 - File storage rules
 - Lab policy on remote desktop use
 
+<br> 
 
-Last revised on July 10th, 2026 by Erik Siranosian and Kevin Shih
+Last revised on July 10th, 2026 by Kevin Shih
