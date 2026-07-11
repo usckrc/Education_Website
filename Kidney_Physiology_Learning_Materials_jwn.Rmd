@@ -1,0 +1,190 @@
+---
+title: "Foundational Kidney Physiology"
+author: "Deborah Sohn"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float: true
+    number_sections: false
+    df_print: paged
+    code_folding: hide
+    highlight: pygments   
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+set.seed((12345))
+library(here)
+```
+
+# Introduction
+
+![](images/welcome.png){width="60%"}
+
+
+The kidney is a **marvel of biological design**. A compact organ that embodies the **wonder and mystery** of physiology itself. Within its intricate architecture, millions of nephrons work in perfect synchrony to **filter blood, balance electrolytes, regulate blood pressure, and maintain the body’s delicate internal equilibrium**. Renal physiology is both **complex and elegant**: from the selective permeability of glomerular membranes to the finely tuned transport systems along the nephron, every process is a lesson in precision and adaptation. To study the kidney is to **explore physiology** at its most refined. An area where molecular signaling, cellular specialization, and systemic integration converge in a symphony of function. Few organs reveal the principles of homeostasis and biological harmony as profoundly as the kidney, making its study not only **intellectually rewarding** but **essential to understanding** the very essence of life’s regulation.
+
+**This page was created** to serve as a **shared foundation** for members of the Nelson Lab as a resource to align our understanding of the **fundamental principles** that govern renal physiology. By revisiting the **essential mechanisms** of kidney function, from filtration and tubular transport to hormonal regulation and cellular signaling, we establish a **common language for exploring the unknown**. Our research often ventures into uncharted territory, where new discoveries about kidney **cell types**, **regeneration**, and **disease mechanisms** depend on a **deep grasp** of physiological context. This shared foundation ensures that **every member** approaches these mysteries with the same **conceptual grounding**, enabling us to **interpret data** thoughtfully, **design experiments** effectively, and **contribute** collectively to advancing the frontier of kidney science.
+
+# How To Use This Page
+
+Each topic on this page corresponds to sections from **[Medical Physiology](https://emedicodiary.com/book/view/135/boron-boulpaep-medical-physiology#google_vignette)** by Walter F. Boron and Emile L. Boulpaep; one of the **most comprehensive** and insightful texts on human physiology. The material is organized to build a structured understanding of renal function, from the fundamental principles of filtration and reabsorption to the complex regulatory mechanisms and pathophysiological states that define kidney biology.
+
+**Following each topic**, you’ll find a short multiple-choice quiz designed to help reinforce key concepts. When taking a quiz, please enter your name in the provided field and select the answers you believe are correct. The purpose of these quizzes is reflection, not assessment—they’re meant to strengthen retention, highlight areas that may need revisiting, and encourage active engagement with the material.
+
+**Important: Please do not use Google, ChatGPT, or other external resources to find answers.** The goal is to challenge your own understanding and identify where your reasoning is strong and where it might need more reinforcement. The best learning happens when you think critically, revisit the text, and connect each physiological mechanism to the broader picture of kidney function.
+
+**After each quiz**, Jonathan will review the topic with you and suggest additional resources to help clarify or deepen your understanding where needed.
+
+**Some topics** also include **supplementary materials** and references that relate directly to ongoing or planned projects in the Nelson Lab. These are intended to help bridge **textbook learning** with the **real-world research questions** we explore together.
+
+<br>
+<br>
+
+# Kidney Topics
+
+## Organization of the Urinary System
+
+![](images/tb1.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 1](https://drive.google.com/file/d/16lWXGo-N-21KLgtJg2K2jdkOcjcxrWaA/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 1](https://forms.gle/ih9Jx2r3itE7Cxip6)
+
+### Supplemental Materials
+
+[Khan Academy: Meet the kidneys!](https://www.khanacademy.org/test-prep/mcat/organ-systems/the-renal-system/v/meet-the-kidneys)
+
+<br>
+<br>
+
+## Glomerular Filtration and Renal Blood flow
+
+![](images/tb2.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 2](https://drive.google.com/file/d/13y4y6MfteTTRXDEmhFkKAqvGAkStXyXt/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 2](https://docs.google.com/forms/d/e/1FAIpQLScwqqfJYvJiPT9gfKnM6EKCQp25Jk8fTJKehsySHRQC2hvQyw/viewform?usp=header)
+
+### Supplemental Materials
+
+<br>
+<br>
+
+## Transport of Sodium and Chloride
+
+![](images/tb3.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 3](https://drive.google.com/file/d/1k8VmoxN95umcmXhdrt5y6AScVSZFiyke/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 3](https://docs.google.com/forms/d/e/1FAIpQLSdEil0pf0FkiUzd0XaMzNkoAHFimEM1WAQQn5qPI5jfvdT2oA/viewform?usp=header)
+
+### Supplemental Materials
+
+<br>
+<br>
+
+## Transport of Urea, Glucose, Phosphate, Calcium, Magnesium, and Organic Solutes
+
+![](images/tb4.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 4](https://drive.google.com/file/d/1si8JZJ8myI1cOtn7Z95x6v4AKrcVpt-u/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 4](https://docs.google.com/forms/d/e/1FAIpQLSeZk38rAy__6KYtEPSRVQsA4Aeca4-WZ6ZcWJbCI927OJjTNA/viewform?usp=header)
+
+### Supplemental Materials:
+
+<br>
+<br>
+
+## Transport of Potassium
+
+![](images/tb5.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 5](https://drive.google.com/file/d/1A5128uaLpZnkWP7hM5-zL_HAOa56s55M/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 5](https://docs.google.com/forms/d/e/1FAIpQLScg-5WzK3HDRIj--Fq1FPRWIActFUNdVSCMi2VzbrstBB8E-g/viewform?usp=header)
+
+### Supplemental Materials
+
+<br>
+<br>
+
+## Urine Concentration and Dilution
+
+![](images/tb6.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 6](https://drive.google.com/file/d/1C982944yShaePHacNADOP_WkYkHQR5jS/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 6](https://docs.google.com/forms/d/e/1FAIpQLSezlnTtO9CJJMeT62AL00CnUQONuBcrDNIoB6-N-J_il9fBMQ/viewform?usp=header)
+
+### Supplemental Materials:
+
+<br>
+<br>
+
+## Transport of Acids and Bases
+
+![](images/tb7.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 7](https://drive.google.com/file/d/1cRGSnYNQzjQzKMaAUrUWz7VC2fQNYCYf/view?usp=drive_link)
+
+###  Quiz
+
+[Quiz Section 7](https://docs.google.com/forms/d/e/1FAIpQLSeAwZuHyk8xKoKgtqFE09Y-gl4ow_BjOsLP6wVlF63el9VwUQ/viewform?usp=header)
+
+### Supplemental Materials
+
+<br>
+<br>
+
+## Integration of Salt and Water Balance
+
+![](images/tb8.png){width="60%"}
+
+### Textbook
+
+[Textbook Section 8](https://drive.google.com/file/d/1QhOWuIBr6LjJF0R4yUGvLr2NyT6q1jqx/view?usp=drive_link)
+
+### Quiz
+
+[Quiz Section 8](https://docs.google.com/forms/d/e/1FAIpQLSd2wCKIvuuWjzAuixYjj2FTLP3uaFX1aqoTJpzy5gGgOEoMKA/viewform?usp=header)
+
+### Supplemental Materials
+
+<br>
+<br>
+
+
+Last revised on July 10th, 2026 by Kevin Shih
+
+
+

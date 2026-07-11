@@ -37,4 +37,4 @@ output:
 
 
 
-This was last edited on 7/10/2026 by Kevin Shih
+Last revised on July 10th, 2026 by Kevin Shih
