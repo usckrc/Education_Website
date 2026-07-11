@@ -16,15 +16,6 @@ output:
     toc_depth: 5
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE,
-  warning = FALSE,
-  message = FALSE)
-```
-
-<br>
-
 # Materials
 
 -	Powdered and purified BSA
@@ -33,7 +24,7 @@ knitr::opts_chunk$set(
 -	Scale
 
 
-<br>
+
 
 # Steps
 
@@ -46,6 +37,6 @@ knitr::opts_chunk$set(
 5. Adjust the volume to the final volume desired
 6. Store in 4ºC – may be frozen in smaller aliquots
 
-<br>
+
 
 This was last edited on 7/10/2026 by Kevin Shih
