@@ -1,5 +1,5 @@
 ---
-title: "10% BSA Protocol"
+title: "10 Percent BSA Protocol"
 author: "Kevin Shih"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
@@ -11,9 +11,7 @@ output:
     df_print: paged
     code_folding: hide
     highlight: pygments
-  pdf_document:
-    toc: true
-    toc_depth: 5
+ 
 ---
 
 # Materials
