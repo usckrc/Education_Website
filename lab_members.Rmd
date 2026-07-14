@@ -146,6 +146,14 @@ Hello, my name is Sienna Blanche, and I am a Master's student at the University 
 
 Sienna has since graduated with a Master's of Science from the University of Southern California and now works as a Clinical Research Associate as she applies to medical school. 
 
+### Deborah Sohn
+
+#### Master's Student
+
+<img src="`r here::here('images', "lab_members", 'deborah.jpeg')`" width="300px">
+
+Deborah graduated with her Master's in Bioinformatics from the Nelson Laboratory. Congratulations!
+
 ### Victoria Quon-Chow
 
 #### Laboratory Technician
@@ -165,13 +173,4 @@ Victoria was accepted into the Kansas City University College of Osteopathic Med
 Hi! My name is Roman Thomas, and I am a fourth-year undergraduate student at Vanderbilt University, double majoring in Biochemistry and Medicine, Health & Society on the premed track. I am currently conducting research in Dr. Jonathan Nelson’s lab, where we are developing a manuscript that provides insights into a standardized method for identifying kidney cell types using single nucleus RNA sequencing analysis in R. I plan to apply these skills in my Neuropharmacology lab, where we investigate the effects of the M5 Muscarinic Acetylcholine Receptor on drug-seeking behaviors in mice. My long-term goal is to become a plastic surgeon while working to address healthcare disparities and ensure that my patients, especially from historically underserved groups, receive the autonomy and care that has often been denied to them in the past.
 
 Roman is graduating from Vanderbilt with his Bachelor's of Arts in 2026. Congratulations!
-
-### Deborah Sohn
-
-#### Undergraduate Student
-
-<img src="`r here::here('images', "lab_members", 'deborah.jpeg')`" width="300px">
-
-Deborah graduated with her Master's in Bioinformatics from the Nelson Laboratory. Congratulations!
-
 
