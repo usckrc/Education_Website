@@ -142,7 +142,7 @@ Omid graduated from the University of Southern California with his Master's of S
 
 <img src="`r here::here('images', "lab_members", 'sienna.png')`" width="300px">
 
-Hello, my name is Sienna Blanche, and I am a Master's student at the University of Southern California studying Global Medicine.  I graduated from the University of Southern California in 2025 with a Bachelor of Science in Human Biology and a minor in Gender and Sexuality Studies.I work as a research assistant in Dr. Nelson's lab where I analyze kidney gene expression using single-nucleus RNA sequencing. In the future, I aspire to become a physician dedicated to advancing women’s health and global health equity by integrating clinical practice with research to improve patient outcomes.
+Hello, my name is Sienna Blanche, and I am a Master's student at the University of Southern California studying Global Medicine. I graduated from the University of Southern California in 2025 with a Bachelor of Science in Human Biology and a minor in Gender and Sexuality Studies. I work as a research assistant in Dr. Nelson's lab where I analyze kidney gene expression using single-nucleus RNA sequencing. In the future, I aspire to become a physician dedicated to advancing women’s health and global health equity by integrating clinical practice with research to improve patient outcomes.
 
 Sienna has since graduated with a Master's of Science from the University of Southern California and now works as a Clinical Research Associate as she applies to medical school. 
 
