@@ -1,0 +1,28 @@
+---
+title: "Nuclei Isolation Protocol"
+author: "Kevin Shih"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float: true
+    number_sections: false
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
+  pdf_document:
+    toc: true
+    toc_depth: 5
+---
+
+# Nuclei Isolation Protocol Materials
+<br>
+### Lysis Buffer
+  - Lysis Reagent
+  - Reducing Agent B
+  - Surfactant A
+  - RNase Inhibitor
+  
+<br>
+### Debris Removal Buffer
