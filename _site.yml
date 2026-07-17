@@ -63,7 +63,7 @@ navbar:
     - text: "Lab Protocols"
       menu:
         - text: "Nuclei Isolation"
-          href:
+          href: nuclei_isolation_protocol.html
         - text: "10% BSA Solution"
           href: bsa_10percent_protocol.html
     - text: "Foundational Learning"
