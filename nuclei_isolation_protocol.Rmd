@@ -15,14 +15,88 @@ output:
     toc: true
     toc_depth: 5
 ---
+<style>
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  text-align: center;
+}
+</style>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 6px;
+}
+</style>  
+
+
 
 # Nuclei Isolation Protocol Materials
+
+- 10X Genomics Chromium Nuclei Isolation Kit
+- Tissue scissors
+
+
 <br>
-### Lysis Buffer
-  - Lysis Reagent
-  - Reducing Agent B
-  - Surfactant A
-  - RNase Inhibitor
+
+## Lysis Buffer
+ 
+  | Reagent | 1 Reaction | 2 Reactions | 3 Reactions | 4 Reactions |
+|---|---|---|---|---|
+| Lysis Reagent | 536uL | 1mL 72uL | 1mL 608uL | 2mL 144uL |
+| Reducing Agent B | 0.5uL | 1uL | 1.5uL | 2uL |
+| Surfactant A | 5.5uL | 11uL | 16.5uL | 22uL |
+| RNase Inhibitor | 13.9uL | 27.8uL | 41.7uL | 55.6uL |
   
+Note: Lysis Reagent and Surfactant A are found in the 4°C.  
+Note: Reducing Agent B and RNase Inhibitor are found in the -20°C.
+
 <br>
-### Debris Removal Buffer
+
+## Debris Removal Buffer
+  
+   | Reagent | 1 Reaction | 2 Reactions | 3 Reactions | 4 Reactions |
+|---|---|---|---|---|
+| Debris Removal | 550uL | 1mL 100uL | 1mL 650uL | 2mL 200uL |
+| Reducing Agent B | 0.5uL | 1uL | 1.5uL | 2uL |
+
+Note: Debris Removal Reagent is found in the 4°C.  
+Note: Reducing Agent B is found in the -20°C.
+
+<br>
+
+## Wash and Resuspension Buffer
+  | Reagent | 1 Reaction | 2 Reactions | 3 Reactions | 4 Reactions |
+|---|---|---|---|---|
+| 1X PBS | 2mL 887.5uL | 5mL 775uL | 8mL 662.5uL | 11mL 550uL |
+| 10% BSA | 330uL | 660uL | 990uL | 1mL 320uL |
+| RNase Inhibitor | 82.5uL | 165uL | 247.5uL | 330uL |
+
+Note: 1X PBS is found in Bench 3 cabinet.  
+Note: 10% BSA is found in the 4°C.
+
+<br>
+
+# Step-by-Step Protocol
+
+## Experimental Setup
+
+1. Obtain ice (make sure to keep all samples and reagents on ice)
+2. Prepare and label the reagents in 15mL conical tubes and keep on ice.
+3. Label 2 round bottom-tubes from the 10X Consumables Box and 1 pointed-bottom tubes and keep on ice.
+4. Obtain the tube with the half-kidney from the -80°C freezer.
+
+<br>
+
+## Experiment
+
+5. Transfer the sample from the tube in the -80°C to the new pointed-bottom tube that was obtained from the Consumables Box.
+6. Add
