@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Paged maintained by Sienna Blanche" />
+
+<meta name="date" content="2026-07-17" />
+
+<title>Coding Crumbs</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nelson Lab</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Lab Info
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab_schedule.html">Lab Schedule</a>
+    </li>
+    <li>
+      <a href="lab_members.html">Lab Members</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Informative Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Getting Started</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="computer_requirements.html">Computer Requirements</a>
+        </li>
+        <li>
+          <a href="downloading_R.html">Downloading R</a>
+        </li>
+        <li>
+          <a href="using_packages.html">Using Packages</a>
+        </li>
+        <li>
+          <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+        </li>
+        <li>
+          <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Github Tutorials</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="qupath_install.html">Understanding Github</a>
+        </li>
+        <li>
+          <a href="github_tutorial.html">Github Tutorial</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">snRNAseq Analysis</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="lesson_1.html">Lesson 1</a>
+        </li>
+        <li>
+          <a href="lesson_2.html">Lesson 2</a>
+        </li>
+        <li>
+          <a href="write_degs_excel.html">Write DEGs to Excel</a>
+        </li>
+        <li>
+          <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+        </li>
+        <li>
+          <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">QuPath Tutorials</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="qupath_install.html">Installing QuPath</a>
+        </li>
+        <li>
+          <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+        </li>
+        <li>
+          <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+        </li>
+        <li>
+          <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Problem Solving</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="write_degs_excel.html">Write DEGs to Excel</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="creating_tutorials.html">Creating Tutorials for the Nelson Lab Website</a>
+    </li>
+    <li>
+      <a href="JWN_Remote_Desktop_Tutorial.html">Remote Control to the Desktop</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Lab Protocols
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="nuclei_isolation_protocol.html">Nuclei Isolation</a>
+    </li>
+    <li>
+      <a href="bsa_10percent_protocol.html">10% BSA Solution</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Foundational Learning
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Kidney_Physiology_Learning_Materials_jwn.html">Foundational Learning</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Coding Crumbs</h1>
+<h4 class="author">Paged maintained by Sienna Blanche</h4>
+<h4 class="date">17 July 2026</h4>
+
+</div>
+
+
+<div id="these-are-coding-vignettes-that-have-been-presented-at-score"
+class="section level2">
+<h2>These are coding vignettes that have been presented at SCORE</h2>
+<p><a href="#session-1---january-27th-2025">Naming</a> <br> <a
+href="#session-2---february-24th-2025">Clean Code</a><br> <a
+href="#session-3---march-31st-2025">R Styling</a> <br> <a
+href="#session-4---april-28th-2025">Gene Conversion</a> <br> <a
+href="#session-5---june-30th-2025">renv package</a> <br> <a
+href="#session-6---july-28th-2025">TBD</a> <br></p>
+</div>
+<div id="session-1---january-27th-2025" class="section level1">
+<h1>Session 1 - January 27th 2025</h1>
+<div id="naming" class="section level2">
+<h2>Naming</h2>
+<p><img
+src="images/coding_crumbs/Coding_Crumbs2.webp" /></p>
+</div>
+<div id="who-has-code-that-looks-like-this" class="section level2">
+<h2>Who has code that looks like this?</h2>
+<p>df2 <br> df.2 <br> df_2 <br> Df_2 <br> DF_2 <br></p>
+</div>
+<div id="type-cases" class="section level2">
+<h2>Type Cases</h2>
+<p><strong>Great Article</strong> on Type Cases -&gt; <a
+href="https://www.alexhyett.com/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case/"
+class="uri">https://www.alexhyett.com/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case/</a></p>
+<div id="each-of-these-names-has-a-different-name"
+class="section level3">
+<h3>Each of these names has a different name</h3>
+<p><img
+src="images/coding_crumbs/CodingCase.png" /></p>
+</div>
+</div>
+<div id="names-matter" class="section level2">
+<h2>Names Matter!</h2>
+<div id="increadible-important-for-r---case-sensative"
+class="section level3">
+<h3>Increadible important for R -&gt; <strong>Case
+Sensative</strong></h3>
+</div>
+<div
+id="also-increadible-important-to-be-consistent-when-collaborating-on-code"
+class="section level3">
+<h3>Also increadible important to <strong>be consistent when
+collaborating</strong> on code</h3>
+</div>
+<div id="what-is-consensus-in-the-community" class="section level3">
+<h3>What is <strong>Consensus in the Community?</strong></h3>
+<p><a
+href="https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r"
+class="uri">https://stackoverflow.com/questions/1944910/what-is-your-preferred-style-for-naming-variables-in-r</a></p>
+<p><img
+src="images/coding_crumbs/CodingCaseStack.png" /></p>
+</div>
+<div id="what-am-i-going-to-do" class="section level3">
+<h3>What am I going to do?</h3>
+<p>I’m trying to consistently use <strong>PascalCase</strong> for my
+objects in R.</p>
+</div>
+</div>
+<div id="take-home" class="section level2">
+<h2>Take Home</h2>
+<p>While you have a lot of flexibility in naming objects in R,
+<strong>I’d encourage you to be more intentional and consistent</strong>
+with how you decide to name your objects.</p>
+</div>
+</div>
+<div id="session-2---february-24th-2025" class="section level1">
+<h1>Session 2 - February 24th 2025</h1>
+<div id="clean-code" class="section level2">
+<h2>Clean Code</h2>
+<p><img
+src="images/coding_crumbs/Coding_Crumbs2.webp" /></p>
+</div>
+<div id="who-has-code-that-looks-like-this-1" class="section level2">
+<h2>Who has code that looks like this?</h2>
+<p><img
+src="images/coding_crumbs/Multiple_Objects.png" /></p>
+<div id="thats-called-the-multiple-object-option"
+class="section level3">
+<h3>That’s called the <strong>Multiple Object Option</strong></h3>
+</div>
+<div id="there-is-also-the-nested-option" class="section level3">
+<h3>There is also the <strong>Nested Option</strong></h3>
+<p><img
+src="images/coding_crumbs/Nested_Option.png" /></p>
+</div>
+<div id="orthe-piping-option" class="section level3">
+<h3>Or…the <strong>Piping Option</strong></h3>
+<p><img
+src="images/coding_crumbs/Piping_Option.png" /></p>
+</div>
+</div>
+<div id="piping" class="section level2">
+<h2>Piping</h2>
+<p><img
+src="images/coding_crumbs/Pipe_logo.png" /></p>
+<p><strong>Great Article</strong> on Type Piping -&gt; <a
+href="https://uc-r.github.io/pipe"
+class="uri">https://uc-r.github.io/pipe</a> <br>
+<strong>Reference</strong> to magrittr package -&gt; <a
+href="https://magrittr.tidyverse.org/"
+class="uri">https://magrittr.tidyverse.org/</a></p>
+</div>
+<div id="piping-verbage" class="section level2">
+<h2>Piping verbage</h2>
+<p><img
+src="images/coding_crumbs/Piping_Verbage.png" /></p>
+</div>
+<div id="feed-into-plots" class="section level2">
+<h2>Feed into Plots</h2>
+<p><img
+src="images/coding_crumbs/Pipe_Plots.png" /></p>
+</div>
+<div id="integration-into-other-packages" class="section level2">
+<h2>Integration into other packages</h2>
+<p><img
+src="images/coding_crumbs/Pipe_Packages.png" /></p>
+</div>
+<div id="special-cases" class="section level2">
+<h2>Special Cases</h2>
+<div id="t" class="section level3">
+<h3><strong>%T&gt;%</strong></h3>
+<p><img
+src="images/coding_crumbs/Piping_T.png" /></p>
+</div>
+<div id="section" class="section level3">
+<h3><strong>%&lt;&gt;%</strong></h3>
+<p><img
+src="images/coding_crumbs/Piping_Compound.png" /></p>
+</div>
+<div id="section-1" class="section level3">
+<h3><strong>%$%</strong></h3>
+<p><img
+src="images/coding_crumbs/Piping_Column.png" /></p>
+</div>
+</div>
+<div id="take-home-1" class="section level2">
+<h2><strong>Take Home</strong></h2>
+<p><strong>Piping</strong> is a great way to <strong>clean up your
+code</strong> and make it more <strong>readable</strong>!</p>
+<p><strong>Practically</strong>: I usually write code as
+<strong>multiple objects</strong> and then convert to
+<strong>piping</strong>.</p>
+</div>
+</div>
+<div id="session-3---march-31st-2025" class="section level1">
+<h1>Session 3 - March 31st 2025</h1>
+<div id="r-styling" class="section level2">
+<h2>R styling</h2>
+<p><img
+src="images/coding_crumbs/Coding_Crumbs2.webp" /></p>
+</div>
+<div id="and-i-love-clean-code" class="section level2">
+<h2>And I <strong>LOVE</strong> clean code</h2>
+</div>
+<div id="confession-i-write-ugly-code" class="section level2">
+<h2>Confession: <strong>I write ugly code</strong></h2>
+</div>
+<div id="there-is-help" class="section level2">
+<h2>There is <strong>Help</strong></h2>
+</div>
+<div id="clean-legible-code-is-important-for-reproducibility"
+class="section level2">
+<h2>Clean legible code is important for reproducibility</h2>
+<div id="hadley-wickhams-style-guide" class="section level3">
+<h3>Hadley Wickham’s Style Guide</h3>
+<p><a href="http://adv-r.had.co.nz/Style.html"
+class="uri">http://adv-r.had.co.nz/Style.html</a></p>
+</div>
+<div id="option-1-native-r" class="section level3">
+<h3>Option 1: <strong>Native R</strong></h3>
+</div>
+<div id="code-reformat-code-ctrlshifta" class="section level3">
+<h3>Code &gt; Reformat Code (<strong>Ctrl+Shift+A</strong>)</h3>
+<div id="before" class="section level4">
+<h4>Before</h4>
+<p><img
+src="images/coding_crumbs/before.png" /></p>
+<p><img
+src="images/coding_crumbs/native_click.png" /></p>
+</div>
+<div id="after" class="section level4">
+<h4>After</h4>
+<p><img
+src="images/coding_crumbs/after1.png" /></p>
+</div>
+</div>
+<div id="option-2-styler-package" class="section level3">
+<h3>Option 2: <strong>Styler Package</strong></h3>
+<p><img
+src="images/coding_crumbs/styler_logo.png" /></p>
+<p><a href="https://github.com/r-lib/styler?tab=readme-ov-file"
+class="uri">https://github.com/r-lib/styler?tab=readme-ov-file</a></p>
+<p>install.packages(“styler”)</p>
+<p><a
+href="https://www.youtube.com/watch?app=desktop&amp;v=yUA3NpJLH6I&amp;t=220s&amp;t=156"
+class="uri">https://www.youtube.com/watch?app=desktop&amp;v=yUA3NpJLH6I&amp;t=220s&amp;t=156</a></p>
+<div id="before-1" class="section level4">
+<h4>Before</h4>
+<p><img
+src="images/coding_crumbs/before.png" /></p>
+</div>
+<div id="after-1" class="section level4">
+<h4>After</h4>
+<p><img
+src="images/coding_crumbs/styler_click.png" /></p>
+<p><img
+src="images/coding_crumbs/after2.png" /></p>
+</div>
+</div>
+<div id="option-3-chatgpt" class="section level3">
+<h3>Option 3: <strong>ChatGPT</strong></h3>
+<p><img
+src="images/coding_crumbs/chat_prompt.png" /></p>
+<div id="before-2" class="section level4">
+<h4>Before</h4>
+<p><img
+src="images/coding_crumbs/before.png" /></p>
+<div id="after-2" class="section level5">
+<h5>After</h5>
+<p><img
+src="images/coding_crumbs/after3.png" /></p>
+<p><img
+src="images/coding_crumbs/chat_notes.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="take-home-2" class="section level2">
+<h2><strong>Take Home</strong></h2>
+<div id="styling-your-code-is-important" class="section level3">
+<h3><strong>Styling</strong> your code is important</h3>
+</div>
+<div id="but-spend-your-time-thinking-about-the-logic-of-your-code"
+class="section level3">
+<h3>But spend your time <strong>thinking about the logic</strong> of
+your code</h3>
+</div>
+<div id="styler-is-a-great-tool-to-help-with-minimal-effort"
+class="section level3">
+<h3><strong>Styler</strong> is a great tool to help with minimal
+effort</h3>
+</div>
+<div id="chatgpt-is-also-a-great-tool-to-help" class="section level3">
+<h3><strong>ChatGPT</strong> is also a great tool to help</h3>
+</div>
+<div
+id="im-going-to-try-to-run-my-code-through-chatgpt-before-publishing-it"
+class="section level3">
+<h3>I’m going to try to run my code through <strong>chatGPT</strong>
+before publishing it</h3>
+</div>
+</div>
+</div>
+<div id="session-4---april-28th-2025" class="section level1">
+<h1>Session 4 - April 28th 2025</h1>
+<div id="gene-conversion" class="section level2">
+<h2>Gene Conversion</h2>
+<p><img
+src="images/coding_crumbs/Coding_Crumbs2.webp" /></p>
+</div>
+<div id="changing-between-mouse-and-human-gene-names-is-common-maneuver"
+class="section level2">
+<h2>Changing between <strong>Mouse</strong> and <strong>Human</strong>
+gene names is common maneuver</h2>
+</div>
+<div id="why" class="section level2">
+<h2>Why?</h2>
+<div id="translational-research" class="section level3">
+<h3>Translational Research</h3>
+</div>
+<div id="target-identification-for-therapies" class="section level3">
+<h3>Target Identification for Therapies</h3>
+</div>
+<div id="pathway-and-functional-annotation" class="section level3">
+<h3>Pathway and Functional Annotation</h3>
+</div>
+</div>
+<div id="its-a-challenge" class="section level2">
+<h2>It’s a Challenge</h2>
+<div id="gene-duplications" class="section level3">
+<h3>Gene Duplications</h3>
+</div>
+<div id="unique-names" class="section level3">
+<h3>Unique Names</h3>
+</div>
+</div>
+<div id="approaches-ive-used-before" class="section level2">
+<h2>Approaches I’ve used before</h2>
+<div id="packages" class="section level3">
+<h3><strong>Packages</strong></h3>
+<div id="genename" class="section level4">
+<h4><strong>geneName</strong></h4>
+<p><a href="https://github.com/mustafapir/geneName"
+class="uri">https://github.com/mustafapir/geneName</a></p>
+<div id="install" class="section level5">
+<h5>Install</h5>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;geneName&quot;</span>)) {<span class="fu">install.packages</span>(<span class="st">&quot;geneName&quot;</span>); <span class="fu">require</span>(<span class="st">&quot;geneName&quot;</span>)}</span></code></pre></div>
+</div>
+</div>
+<div id="usage" class="section level4">
+<h4>Usage</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>df_human <span class="ot">&lt;-</span> <span class="fu">mousegnameConverter</span>(df_mouse, <span class="st">&quot;gene&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="chatgpt" class="section level3">
+<h3><strong>ChatGPT</strong></h3>
+<p><img
+src="images/coding_crumbs/chatGPT.png" /></p>
+<div id="use-at-your-own-risk." class="section level4">
+<h4>Use at your own risk.</h4>
+<div id="quickbut-unreliable" class="section level5">
+<h5>Quick…but unreliable</h5>
+</div>
+</div>
+</div>
+<div id="functions" class="section level3">
+<h3><strong>Functions</strong></h3>
+<p><a href="https://www.biostars.org/p/9567892/"
+class="uri">https://www.biostars.org/p/9567892/</a></p>
+<div id="human---mouse" class="section level4">
+<h4>Human -&gt; Mouse</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>convert_human_to_mouse <span class="ot">&lt;-</span> <span class="cf">function</span>(gene_list) {</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    output <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    mouse_human_genes <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://www.informatics.jax.org/downloads/reports/HOM_MouseHumanSequence.rpt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="cf">for</span>(gene <span class="cf">in</span> gene_list) {</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>          class_key <span class="ot">=</span> (mouse_human_genes <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Symbol <span class="sc">==</span> gene <span class="sc">&amp;</span> Common.Organism.Name <span class="sc">==</span> <span class="st">&quot;human&quot;</span>))[[<span class="st">&#39;DB.Class.Key&#39;</span>]]</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>          <span class="cf">if</span>( <span class="sc">!</span><span class="fu">identical</span>(class_key, <span class="fu">integer</span>(<span class="dv">0</span>)) ) {</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>            human_genes <span class="ot">=</span> (mouse_human_genes <span class="sc">%&gt;%</span> <span class="fu">filter</span>(DB.Class.Key <span class="sc">==</span> class_key <span class="sc">&amp;</span> Common.Organism.Name<span class="sc">==</span><span class="st">&quot;mouse, laboratory&quot;</span>))[,<span class="st">&quot;Symbol&quot;</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>            <span class="cf">for</span>(human_gene <span class="cf">in</span> human_genes) {</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>                output <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(gene, human_gene), output)</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>            }</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>          }</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>     }</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>     <span class="fu">return</span> (output)</span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>}</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>df_mouse_gene <span class="ot">&lt;-</span> <span class="fu">convert_human_to_mouse</span>(gene_list)</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>df_mouse_gene <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(df_mouse_gene)</span></code></pre></div>
+</div>
+<div id="mouse---human" class="section level4">
+<h4>Mouse -&gt; Human</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>convert_mouse_to_human <span class="ot">&lt;-</span> <span class="cf">function</span>(gene_list) { </span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>     output <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>     mouse_human_genes <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://www.informatics.jax.org/downloads/reports/HOM_MouseHumanSequence.rpt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>     <span class="cf">for</span>(gene <span class="cf">in</span> gene_list) {</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>          class_key <span class="ot">=</span> (mouse_human_genes <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Symbol <span class="sc">==</span> gene <span class="sc">&amp;</span> Common.Organism.Name <span class="sc">==</span> <span class="st">&quot;mouse, laboratory&quot;</span>))[[<span class="st">&#39;DB.Class.Key&#39;</span>]]</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>          <span class="cf">if</span>( <span class="sc">!</span><span class="fu">identical</span>(class_key, <span class="fu">integer</span>(<span class="dv">0</span>)) ) {</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>               human_genes <span class="ot">=</span> (mouse_human_genes <span class="sc">%&gt;%</span> <span class="fu">filter</span>(DB.Class.Key <span class="sc">==</span> class_key <span class="sc">&amp;</span> Common.Organism.Name<span class="sc">==</span><span class="st">&quot;human&quot;</span>))[,<span class="st">&quot;Symbol&quot;</span>]</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>               <span class="cf">for</span>(human_gene <span class="cf">in</span> human_genes) {</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>                    output <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(gene, human_gene), output)</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>               }</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>          }</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>     }</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>     <span class="fu">return</span> (output)</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>}</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>df_human_gene <span class="ot">&lt;-</span> <span class="fu">convert_mouse_to_human</span>(gene_list)</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>df_human_gene <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(df_human_gene)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="take-home-3" class="section level2">
+<h2><strong>Take Home</strong></h2>
+<div id="function-is-what-i-use-now." class="section level3">
+<h3><strong>Function</strong> is what I use now.</h3>
+<div
+id="i-should-probably-download-the-database-localy-onto-my-computer"
+class="section level4">
+<h4>I should probably <strong>download the database</strong> localy onto
+my computer</h4>
+</div>
+</div>
+<div id="i-suspect-there-are-other-options." class="section level3">
+<h3>I suspect there are <strong>other options</strong>.</h3>
+<div id="biomart" class="section level4">
+<h4>BioMart?</h4>
+</div>
+<div id="how-do-others-in-the-chat-do-this" class="section level4">
+<h4>How do others in the <strong>chat</strong> do this?</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="session-5---june-30th-2025" class="section level1">
+<h1>Session 5 - June 30th 2025</h1>
+<div id="renv-package" class="section level2">
+<h2>renv package</h2>
+<p><img
+src="images/coding_crumbs/Coding_Crumbs2.webp" /></p>
+</div>
+<div id="it-finally-happened" class="section level2">
+<h2>It <strong>finally</strong> happened!</h2>
+<div
+id="i-got-too-tired-of-switching-between-my-seurat-v4-and-seurat-v5-computers"
+class="section level3">
+<h3>I got too tired of <strong>switching</strong> between my Seurat v4
+and Seurat v5 computers</h3>
+<div id="this-was-my-solution-for-the-seurat-v5" class="section level4">
+<h4>This was my solution for the Seurat v5</h4>
+<p><img
+src="images/coding_crumbs/btf.webp" /></p>
+</div>
+<div id="screenshot-from-score-1" class="section level4">
+<h4>Screenshot from <strong>Score #1</strong></h4>
+<p><img
+src="images/coding_crumbs/badadvice.png" /></p>
+</div>
+<div
+id="someone-jesse-goodrich-or-matt-salomon-recommended-trying-out-the-renv-package"
+class="section level4">
+<h4>Someone (Jesse Goodrich or Matt Salomon?) recommended trying out the
+<em>renv</em> package</h4>
+</div>
+</div>
+</div>
+<div id="what-is-renv" class="section level2">
+<h2>What is renv?</h2>
+<p><img
+src="images/coding_crumbs/renv_logo.png" /></p>
+<p><a href="https://rstudio.github.io/renv/articles/renv.html"
+class="uri">https://rstudio.github.io/renv/articles/renv.html</a></p>
+<div id="a-package-for-managing-r-project-environments"
+class="section level3">
+<h3>A package for managing R project environments</h3>
+</div>
+<div
+id="lets-be-honestwe-often-get-stuck-in-between-projects-as-packages-change"
+class="section level3">
+<h3>Let’s be honest…we often get stuck in between projects as packages
+change</h3>
+<p><img
+src="images/coding_crumbs/renv_image.svg" /></p>
+</div>
+<div
+id="it-allows-you-to-create-a-snapshot-of-your-r-packages-and-versions"
+class="section level3">
+<h3>It allows you to create a <strong>snapshot</strong> of your R
+packages and versions</h3>
+<p><img
+src="images/coding_crumbs/renv_graphic.png" /></p>
+</div>
+<div id="it-allows-you-to-restore-your-r-packages-and-versions"
+class="section level3">
+<h3>It allows you to <strong>restore</strong> your R packages and
+versions</h3>
+<p><img
+src="images/coding_crumbs/renv_files.png" /></p>
+</div>
+<div id="great-video-from-albert-rapp-on-using-renv"
+class="section level3">
+<h3><strong>Great</strong> video from <strong>Albert Rapp</strong> on
+using renv</h3>
+<p><a href="https://www.youtube.com/watch?v=Oen9xhEh8PY"
+class="uri">https://www.youtube.com/watch?v=Oen9xhEh8PY</a></p>
+<p><img
+src="images/coding_crumbs/youtube.jpg" /></p>
+</div>
+<div id="it-took-me-5-minutes-to-set-this-up-on-my-system"
+class="section level3">
+<h3>It took me <strong>5 minutes</strong> to set this up on my
+system</h3>
+</div>
+<div
+id="i-started-by-using-the-renv-package-in-a-new-github-repo-that-i-was-working-on"
+class="section level3">
+<h3>I started by using the <em>renv</em> package in a new github repo
+that I was working on</h3>
+</div>
+<div id="this-easy" class="section level3">
+<h3><strong>This easy!</strong></h3>
+<div id="open-up-project-from-the-folder-where-you-want-to-use-renv"
+class="section level4">
+<h4>Open up project from the folder where you want to use renv</h4>
+<p><img
+src="images/coding_crumbs/thiseasy.png" /></p>
+<p><img
+src="images/coding_crumbs/filesize.png" /></p>
+</div>
+</div>
+<div id="now-when-i-open-the-project-from-this-location-seurat-v5"
+class="section level3">
+<h3>Now when I open the project from this location: <strong>Seurat
+v5</strong></h3>
+</div>
+<div id="when-i-open-project-from-any-other-folder-seurat-v4"
+class="section level3">
+<h3>When I open project from any other folder: <strong>Seurat
+v4</strong></h3>
+</div>
+</div>
+<div id="take-home-4" class="section level2">
+<h2><strong>Take Home</strong></h2>
+<div
+id="implimenting-renv-is-a-great-way-to-manage-your-r-packages-and-versions"
+class="section level3">
+<h3>Implimenting <em>renv</em> is a great way to manage your R packages
+and versions</h3>
+</div>
+<div
+id="its-been-seamless-and-helped-me-to-move-between-seurat-v4-and-seurat-v5"
+class="section level3">
+<h3>It’s been seamless and helped me to move between <strong>Seurat
+v4</strong> and <strong>Seurat v5</strong></h3>
+</div>
+<div id="important-for-making-your-code-reproducible"
+class="section level3">
+<h3>Important for making your code <strong>reproducible!</strong></h3>
+<div
+id="add-a-renv.lock-file-to-your-git-repo-so-that-others-can-use-the-same-packages-and-versions"
+class="section level4">
+<h4>Add a renv.lock file to your git repo so that others can use the
+same packages and versions</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="session-6---july-28th-2025" class="section level1">
+<h1>Session 6 - July 28th 2025</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.3.2 (2023-10-31 ucrt)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 11 x64 (build 26200)
+## 
+## Matrix products: default
+## 
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.utf8 
+## [2] LC_CTYPE=English_United States.utf8   
+## [3] LC_MONETARY=English_United States.utf8
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.utf8    
+## 
+## time zone: America/Los_Angeles
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  methods  
+## [8] base     
+## 
+## other attached packages:
+##  [1] viridis_0.6.5      viridisLite_0.4.3  gplots_3.3.0       reshape2_1.4.4    
+##  [5] pheatmap_1.0.13    ggvenn_0.1.10      lubridate_1.9.5    forcats_1.0.1     
+##  [9] stringr_1.5.1      purrr_1.0.2        readr_2.1.5        tidyr_1.3.0       
+## [13] tibble_3.3.1       tidyverse_2.0.0    devtools_2.4.5     usethis_3.2.1     
+## [17] here_1.0.2         ggpmisc_0.6.1      ggpp_0.6.0         ggplot2_4.0.3     
+## [21] knitr_1.45         patchwork_1.3.2    Seurat_5.0.1       SeuratObject_5.4.0
+## [25] sp_2.2-1           dplyr_1.1.4       
+## 
+## loaded via a namespace (and not attached):
+##   [1] RColorBrewer_1.1-3     rstudioapi_0.18.0      jsonlite_2.0.0        
+##   [4] magrittr_2.0.5         spatstat.utils_3.2-3   farver_2.1.2          
+##   [7] rmarkdown_2.31         fs_2.1.0               vctrs_0.6.5           
+##  [10] ROCR_1.0-12            memoise_2.0.1          spatstat.explore_3.2-5
+##  [13] htmltools_0.5.7        polynom_1.4-1          sass_0.4.8            
+##  [16] sctransform_0.4.1      parallelly_1.47.0      KernSmooth_2.23-22    
+##  [19] bslib_0.6.1            htmlwidgets_1.6.4      ica_1.0-3             
+##  [22] plyr_1.8.9             plotly_4.12.0          zoo_1.8-15            
+##  [25] cachem_1.1.0           igraph_1.6.0           mime_0.13             
+##  [28] lifecycle_1.0.5        pkgconfig_2.0.3        Matrix_1.6-5          
+##  [31] R6_2.6.1               fastmap_1.2.0          fitdistrplus_1.2-6    
+##  [34] future_1.70.0          shiny_1.8.0            digest_0.6.34         
+##  [37] colorspace_2.1-2       rprojroot_2.1.1        tensor_1.5.1          
+##  [40] RSpectra_0.16-2        irlba_2.3.7            pkgload_1.5.2         
+##  [43] progressr_0.19.0       timechange_0.4.0       fansi_1.0.7           
+##  [46] spatstat.sparse_3.2-0  httr_1.4.8             polyclip_1.10-7       
+##  [49] abind_1.4-8            compiler_4.3.2         remotes_2.5.0         
+##  [52] withr_3.0.2            S7_0.2.2               fastDummies_1.7.3     
+##  [55] pkgbuild_1.4.8         MASS_7.3-60.0.1        quantreg_6.1          
+##  [58] sessioninfo_1.2.4      caTools_1.18.3         gtools_3.9.5          
+##  [61] tools_4.3.2            lmtest_0.9-40          httpuv_1.6.13         
+##  [64] future.apply_1.20.2    goftest_1.2-3          glue_1.8.1            
+##  [67] nlme_3.1-163           promises_1.2.1         Rtsne_0.17            
+##  [70] cluster_2.1.4          generics_0.1.4         gtable_0.3.6          
+##  [73] spatstat.data_3.1-9    tzdb_0.5.0             hms_1.1.4             
+##  [76] data.table_1.18.4      utf8_1.2.6             spatstat.geom_3.2-7   
+##  [79] RcppAnnoy_0.0.23       ggrepel_0.9.5          RANN_2.6.2            
+##  [82] pillar_1.9.0           spam_2.11-4            RcppHNSW_0.7.0        
+##  [85] later_1.4.8            splines_4.3.2          lattice_0.21-9        
+##  [88] survival_3.5-7         deldir_2.0-4           SparseM_1.84-2        
+##  [91] tidyselect_1.2.1       miniUI_0.1.2           pbapply_1.7-4         
+##  [94] gridExtra_2.3          scattermore_1.2        xfun_0.41             
+##  [97] matrixStats_1.5.0      stringi_1.8.7          lazyeval_0.2.3        
+## [100] yaml_2.3.8             evaluate_1.0.5         codetools_0.2-19      
+## [103] cli_3.6.2              uwot_0.1.16            xtable_1.8-8          
+## [106] reticulate_1.46.0      jquerylib_0.1.4        dichromat_2.0-0.1     
+## [109] Rcpp_1.1.1-1.1         globals_0.19.1         spatstat.random_3.2-2 
+## [112] png_0.1-9              parallel_4.3.2         MatrixModels_0.5-4    
+## [115] ellipsis_0.3.2         dotCall64_1.2          profvis_0.4.0         
+## [118] urlchecker_1.0.1       bitops_1.0-9           listenv_0.10.1        
+## [121] scales_1.4.0           ggridges_0.5.7         leiden_0.4.3.1        
+## [124] rlang_1.1.3            cowplot_1.2.0</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
