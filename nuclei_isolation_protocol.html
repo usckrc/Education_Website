@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Kevin Shih" />
+
+<meta name="date" content="2026-07-17" />
+
+<title>Nuclei Isolation Protocol</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nelson Lab</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Lab Info
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab_schedule.html">Lab Schedule</a>
+    </li>
+    <li>
+      <a href="lab_members.html">Lab Members</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Informative Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Getting Started</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="computer_requirements.html">Computer Requirements</a>
+        </li>
+        <li>
+          <a href="downloading_R.html">Downloading R</a>
+        </li>
+        <li>
+          <a href="using_packages.html">Using Packages</a>
+        </li>
+        <li>
+          <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+        </li>
+        <li>
+          <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Github Tutorials</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="qupath_install.html">Understanding Github</a>
+        </li>
+        <li>
+          <a href="github_tutorial.html">Github Tutorial</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">snRNAseq Analysis</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="lesson_1.html">Lesson 1</a>
+        </li>
+        <li>
+          <a href="lesson_2.html">Lesson 2</a>
+        </li>
+        <li>
+          <a href="write_degs_excel.html">Write DEGs to Excel</a>
+        </li>
+        <li>
+          <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+        </li>
+        <li>
+          <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">QuPath Tutorials</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="qupath_install.html">Installing QuPath</a>
+        </li>
+        <li>
+          <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+        </li>
+        <li>
+          <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+        </li>
+        <li>
+          <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Problem Solving</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="write_degs_excel.html">Write DEGs to Excel</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="creating_tutorials.html">Creating Tutorials for the Nelson Lab Website</a>
+    </li>
+    <li>
+      <a href="JWN_Remote_Desktop_Tutorial.html">Remote Control to the Desktop</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Lab Protocols
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="nuclei_isolation_protocol.html">Nuclei Isolation</a>
+    </li>
+    <li>
+      <a href="bsa_10percent_protocol.html">10% BSA Solution</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Foundational Learning
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Kidney_Physiology_Learning_Materials_jwn.html">Foundational Learning</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Nuclei Isolation Protocol</h1>
+<h4 class="author">Kevin Shih</h4>
+<h4 class="date">17 July 2026</h4>
+
+</div>
+
+
+<style>
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  text-align: center;
+}
+</style>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 6px;
+}
+</style>
+<div id="nuclei-isolation-protocol-materials" class="section level1">
+<h1>Nuclei Isolation Protocol Materials</h1>
+<ul>
+<li>10X Genomics Chromium Nuclei Isolation Kit</li>
+<li>Tissue scissors</li>
+<li>Beaker for liquid waste</li>
+<li>0.4% Trypan Blue</li>
+</ul>
+<p><br></p>
+<div id="lysis-buffer" class="section level2">
+<h2>Lysis Buffer</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Reagent</th>
+<th>1 Reaction</th>
+<th>2 Reactions</th>
+<th>3 Reactions</th>
+<th>4 Reactions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lysis Reagent</td>
+<td>536uL</td>
+<td>1mL 72uL</td>
+<td>1mL 608uL</td>
+<td>2mL 144uL</td>
+</tr>
+<tr class="even">
+<td>Reducing Agent B</td>
+<td>0.5uL</td>
+<td>1uL</td>
+<td>1.5uL</td>
+<td>2uL</td>
+</tr>
+<tr class="odd">
+<td>Surfactant A</td>
+<td>5.5uL</td>
+<td>11uL</td>
+<td>16.5uL</td>
+<td>22uL</td>
+</tr>
+<tr class="even">
+<td>RNase Inhibitor</td>
+<td>13.9uL</td>
+<td>27.8uL</td>
+<td>41.7uL</td>
+<td>55.6uL</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Lysis Reagent and Surfactant A are found in the 4°C.<br />
+Note: Reducing Agent B and RNase Inhibitor are found in the -20°C.</p>
+<p><br></p>
+</div>
+<div id="debris-removal-buffer" class="section level2">
+<h2>Debris Removal Buffer</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Reagent</th>
+<th>1 Reaction</th>
+<th>2 Reactions</th>
+<th>3 Reactions</th>
+<th>4 Reactions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debris Removal</td>
+<td>550uL</td>
+<td>1mL 100uL</td>
+<td>1mL 650uL</td>
+<td>2mL 200uL</td>
+</tr>
+<tr class="even">
+<td>Reducing Agent B</td>
+<td>0.5uL</td>
+<td>1uL</td>
+<td>1.5uL</td>
+<td>2uL</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Debris Removal Reagent is found in the 4°C.<br />
+Note: Reducing Agent B is found in the -20°C.</p>
+<p><br></p>
+</div>
+<div id="wash-and-resuspension-buffer" class="section level2">
+<h2>Wash and Resuspension Buffer</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Reagent</th>
+<th>1 Reaction</th>
+<th>2 Reactions</th>
+<th>3 Reactions</th>
+<th>4 Reactions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1X PBS</td>
+<td>2mL 887.5uL</td>
+<td>5mL 775uL</td>
+<td>8mL 662.5uL</td>
+<td>11mL 550uL</td>
+</tr>
+<tr class="even">
+<td>10% BSA</td>
+<td>330uL</td>
+<td>660uL</td>
+<td>990uL</td>
+<td>1mL 320uL</td>
+</tr>
+<tr class="odd">
+<td>RNase Inhibitor</td>
+<td>82.5uL</td>
+<td>165uL</td>
+<td>247.5uL</td>
+<td>330uL</td>
+</tr>
+</tbody>
+</table>
+<p>Note: 1X PBS is found in Bench 3 cabinet.<br />
+Note: 10% BSA is found in the 4°C.</p>
+<p><br></p>
+</div>
+</div>
+<div id="step-by-step-protocol" class="section level1">
+<h1>Step-by-Step Protocol</h1>
+<div id="experimental-setup" class="section level2">
+<h2>Experimental Setup</h2>
+<ol style="list-style-type: decimal">
+<li>Obtain ice (make sure to keep all samples and reagents on ice)</li>
+<li>Prepare and label the reagents in 15mL conical tubes and keep on
+ice.</li>
+<li>Label 2 round bottom-tubes from the 10X Consumables Box and 1
+pointed-bottom tubes and keep on ice.</li>
+<li>Obtain the tube with the half-kidney from the -80°C freezer.</li>
+<li>Turn on the centrifuge and set to 4°C for fast temperature
+control</li>
+</ol>
+<p><br></p>
+</div>
+<div id="experiment" class="section level2">
+<h2>Experiment</h2>
+<ol start="6" style="list-style-type: decimal">
+<li>Transfer the sample from the tube in the -80°C to the new
+pointed-bottom tube that was obtained from the Consumables Box.</li>
+<li>Add 200uL of the Lysis Buffer to the sample</li>
+<li>Using surgical scissors, mince the 1/2 kidney as much as possible to
+prevent large chunks of tissue being present</li>
+<li>Using the green pestle, <em>GENTLY</em> push down against the tissue
+for a maximum of 10x</li>
+<li>Add 300uL of Lysis Buffer and incubate for <u>10 minutes</u> on
+ice<br />
+10a. During this time, set up your centrifuge to 16,000 rcf (also may
+show up as 16,000 g; rcf=g), for 20 seconds, at 4°C.<br />
+10b. Set up the Collection Tube (round-bottom) with the Nuclei Isolation
+Column in it on ice during the lysis so the tube can cool</li>
+<li>Transfer the dissociated tissue onto the column and close the top of
+the Nuclei Isolation Column</li>
+<li>Put the tube into the centrifuge and spin at the preset settings
+(16,000rcf, 20s, 4°C) (make sure to balance centrifuge)</li>
+<li>Once the centrifuge is done, discard the column (pellet should be
+visible at the bottom/side of the tube).</li>
+<li>If tube is fully intact, cap the tube and vortex for 10 seconds to
+resuspend the nuclei. If cap is not intact see 14a<br />
+14a. If the cap has broken off during the centrifuge step (step 12),
+resuspend your nuclei by pipetting gently up and down for a maximum of
+10x (you should see a curtain effect where the cells lift off the edge
+of the cap and float initially). Make sure to fully resuspend the cells
+so no clumps are present</li>
+<li>Set your centrifuge to 500 rcf (g), for 3 minutes, at 4°C and spin
+your sample down (make sure to balance centrifuge and put the spine of
+the cap facing outwards)</li>
+<li>Gently remove your sample from the centrifuge and close the
+centrifuge to keep it cold</li>
+<li>Carefully pipette your supernatant (excess fluid) into a waste
+container (your pellet should be visible so it will be easier to see and
+should be on the side of the tube’s spine)</li>
+<li>Resuspend the pellet in 500uL of Debris Removal Buffer and place on
+ice</li>
+<li>Change the settings on the centrifuge to 700rcf, for 10 minutes, at
+4°C and spin your sample (balance the centrifuge)</li>
+<li>Carefully remove the sample from the centrifuge (note that your
+pellet will have seemingly disappeared)</li>
+<li>Carefully remove as much of the Debris Removal Buffer as possible
+without disturbing the pellet (if the pellet starts to move then do NOT
+continue removing buffer)</li>
+<li>Resuspend the nuclei with 1mL of Resuspension Buffer (can pipette up
+and down for a maximum of 10x)</li>
+<li>Set the centrifuge to 500rcf, for 5 min, at 4°C and spin down cells
+(balance the centrifuge)</li>
+<li>Remove your sample from the centrifuge carefully (pellet should be
+visible), and remove the supernatant</li>
+<li>Resuspend the nuclei with 1mL of Resuspension Buffer (can pipette up
+and down for a maximum of 10x)</li>
+<li>Spin sample again at 500rcf, for 5 min, at 4°C (balance the
+centrifuge)</li>
+<li>Remove your sample from the centrifuge carefully (pellet should be
+visible), and remove the supernatant</li>
+<li>Resuspend your pellet in 20-500uL of Wash and Resuspension
+Buffer</li>
+<li>Vortex for 3 seconds</li>
+</ol>
+<p><br></p>
+</div>
+<div id="visualization" class="section level2">
+<h2>Visualization</h2>
+<div id="protocol" class="section level3">
+<h3>Protocol</h3>
+<ol start="30" style="list-style-type: decimal">
+<li>Obtain a 0.6mL Eppendorf Tube</li>
+<li>Add 10uL of 0.4% Trypan Blue to the bottom of the tube</li>
+<li>Add 10uL of Sample into the bottom of the tube and gently pipette up
+and down a few times to mix</li>
+<li>Incubate <u>on ice</u> for a minimum of 2 minutes</li>
+<li>Pipette 10uL of the dyed sample onto a hemocytometer (with the cover
+slip on top) and allow for capillary action to move the sample
+evenly</li>
+</ol>
+<p><br></p>
+</div>
+<div id="light-microscopy" class="section level3">
+<h3>Light Microscopy</h3>
+<p>Note: Located in the 2nd lab</p>
+<ol start="35" style="list-style-type: decimal">
+<li>Place slide on stage of Leica DMIL LED light microscope</li>
+<li>Turn on the light (right side of the microscope)</li>
+</ol>
+<p><br></p>
+</div>
+<div id="epifluorescence-microscopy" class="section level3">
+<h3>Epifluorescence Microscopy</h3>
+<p>Note: Located in the microscope room</p>
+<ol start="37" style="list-style-type: decimal">
+<li>Log in to the computer</li>
+<li>Open the LASX program, wait for it to load, and click “Ok”</li>
+<li>To the left of the microscope, turn the switch on for the CiR
+Advanced</li>
+<li>To the box to the left of the CiR Advanced, turn on the switch</li>
+<li>Turn on the shutter on the main screen and click on the objective
+with the eye to allow light to reach the eye piece</li>
+<li>Once nuclei are in focus, on the computer click the “Live” button on
+the lower left part of the screen</li>
+<li>Adjust Gain and Exposure levels in the upper left part of the LASX
+software</li>
+<li>To take the picture, click on “Single Image” which will take the
+picture and immediately turn off Live imaging</li>
+<li>Under projects, save the picture/folder 45a. For individual
+pictures, right click and export to either .png, .tif, .jpeg</li>
+<li>To turn off the machine, close the LASX software completely</li>
+<li>Turn off the light box to the left of the CiR Advanced</li>
+<li>Turn off CiR Advanced</li>
+<li>Remove your slide</li>
+<li>Clean station, log out of computer, and close door</li>
+</ol>
+<p><br></p>
+<p>This protocol was last amended on July 17th, 2026 by Kevin Shih</p>
+<p><br></p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

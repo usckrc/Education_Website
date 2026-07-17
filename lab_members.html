@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="" />
+
+<meta name="date" content="2026-07-17" />
+
+<title>Lab Members</title>
+
+<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nelson Lab</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Lab Info
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab_schedule.html">Lab Schedule</a>
+    </li>
+    <li>
+      <a href="lab_members.html">Lab Members</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Informative Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Getting Started</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="computer_requirements.html">Computer Requirements</a>
+        </li>
+        <li>
+          <a href="downloading_R.html">Downloading R</a>
+        </li>
+        <li>
+          <a href="using_packages.html">Using Packages</a>
+        </li>
+        <li>
+          <a href="best_practices.html">Jonathan's Best Coding Practices</a>
+        </li>
+        <li>
+          <a href="rules_of_coding.html">Jonathan's Rule of Coding</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Github Tutorials</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="qupath_install.html">Understanding Github</a>
+        </li>
+        <li>
+          <a href="github_tutorial.html">Github Tutorial</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">snRNAseq Analysis</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="lesson_1.html">Lesson 1</a>
+        </li>
+        <li>
+          <a href="lesson_2.html">Lesson 2</a>
+        </li>
+        <li>
+          <a href="write_degs_excel.html">Write DEGs to Excel</a>
+        </li>
+        <li>
+          <a href="coding_crumbs.html">SCORE: Coding Crumbs</a>
+        </li>
+        <li>
+          <a href="recreating_figures.html">SCORE: Recreating Figures</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">QuPath Tutorials</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="qupath_install.html">Installing QuPath</a>
+        </li>
+        <li>
+          <a href="qupath_manual_annotation.html">Manual Cell Annotation</a>
+        </li>
+        <li>
+          <a href="qupath_composite_classifications.html">Creating Composite Classifications</a>
+        </li>
+        <li>
+          <a href="qupath_analyze_in_r.html">Analyzing QuPath data in R</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Problem Solving</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="write_degs_excel.html">Write DEGs to Excel</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="creating_tutorials.html">Creating Tutorials for the Nelson Lab Website</a>
+    </li>
+    <li>
+      <a href="JWN_Remote_Desktop_Tutorial.html">Remote Control to the Desktop</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Lab Protocols
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="nuclei_isolation_protocol.html">Nuclei Isolation</a>
+    </li>
+    <li>
+      <a href="bsa_10percent_protocol.html">10% BSA Solution</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Foundational Learning
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Kidney_Physiology_Learning_Materials_jwn.html">Foundational Learning</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Lab Members</h1>
+<h4 class="author"></h4>
+<h4 class="date">17 July 2026</h4>
+
+</div>
+
+
+<div id="principal-investigator" class="section level1">
+<h1>Principal Investigator</h1>
+<div id="jonathan-nelson-ph.d." class="section level3">
+<h3>Jonathan Nelson, Ph.D.</h3>
+<p><img src="images/lab_members/Nelson_headshot.jpg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Hello, my name is Dr. Jonathan Nelson, and I am an Assistant
+Professor in the Division of Nephrology &amp; Hypertension at the Keck
+School of Medicine of USC. I completed my undergraduate studies in
+Biochemistry at the University of Washington before earning my PhD in
+Molecular and Medical Genetics at Oregon Health &amp; Science
+University. My research focuses on vascular biology and the
+renin-angiotensin system, particularly how it regulates the kidney
+microvasculature. I am passionate about using translational research to
+better understand kidney disease and improve outcomes for patients with
+vascular and renal conditions.</p>
+</div>
+</div>
+<div id="current-members" class="section level1">
+<h1>Current Members</h1>
+<div id="nicky-kim" class="section level3">
+<h3>Nicky Kim</h3>
+<div id="laboratory-technician-ii" class="section level4">
+<h4>Laboratory Technician II</h4>
+<p><img src="images/lab_members/Nicky1.JPG"
+     width="300px"
+     height="300px"
+     style="object-fit: cover; object-position: top;"></p>
+<p>Hi! My name is Nicky Kim and I am working in the Division of
+Nephrology &amp; Hypertension in the Department of Medicine at Keck
+School of Medicine of USC. I graduated with a Bachelor of Arts in
+Neuroscience from Reed College in 2023, and I am now currently a
+research laboratory technician in Dr. Susan Gurley and Dr. Jonathan
+Nelson’s labs, researching kidney disease through understanding the
+functions and effects of specific genes, as well as examining roles of
+outside factors such as PFAS, in transgenic disease mouse models.</p>
+</div>
+</div>
+<div id="kevin-shih" class="section level3">
+<h3>Kevin Shih</h3>
+<div id="laboratory-technician-ii-1" class="section level4">
+<h4>Laboratory Technician II</h4>
+<p><img src="images/lab_members/kevin.jpeg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Hello, my name is Kevin, and I work in the Division of Nephrology at
+the Keck School of Medicine at USC in Dr. Nelson’s Laboratory. I
+received my Bachelor’s of Science in Molecular, Cellular, and
+Developmental Biology and my Master’s of Science in Physiological
+Sciences at the University of California, Los Angeles.</p>
+</div>
+</div>
+<div id="ronald-vaca" class="section level3">
+<h3>Ronald Vaca</h3>
+<div id="masters-student" class="section level4">
+<h4>Master’s Student</h4>
+<p><img src="images/lab_members/ronald.jpg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Ronald is working towards graduating with a Master’s of Science in
+Public Health from the University of Southern California. He is also the
+manager of the USC Translational Pathology Core and Clinical
+Immunohistochemistry Laboratories at the Keck School of Medicine. He
+received his Bachelor of Science in Kinesiology and Exercise Science
+from California State University, Fullerton.</p>
+</div>
+</div>
+<div id="arjun-lakshmanan" class="section level3">
+<h3>Arjun Lakshmanan</h3>
+<div id="undergraduate-student" class="section level4">
+<h4>Undergraduate Student</h4>
+<p><img src="images/lab_members/arjun.jpg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+</div>
+</div>
+<div id="jeff-karnsomprot" class="section level3">
+<h3>Jeff Karnsomprot</h3>
+<div id="undergraduate-student-1" class="section level4">
+<h4>Undergraduate Student</h4>
+<p><img src="images/lab_members/jeff1.JPG" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+</div>
+</div>
+<div id="deeshan-weeraratne" class="section level3">
+<h3>Deeshan Weeraratne</h3>
+<div id="undergraduate-student-2" class="section level4">
+<h4>Undergraduate Student</h4>
+<p><img src="images/lab_members/deshan.jpeg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Hello! My name is Deshan Weeraratne and I am a fourth-year
+undergraduate at USC majoring in Human Biology and minoring in
+Healthcare Studies. I joined the Nelson Lab in August 2025, and am
+currently investigating how angiotensin II affects genetic function in
+kidney cells.</p>
+</div>
+</div>
+<div id="paul-cho" class="section level3">
+<h3>Paul Cho</h3>
+<div id="undergraduate-student-3" class="section level4">
+<h4>Undergraduate Student</h4>
+<p><img src="C:/Users/ushih/OneDrive - Keck Medicine of USC/Github/Education_Website/images/lab_members/paul.jpeg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Hello, my name is Paul Cho, a third-year undergraduate student at the
+University of Southern California majoring in Human Biology and minoring
+in Cinematic Arts! I’ve been a part of Dr. Nelson’s Lab since August
+2025. My research focuses on how and to what degree Angiotensin II
+affects the transcriptional pattern of different kidney cells.</p>
+</div>
+</div>
+<div id="erik-siranosian" class="section level3">
+<h3>Erik Siranosian</h3>
+<div id="bridging-the-gaps-student" class="section level4">
+<h4>Bridging the Gaps Student</h4>
+<p><img src="images/lab_members/erik.jpg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Hello! My name is Erik Siranosian, and I am a 4th-year undergraduate
+at the University of California, Los Angeles (UCLA), majoring in
+Psychobiology and minoring in Chicano and Chicana Studies. I am also
+part of UCLA’s Science Teacher Education Program (STEP), where I’m
+getting my Master of Education (M.Ed) and will be a secondary science
+teacher. I conduct research in Dr. Nelson’s lab where I use R to analyze
+kidney gene expression data to develop a reproducible spatial
+transcriptomics workflow for identifying kidney cell types while
+preserving their location within tissue. This work can be used for
+further kidney research, hopefully improving downstream patient
+outcomes. In the future, I hope to become a physician-scientist who
+combines clinical practice, research, and education to improve care for
+patients from underserved communities.</p>
+</div>
+</div>
+<div id="omid-sajjadi" class="section level3">
+<h3>Omid Sajjadi</h3>
+<div id="masters-student-1" class="section level4">
+<h4>Master’s Student</h4>
+<p><img src="images/lab_members/omid.jpg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+<p>Omid graduated from the University of Southern California with his
+Master’s of Science in Stem Cell Biology and Regenerative Medicine.</p>
+</div>
+</div>
+<div id="sam-de-leve" class="section level3">
+<h3>Sam de Leve</h3>
+<div id="resource-employee" class="section level4">
+<h4>Resource Employee</h4>
+<p><img src="images/lab_members/sam.jpg" 
+    width="300px"
+    height="300px"
+    style="object-fit: cover; object-position: middle;"></p>
+</div>
+</div>
+</div>
+<div id="alumnus-members" class="section level1">
+<h1>Alumnus Members</h1>
+<div id="sienna-blanche" class="section level3">
+<h3>Sienna Blanche</h3>
+<div id="masters-student-2" class="section level4">
+<h4>Master’s Student</h4>
+<p><img src="images/lab_members/sienna.png" width="300px"></p>
+<p>Hello, my name is Sienna Blanche, and I am a Master’s student at the
+University of Southern California studying Global Medicine. I graduated
+from the University of Southern California in 2025 with a Bachelor of
+Science in Human Biology and a minor in Gender and Sexuality Studies. I
+work as a research assistant in Dr. Nelson’s lab where I analyze kidney
+gene expression using single-nucleus RNA sequencing. In the future, I
+aspire to become a physician dedicated to advancing women’s health and
+global health equity by integrating clinical practice with research to
+improve patient outcomes.</p>
+<p>Sienna has since graduated with a Master’s of Science from the
+University of Southern California and now works as a Clinical Research
+Associate as she applies to medical school.</p>
+</div>
+</div>
+<div id="deborah-sohn" class="section level3">
+<h3>Deborah Sohn</h3>
+<div id="masters-student-3" class="section level4">
+<h4>Master’s Student</h4>
+<p><img src="images/lab_members/deborah.jpeg" width="300px"></p>
+<p>Deborah graduated with her Master’s in Bioinformatics from the Nelson
+Laboratory. Congratulations!</p>
+</div>
+</div>
+<div id="victoria-quon-chow" class="section level3">
+<h3>Victoria Quon-Chow</h3>
+<div id="laboratory-technician" class="section level4">
+<h4>Laboratory Technician</h4>
+<p><img src="images/lab_members/victoria.jpeg" width="300px"></p>
+<p>Hello! My name is Victoria Quon-Chow, and I am a research technician
+in Dr. Nelson’s lab. My research work focuses on the associations
+between per- and polyfluoroalkyl substances (PFAS), diabetes, and renal
+diseases. I graduated from the University of Southern California in 2024
+with a Bachelor of Science in Human Biology and a minor in Nutrition and
+Health Promotion. I am currently applying to medical school and aspire
+to serve diverse populations while providing compassionate,
+patient-centered care.</p>
+<p>Victoria was accepted into the Kansas City University College of
+Osteopathic Medicine and will begin her training in 2026.
+Congratulations!</p>
+</div>
+</div>
+<div id="roman-thomas" class="section level3">
+<h3>Roman Thomas</h3>
+<div id="bridging-the-gaps-student-1" class="section level4">
+<h4>Bridging the Gaps Student</h4>
+<p><img src="images/lab_members/roman.jpeg" width="300px"></p>
+<p>Hi! My name is Roman Thomas, and I am a fourth-year undergraduate
+student at Vanderbilt University, double majoring in Biochemistry and
+Medicine, Health &amp; Society on the premed track. I am currently
+conducting research in Dr. Jonathan Nelson’s lab, where we are
+developing a manuscript that provides insights into a standardized
+method for identifying kidney cell types using single nucleus RNA
+sequencing analysis in R. I plan to apply these skills in my
+Neuropharmacology lab, where we investigate the effects of the M5
+Muscarinic Acetylcholine Receptor on drug-seeking behaviors in mice. My
+long-term goal is to become a plastic surgeon while working to address
+healthcare disparities and ensure that my patients, especially from
+historically underserved groups, receive the autonomy and care that has
+often been denied to them in the past.</p>
+<p>Roman is graduating from Vanderbilt with his Bachelor’s of Arts in
+2026. Congratulations!</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
