@@ -1,0 +1,352 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Nuclei Isolation Protocol},
+  pdfauthor={Kevin Shih},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Nuclei Isolation Protocol}
+\author{Kevin Shih}
+\date{17 July 2026}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{5}
+\tableofcontents
+}
+\section{Nuclei Isolation Protocol
+Materials}\label{nuclei-isolation-protocol-materials}
+
+\begin{itemize}
+\tightlist
+\item
+  10X Genomics Chromium Nuclei Isolation Kit
+\item
+  Tissue scissors
+\item
+  Beaker for liquid waste
+\item
+  0.4\% Trypan Blue
+\end{itemize}
+
+\subsection{Lysis Buffer}\label{lysis-buffer}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Reagent & 1 Reaction & 2 Reactions & 3 Reactions & 4 Reactions \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Lysis Reagent & 536uL & 1mL 72uL & 1mL 608uL & 2mL 144uL \\
+Reducing Agent B & 0.5uL & 1uL & 1.5uL & 2uL \\
+Surfactant A & 5.5uL & 11uL & 16.5uL & 22uL \\
+RNase Inhibitor & 13.9uL & 27.8uL & 41.7uL & 55.6uL \\
+\end{longtable}
+}
+
+Note: Lysis Reagent and Surfactant A are found in the 4°C.\\
+Note: Reducing Agent B and RNase Inhibitor are found in the -20°C.
+
+\subsection{Debris Removal Buffer}\label{debris-removal-buffer}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Reagent & 1 Reaction & 2 Reactions & 3 Reactions & 4 Reactions \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Debris Removal & 550uL & 1mL 100uL & 1mL 650uL & 2mL 200uL \\
+Reducing Agent B & 0.5uL & 1uL & 1.5uL & 2uL \\
+\end{longtable}
+}
+
+Note: Debris Removal Reagent is found in the 4°C.\\
+Note: Reducing Agent B is found in the -20°C.
+
+\subsection{Wash and Resuspension
+Buffer}\label{wash-and-resuspension-buffer}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Reagent & 1 Reaction & 2 Reactions & 3 Reactions & 4 Reactions \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1X PBS & 2mL 887.5uL & 5mL 775uL & 8mL 662.5uL & 11mL 550uL \\
+10\% BSA & 330uL & 660uL & 990uL & 1mL 320uL \\
+RNase Inhibitor & 82.5uL & 165uL & 247.5uL & 330uL \\
+\end{longtable}
+}
+
+Note: 1X PBS is found in Bench 3 cabinet.\\
+Note: 10\% BSA is found in the 4°C.
+
+\section{Step-by-Step Protocol}\label{step-by-step-protocol}
+
+\subsection{Experimental Setup}\label{experimental-setup}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Obtain ice (make sure to keep all samples and reagents on ice)
+\item
+  Prepare and label the reagents in 15mL conical tubes and keep on ice.
+\item
+  Label 2 round bottom-tubes from the 10X Consumables Box and 1
+  pointed-bottom tubes and keep on ice.
+\item
+  Obtain the tube with the half-kidney from the -80°C freezer.
+\item
+  Turn on the centrifuge and set to 4°C for fast temperature control
+\end{enumerate}
+
+\subsection{Experiment}\label{experiment}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Transfer the sample from the tube in the -80°C to the new
+  pointed-bottom tube that was obtained from the Consumables Box.
+\item
+  Add 200uL of the Lysis Buffer to the sample
+\item
+  Using surgical scissors, mince the 1/2 kidney as much as possible to
+  prevent large chunks of tissue being present
+\item
+  Using the green pestle, \emph{GENTLY} push down against the tissue for
+  a maximum of 10x
+\item
+  Add 300uL of Lysis Buffer and incubate for 10 minutes on ice\\
+  10a. During this time, set up your centrifuge to 16,000 rcf (also may
+  show up as 16,000 g; rcf=g), for 20 seconds, at 4°C.\\
+  10b. Set up the Collection Tube (round-bottom) with the Nuclei
+  Isolation Column in it on ice during the lysis so the tube can cool
+\item
+  Transfer the dissociated tissue onto the column and close the top of
+  the Nuclei Isolation Column
+\item
+  Put the tube into the centrifuge and spin at the preset settings
+  (16,000rcf, 20s, 4°C) (make sure to balance centrifuge)
+\item
+  Once the centrifuge is done, discard the column (pellet should be
+  visible at the bottom/side of the tube).
+\item
+  If tube is fully intact, cap the tube and vortex for 10 seconds to
+  resuspend the nuclei. If cap is not intact see 14a\\
+  14a. If the cap has broken off during the centrifuge step (step 12),
+  resuspend your nuclei by pipetting gently up and down for a maximum of
+  10x (you should see a curtain effect where the cells lift off the edge
+  of the cap and float initially). Make sure to fully resuspend the
+  cells so no clumps are present
+\item
+  Set your centrifuge to 500 rcf (g), for 3 minutes, at 4°C and spin
+  your sample down (make sure to balance centrifuge and put the spine of
+  the cap facing outwards)
+\item
+  Gently remove your sample from the centrifuge and close the centrifuge
+  to keep it cold
+\item
+  Carefully pipette your supernatant (excess fluid) into a waste
+  container (your pellet should be visible so it will be easier to see
+  and should be on the side of the tube's spine)
+\item
+  Resuspend the pellet in 500uL of Debris Removal Buffer and place on
+  ice
+\item
+  Change the settings on the centrifuge to 700rcf, for 10 minutes, at
+  4°C and spin your sample (balance the centrifuge)
+\item
+  Carefully remove the sample from the centrifuge (note that your pellet
+  will have seemingly disappeared)
+\item
+  Carefully remove as much of the Debris Removal Buffer as possible
+  without disturbing the pellet (if the pellet starts to move then do
+  NOT continue removing buffer)
+\item
+  Resuspend the nuclei with 1mL of Resuspension Buffer (can pipette up
+  and down for a maximum of 10x)
+\item
+  Set the centrifuge to 500rcf, for 5 min, at 4°C and spin down cells
+  (balance the centrifuge)
+\item
+  Remove your sample from the centrifuge carefully (pellet should be
+  visible), and remove the supernatant
+\item
+  Resuspend the nuclei with 1mL of Resuspension Buffer (can pipette up
+  and down for a maximum of 10x)
+\item
+  Spin sample again at 500rcf, for 5 min, at 4°C (balance the
+  centrifuge)
+\item
+  Remove your sample from the centrifuge carefully (pellet should be
+  visible), and remove the supernatant
+\item
+  Resuspend your pellet in 20-500uL of Wash and Resuspension Buffer
+\item
+  Vortex for 3 seconds
+\end{enumerate}
+
+\subsection{Visualization}\label{visualization}
+
+\subsubsection{Protocol}\label{protocol}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{29}
+\tightlist
+\item
+  Obtain a 0.6mL Eppendorf Tube
+\item
+  Add 10uL of 0.4\% Trypan Blue to the bottom of the tube
+\item
+  Add 10uL of Sample into the bottom of the tube and gently pipette up
+  and down a few times to mix
+\item
+  Incubate on ice for a minimum of 2 minutes
+\item
+  Pipette 10uL of the dyed sample onto a hemocytometer (with the cover
+  slip on top) and allow for capillary action to move the sample evenly
+\end{enumerate}
+
+\subsubsection{Light Microscopy}\label{light-microscopy}
+
+Note: Located in the 2nd lab
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{34}
+\tightlist
+\item
+  Place slide on stage of Leica DMIL LED light microscope
+\item
+  Turn on the light (right side of the microscope)
+\end{enumerate}
+
+\subsubsection{Epifluorescence
+Microscopy}\label{epifluorescence-microscopy}
+
+Note: Located in the microscope room
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{36}
+\tightlist
+\item
+  Log in to the computer
+\item
+  Open the LASX program, wait for it to load, and click ``Ok''
+\item
+  To the left of the microscope, turn the switch on for the CiR Advanced
+\item
+  To the box to the left of the CiR Advanced, turn on the switch
+\item
+  Turn on the shutter on the main screen and click on the objective with
+  the eye to allow light to reach the eye piece
+\item
+  Once nuclei are in focus, on the computer click the ``Live'' button on
+  the lower left part of the screen
+\item
+  Adjust Gain and Exposure levels in the upper left part of the LASX
+  software
+\item
+  To take the picture, click on ``Single Image'' which will take the
+  picture and immediately turn off Live imaging
+\item
+  Under projects, save the picture/folder 45a. For individual pictures,
+  right click and export to either .png, .tif, .jpeg
+\item
+  To turn off the machine, close the LASX software completely
+\item
+  Turn off the light box to the left of the CiR Advanced
+\item
+  Turn off CiR Advanced
+\item
+  Remove your slide
+\item
+  Clean station, log out of computer, and close door
+\end{enumerate}
+
+This protocol was last amended on July 17th, 2026 by Kevin Shih
+
+\end{document}
