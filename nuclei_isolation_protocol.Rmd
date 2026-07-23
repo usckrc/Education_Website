@@ -49,6 +49,8 @@ th, td {
 
 <br>
 
+This protocol was derived from the [Xenium 10X Nuclei Isolation Protocol]()
+
 ## Lysis Buffer
  
   | Reagent | 1 Reaction | 2 Reactions | 3 Reactions | 4 Reactions |
