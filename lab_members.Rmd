@@ -78,6 +78,8 @@ Ronald is working towards graduating with a Master's of Science in Public Health
     width="300px"
     height="300px"
     style="object-fit: cover; object-position: middle;">
+    
+My name is Jeff, and I'm a fourth-year undergraduate at the University of Southern California majoring in Neuroscience. I'm also a licensed dialysis technician at Laurel Canyon Dialysis Center, where my work with patients has shaped my goal of becoming a transplant physician to restore quality of life for people living with kidney failure. My research in Dr. Nelson's lab focuses on single-cell and spatial kidney datasets. In my free time, I love to hike and play nostalgic games like Roblox and Wizard101.
 
 ### Deeshan Weeraratne
 
