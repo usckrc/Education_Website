@@ -91,7 +91,7 @@ The device can be accessed by clicking on **JWN_Remote_Desktop** .
 If prompted for the PIN, enter it.
 
 
-![Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device.](images/assets/screenshot_1_chrome_remote_desktop_device.png)
+![Screenshot 1. Chrome Remote Desktop access page showing the lab remote desktop device.](images/screenshot_1_chrome_remote_desktop_device.png)
 
 If it takes more than about **30 seconds** and does not connect, the desktop is likely not turned on. Check the lab calendar, identify who is in lab, and ask someone to turn it on.
 
@@ -110,7 +110,7 @@ On the right side of Chrome Remote Desktop, open the display settings panel. You
 
 You can also switch displays using the strip at the top of the remote session window.
 
-![Screenshot 2. Chrome Remote Desktop session with display settings and display-switching strip.](images/assets/screenshot_2_remote_session_display_settings.png)
+![Screenshot 2. Chrome Remote Desktop session with display settings and display-switching strip.](images/screenshot_2_remote_session_display_settings.png)
 
 # During your session
 
