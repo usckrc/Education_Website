@@ -49,7 +49,7 @@ th, td {
 
 <br>
 
-This protocol was derived from the [Xenium 10X Nuclei Isolation Protocol](docs/10X_nuclei_protocol_v2.pdf)
+This protocol was derived from the [Xenium 10X Nuclei Isolation Protocol (starts on page 25)](images/10X_nuclei_protocol_v2.pdf)
 
 ## Lysis Buffer
  
