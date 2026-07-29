@@ -107,12 +107,12 @@ Hello! My name is Deshan Weeraratne and I am a fourth-year undergraduate at USC 
 
 #### Undergraduate Student
 
-<img src="`r here::here('images', "lab_members", 'paul.jpeg')`" 
+<img src="`r here::here('images', "lab_members", 'paul.jpg')`" 
     width="300px"
     height="300px"
     style="object-fit: cover; object-position: middle;">
 
-Hello, my name is Paul Cho, a third-year undergraduate student at the University of Southern California majoring in Human Biology and minoring in Cinematic Arts! I’ve been a part of Dr. Nelson's Lab since August 2025. My research focuses on how and to what degree Angiotensin II affects the transcriptional pattern of different kidney cells.
+Hello! My name is Paul Cho, a third-year undergraduate student at the University of Southern California majoring in Human Biology and minoring in Cinematic Arts! I have been a part of Dr. Nelson's Lab since August 2025. My research focuses on using spatial transcriptomics to explore how Alport syndrome affects tertiary lymphoid structures in the kidney as well as using single-cell RNA sequencing to study how Angiotensin II affects the transcriptional pattern of kidney cells.
 
 ### Erik Siranosian
 
