@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Kevin Shih" />
+<meta name="author" content="Jonathan Nelson" />
 
 <meta name="date" content="2026-08-11" />
 
-<title>10 Percent BSA Protocol</title>
+<title>Write DEG Lists to Excel</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -473,37 +473,208 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">10 Percent BSA Protocol</h1>
-<h4 class="author">Kevin Shih</h4>
+<h1 class="title toc-ignore">Write DEG Lists to Excel</h1>
+<h4 class="author">Jonathan Nelson</h4>
 <h4 class="date">11 August 2026</h4>
 
 </div>
 
 
-<div id="materials" class="section level1">
-<h1>Materials</h1>
-<ul>
-<li>Powdered and purified BSA</li>
-<li>PBS (can use RNAase-free PBS) or water</li>
-<li>Weigh Boat</li>
-<li>Scale</li>
-</ul>
+<p><img
+src="images/excel/intro.png" /></p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This tutorial is designed to help you write the DEGs that define each
+cluster in your Seurat object to an excel file. This is a very useful
+step in the analysis process because often times, this is the output
+that gets shared with collaborators and submitted as supplemental
+material to journal articles upon publishing an snRNAseq dataset.</p>
+<div id="download-.rmd-file-for-step-by-step-analysis"
+class="section level2">
+<h2>Download .RMD file for step-by-step analysis</h2>
+<div id="these-files-are-on-google-drive" class="section level3">
+<h3>These files are on google drive</h3>
+<div id="rmd-is-for-running-in-rstudio" class="section level4">
+<h4>.Rmd is for running in RStudio</h4>
 </div>
-<div id="steps" class="section level1">
-<h1>Steps</h1>
-<ol style="list-style-type: decimal">
-<li>Determine total volume to make
-<ol style="list-style-type: lower-alpha">
-<li>To make 50 mL of 10% BSA in PBS will require 5 grams of BSA</li>
-</ol></li>
-<li>Put about 80% of the base (water or PBS) in a tube</li>
-<li>Using a weigh boat, weigh out the amount of BSA needed</li>
-<li>Add small amounts of the BSA into the tube and let fully dissolve
-before adding more to prevent clumping or bubbles</li>
-<li>Adjust the volume to the final volume desired</li>
-<li>Store in 4ºC – may be frozen in smaller aliquots</li>
-</ol>
-<p>Last revised on July 10th, 2026 by Kevin Shih</p>
+<div id="html-is-for-viewing-output-in-a-browser"
+class="section level4">
+<h4>.html is for viewing output in a browser</h4>
+<p><a
+href="https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing"
+class="uri">https://drive.google.com/drive/folders/1NJpMDhPzhzrN8fMbvw1cDGTg4XoUKCYh?usp=sharing</a></p>
+<p><img
+src="images/excel/drive.png" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="video-of-analysis-steps" class="section level1">
+<h1>Video of Analysis Steps</h1>
+<div
+id="here-is-a-video-tutorial-that-i-made-of-each-of-the-steps-of-analysis"
+class="section level2">
+<h2>Here is a video tutorial that I made of each of the steps of
+analysis</h2>
+<p><a href="https://screenrec.com/share/qX03rTZ9VK"
+class="uri">https://screenrec.com/share/qX03rTZ9VK</a></p>
+<p><img
+src="images/excel/video.png" /></p>
+</div>
+</div>
+<div id="write-deg-lists-to-excel" class="section level1">
+<h1>Write DEG Lists to Excel</h1>
+<div id="open-the-rmd-file-and-load-the-packages"
+class="section level2">
+<h2>Open the RMD file and load the packages</h2>
+<div id="important-packages-are-here-seurat-dplyr-and-openxlsx"
+class="section level3">
+<h3><strong>Important Packages</strong> are <strong>here</strong>,
+<strong>seurat</strong>, <strong>dplyr</strong>, and
+<strong>openxlsx</strong></h3>
+<p><img
+src="images/excel/chunk1.png" /></p>
+</div>
+</div>
+<div id="step-0-load-the-dataset" class="section level2">
+<h2>Step 0: <strong>Load</strong> the dataset</h2>
+<div
+id="i-always-create-a-record-of-the-metadata-and-run-a-dimplot-as-sanity-checks"
+class="section level3">
+<h3>I always create a record of the <strong>metadata</strong> and run a
+<strong>DimPlot</strong> as <strong>sanity checks</strong></h3>
+<p><img
+src="images/excel/chunk2.png" /></p>
+</div>
+</div>
+<div id="step-1-set-the-active-identity-of-the-object"
+class="section level2">
+<h2>Step 1: <strong>Set</strong> the active identity of the object</h2>
+<p><img
+src="images/excel/chunk3.png" /></p>
+</div>
+<div id="step-2-collect-the-names-of-the-clusters"
+class="section level2">
+<h2>Step 2: <strong>Collect</strong> the names of the clusters</h2>
+<div
+id="this-is-a-list-of-the-clusters-that-is-automaticaly-generated-from-seurat-object"
+class="section level3">
+<h3>This is a list of the clusters that is automaticaly generated from
+seurat object</h3>
+</div>
+<div
+id="super-important-to-record-the-level-of-the-object-to-write-the-spreadsheet-in-the-order-you-want"
+class="section level3">
+<h3><strong>Super Important</strong> to record the level of the object
+to <strong>write</strong> the spreadsheet <strong>in the order you
+want</strong></h3>
+<p><img
+src="images/excel/chunk4.png" /></p>
+</div>
+<div
+id="after-running-this-step-the-environment-should-have-the-names-of-the-clusters-in-the-correct-order"
+class="section level3">
+<h3>After running this step the environment should have the names of the
+clusters <strong>in the correct order</strong></h3>
+<p><img
+src="images/excel/chunk4b.png" /></p>
+</div>
+</div>
+<div id="step-3-create-a-new-environment-to-stash-the-deg-lists"
+class="section level2">
+<h2>Step 3: <strong>Create</strong> a new environment to stash the DEG
+lists</h2>
+<p><img
+src="images/excel/chunk5.png" /></p>
+<div
+id="after-running-this-code-you-should-see-a-new-environment-in-the-environment-tab"
+class="section level3">
+<h3>After running this code you should see a <strong>new
+environment</strong> in the environment tab</h3>
+<p><img
+src="images/excel/chunk5b.png" /></p>
+</div>
+</div>
+<div
+id="step-4-loop-through-each-cluster-and-creating-deg-for-each-population"
+class="section level2">
+<h2>Step 4: <strong>Loop</strong> through each cluster and creating DEG
+for each population</h2>
+<div id="creates-deg-list" class="section level3">
+<h3>Creates DEG list</h3>
+</div>
+<div id="filter-on-p_val_adj-0.05" class="section level3">
+<h3>Filter on p_val_adj &lt; 0.05</h3>
+</div>
+<div id="orders-deg-list-by-log2fc" class="section level3">
+<h3>Orders DEG list by log2FC</h3>
+</div>
+<div id="save-deg-list-into-special-environment" class="section level3">
+<h3>Save DEG list into special environment</h3>
+</div>
+<div id="prints-out-top-10-deg-list" class="section level3">
+<h3>Prints out top 10 DEG list</h3>
+</div>
+<div id="save-deg-lists-into-a-.rdata-file" class="section level3">
+<h3>Save DEG lists into a .RData file</h3>
+<p><img
+src="images/excel/chunk6.png" /></p>
+</div>
+<div
+id="after-running-this-code-you-should-see-the-deg-lists-in-the-env"
+class="section level3">
+<h3>After running this code you should see the <strong>DEG
+lists</strong> in the env</h3>
+<p><img
+src="images/excel/chunk6b.png" /></p>
+</div>
+<div
+id="if-you-click-on-the-deg.env-you-should-see-the-deg-lists-in-alphabetical-order"
+class="section level3">
+<h3>If you click on the DEG.env you should see the DEG lists in
+<strong>alphabetical order</strong></h3>
+<p><img
+src="images/excel/chunk6c.png" /></p>
+</div>
+</div>
+<div id="step-5-write-degs-to-excel" class="section level2">
+<h2>Step 5: <strong>Write</strong> DEGs to Excel</h2>
+<div id="grab-the-list-of-degs-from-the-special-enviroment"
+class="section level3">
+<h3>Grab the list of DEGs from the special enviroment</h3>
+</div>
+<div id="set-the-order-to-write-the-degs-otherwise-alphabetical"
+class="section level3">
+<h3>Set the order to write the DEGs (otherwise alphabetical)</h3>
+</div>
+<div id="write-the-excel-file-using-openxlsx-package"
+class="section level3">
+<h3>Write the excel file (using openxlsx package)</h3>
+<p><img
+src="images/excel/chunk7.png" /></p>
+</div>
+<div id="after-running-this-code-the-envornment-should-look-like-this"
+class="section level3">
+<h3>After running this code the envornment should look like this</h3>
+<p><img
+src="images/excel/chunk7b.png" /></p>
+</div>
+<div id="the-.rdata-and-.xlsx-files-should-be-where-here-is"
+class="section level3">
+<h3>The .Rdata, and .xlsx files should be where <strong>here()</strong>
+is</h3>
+<p><img
+src="images/excel/chunk7c.png" /></p>
+</div>
+<div
+id="you-should-have-an-excel-file-with-degs-listed-as-separate-tabs-in-the-order-of-the-clusters"
+class="section level3">
+<h3>You should have an <strong>excel file</strong> with DEGs listed as
+separate tabs in the order of the clusters</h3>
+<p><img
+src="images/excel/chunk7d.png" /></p>
+</div>
+</div>
 </div>
 
 

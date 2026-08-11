@@ -66,6 +66,10 @@ navbar:
           href: nuclei_isolation_protocol.html
         - text: "10% BSA Solution"
           href: bsa_10percent_protocol.html
+        - text: "Descholoclozapine (DCZ) and AngII"
+          href: descholoclozapine.html
+        - text: "Tamoxifen"
+          href: tamoxifen.html
     - text: "Foundational Learning"
       menu:
         - text: "Foundational Learning"

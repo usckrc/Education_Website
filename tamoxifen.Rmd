@@ -1,0 +1,47 @@
+---
+title: "Tamoxifen (10mg/mL)"
+author: "Kevin Shih"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float: true
+    number_sections: false
+    df_print: paged
+    code_folding: hide
+    highlight: pygments
+subtitle: ''
+---
+
+Final concentration should be 10mg/mL (updated protocol as of 8/11/26 by Kevin Shih)
+
+- Calculate the number of mice you are injecting 
+  -	Each mice receives 100uL each day
+    -	Tamoxifen injections occur over 5-day spans
+      -	Ex: 10 mice for a tamoxifen injection = 10 x 100 x 5 = 5mL needed for the week
+  -	Multiply by 1.2 or 1.3 for buffer room (some tamoxifen gets stuck on syringes etc.) so final amount is 6mL
+-	Calculate concentration of Tamoxifen required
+  - Ex: If 6mL is needed for the week, at a concentration of 10mg/mL multiply the 6mL by 10 to get 60mg Tamoxifen
+-	Calculate the amount of 100% EtOH to use
+  -	At a ratio of 1:20, calculate how much will be needed when making your batch
+    -	Ex: 1/20 = X/6 --> X = 6/20 --> X --> 0.3 mL = 300 uL
+-	Calculate the amount of Corn Oil Needed
+  -	Ex: 6mL – 0.3mL = 5.7mL corn oil
+-	Prepare warmer to 40ºC
+-	Weigh tamoxifen on balance paper
+-	Transfer to appropriately sized conical tube
+-	Add calculated EtOH to the tamoxifen and vortex
+-	Add your calculated corn oil and invert a few times to fully mix, vortex again
+-	Place in the warmer/incubator for approximately 2 hours (shake/vortex approximately every 15 minutes)
+-	Aliquot in scintillation vials and wrap in tin foil to prevent degradation by light (light sensitive)
+-	Store for up to 1 month in -20ºC
+-	Inject mice using a Luer Lock syringe and 25-27 gauge needle
+
+</br>
+
+MAKE SURE TO CREATE RSS TAMOXIFEN SHEET THE DAY YOU MAKE IT AND COMPLETE THE RSS TAMOXIFEN SHARPS SHEET THE DAY YOU START INJECTING
+
+</br>
+
+This protocol was last updated on August 11, 2026 by Kevin Shih
