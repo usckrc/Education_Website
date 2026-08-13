@@ -1,6 +1,6 @@
 ---
 title: "Tamoxifen (10mg/mL)"
-author: "Kevin Shih"
+author: "Nicky Kim and Kevin Shih"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
