@@ -39,23 +39,30 @@ The DCZ will be in powder form when received. Store at -20°C.
 
 1. Add 1mL of DI water directly to the tube with the DCZ powder. Cap, shake well, and vortex for 10 seconds to fully homogenize the solution.
 2. Aliquot the DCZ solution into 5x 1mL Eppendorf tubes (label with drug, concentration, date, name)
+
+</br>
+
+*NOTE: DCZ is reconstituted in DI water but the serial dilutions should be in sterile 1X PBS*
+
+</br>
+
 3. Label 5 other tubes with the following names
   - 1:20
   - 100 ug/kg
   - 10 ug/kg
   - 5 ug/kg
   - 1 ug/kg
-4. From the aliquot (5mg/mL) (vortex), take 50uL of the solution and add to 950uL of DI water in the 1:20 Eppendorf tube
-5. From the 1:20 Eppendorf tube (vortex first), take 100uL and add to 900uL of DI water in the 100 ug/kg Eppendorf tube
-6. From the 100 ug/kg tube (vortex first), take 100uL and add to 900uL of DI water in the 10ug/kg Eppendorf tube
-7. From the 100 ug/kg tube (vortex first), take 50uL and add to 950uL of DI water in the 5ug/kg Eppendorf tube
-8. From the 100 ug/kg tube (vortex first), take 10uL and add to 990uL of DI water in the 1ug/kg Eppendorf tube
+4. From the aliquot (5mg/mL) (vortex), take 50uL of the solution and add to 950uL of sterile 1X PBS in the 1:20 Eppendorf tube
+5. From the 1:20 Eppendorf tube (vortex first), take 100uL and add to 900uL of sterile 1X PBS in the 100 ug/kg Eppendorf tube
+6. From the 100 ug/kg tube (vortex first), take 100uL and add to 900uL of sterile 1X PBS in the 10ug/kg Eppendorf tube
+7. From the 100 ug/kg tube (vortex first), take 50uL and add to 950uL of sterile 1X PBS in the 5ug/kg Eppendorf tube
+8. From the 100 ug/kg tube (vortex first), take 10uL and add to 990uL of sterile 1X PBS in the 1ug/kg Eppendorf tube
 
 </br>
 
 # Angiotensin II Calculations
 
-1. Add 20uL to 1mL DI water (360ug/kg)
+1. Add 20uL to 1mL sterile 1X PBS (360ug/kg)
 
 
 
@@ -69,4 +76,4 @@ The DCZ will be in powder form when received. Store at -20°C.
 
 
 </br>
-This page was last edited on August 11, 2026 by Kevin Shih
+This page was last edited on August 28, 2026 by Kevin Shih
