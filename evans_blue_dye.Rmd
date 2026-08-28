@@ -38,7 +38,7 @@ Amount to be injected: 50uL of 10mg/mL solution per 10g of bodyweight (20g mouse
 
 </br>
 
-# Steps to make 10x 1mL aliquots at a concentration of 10mg/mL
+# Steps to make 10 1mL aliquots at a concentration of 10mg/mL
 
   - Weigh out 0.1g of Evans Blue Dye
   - Put into a 15mL conical tube
@@ -57,3 +57,7 @@ Short Term (1 month)
 Long Term (up to 6 months)
 
   - -20ºC or -80ºC
+
+</br>
+
+This page was edited on 8/28/2026 by Kevin Shih.
