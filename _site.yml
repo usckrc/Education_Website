@@ -70,6 +70,8 @@ navbar:
           href: descholoclozapine.html
         - text: "Tamoxifen"
           href: tamoxifen.html
+        - text: "Evans Blue Dye"
+          href: evans_blue_dye.html
     - text: "Foundational Learning"
       menu:
         - text: "Foundational Learning"
